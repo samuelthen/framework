@@ -16,8 +16,8 @@ The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `re
 | Task 4: proxy validation | Primary vs GLM κ = 0.70 (candidate-redundant κ = 0.83); self-consistency κ ≈ 0.9; candidate-redundancy rate 1.1–1.2% across both annotators and uncertain handling; CodeTraceBench: WorkTrace P 3.5% / R 27.5% vs exact repeat P 5.6% / R 33.3% (a different construct) | `results/v2/task4/SUMMARY.md` |
 
 ## Running
-- **Task 5** (Open-SWE-Traces v1.2, Qwen3.8-27B under three harnesses, 2,000 shared tasks):
-  - Download 64/70 shards.
+- **Task 5** (Open-SWE-Traces v1.2, Qwen3.8-27B, 2,000 shared tasks): benchmark done, awaiting review (`results/v2/task5/BENCHMARK.md`):
+  - All 70 shards downloaded and verified; 6,000 runs audited (10 per harness, 0 problems).
   - Adapters done: `worktrace/loaders/openswe.py`.
   - The benchmark will be reported for review before any labeling.
 - **Task 6** (scale labeling):
