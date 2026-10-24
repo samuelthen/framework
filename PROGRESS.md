@@ -1,5 +1,7 @@
 # WorkTrace: progress (interim, 2026-10-24)
 
+**Start here for an overall assessment: [`OVERVIEW.md`](OVERVIEW.md).**
+
 The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `results/v2/`. All labels come from LLM annotators, and all checks are automated audits by a third model (Claude). **Nothing is human-validated;** B.10 criteria 1–2 are replaced by proxies (`results/v2/B10_STATUS.md`).
 
 ## Done
