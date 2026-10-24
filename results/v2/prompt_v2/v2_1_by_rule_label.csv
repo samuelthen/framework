@@ -1,0 +1,6 @@
+rule_label,correct,branch_out,support,sidetrack,uncertain,All
+backtrack,0,1,0,0,0,1
+correct,13,0,2,0,0,15
+initial,45,0,5,0,0,50
+revise,83,0,23,5,0,111
+All,141,1,30,5,0,177

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WorkTrace Viewer</title>
+<style>
+:root { --bg:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --line:#e4e3df; --d:#2a78d6; --n:#eb6834; --u:#a8a7a2; --rev:#008300; --rep:#e34948; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --line:#3a3a37; --d:#3987e5; --n:#d95926; --rev:#2f9e2f; --rep:#e66767; } }
+:root[data-theme="dark"] { --bg:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --line:#3a3a37; --d:#3987e5; --n:#d95926; --rev:#2f9e2f; --rep:#e66767; }
+body { background:var(--bg); color:var(--ink); font:14px/1.45 system-ui, sans-serif; margin:0; padding:16px; }
+h1 { font-size:18px; margin:0 0 8px; }
+.bar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
+select { max-width:100%; font:inherit; background:var(--bg); color:var(--ink); border:1px solid var(--line); padding:4px; }
+#graph { overflow-x:auto; border:1px solid var(--line); border-radius:6px; }
+#tip { position:fixed; max-width:min(560px, 92vw); max-height:60vh; overflow:auto; background:var(--bg); border:1px solid var(--line);
+       box-shadow:0 4px 16px rgba(0,0,0,.18); padding:10px; border-radius:6px; font-size:12px; display:none; white-space:pre-wrap; z-index:9; }
+table { border-collapse:collapse; width:100%; font-size:12px; margin-top:12px; }
+td, th { border-bottom:1px solid var(--line); padding:4px 6px; text-align:left; vertical-align:top; }
+tr:hover { background:color-mix(in srgb, var(--d) 8%, transparent); cursor:pointer; }
+.D { color:var(--d); font-weight:600; } .N { color:var(--n); font-weight:600; } .U { color:var(--u); font-weight:600; }
+code { font-size:11px; word-break:break-all; }
+.legend span { margin-right:12px; color:var(--ink2); font-size:12px; }
+</style>
+</head>
+<body>
+<h1>WorkTrace pilot viewer</h1>
+<div class="bar"><label>Run <select id="run"></select></label><label><input type="checkbox" id="byobj" checked> merge targets by object</label></div>
+<div class="legend"><span class="D">● distinct</span><span class="N">● non-distinct</span><span class="U">● uncertain</span>
+<span style="color:var(--rev)">↶ revisit</span><span style="color:var(--rep)">↶ reproduce</span><span>red ring = gold-patch file</span></div>
+<div id="graph"></div>
+<table><thead><tr><th>op</th><th>kind</th><th>object</th><th>rel.</th><th>contrib.</th><th>exact rep.</th><th>purpose</th></tr></thead><tbody id="ops"></tbody></table>
+<div id="tip"></div>
+<script>
+const DATA = /*DATA*/{};
+const runs = Object.keys(DATA);
+const sel = document.getElementById('run');
+runs.forEach(r => { const o = document.createElement('option'); o.value = r; o.textContent = DATA[r].label; sel.appendChild(o); });
+const tip = document.getElementById('tip');
+const esc = s => String(s ?? '').replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const C = c => c === 'distinct' ? 'D' : c === 'non_distinct' ? 'N' : 'U';
+function showTip(ev, op) {
+  tip.innerHTML = `<b>${esc(op.sid)}</b> (${esc(op.kind)}) — ${esc(op.relation)} / <span class="${C(op.contribution)}">${esc(op.contribution)}</span>${op.matched ? ' vs ' + esc(op.matched) : ''}\n<b>purpose:</b> ${esc(op.purpose)}\n<b>evidence:</b> ${esc(op.evidence)}\n<b>$</b> <code>${esc(op.command)}</code>\n<b>exit</b> ${esc(op.exit_code)}\n${esc(op.output)}`;
+  tip.style.display = 'block';
+  const x = Math.min(ev.clientX + 12, innerWidth - tip.offsetWidth - 8), y = Math.min(ev.clientY + 12, innerHeight - tip.offsetHeight - 8);
+  tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+document.addEventListener('click', e => { if (!e.target.closest('[data-op]')) tip.style.display = 'none'; });
+function render() {
+  const R = DATA[sel.value], byObj = document.getElementById('byobj').checked;
+  const tgt = op => byObj ? op.object : op.target;
+  const order = [], idx = {};
+  R.ops.forEach(op => { const t = tgt(op); if (!(t in idx)) { idx[t] = order.length; order.push(t); } });
+  const W = 70, H = 260, x0 = 40, y0 = 150, w = x0 * 2 + W * Math.max(order.length, 1);
+  let s = `<svg width="${w}" height="${H}" viewBox="0 0 ${w} ${H}" role="img" aria-label="work-progression graph">`;
+  let prev = null; const visits = {};
+  R.ops.forEach(op => {
+    const t = tgt(op), x = x0 + W * idx[t]; visits[t] = (visits[t] || 0) + 1;
+    const col = `var(--${C(op.contribution).toLowerCase()})`;
+    if (prev !== null) {
+      const px = x0 + W * idx[prev];
+      if (prev === t) {
+        s += `<circle data-op="${op.sid}" cx="${x}" cy="${y0 - 22}" r="10" fill="none" stroke="${col}" stroke-width="2.5"/>`;
+      } else if (px > x) {
+        const stroke = op.relation === 'reproduces' ? 'var(--rep)' : op.relation === 'revisits' ? 'var(--rev)' : 'var(--u)';
+        const hgt = Math.min(120, 20 + (px - x) * 0.25);
+        s += `<path data-op="${op.sid}" d="M${px},${y0} C${px},${y0 - hgt} ${x},${y0 - hgt} ${x},${y0}" fill="none" stroke="${stroke}" stroke-width="2" opacity=".85"/>`;
+      } else {
+        s += `<line data-op="${op.sid}" x1="${px}" y1="${y0}" x2="${x}" y2="${y0}" stroke="var(--ink2)" stroke-width="1" opacity=".5"/>`;
+      }
+    }
+    prev = t;
+  });
+  order.forEach((t, i) => {
+    const x = x0 + W * i, r = 6 + Math.min(visits[t], 8), gold = R.gold.includes(t.split('::')[0]);
+    s += `<circle cx="${x}" cy="${y0}" r="${r}" fill="var(--line)" stroke="${gold ? 'var(--rep)' : 'var(--bg)'}" stroke-width="2.5"><title>${esc(t)} (${visits[t]} visits)</title></circle>`;
+    s += `<text x="${x}" y="${y0 + 26}" font-size="10" fill="var(--ink2)" transform="rotate(35 ${x} ${y0 + 26})">${esc(t.split('::')[0].slice(-24))}</text>`;
+  });
+  s += '</svg>';
+  const g = document.getElementById('graph'); g.innerHTML = s;
+  const byId = Object.fromEntries(R.ops.map(o => [o.sid, o]));
+  g.querySelectorAll('[data-op]').forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', ev => showTip(ev, byId[el.dataset.op])); el.addEventListener('click', ev => showTip(ev, byId[el.dataset.op])); });
+  document.getElementById('ops').innerHTML = R.ops.map(o => `<tr data-op="${o.sid}"><td>${o.sid}</td><td>${o.kind}</td><td><code>${esc(o.object.slice(0, 70))}</code></td><td>${esc(o.relation)}</td><td class="${C(o.contribution)}">${esc(o.contribution)}</td><td>${o.exact_repeat ? 'yes' : ''}</td><td>${esc(o.purpose)}</td></tr>`).join('');
+  document.querySelectorAll('#ops tr').forEach(tr => tr.addEventListener('click', ev => showTip(ev, byId[tr.dataset.op])));
+}
+sel.onchange = render; document.getElementById('byobj').onchange = render;
+if (runs.length) render();
+</script>
+</body>
+</html>

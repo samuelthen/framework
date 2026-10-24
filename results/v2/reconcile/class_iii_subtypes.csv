@@ -1,0 +1,7 @@
+subtype,first on final,later,All
+broader suite,2,9,11
+build,1,1,2
+inline check script,3,6,9
+lint/format/type check,2,2,4
+other test file,6,4,10
+All,14,22,36

@@ -1,0 +1,165 @@
+[
+ {
+  "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1",
+  "model": "gemini-3.7-flash",
+  "op_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1:t28.0",
+  "op": "op28",
+  "rule_label": "initial",
+  "files": [
+   "(unknown)"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op28"
+  ],
+  "evidence": "This is the first change in the run and it directly implements part of the planned fix by adding `currentState` to `PlaybackInterface` in `src/audio/Playback.ts`."
+ },
+ {
+  "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1",
+  "model": "gemini-3.7-flash",
+  "op_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1:t41.0",
+  "op": "op41",
+  "rule_label": "correct",
+  "files": [
+   "(unknown)"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op41",
+   "op35",
+   "op39"
+  ],
+  "evidence": "The change refines the earlier VoiceBroadcastPlayback rewrite by fixing loadChunks to populate this.chunkEvents, directly responding to the failing playback tests and continuing the same implementation strategy."
+ },
+ {
+  "run_id": "jb:gemini_3_7_flash:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3",
+  "model": "gemini-3.7-flash",
+  "op_id": "jb:gemini_3_7_flash:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3:t41.0",
+  "op": "op41",
+  "rule_label": "revise",
+  "files": [
+   "(unknown)"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op41"
+  ],
+  "evidence": "op41 directly implements the issue's required scoped test ID by renaming the attachment header selector to `attachment-list:header` in AttachmentList.tsx."
+ },
+ {
+  "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3",
+  "model": "gemini-3.7-flash",
+  "op_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3:t63.0",
+  "op": "op63",
+  "rule_label": "revise",
+  "files": [
+   "config/flipt.schema.cue",
+   "config/flipt.schema.json"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op63",
+   "op54",
+   "op51"
+  ],
+  "evidence": "This change continues the same manifest_version configuration work by adding the new field to the JSON and CUE schemas, matching the earlier config validation/defaults and OCI option changes."
+ },
+ {
+  "run_id": "jb:luna:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r1",
+  "model": "gpt-5.6-luna",
+  "op_id": "jb:luna:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r1:t6.0",
+  "op": "op6",
+  "rule_label": "initial",
+  "files": [
+   "lib/kube/proxy/forwarder.go"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op6"
+  ],
+  "evidence": "This first change directly implements the issue by preserving non-authorization errors in authenticate while returning AccessDenied only when trace.IsAccessDenied(err) is true."
+ },
+ {
+  "run_id": "jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1",
+  "model": "gpt-5.6-luna",
+  "op_id": "jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1:t11.0",
+  "op": "op19",
+  "rule_label": "correct",
+  "files": [
+   "src/voice-broadcast/components/molecules/VoiceBroadcastPlaybackBody.tsx",
+   "src/voice-broadcast/hooks/useVoiceBroadcastPlayback.ts",
+   "src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op19",
+   "op16"
+  ],
+  "evidence": "op19 continues the same seekbar integration approach by adding playback position state from PositionChanged and wiring it into the playback body, refining the earlier UI/model changes in op16."
+ },
+ {
+  "run_id": "jb:luna:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r1",
+  "model": "gpt-5.6-luna",
+  "op_id": "jb:luna:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r1:t8.0",
+  "op": "op12",
+  "rule_label": "revise",
+  "files": [
+   "lib/ansible/plugins/lookup/password.py"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op12",
+   "op11"
+  ],
+  "evidence": "This change continues the same bcrypt ident implementation by extending it into the password lookup workflow, propagating ident through parsing, hashing, and metadata storage after the earlier encrypt/filter changes."
+ },
+ {
+  "run_id": "jb:terra:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3",
+  "model": "gpt-5.6-terra",
+  "op_id": "jb:terra:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3:t4.0",
+  "op": "op9",
+  "rule_label": "initial",
+  "files": [
+   "lib/ansible/plugins/filter/core.py",
+   "lib/ansible/utils/encrypt.py"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op9"
+  ],
+  "evidence": "This is the first code change and it directly implements the requested optional ident parameter through the hashing API and password_hash filter."
+ },
+ {
+  "run_id": "jb:terra:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2",
+  "model": "gpt-5.6-terra",
+  "op_id": "jb:terra:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2:t10.0",
+  "op": "op20",
+  "rule_label": "correct",
+  "files": [
+   "(unknown)"
+  ],
+  "version_move": "sidetrack",
+  "evidence_refs": [
+   "op19",
+   "op20"
+  ],
+  "evidence": "The agent only retries type-checking by invoking tsc directly after the npm wrapper failed, which is a verification/debug step rather than a code change advancing the fix."
+ },
+ {
+  "run_id": "jb:terra:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r3",
+  "model": "gpt-5.6-terra",
+  "op_id": "jb:terra:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r3:t5.0",
+  "op": "op10",
+  "rule_label": "revise",
+  "files": [
+   "lib/ansible/modules/hostname.py"
+  ],
+  "version_move": "correct",
+  "evidence_refs": [
+   "op10",
+   "op9",
+   "op8"
+  ],
+  "evidence": "This change continues the same BaseStrategy refactor by adding explicit current-hostname abstract methods to the base interface and then rerunning the hostname unit tests."
+ }
+]

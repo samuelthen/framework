@@ -1,0 +1,19 @@
+{
+ "files": [
+  "gemini_3_7_flash-run1.parquet",
+  "gemini_3_7_flash-run2.parquet",
+  "gemini_3_7_flash-run3.parquet",
+  "luna-run1.parquet",
+  "luna-run2.parquet",
+  "luna-run3.parquet",
+  "terra-run1.parquet",
+  "terra-run2.parquet",
+  "terra-run3.parquet"
+ ],
+ "runs": 6300,
+ "ops": 188609,
+ "dropped_infra": 0,
+ "lost_results": 4198,
+ "gold_coverage": 0.9385714285714286,
+ "jetbrains_revision": "a5ec6ad8428715a689ee62cf7cef82334773c958"
+}

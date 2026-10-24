@@ -1,0 +1,23 @@
+{
+ "v1": {
+  "test_reruns": 30,
+  "code_state_known": 6,
+  "sig_matches": 0,
+  "code_since": {
+   "unknown": 24,
+   "yes": 5,
+   "no": 1
+  }
+ },
+ "v2": {
+  "test_reruns": 30,
+  "code_state_known": 19,
+  "sig_matches": 1,
+  "code_since": {
+   "yes": 15,
+   "unknown": 11,
+   "no": 4
+  }
+ },
+ "pilot_ops_with_changed_facts": 222
+}

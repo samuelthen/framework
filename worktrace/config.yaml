@@ -1,0 +1,46 @@
+# Every [bracketed] number in the draft lives here. Values marked PILOT-DEFAULT were chosen by Claude for the pilot
+# and still need the author's confirmation (D.10).
+datasets:
+  jetbrains_revision: a5ec6ad8428715a689ee62cf7cef82334773c958
+  openswe_revision: a85dc97891bd18942ef6f3ab87750af99f487bba   # not used in this pilot (see README)
+  swebench_pro_revision: 2d52cb3df914a3fcf80c7f66738b3a88ae37fc50
+facts:
+  min_out_chars: 20
+annotator:
+  model_alias: x-test-2            # from soclaas.env; served as deepseek-v4.1-flash-1017
+  temperature: 0
+  prompt_version: v1
+  result_chars: 2000
+  workers: 4                       # SoCLaaS per-key queue is small (429 "queue is full" above ~3-4)
+  model_2_alias: x-test-1          # MODEL_2, confirmed by the user 2026-10-24: served as glm-5.3-flash; a different family from
+                                   # the primary (DeepSeek) and from the studied agents (Gemini, GPT, Qwen)
+  self_consistency: {temperature: 0.7, samples: 3}
+task6:                             # scale labeling (scripts/v2_task6.py)
+  skip_unmatched_rule: per_model   # skip unmatched ops only if the pilot's unmatched-distinct share >= 0.98 for that model
+  skip_unmatched: {gemini: true, terra: true, luna: false}   # pilot shares 99.4% / 98.3% / 97.8%
+  luna_terra_sample: {frac: 0.10, strata: gold_patch_lines_quartile, seed: 0}
+pilot:
+  runs: 50
+  tasks: 17                        # 17 tasks x 3 models, truncated to 50 runs
+  seed: 0
+annotation_sample:
+  pilot_ops: 200
+  final_ops: 600
+bootstrap:
+  n: 1000
+  seed: 0
+difficulty_bins: 4
+graph:
+  prune_threshold: 0.3
+  max_targets_before_collapse: 25
+signatures:
+  min_distinct_targets: 3
+go_no_go:
+  min_human_kappa: 0.6
+  min_macro_f1: 0.7
+  min_cand_redundancy_precision: 0.8
+  max_uncertain_share: 0.20
+  min_signature_diff_pts: 10
+interventions:
+  test_loop_k: 2
+  seeds: 3

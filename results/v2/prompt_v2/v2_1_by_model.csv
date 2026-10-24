@@ -1,0 +1,5 @@
+model,correct,branch_out,support,sidetrack,uncertain,All
+gemini-3.7-flash,52,1,22,3,0,78
+gpt-5.6-luna,42,0,3,1,0,46
+gpt-5.6-terra,47,0,5,1,0,53
+All,141,1,30,5,0,177

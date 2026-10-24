@@ -1,0 +1,3 @@
+population,runs,tasks,verify_final_per_run,i_identical_per_run,i_identical_share,ii_same_cmd_diff_out_per_run,ii_same_cmd_diff_out_share,iii_diff_cmd_per_run,iii_diff_cmd_share,runs_with_any_identical_rerun
+all runs,2100,700,"3.19 [3.04, 3.35]","0.06 [0.05, 0.07]","1.9% [1.5, 2.3]","0.20 [0.16, 0.23]","6.2% [5.2, 7.2]","2.93 [2.80, 3.09]","91.9% [90.8, 93.0]","5.3% [4.2, 6.5]"
+runs with >=2 versions,1722,641,"3.17 [2.98, 3.37]","0.06 [0.04, 0.07]","1.8% [1.4, 2.2]","0.19 [0.15, 0.22]","5.9% [4.8, 6.9]","2.92 [2.75, 3.10]","92.3% [91.2, 93.5]","4.8% [3.8, 5.9]"

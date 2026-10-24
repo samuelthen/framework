@@ -1,0 +1,123 @@
+{
+ "labels": {
+  "ops": 1432,
+  "labeled": 1432,
+  "valid_json_and_rules_share": 0.9972067039106145,
+  "label_errors": 4,
+  "non_distinct_without_two_refs": 0,
+  "contribution": {
+   "distinct": 1378,
+   "non_distinct": 34,
+   "uncertain": 20
+  },
+  "relation": {
+   "unmatched": 1225,
+   "revisits": 178,
+   "reproduces": 22,
+   "uncertain": 7
+  },
+  "role": {
+   "explore": 832,
+   "verify": 328,
+   "revise": 104,
+   "final": 101,
+   "initial": 63
+  }
+ },
+ "uncertain_share_matched": 0.013333333333333334,
+ "uncertain_contribution_share_matched": 0.013333333333333334,
+ "repeat_contribution": {
+  "exact_repeat": {
+   "distinct": {
+    "false": 1369,
+    "true": 9
+   },
+   "non_distinct": {
+    "false": 24,
+    "true": 10
+   },
+   "uncertain": {
+    "false": 18,
+    "true": 2
+   }
+  },
+  "same_object_or_output_candidate": {
+   "distinct": {
+    "false": 1190,
+    "true": 188
+   },
+   "non_distinct": {
+    "false": 0,
+    "true": 34
+   },
+   "uncertain": {
+    "false": 17,
+    "true": 3
+   }
+  }
+ },
+ "disagreement_exact_vs_candidate_redundant": {
+  "exact_repeat_and_cand_redundant": 9,
+  "exact_repeat_not_cand_redundant": 12,
+  "cand_redundant_not_exact_repeat": 13
+ },
+ "llm_only_baseline": {
+  "ops": 224,
+  "contribution_agreement": 0.8392857142857143,
+  "relation_agreement": 0.4017857142857143,
+  "kappa_contribution": 0.40892765520779895,
+  "kappa_relation": 0.0071119049981807165,
+  "baseline_contribution": {
+   "distinct": 189,
+   "non_distinct": 35
+  },
+  "baseline_cand_redundant": 12,
+  "confusion_contribution": {
+   "distinct": {
+    "distinct": 171,
+    "non_distinct": 17,
+    "uncertain": 1
+   },
+   "non_distinct": {
+    "distinct": 16,
+    "non_distinct": 17,
+    "uncertain": 2
+   }
+  }
+ },
+ "go_no_go": {
+  "1_human_human_kappa_contribution": "PENDING human annotation (annotation/pilot.csv)",
+  "2_model_human_macroF1_and_precision": "PENDING human annotation",
+  "3_uncertain_share_matched<=0.20": {
+   "value": 0.013333333333333334,
+   "pass": true
+  },
+  "4_signature_diff>=10pts": {
+   "best": [
+    {
+     "signature": "reread_unchanged_same_output",
+     "matches": 12,
+     "non_distinct": 1.0,
+     "exact_repeat_share": 0.25,
+     "nd_minus_exact_pts": 75.0
+    },
+    {
+     "signature": "self_repeat",
+     "matches": 60,
+     "non_distinct": 0.016666666666666666,
+     "exact_repeat_share": 0.0,
+     "nd_minus_exact_pts": 1.6666666666666667
+    },
+    {
+     "signature": "new_to_new",
+     "matches": 1018,
+     "non_distinct": 0.010805500982318271,
+     "exact_repeat_share": 0.0,
+     "nd_minus_exact_pts": 1.080550098231827
+    }
+   ],
+   "pass": true,
+   "note": "label-free signatures with >= 10 matches only"
+  }
+ }
+}

@@ -1,0 +1,4 @@
+harness,run_id,assistant_msgs,turns,tool_msgs,raw_calls,ops,replies_paired,unreplied_calls,last_msg_role,last_op_kind,lost_results,kinds,edits_with_written_paths,edits,exact_repeats,exit_known,problems
+mini-swe-agent,os:minisweagent:demisto_demisto-sdk_pr99:225b5c05,73,73,72,73,73,72,1,assistant,submit,0,"{""run"": 25, ""read"": 21, ""search"": 13, ""edit"": 7, ""probe"": 5, ""revert"": 1, ""submit"": 1}",7,7,0,72,none
+mini-swe-agent,os:minisweagent:projectmesa_mesa_pr1564:81ea0fbf,27,27,27,28,28,27,1,assistant,submit,0,"{""run"": 9, ""read"": 8, ""search"": 4, ""edit"": 2, ""other"": 2, ""revert"": 1, ""probe"": 1, ""submit"": 1}",2,2,0,27,none
+mini-swe-agent,os:minisweagent:jschneier_django-storages_pr1156:74585fef,47,47,46,47,47,46,1,assistant,submit,0,"{""read"": 16, ""run"": 14, ""search"": 7, ""edit"": 6, ""probe"": 2, ""other"": 1, ""submit"": 1}",6,6,0,46,none

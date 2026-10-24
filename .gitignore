@@ -1,0 +1,19 @@
+# secrets
+soclaas.env
+*.env
+.env*
+# third-party data and large derived copies of it
+raw/
+data/events/
+data/v1_snapshot/
+data/issues.parquet
+data/graphs*/
+data/labels/cache_*.jsonl
+data/labels/test_cache.jsonl
+refs/
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.log

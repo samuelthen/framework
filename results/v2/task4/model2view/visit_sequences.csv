@@ -1,0 +1,119 @@
+run_id,model,target,visits,sequence
+jb:luna:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r1,gpt-5.6-luna,lib/ansible/utils/encrypt.py,2,D D
+jb:luna:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r1,gpt-5.6-luna,lib/ansible/modules/hostname.py,3,D (2 detours) D (4 detours) D
+jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gpt-5.6-luna,src/audio/Playback.ts,3,D (8 detours) D D
+jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gpt-5.6-luna,src/voice-broadcast/models/VoiceBroadcastPlayback.ts,2,D (13 detours) D
+jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gpt-5.6-luna,src/voice-broadcast/hooks/useVoiceBroadcastPlayback.ts,2,D (15 detours) D
+jb:luna:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gpt-5.6-luna,test/voice-broadcast/components/molecules/VoiceBroadcastPlaybackBody-test.tsx,2,D D
+jb:luna:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r1,gpt-5.6-luna,lib/kube/proxy/forwarder.go,3,D D D
+jb:luna:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r1,gpt-5.6-luna,lib/kube/proxy/forwarder_test.go,2,D D
+jb:luna:instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1,gpt-5.6-luna,openlibrary/plugins/worksearch/code.py,6,D (2 detours) D D (1 detour) D D (1 detour) D
+jb:luna:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r1,gpt-5.6-luna,applications/mail/src/app/components/message/MessageView.tsx,2,D (2 detours) D
+jb:luna:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r1,gpt-5.6-luna,applications/mail/src/app/components/message/recipients/MailRecipientItemSingle.tsx,2,D D
+jb:luna:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-luna,internal/info/flipt.go,3,D (5 detours) D (2 detours) D
+jb:luna:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-luna,config/config.go,2,D (2 detours) D
+jb:luna:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-luna,cmd/flipt/main.go,2,D (2 detours) D
+jb:luna:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-luna,patch.txt,2,D D
+jb:luna:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-luna,git status --short,2,D (24 detours) D
+jb:luna:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-luna,packages/components/containers/contacts/email/ContactPGPSettings.tsx,2,D (9 detours) D
+jb:luna:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-luna,find packages -type f \( -name '*.ts' -o -name '*.tsx' \) -print0,2,D (1 detour) D
+jb:luna:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-luna,packages/shared/lib/mail/encryptionPreferences.ts,2,D (2 detours) D
+jb:luna:instance_qutebrowser__qutebrowser-6dd402c0d0f7665d32a74c43c5b4cf5dc8aff28d-v5fc38aaf22415ab0b70567368332beee7955b367:r2,gpt-5.6-luna,qutebrowser/components/braveadblock.py,2,D D
+jb:luna:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gpt-5.6-luna,src/api/worker/rest/EntityRestClient.ts,5,D (3 detours) D (1 detour) D (3 detours) D D
+jb:luna:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gpt-5.6-luna,src/api/worker/rest/DefaultEntityRestCache.ts,2,D (3 detours) D
+jb:terra:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gpt-5.6-terra,lib/ansible/utils/encrypt.py,4,D (2 detours) D (7 detours) D (1 detour) D
+jb:terra:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r3,gpt-5.6-terra,lib/ansible/modules/hostname.py,4,D (1 detour) D (2 detours) N (1 detour) D
+jb:terra:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gpt-5.6-terra,internal/config/storage.go,3,D (2 detours) D (2 detours) D
+jb:terra:instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26:r3,gpt-5.6-terra,scripts/providers/isbndb.py,3,D (1 detour) D (2 detours) D
+jb:terra:instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26:r3,gpt-5.6-terra,scripts/partner_batch_imports.py,2,D D
+jb:terra:instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91:r3,gpt-5.6-terra,openlibrary/plugins/worksearch/code.py,5,D (3 detours) D D D (1 detour) D
+jb:terra:instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91:r3,gpt-5.6-terra,python -m py_compile openlibrary/plugins/worksearch/code.py,2,D D
+jb:terra:instance_navidrome__navidrome-8e640bb8580affb7e0ea6225c0bbe240186b6b08:r3,gpt-5.6-terra,model/mediafile.go,2,D (2 detours) D
+jb:terra:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3,gpt-5.6-terra,applications/mail/src/app/components/conversation/ConversationView.tsx,2,D (2 detours) D
+jb:terra:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3,gpt-5.6-terra,applications/mail/src/app/components/message/MessageView.tsx,2,D (1 detour) D
+jb:terra:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-terra,config/config.go,2,D (2 detours) D
+jb:terra:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-terra,cmd/flipt/main.go,5,D D (2 detours) D (5 detours) D (4 detours) D
+jb:terra:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r2,gpt-5.6-terra,telemetry/telemetry.go,2,D (1 detour) D
+jb:terra:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-terra,packages/components/containers/contacts/email/ContactEmailSettingsModal.tsx,3,D (2 detours) D (7 detours) D
+jb:terra:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-terra,packages/components/containers/contacts/email/ContactPGPSettings.tsx,2,D (2 detours) D
+jb:terra:instance_protonmail__webclients-715dbd4e6999499cd2a576a532d8214f75189116:r2,gpt-5.6-terra,packages/shared/lib/keys/publicKeys.ts,2,D (8 detours) D
+jb:terra:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gpt-5.6-terra,src/api/worker/rest/EntityRestClient.ts,3,D (1 detour) D (3 detours) D
+jb:terra:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gpt-5.6-terra,src/api/worker/search/MailIndexer.ts,2,D (2 detours) D
+jb:terra:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gpt-5.6-terra,git diff --check,2,D (3 detours) D
+jb:terra:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gpt-5.6-terra,src/audio/Playback.ts,2,D (4 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,git status,2,D (44 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,lib/ansible/utils/encrypt.py,8,D (25 detours) N (1 detour) D (1 detour) D (1 detour) D (1 detour) D (5 detours) D (4 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,lib/ansible/plugins/filter/core.py,2,D (23 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,lib/ansible/plugins/lookup/password.py,7,D D (13 detours) D D (9 detours) D (17 detours) D D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,pytest test/units/utils/test_encrypt.py,4,D (28 detours) D (5 detours) D (4 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5:r3,gemini-3.7-flash,test/units/plugins/lookup/test_password.py,4,D (10 detours) D D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f:r3,gemini-3.7-flash,git status,3,D (50 detours) D (1 detour) D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,git status,3,D (50 detours) D (1 detour) D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/oci/file.go,7,D (29 detours) N D D D (3 detours) D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/config/storage.go,5,D (6 detours) D D (26 detours) D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,cmd/flipt/bundle.go,3,D (33 detours) D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/storage/fs/store/store.go,3,D (33 detours) D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/config/config.go,5,D D D (16 detours) D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/config/config_test.go,2,D (36 detours) D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,config/flipt.schema.json,2,D (28 detours) N
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,internal/oci/file_test.go,2,D D
+jb:gemini_3_7_flash:instance_flipt-io__flipt-b4bb5e13006a729bc0eed8fe6ea18cff54acdacb:r3,gemini-3.7-flash,git diff,2,D (1 detour) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,git status,3,D (29 detours) D (2 detours) N
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,lib/httplib/httplib.go,2,D (25 detours) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,lib/kube/proxy/forwarder.go,6,D (1 detour) D D D D (21 detours) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,lib/kube/proxy/forwarder_test.go,5,D (10 detours) D D D (1 detour) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,go test ./lib/httplib/...,2,D (18 detours) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,go test -c ./lib/kube/proxy,2,D (14 detours) D
+jb:gemini_3_7_flash:instance_gravitational__teleport-96019ce0be7a2c8e36363f359eb7c943b41dde70:r3,gemini-3.7-flash,proxy.test,2,U (14 detours) N
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26:r3,gemini-3.7-flash,scripts/providers/isbndb.py,2,D (31 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26:r3,gemini-3.7-flash,pytest scripts/tests/test_isbndb.py,2,D (28 detours) U
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26:r3,gemini-3.7-flash,openlibrary/plugins/upstream/utils.py,3,D (1 detour) D (1 detour) D
+jb:gemini_3_7_flash:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3,gemini-3.7-flash,git status,2,D (43 detours) D
+jb:gemini_3_7_flash:instance_protonmail__webclients-c6f65d205c401350a226bb005f42fac1754b0b5b:r3,gemini-3.7-flash,applications/mail/src/app/components/message/header/HeaderExpanded.tsx,2,D D
+jb:gemini_3_7_flash:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r2,gemini-3.7-flash,lib/ansible/modules/hostname.py,2,D (20 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8:r2,gemini-3.7-flash,pytest -v test/units/modules/test_hostname.py,4,D (4 detours) D (2 detours) N (4 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,git status,2,D (34 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,lib/ansible/module_utils/common/sys_info.py,3,D (32 detours) N D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,lib/ansible/module_utils/distro/_distro.py,3,D D (3 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,pytest test/units/module_utils/common/test_sys_info.py,2,D (16 detours) D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,lib/ansible/modules/hostname.py,2,D (1 detour) D
+jb:gemini_3_7_flash:instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f:r2,gemini-3.7-flash,lib/ansible/module_utils/facts/system/distribution.py,2,D (1 detour) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-bdba0af0f6cbaca8b5fc3be2a3080f38156d9c92-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r2,gemini-3.7-flash,git status,2,D (25 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-bdba0af0f6cbaca8b5fc3be2a3080f38156d9c92-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r2,gemini-3.7-flash,openlibrary/templates/account/books.html,3,D (9 detours) N (11 detours) N
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-bdba0af0f6cbaca8b5fc3be2a3080f38156d9c92-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r2,gemini-3.7-flash,openlibrary/utils/dateutil.py,3,D (14 detours) N (4 detours) N
+jb:gemini_3_7_flash:instance_navidrome__navidrome-8e640bb8580affb7e0ea6225c0bbe240186b6b08:r2,gemini-3.7-flash,git status,2,D (18 detours) D
+jb:gemini_3_7_flash:instance_navidrome__navidrome-8e640bb8580affb7e0ea6225c0bbe240186b6b08:r2,gemini-3.7-flash,model/album.go,3,D (15 detours) N D
+jb:gemini_3_7_flash:instance_navidrome__navidrome-8e640bb8580affb7e0ea6225c0bbe240186b6b08:r2,gemini-3.7-flash,go test -v ./model,3,D (13 detours) D (1 detour) D
+jb:gemini_3_7_flash:instance_navidrome__navidrome-8e640bb8580affb7e0ea6225c0bbe240186b6b08:r2,gemini-3.7-flash,model/album_test.go,3,D (1 detour) D (1 detour) D
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-6dd402c0d0f7665d32a74c43c5b4cf5dc8aff28d-v5fc38aaf22415ab0b70567368332beee7955b367:r2,gemini-3.7-flash,git status,2,D (21 detours) D
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-6dd402c0d0f7665d32a74c43c5b4cf5dc8aff28d-v5fc38aaf22415ab0b70567368332beee7955b367:r2,gemini-3.7-flash,pytest tests/unit/components/test_braveadblock.py,3,D (12 detours) D (3 detours) N
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566:r2,gemini-3.7-flash,git status,2,D (25 detours) D
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566:r2,gemini-3.7-flash,qutebrowser/browser/webengine/webview.py,2,D (11 detours) D
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566:r2,gemini-3.7-flash,tests/unit/browser/webengine/test_webview.py,3,D (1 detour) N (2 detours) D
+jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566:r2,gemini-3.7-flash,"QT_QPA_PLATFORM=offscreen pytest tests/unit/browser/webengine/test_webview.py -k ""test_suffixes_workaround""",2,D (4 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,git status,2,D (54 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,npm test,2,D (52 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,"npm run test:app -- -f ""EntityRestCache""",5,D D D N (10 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,buildSrc/esbuildUtils.js,2,D D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,make -C node_modules/better-sqlite3/build,2,D (2 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,test/tests/api/worker/rest/EntityRestCacheTest.ts,3,D (14 detours) D D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,src/api/worker/rest/EntityRestClient.ts,5,D D D (25 detours) D D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,src/api/worker/rest/DefaultEntityRestCache.ts,4,D (1 detour) D (25 detours) D D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,src/api/worker/crypto/CryptoFacade.ts,2,D (9 detours) D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,src/api/worker/search/MailIndexer.ts,3,D D D
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,npm run types,2,D (6 detours) U
+jb:gemini_3_7_flash:instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b:r2,gemini-3.7-flash,npm run test:app,3,D D (6 detours) U
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,git status,2,D (36 detours) D
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,src/voice-broadcast/utils/VoiceBroadcastChunkEvents.ts,2,D (25 detours) N
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,src/voice-broadcast/models/VoiceBroadcastPlayback.ts,3,D (26 detours) N D
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,src/voice-broadcast/components/molecules/VoiceBroadcastPlaybackBody.tsx,3,D (25 detours) N D
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts,2,D (16 detours) N
+jb:gemini_3_7_flash:instance_element-hq__element-web-66d0b318bc6fee0d17b54c1781d6ab5d5d323135-vnan:r1,gemini-3.7-flash,npx jest test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts,3,D (12 detours) D (2 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,git status,3,D (16 detours) D (14 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,openlibrary/catalog/merge/merge_marc.py,4,D (10 detours) D (9 detours) N D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,openlibrary/catalog/utils/__init__.py,3,D (14 detours) N D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,openlibrary/catalog/add_book/__init__.py,3,D D (14 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,openlibrary/catalog/add_book/match.py,2,D (16 detours) N
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818:r1,gemini-3.7-flash,ruff check openlibrary/catalog,2,D (11 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1,gemini-3.7-flash,pytest openlibrary/plugins/worksearch/tests/test_worksearch.py openlibrary/utils/tests/test_solr.py,3,D (19 detours) D (12 detours) D
+jb:gemini_3_7_flash:instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1,gemini-3.7-flash,"python -c "" <<body:58d07607>>",2,D (1 detour) D

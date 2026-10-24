@@ -1,0 +1,24 @@
+model,signature,loops
+gpt-5.6-luna,grep: unrecognized option: include=*.go,12
+gemini-3.7-flash,error command failed with exit code 1.,4
+gemini-3.7-flash,assertionerror [err_assertion]: user should have been created,3
+gemini-3.7-flash,modulenotfounderror: no module named 'units',2
+gemini-3.7-flash,error: received unexpected error:,2
+gpt-5.6-luna,grep: ./tests/fixtures/synlink_invalid: no such file or directory,2
+gpt-5.6-terra,grep: unrecognized option: exclude=*.test.*,2
+gpt-5.6-luna,grep: unrecognized option: include=*.ts,2
+gemini-3.7-flash,ansible.errors.ansibletemplateerror: error rendering template: attempt to use undecryptable variable: a required vaultsecretscontext context is not active.,1
+gemini-3.7-flash,assertionerror,1
+gemini-3.7-flash,attributeerror: partially initialized module 'qutebrowser.browser.inspector' has no attribute 'abstractwebinspector' (most likely due to a circular import),1
+gemini-3.7-flash,assertionerror [err_assertion]: expected values to be strictly equal:,1
+gpt-5.6-luna,error command failed with exit code 1.,1
+gpt-5.6-luna,/bin/sh: syntax error: bad substitution,1
+gpt-5.6-luna,grep: unrecognized option: exclude-dir=node_modules,1
+gpt-5.6-luna,grep: unrecognized option: exclude-dir=.git,1
+gpt-5.6-luna,grep: unrecognized option: exclude=*_test.go,1
+gpt-5.6-terra,failed openlibrary/catalog/add_book/tests/test_add_book.py::test_load_with_new_author,1
+gpt-5.6-terra,assertionerror,1
+gpt-5.6-terra,grep: ./app-android/app/src/main/assets/tutanota: no such file or directory,1
+gpt-5.6-terra,grep: ./tests/fixtures/synlink_invalid: no such file or directory,1
+gpt-5.6-terra,grep: qutebrowser/commands.py: no such file or directory,1
+gpt-5.6-terra,traceback (most recent call last):,1

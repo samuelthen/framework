@@ -1,0 +1,29 @@
+# WorkTrace: progress (interim, 2026-10-24)
+
+The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `results/v2/`. All labels come from LLM annotators, and all checks are automated audits by a third model (Claude). **Nothing is human-validated;** B.10 criteria 1–2 are replaced by proxies (`results/v2/B10_STATUS.md`).
+
+## Done
+| Item | Main result | File |
+|---|---|---|
+| Task 2: relabel after fact fixes | Non-distinct share of matched ops 22.7% [16.7, 29.6]; uncertain 2.2% | `results/v2/task2/SUMMARY.md` |
+| View B: code-version graph | Gemini 4.8 versions per run, Luna/Terra 2.6; backtracks ≤3.7% of runs; verification concentrates on the final version (Gemini 3.2 runs vs 0.7 on each earlier version) | `results/v2/viewb/SUMMARY.md` |
+| View B vs the tail measure (Gemini) | The final-version verify runs are 92% *different* commands (broader suites, other tests, checks, builds) and only 1.9% identical reruns, which is why the tail measure finds no non-distinct tail | `results/v2/reconcile/SUMMARY.md` |
+| prompt_v2.1 `version_move` | 177 pilot changes: 80% correct, 0.6% branch_out, 17% support, 3% sidetrack. Runs are linear refinement (Late-Landing-like) | `results/v2/prompt_v2/V2_1_RESULTS.md` |
+| Error Loop | About 1% of runs | `results/v2/error_loop/SUMMARY.md` |
+| Task 3: return-after-k confounds | The k effect survives adjustment for length, position and model, but only about 5 events per parameter | `results/v2/task3/SUMMARY.md` |
+| Task 4: proxy validation | Primary vs GLM κ = 0.70 (candidate-redundant κ = 0.83); self-consistency κ ≈ 0.9; candidate-redundancy rate 1.1–1.2% across both annotators and uncertain handling; CodeTraceBench: WorkTrace P 3.5% / R 27.5% vs exact repeat P 5.6% / R 33.3% (a different construct) | `results/v2/task4/SUMMARY.md` |
+
+## Running
+- **Task 5** (Open-SWE-Traces v1.2, Qwen3.8-27B under three harnesses, 2,000 shared tasks):
+  - Download 64/70 shards.
+  - Adapters done: `worktrace/loaders/openswe.py`.
+  - The benchmark will be reported for review before any labeling.
+- **Task 6** (scale labeling):
+  - Terra and Luna 10% samples done (68 tasks × 3 runs each).
+  - Gemini, all 2,100 runs, in progress: about 25k LLM labels, roughly 14 h.
+  - Skip rule applied per model: Luna is labelled in full.
+
+## Repository layout
+- **Code:** `worktrace/` (package, scripts, tests, `config.yaml`).
+- **Outputs:** results in `results/`, figures in `figures/`, LLM labels in `data/labels/`.
+- **Not included:** raw datasets, trajectory event logs, API caches and credentials.

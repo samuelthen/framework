@@ -1,0 +1,13 @@
+model,ops_on,ops,non_distinct
+gemini-3.7-flash,root,428,"3.7% [2.3, 5.3]"
+gemini-3.7-flash,earlier version,224,"8.5% [4.1, 12.6]"
+gemini-3.7-flash,final version,137,"2.9% [0.0, 6.2]"
+gpt-5.6-luna,root,161,"6.2% [0.0, 12.3]"
+gpt-5.6-luna,earlier version,57,"0.0% [0.0, 0.0]"
+gpt-5.6-luna,final version,97,"0.0% [0.0, 0.0]"
+gpt-5.6-terra,root,177,"1.1% [0.0, 2.7]"
+gpt-5.6-terra,earlier version,63,"0.0% [0.0, 0.0]"
+gpt-5.6-terra,final version,88,"0.0% [0.0, 0.0]"
+ALL,root,766,"3.7% [2.2, 5.5]"
+ALL,earlier version,344,"5.5% [2.2, 8.5]"
+ALL,final version,322,"1.2% [0.0, 2.8]"

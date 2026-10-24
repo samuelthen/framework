@@ -1,0 +1,7 @@
+shard,model,skip_rule_applied,pilot_unmatched_distinct,runs,ops,llm_labels,rule_labels,label_errors,usage,served
+terra-run1,terra,True,0.983,68,1364,142,1222,0,"{""prompt_tokens"": 449757, ""completion_tokens"": 100655, ""calls"": 144}",deepseek-v4.1-flash-1017
+terra-run2,terra,True,0.983,68,1397,148,1249,0,"{""prompt_tokens"": 468509, ""completion_tokens"": 101237, ""calls"": 149}",deepseek-v4.1-flash-1017
+terra-run3,terra,True,0.983,68,1371,154,1217,0,"{""prompt_tokens"": 492329, ""completion_tokens"": 115112, ""calls"": 157}",deepseek-v4.1-flash-1017
+luna-run1,luna,False,0.978,68,1274,1274,0,3,"{""prompt_tokens"": 2591900, ""completion_tokens"": 198077, ""calls"": 1282}",deepseek-v4.1-flash-1017
+luna-run2,luna,False,0.978,68,1316,1316,0,0,"{""prompt_tokens"": 2647912, ""completion_tokens"": 219322, ""calls"": 1316}",deepseek-v4.1-flash-1017
+luna-run3,luna,False,0.978,68,1305,1305,0,0,"{""prompt_tokens"": 2585046, ""completion_tokens"": 212044, ""calls"": 1289}",deepseek-v4.1-flash-1017

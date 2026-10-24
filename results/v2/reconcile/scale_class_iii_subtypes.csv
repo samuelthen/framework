@@ -1,0 +1,9 @@
+subtype,first on final,later,All
+broader suite,574,1342,1916
+build,133,476,609
+inline check script,169,832,1001
+lint/format/type check,144,207,351
+other,119,416,535
+other test file,247,302,549
+"same tests, other flags",0,72,72
+All,1386,3647,5033

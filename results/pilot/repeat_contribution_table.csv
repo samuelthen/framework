@@ -1,0 +1,6 @@
+model,exact_repeat,distinct,non_distinct,uncertain,All
+gemini-3.7-flash,False,730,33,5,768
+gemini-3.7-flash,True,7,9,5,21
+gpt-5.6-luna,False,299,10,6,315
+gpt-5.6-terra,False,321,2,5,328
+All,,1357,54,21,1432

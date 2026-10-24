@@ -1,0 +1,4 @@
+model,edit,other,probe,read,revert,run,search,submit
+gemini-3.7-flash,5630,1503,9327,36110,107,28789,28027,2077
+gpt-5.6-luna,1064,131,3402,14243,41,7596,8429,2137
+gpt-5.6-terra,1339,199,4464,13522,74,7962,10336,2100
