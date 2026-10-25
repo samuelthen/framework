@@ -1,11 +1,12 @@
-# WorkTrace: all results so far, and is it promising? (interim, 2026-10-24)
+# WorkTrace: all results so far, and is it promising? (interim, 2026-10-25)
 
 Scope:
 - **Data:**
   - 6,300 JetBrains SWE-bench Pro runs (3 models × 700 tasks × 3 runs), facts only.
   - A 50-run pilot with every operation LLM-labelled.
   - Proxy validation: a second annotator, self-consistency, and CodeTraceBench.
-- **Still to come:** the Open-SWE cross-harness benchmark (Task 5) and full Gemini labeling (Task 6).
+  - Open-SWE-Traces v1.2: 6,000 Qwen3.8-27B runs (2,000 tasks × 3 harnesses), facts only, plus a 60-run labelled pilot.
+- **Still to come:** the Qwen 500-task main labeling run (awaiting go) and the last of the full Gemini labeling (Task 6, run 3 of 3).
 - **Validation status:** nothing is human-validated. Labels come from LLM annotators, and all checks are automated audits by a third model (Claude).
 
 ## Short verdict
@@ -30,7 +31,17 @@ Scope:
 
 - **Exact repeats are rare.** They are essentially absent for the GPT models.
 - **The planned "repetition grows with difficulty" claim is not supported.** From the easiest to the hardest bin, the exact-repeat rate is flat (0.70% → 0.75%) while tool calls rise 1.38×.
-- **Early hint from Open-SWE** (sample shards only, not the final sample): Qwen's exact-repeat rate is also low under all three harnesses, about 0.15–0.19%. This contradicts the plan's expectation that a weaker model repeats more.
+- **Open-SWE (Qwen3.8-27B, same 2,000 tasks in each harness; `results/v2/task5/BENCHMARK.md`):**
+
+  | Harness | Resolve | Tool calls | Exact-repeat (run mean) | Same-object revisit |
+  |---|---|---|---|---|
+  | mini-swe-agent | 57.1% | 51.8 | 0.20% | 19.3% |
+  | OpenHands | 51.0% | 66.2 | 0.18% | 33.5% |
+  | SWE-agent | 54.5% | 67.5 | 0.20% | 30.9% |
+
+  - With the model fixed, the harness barely changes exact repetition. It does change cost and revisits.
+  - Exact repetition is again flat with difficulty.
+  - One stuck-loop run (164 identical probes, all with empty output) is a case study, not a pattern.
   - **Promising?** ✗ for a "lots of waste" headline.
 
 ## 2. How much repeated work is redundant? (pilot, LLM labels)
@@ -47,6 +58,9 @@ Scope:
 
 - **No low-contribution tail:** 0 ops after the last distinct op in every Gemini pilot run.
 - **Annotator robustness is good:** the range barely moves between annotators.
+- **Qwen pilot** (20 tasks × 3 harnesses, all ops labelled; `results/v2/qwen/pilot/SUMMARY.md`):
+  - Non-distinct share of matched ops: 5–10%, against 22.7% in the JetBrains pilot.
+  - Unmatched ops are distinct 99.4–99.7% of the time, so the skip rule passes in every harness.
 - **Promising?** ✓ the measure is robust. ✗ there is little redundancy to explain.
 
 ## 3. Does WorkTrace see something exact repeats miss? (signatures)
@@ -85,7 +99,9 @@ Scope:
 - **Promising?** ✓ the labels are stable. ? external validity is unshown, and human validation is still pending.
 
 ## What would make it promising for the original framing
-1. **Open-SWE shows a harness with clearly more redundant work** under the same model (Task 5, report pending).
+1. **Open-SWE shows a harness with clearly more redundant work** under the same model.
+   - Exact repeats show no such harness.
+   - In the pilot, SWE-agent's non-distinct share is about twice the others', but n is small. The 500-task run decides it.
 2. **Human labels agree** with the LLM labels (B.8 sample ready in `annotation/pilot.csv`).
 3. **The full Gemini set makes the return-after-k and `reread_unchanged` effects robust** (Task 6, in progress).
 
@@ -107,3 +123,5 @@ If (1) fails, the stronger paper is a measurement paper: "repetition ≠ waste".
 | Return-after-k | `results/v2/task3/SUMMARY.md` |
 | Validation proxies | `results/v2/task4/SUMMARY.md`, `results/v2/B10_STATUS.md` |
 | Open-SWE choice | `results/v2/task5/RECOMMENDATION.md` |
+| Open-SWE benchmark | `results/v2/task5/BENCHMARK.md` |
+| Qwen pilot | `results/v2/qwen/pilot/SUMMARY.md` |
