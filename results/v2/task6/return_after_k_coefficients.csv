@@ -1,0 +1,25 @@
+fit,estimator,term,odds_ratio,or_lo,or_hi,p
+"gemini, all runs","GEE (exchangeable, task clusters)",Intercept,0.14343698630932936,0.07786411307866281,0.2642317266327497,4.670367123806581e-10
+"gemini, all runs","GEE (exchangeable, task clusters)","C(k_bin, Treatment('1'))[T.2-3]",1.4737725092831007,1.2648944665119686,1.7171435772883548,6.577628185625303e-07
+"gemini, all runs","GEE (exchangeable, task clusters)","C(k_bin, Treatment('1'))[T.4+]",2.6520439870710426,2.317839503193568,3.034436724229176,1.024779181947491e-45
+"gemini, all runs","GEE (exchangeable, task clusters)",rel_pos,0.16945094588055062,0.13705370169687456,0.20950636651405452,2.005762713256854e-60
+"gemini, all runs","GEE (exchangeable, task clusters)",log_len,1.3893895580076596,1.2006066062031884,1.6078566733906692,1.0162964889113872e-05
+"gemini, all runs","logit, task-clustered SE",Intercept,0.11427158245164647,0.05903617200726478,0.22118633563159493,1.2144886811949792e-10
+"gemini, all runs","logit, task-clustered SE","C(k_bin, Treatment('1'))[T.2-3]",1.4545447448923763,1.2349355782099805,1.7132071115488487,7.227704455760417e-06
+"gemini, all runs","logit, task-clustered SE","C(k_bin, Treatment('1'))[T.4+]",2.8295614814940206,2.4563479551023875,3.259480466081161,4.3136572744204994e-47
+"gemini, all runs","logit, task-clustered SE",rel_pos,0.18749501116749764,0.15085503883102913,0.23303417297234635,1.8944766351881715e-51
+"gemini, all runs","logit, task-clustered SE",log_len,1.4276480544819516,1.217750130746586,1.6737251066575716,1.143705563172777e-05
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)",Intercept,0.13755357828434686,0.07487025427259944,0.2527170113505615,1.6358066697048536e-10
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)","C(k_bin, Treatment('1'))[T.2-3]",1.4876118013857886,1.2758865032050977,1.7344715741275736,3.972472903197461e-07
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)","C(k_bin, Treatment('1'))[T.4+]",2.6254608520877114,2.294923499000033,3.0036054312261986,6.690468525631624e-45
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)","C(model, Treatment('gemini'))[T.luna]",0.12115315805299899,0.06374013165745741,0.23028015983863542,1.1842084411154938e-10
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)","C(model, Treatment('gemini'))[T.terra]",0.20775752762942917,0.11773410642345253,0.366615856678341,5.86642945667935e-08
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)",rel_pos,0.16724522491198726,0.13531635042802076,0.20670794894619837,1.7391358071748026e-61
+pooled: gemini all + luna/terra 10% sample,"GEE (exchangeable, task clusters)",log_len,1.409274766242664,1.2185366906074473,1.6298691554197315,3.7675820044280833e-06
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE",Intercept,0.11485715621794562,0.05941130934307827,0.22204806593797988,1.24079429614451e-10
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE","C(k_bin, Treatment('1'))[T.2-3]",1.4680182014168601,1.2454323193991075,1.730385028654924,4.736503772123131e-06
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE","C(k_bin, Treatment('1'))[T.4+]",2.800179655812524,2.4311690006982363,3.2251999357405405,2.8526266496175338e-46
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE","C(model, Treatment('gemini'))[T.luna]",0.09675959202351046,0.043204987473792894,0.21669763599017838,1.3674837294172714e-08
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE","C(model, Treatment('gemini'))[T.terra]",0.17490072736407197,0.08775024271825277,0.3486060378282966,7.249916911098574e-07
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE",rel_pos,0.18486566505821309,0.14878329916762673,0.22969859055828443,1.991111336944425e-52
+pooled: gemini all + luna/terra 10% sample,"logit, task-clustered SE",log_len,1.4315097819989497,1.2214264333822062,1.6777271229379418,9.420379300888884e-06

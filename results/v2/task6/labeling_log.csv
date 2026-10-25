@@ -7,3 +7,4 @@ luna-run2,luna,False,0.978,68,1316,1316,0,0,"{""prompt_tokens"": 2647912, ""comp
 luna-run3,luna,False,0.978,68,1305,1305,0,0,"{""prompt_tokens"": 2585046, ""completion_tokens"": 212044, ""calls"": 1289}",deepseek-v4.1-flash-1017
 gemini_3_7_flash-run1,gemini,True,0.994,700,36421,8405,28016,4,"{""prompt_tokens"": 24186820, ""completion_tokens"": 4829492, ""calls"": 8468}",deepseek-v4.1-flash-1017
 gemini_3_7_flash-run2,gemini,True,0.994,700,37711,8520,29191,3,"{""prompt_tokens"": 24340234, ""completion_tokens"": 4977310, ""calls"": 8566}",deepseek-v4.1-flash-1017
+gemini_3_7_flash-run3,gemini,True,0.994,700,37438,8423,29015,2,"{""prompt_tokens"": 22034886, ""completion_tokens"": 4373173, ""calls"": 7744}",deepseek-v4.1-flash-1017

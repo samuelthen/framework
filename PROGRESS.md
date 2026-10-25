@@ -13,6 +13,7 @@ The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `re
 | prompt_v2.1 `version_move` | 177 pilot changes: 80% correct, 0.6% branch_out, 17% support, 3% sidetrack. Runs are linear refinement (Late-Landing-like) | `results/v2/prompt_v2/V2_1_RESULTS.md` |
 | Error Loop | About 1% of runs | `results/v2/error_loop/SUMMARY.md` |
 | Task 3: return-after-k confounds | The k effect survives adjustment for length, position and model, but only about 5 events per parameter | `results/v2/task3/SUMMARY.md` |
+| Task 6: scale labeling (all Gemini, 10% Luna/Terra) | Gemini non-distinct share of matched ops 23.0%. Candidate-redundancy 1.3–1.7%; tail ≈ 0. Return-after-k confirmed: OR 2.65 [2.32, 3.03] for k ≥ 4 at about 1,100 events per parameter. `reread_unchanged` +15.5 pts [12.7, 18.6] (n = 994) | `results/v2/task6/SUMMARY.md` |
 | Task 4: proxy validation | Primary vs GLM κ = 0.70 (candidate-redundant κ = 0.83); self-consistency κ ≈ 0.9; candidate-redundancy rate 1.1–1.2% across both annotators and uncertain handling; CodeTraceBench: WorkTrace P 3.5% / R 27.5% vs exact repeat P 5.6% / R 33.3% (a different construct) | `results/v2/task4/SUMMARY.md` |
 
 ## Running
@@ -22,10 +23,7 @@ The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `re
   - Unmatched ops are distinct 99.4–99.7% of the time, so every harness passes the 98% skip rule.
   - Uncertain is 0.6–1.5% of matched ops; non-distinct is 5–10% of matched ops.
   - **Waiting for review before the 500-task main run.**
-- **Task 6** (scale labeling):
-  - Terra and Luna 10% samples done (68 tasks × 3 runs each).
-  - Gemini, all 2,100 runs: runs 1–2 done, run 3 in progress.
-  - Skip rule applied per model: Luna is labelled in full.
+- **Qwen main run** (500 tasks × 3 harnesses, matched ops only) and then GLM on 1,000 matched ops: in progress (`results/v2/qwen_main.log`).
 
 ## Repository layout
 - **Code:** `worktrace/` (package, scripts, tests, `config.yaml`).

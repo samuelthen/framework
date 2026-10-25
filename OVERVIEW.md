@@ -6,7 +6,7 @@ Scope:
   - A 50-run pilot with every operation LLM-labelled.
   - Proxy validation: a second annotator, self-consistency, and CodeTraceBench.
   - Open-SWE-Traces v1.2: 6,000 Qwen3.8-27B runs (2,000 tasks × 3 harnesses), facts only, plus a 60-run labelled pilot.
-- **Still to come:** the Qwen 500-task main labeling run (awaiting go) and the last of the full Gemini labeling (Task 6, run 3 of 3).
+- **Still to come:** the Qwen 500-task main labeling run and its GLM check (running).
 - **Validation status:** nothing is human-validated. Labels come from LLM annotators, and all checks are automated audits by a third model (Claude).
 
 ## Short verdict
@@ -64,10 +64,16 @@ Scope:
 - **Promising?** ✓ the measure is robust. ✗ there is little redundancy to explain.
 
 ## 3. Does WorkTrace see something exact repeats miss? (signatures)
-- **`reread_unchanged`** (re-reading a file that has not changed since): 75 points more non-distinct than the exact-repeat rate [+17, +95].
-- **`self_repeat`:** +13 points.
-- **`return_any`:** +7 points; the CI includes 0.
-- **Promising?** ✓ This is the clearest sign that structure adds information beyond counting. But n is small: 11 matches for `reread_unchanged`.
+- **All Gemini runs (Task 6), non-distinct share minus exact-repeat share:**
+
+  | Signature | Gap | n |
+  |---|---|---|
+  | `reread_unchanged` | +15.5 pts [12.7, 18.6] | 994 |
+  | `return_any` | +12.6 pts [11.5, 13.6] | 16,532 |
+  | `self_repeat` | +11.0 pts [10.0, 12.1] | 8,180 |
+
+  The pilot's +75 for `reread_unchanged` (n = 11) was inflated.
+- **Promising?** ✓ Structure adds information beyond counting, now with real n. The gaps are moderate (11–16 pts), not dramatic.
 
 ## 4. What do runs look like structurally? (View B code-version graph, all 6,300 runs)
 - **Mostly linear refinement.**
@@ -85,10 +91,12 @@ Scope:
 
 ## 5. Return-after-k (Task 3)
 - **Model:** logistic GEE, `non_distinct ~ k + position + log length + model`.
-- **The k effect survives adjustment** (OR 14–33 vs k = 1) but with very wide CIs.
-- **It appears only in long runs and mostly for Gemini.**
-- **Power is thin:** about 5 events per parameter. This will be re-run on all Gemini runs once labelling finishes.
-- **Promising?** ? Direction only for now.
+- **Re-run on all Gemini runs (Task 6):** 4,405 events, about 1,100 events per parameter, against about 5 in the pilot.
+  - k ≥ 4 vs k = 1: OR 2.65 [2.32, 3.03].
+  - k = 2–3: OR 1.47 [1.27, 1.72].
+  - Adjusted for position and run length; the raw non-distinct share is 16% → 20% → 31% by k.
+- **The effect is real but much smaller than the pilot's OR of 14–33.** Later returns are less often non-distinct.
+- **Promising?** ✓ A robust, interpretable structural effect: returning after long detours re-does work.
 
 ## 6. Are the labels trustworthy? (proxies; human labels pending)
 - **Second annotator (GLM-5.3-flash), matched ops:** κ = 0.70 on contribution, 0.83 on candidate redundancy.
@@ -103,7 +111,7 @@ Scope:
    - Exact repeats show no such harness.
    - In the pilot, SWE-agent's non-distinct share is about twice the others', but n is small. The 500-task run decides it.
 2. **Human labels agree** with the LLM labels (B.8 sample ready in `annotation/pilot.csv`).
-3. **The full Gemini set makes the return-after-k and `reread_unchanged` effects robust** (Task 6, in progress).
+3. **The full Gemini set makes the return-after-k and `reread_unchanged` effects robust.** Done (Task 6): both hold, with smaller effect sizes than the pilot.
 
 If (1) fails, the stronger paper is a measurement paper: "repetition ≠ waste".
 - **Claim:** recent agents waste little.
@@ -120,7 +128,7 @@ If (1) fails, the stronger paper is a measurement paper: "repetition ≠ waste".
 | View B | `results/v2/viewb/SUMMARY.md`, figures `figures/v2/viewb_patterns_*_support.png` |
 | Verify classes | `results/v2/reconcile/SUMMARY.md` |
 | version_move | `results/v2/prompt_v2/V2_1_RESULTS.md` |
-| Return-after-k | `results/v2/task3/SUMMARY.md` |
+| Return-after-k | `results/v2/task3/SUMMARY.md` (pilot), `results/v2/task6/SUMMARY.md` (all Gemini) |
 | Validation proxies | `results/v2/task4/SUMMARY.md`, `results/v2/B10_STATUS.md` |
 | Open-SWE choice | `results/v2/task5/RECOMMENDATION.md` |
 | Open-SWE benchmark | `results/v2/task5/BENCHMARK.md` |
