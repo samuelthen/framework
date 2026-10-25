@@ -1,4 +1,4 @@
-# WorkTrace: progress (interim, 2026-10-24)
+# WorkTrace: progress (interim, 2026-10-25)
 
 **Start here for an overall assessment: [`OVERVIEW.md`](OVERVIEW.md).**
 
@@ -16,13 +16,15 @@ The v1 pilot results are in `RESULTS.md` and are unchanged; v2 work is under `re
 | Task 4: proxy validation | Primary vs GLM κ = 0.70 (candidate-redundant κ = 0.83); self-consistency κ ≈ 0.9; candidate-redundancy rate 1.1–1.2% across both annotators and uncertain handling; CodeTraceBench: WorkTrace P 3.5% / R 27.5% vs exact repeat P 5.6% / R 33.3% (a different construct) | `results/v2/task4/SUMMARY.md` |
 
 ## Running
-- **Task 5** (Open-SWE-Traces v1.2, Qwen3.8-27B, 2,000 shared tasks): benchmark done, awaiting review (`results/v2/task5/BENCHMARK.md`):
-  - All 70 shards downloaded and verified; 6,000 runs audited (10 per harness, 0 problems).
-  - Adapters done: `worktrace/loaders/openswe.py`.
-  - The benchmark will be reported for review before any labeling.
+- **Task 5** (Open-SWE-Traces v1.2, Qwen3.8-27B, 2,000 shared tasks): benchmark accepted 2026-10-25 (`results/v2/task5/BENCHMARK.md`).
+  - Run-mean exact-repeat rate 0.18–0.20% in every harness. Pooled rates are given with and without the stuck-loop case study.
+- **Qwen pilot** (20 tasks × 3 harnesses, all 4,018 ops labelled, `results/v2/qwen/pilot/SUMMARY.md`):
+  - Unmatched ops are distinct 99.4–99.7% of the time, so every harness passes the 98% skip rule.
+  - Uncertain is 0.6–1.5% of matched ops; non-distinct is 5–10% of matched ops.
+  - **Waiting for review before the 500-task main run.**
 - **Task 6** (scale labeling):
   - Terra and Luna 10% samples done (68 tasks × 3 runs each).
-  - Gemini, all 2,100 runs, in progress: about 25k LLM labels, roughly 14 h.
+  - Gemini, all 2,100 runs: runs 1–2 done, run 3 in progress.
   - Skip rule applied per model: Luna is labelled in full.
 
 ## Repository layout

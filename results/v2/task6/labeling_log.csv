@@ -5,3 +5,5 @@ terra-run3,terra,True,0.983,68,1371,154,1217,0,"{""prompt_tokens"": 492329, ""co
 luna-run1,luna,False,0.978,68,1274,1274,0,3,"{""prompt_tokens"": 2591900, ""completion_tokens"": 198077, ""calls"": 1282}",deepseek-v4.1-flash-1017
 luna-run2,luna,False,0.978,68,1316,1316,0,0,"{""prompt_tokens"": 2647912, ""completion_tokens"": 219322, ""calls"": 1316}",deepseek-v4.1-flash-1017
 luna-run3,luna,False,0.978,68,1305,1305,0,0,"{""prompt_tokens"": 2585046, ""completion_tokens"": 212044, ""calls"": 1289}",deepseek-v4.1-flash-1017
+gemini_3_7_flash-run1,gemini,True,0.994,700,36421,8405,28016,4,"{""prompt_tokens"": 24186820, ""completion_tokens"": 4829492, ""calls"": 8468}",deepseek-v4.1-flash-1017
+gemini_3_7_flash-run2,gemini,True,0.994,700,37711,8520,29191,3,"{""prompt_tokens"": 24340234, ""completion_tokens"": 4977310, ""calls"": 8566}",deepseek-v4.1-flash-1017

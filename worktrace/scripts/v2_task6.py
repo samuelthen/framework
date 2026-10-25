@@ -11,6 +11,7 @@ ops are labelled.
 
 usage: v2_task6.py sample              # the Luna/Terra task sample -> results/v2/task6/sample_tasks.csv
        v2_task6.py label [models...]   # default order: terra luna gemini; labels -> data/labels/scale_<shard>.jsonl"""
+import gc
 import glob
 import json
 import os
@@ -80,6 +81,8 @@ def label(*models):
             if out.exists():
                 print("done already:", shard)
                 continue
+            runs = lab = None  # free the previous shard before loading the next (the two together exhausted memory)
+            gc.collect()
             runs = _load_shard(path, None if m == "gemini" else tasks)
             c = client_from_env(f"{ROOT}/soclaas.env")
             tmp = Path(f"{LAB}/scale_{shard}.llm.jsonl")

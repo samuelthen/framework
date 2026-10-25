@@ -1,6 +1,6 @@
 # Task 5: Open-SWE-Traces v1.2 cross-harness benchmark (Section 3, facts only, no LLM)
 
-**Stopped here for your review before any Qwen labeling.**
+**Accepted by the user on 2026-10-25.** The run-mean exact-repeat rate is the primary measure. Pooled rates are reported with and without the stuck-loop task (`exact_repeat_with_without_outlier.csv`, `scripts/v2_task5_outlier.py`).
 
 ## Data and sample
 - **Dataset:** `nvidia/Open-SWE-Traces` v1.2 at revision `a85dc97`. Agent Qwen3.8-27B (thinking, xhigh) under OpenHands, SWE-agent and mini-swe-agent; tasks from SWE-rebench-V2 and Scale-SWE.
@@ -34,10 +34,11 @@
 | Final context, k chars | 177 | 243 | 358 |
 | **Exact-repeat rate (run mean)** | **0.20% [0.14, 0.28]** | **0.18% [0.16, 0.21]** | **0.20% [0.17, 0.23]** |
 | Exact-repeat rate (pooled) | 0.32% [0.14, 0.66]* | 0.20% [0.18, 0.23] | 0.24% [0.21, 0.27] |
+| Exact-repeat rate (pooled, without the stuck task) | 0.17% [0.14, 0.20] | 0.20% [0.18, 0.23] | 0.24% [0.21, 0.27] |
 | Same-object revisit | 19.3% [18.9, 19.7] | 33.5% [33.0, 33.9] | 30.9% [30.4, 31.3] |
 | Runs with ≥1 exact repeat | 7.3% [6.2, 8.5] | 11.1% [9.8, 12.5] | 12.3% [10.9, 13.8] |
 
-- \* One mini-SWE run (`siliconcompiler_lambdapdk_pr114`) runs the same `python -c` command 163 times out of 235 ops. Without it, mini-SWE's pooled rate is 0.17%.
+- \* One mini-SWE run (`siliconcompiler_lambdapdk_pr114`) is a stuck loop (case study below). Without it, mini-SWE's pooled rate is 0.17% [0.14, 0.20] and its run mean is 0.16% [0.13, 0.19]. All harnesses together: pooled 0.25% → 0.21%, run mean 0.19% → 0.18%.
 - **Tokens:** the dataset has no token counts, so character counts are given instead.
 - **Turns vs tool calls:** OpenHands can issue several tool calls in one turn (up to 5), so its turns are fewer than its tool calls.
 
@@ -79,7 +80,23 @@
    - The plan's expectation of "longer runs with more repeated work" holds for length, but not for exact repeats.
 5. **Rare stuck loops exist.** One run repeats a command 163 times. Such runs are worth reporting as an Error-Loop-like case, but they are too rare to move the averages.
 
-## Before labeling Qwen (your call)
+## Case study: a stuck loop (`siliconcompiler_lambdapdk_pr114`, mini-swe-agent)
+- **What happens:** ops 14–179 are the same `python -c` probe of the PDK schema, issued 164 times (163 exact repeats).
+  - It is almost always back to back: 161 of the gaps are one op.
+  - Every call exits 0 with *empty* output (the script prints nothing when the method is missing).
+  - The agent message is identical each time ("Let's try a different approach and check the PDK class definition…").
+- **How it ends:** the agent leaves the loop at about op 180, reads and edits a few files, and submits. The run is unresolved.
+- **The other harnesses on the same task:** OpenHands 103 ops with 1 exact repeat, SWE-agent 74 ops with 0. Both are unresolved, but neither loops.
+- **What it shows:** a degenerate generation loop on an uninformative (empty) observation. It is Error-Loop-like, but the "error" is silence, so an exit-code-based Error Loop detector would miss it.
+- **How common:** no other of the 6,000 runs has more than 8 exact repeats, so it is a case study, not a pattern.
+
+## Before labeling Qwen (decided 2026-10-25)
+The user's plan:
+1. Pilot: 20 tasks × 3 harnesses, all ops (`scripts/v2_qwen.py`, results in `results/v2/qwen/pilot/`).
+2. Main: 500 tasks × 3 harnesses, after review.
+3. GLM on 1,000 matched ops.
+
+The notes below are the original estimate.
 - **Labeling volume (counted):**
   - The 6,000 runs have 370,992 ops, of which **109,114 have a repeat candidate**: mini-SWE 20,289 (19.6%), SWE-agent 43,279 (32.1%), OpenHands 45,546 (34.4%).
   - At the current rate of about 0.3–0.5 labels/s, labeling them all would take **3–4 days** on the shared key, after Gemini finishes.
