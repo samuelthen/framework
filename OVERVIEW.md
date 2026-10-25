@@ -52,7 +52,7 @@ Scope:
 
 ![Harness comparison](figures/overview/2_harness_comparison.png)
 
-  - **Promising?** ✗ for a "lots of waste" headline.
+- **Promising?** ✗ for a "lots of waste" headline.
 
 ## 2. How much repeated work is redundant? (pilot, LLM labels)
 - **Matched ops** (ops with a repeat candidate): 22.7% [16.7, 29.6] are judged non-distinct.
