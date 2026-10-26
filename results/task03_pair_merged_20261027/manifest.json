@@ -1,0 +1,27 @@
+{
+  "task_order": 3,
+  "panels": [
+    "gemini-3.7-flash",
+    "gpt-5.6-luna"
+  ],
+  "x_ranges": [
+    54,
+    30
+  ],
+  "shared_x": false,
+  "shared_y": true,
+  "display_mapping": {
+    "direct": "direct",
+    "indirect": "indirect",
+    "no_demonstrated": "indirect",
+    "non_direct": "indirect",
+    "uncertain": "uncertain"
+  },
+  "source_annotations_changed": false,
+  "actual_new_evaluations": 0,
+  "inputs": {
+    "results/framework_one_hour_run_20261027_0230/component_usage.csv": "f735f48a0e3f4125f32fe22db503594ceaec9fe4db3c8ce827cae85cce76d0ec",
+    "results/framework_one_hour_run_20261027_0230/resource_coverage.csv": "21df50f3815958b531101703626ff5f8f3324730347cef710e695585e4f7e942",
+    "results/followup_20261026/corrected_version_graphs.jsonl": "d05ed2cdfe2ff7f7bb9b2082e1446d2f72a9132c95c66d44b86a0040d0439844"
+  }
+}
