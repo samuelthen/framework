@@ -9,6 +9,11 @@ prepares a fixed 20-case packet; `--contribution-review` applies a separately sa
 evidence-linked review overlay. Legacy non-direct stays unsplit until reviewed.
 The script does not execute benchmark checkpoints or create empirical PASS markers.
 
+`draw_response_cost_bands.py --out <fresh-directory>` renders the recovered Luna
+examples with alternating bands per response and recorded input/cache/output/USD
+headings. It retains component-order spacing and the shape/contribution-color
+encoding. Response totals appear once per band; they are not per-component costs.
+
 For the component/version/token and intermediate-checkpoint study, start with
 [`CODEX_FRAMEWORK_VALIDATION.md`](../../CODEX_FRAMEWORK_VALIDATION.md). Response
 accounting is implemented in `component_resources.py`; independent checkpoint
