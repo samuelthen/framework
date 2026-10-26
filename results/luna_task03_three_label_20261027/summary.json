@@ -1,0 +1,64 @@
+{
+  "annotation_scheme": "direct_effort_three_label_v1",
+  "components": 30,
+  "full": {
+    "included": 30,
+    "direct": 10,
+    "indirect": 10,
+    "uncertain": 10,
+    "lower": 0.3333333333333333,
+    "upper": 0.6666666666666666
+  },
+  "confirmed_executed_only": {
+    "included": 22,
+    "direct": 10,
+    "indirect": 10,
+    "uncertain": 2,
+    "lower": 0.45454545454545453,
+    "upper": 0.5454545454545454
+  },
+  "roles": [
+    {
+      "role": "exploration",
+      "included": 8,
+      "direct": 6,
+      "indirect": 2,
+      "uncertain": 0,
+      "lower": 0.75,
+      "upper": 0.75
+    },
+    {
+      "role": "edit",
+      "included": 2,
+      "direct": 1,
+      "indirect": 1,
+      "uncertain": 0,
+      "lower": 0.5,
+      "upper": 0.5
+    },
+    {
+      "role": "verification",
+      "included": 4,
+      "direct": 2,
+      "indirect": 0,
+      "uncertain": 2,
+      "lower": 0.5,
+      "upper": 1.0
+    },
+    {
+      "role": "administration",
+      "included": 16,
+      "direct": 1,
+      "indirect": 7,
+      "uncertain": 8,
+      "lower": 0.0625,
+      "upper": 0.5625
+    }
+  ],
+  "direct_credit_only": true,
+  "indirect_semantics": "broad assessed non-direct effort, including navigation/support/overhead; not proven causal guidance",
+  "legacy_unsplit": 0,
+  "no_demonstrated_category": false,
+  "human_validation": false,
+  "allocation_changed": false
+}

@@ -64,6 +64,7 @@ def main():
                         help='Render only these task orders; default is both')
     parser.add_argument('--reviewed-components', type=Path,
                         help='Complete reviewed-run components; overlay labels without changing resources')
+    parser.add_argument('--contribution-caption', help='Explicit scheme note for an alternative contribution view')
     args = parser.parse_args()
     inputs = [args.run_dir / 'component_usage.csv', args.run_dir / 'reviewed/resources/response_usage.jsonl',
               args.run_dir / 'resource_coverage.csv']
@@ -190,7 +191,9 @@ def main():
                  fontsize=10, color='#53616B')
         fig.text(.055, .038, 'USD is harness-recorded. Shared component costs remain allocated estimates. Compound-call internal states are unresolved; independent checkpoints are UNTESTED.',
                  fontsize=10, color='#53616B')
-        if args.contribution_view == 'merged':
+        if args.contribution_caption:
+            fig.text(.055, .012, args.contribution_caption, fontsize=9, color='#53616B')
+        elif args.contribution_view == 'merged':
             fig.text(.055, .012, 'Display grouping: Indirect combines source indirect, no demonstrated contribution and legacy non-direct; original annotations and scores are preserved.',
                      fontsize=9, color='#53616B')
         for ext in ['png', 'pdf', 'svg']:
@@ -209,6 +212,7 @@ def main():
                     model='gpt-5.6-luna', tasks=orders, bands=len(band_rows),
                     contribution_view=args.contribution_view, contribution_display_mapping=display_map,
                     source_annotations_changed=False, precision_scores_changed=False,
+                    contribution_caption=args.contribution_caption,
                     contribution_counts=plotted_labels,
                     imported_reviewed_components=sum(c.get('review_status') == 'reviewed' for c in components
                                                      if ':luna:' in c['run_id'] and int(c['component_id'].split(':')[0]) in orders),

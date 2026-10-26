@@ -1,0 +1,5 @@
+metric,direct,indirect,uncertain,total,complete,direct_lower,direct_upper,attribution
+input_tokens,32667.583333333332,21324.416666666668,46658.0,100650.0,True,0.3245661533366451,0.7881329690346083,allocated response shares; not measured per-component reasoning
+cached_input_tokens,25620.666666666668,17723.333333333332,44033.0,87377.0,True,0.29321980231258415,0.7971624874585609,allocated response shares; not measured per-component reasoning
+output_tokens,1169.0833333333333,640.9166666666666,259.0,2069.0,True,0.5650475269856613,0.6902287739648784,allocated response shares; not measured per-component reasoning
+cost_usd,0.0033246966666666666,0.001843783333333333,0.00171646,0.006884939999999999,True,0.4828940654045884,0.7322005226867143,allocated response shares; not measured per-component reasoning
