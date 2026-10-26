@@ -1,0 +1,11 @@
+{
+  "status": "inputs_prepared; no model annotations or expert accuracy run",
+  "paired_cases": 30,
+  "arms": [
+    "derived_state_aware",
+    "derived_state_withheld"
+  ],
+  "controls": "same issue/reference, raw command history, final submitted patch, candidate unit, model/prompt settings; separate blinded sessions",
+  "limitation": "Raw edits/order remain visible in both arms; this tests explicit derived-state augmentation, not complete inability to infer state.",
+  "required_next": "Freeze expert references, run both arms with same annotator/settings in isolated sessions, compare paired errors/abstentions against human reference."
+}

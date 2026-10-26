@@ -1,0 +1,8 @@
+test_staged_edit_survives_worktree_checkout (__main__.RestoreScopeChecks.test_staged_edit_survives_worktree_checkout) ... ok
+test_supported_tracked_unstaged_restore (__main__.RestoreScopeChecks.test_supported_tracked_unstaged_restore) ... ok
+test_untracked_creation_survives_worktree_checkout (__main__.RestoreScopeChecks.test_untracked_creation_survives_worktree_checkout) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+OK

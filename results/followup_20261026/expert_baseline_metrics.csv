@@ -1,0 +1,5 @@
+method,assessable_reference_cases,reference_uncertain_cases,prediction_abstentions,accuracy_lower,accuracy_upper,prediction_coverage,interpretation
+framework,0,0,0,,,,enriched expert cases only; parent-call proxies have coarser granularity; no population accuracy claim
+parent_exact_repeat,0,0,0,,,,enriched expert cases only; parent-call proxies have coarser granularity; no population accuracy claim
+parent_target_revisit,0,0,0,,,,enriched expert cases only; parent-call proxies have coarser granularity; no population accuracy claim
+parent_novelty_non_distinct,0,0,0,,,,enriched expert cases only; parent-call proxies have coarser granularity; no population accuracy claim

@@ -134,6 +134,8 @@ def _revert_target(parts: list[str]):
         if len(toks) >= 3 and toks[0] == "git" and toks[1] in ("checkout", "restore"):
             if toks[1] == "checkout" and "--" not in toks:
                 continue  # path-like branch names are still ambiguous
+            if toks[1] == 'restore' and any(t.startswith(('--staged', '--source', '-s')) for t in toks[2:]):
+                continue  # index-only or non-baseline-source restore is not root
             paths = [shell.norm_path(t) for t in toks[2:] if not t.startswith("-") and t not in ("HEAD",)]
             if paths:
                 return ("paths", paths)
@@ -195,12 +197,29 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
     dirty: set[str] = set()          # repo files written since the last return to the root
     stash: list[tuple[int, set[str]]] = []
     uncertain: set[int] = set()
+    baseline_tracked: set[str] = set()
+    baseline_clean = False
+    pristine = True
     seq = []
     for op in ops:
         parts = op.get("parts") or [op.get("command") or ""]
         before = cur
+        if pristine and op.get('exit_code') == 0 and not any(
+                op.get(k) for k in ('truncated', 'agent_saw_truncated', 'missing_result')) and len(parts) == 1:
+            toks = shell._tokens(parts[0])
+            out = op.get('output') or ''
+            if toks in (['git', 'ls-files'], ['git', 'ls-files', '--cached']):
+                baseline_tracked.update(shell.norm_path(p) for p in out.splitlines()
+                                        if p and not p.startswith('"') and '\\' not in p)
+            if toks in (['git', 'status'], ['git', 'status', '--short'],
+                        ['git', 'status', '--porcelain'], ['git', 'status', '--porcelain=v1']):
+                baseline_clean = (_CLEAN in out or (len(toks) > 2 and not out.strip()))
         w = repo_write(op)
         if w == "unknown" and not unknown_creates_version:
+            # A version-count sensitivity must not erase restore-scope doubt.
+            dirty.add(f"<unknown:{op['op_index']}>")
+            uncertain.add(cur)
+            pristine = False
             w = False
         kind = op["kind"]
         if support_paths and w is True:
@@ -213,6 +232,19 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
         # restore in a compound command. A failed restore may mutate partially.
         if rv and (op.get("exit_code") != 0 or len(parts) != 1):
             rv, w = None, "unknown"
+        if rv and rv[0] in ('root', 'paths'):
+            # checkout/restore use the index; reset/stash cover tracked files.
+            # None of these establishes removal of unknown/untracked files.
+            # Initial status/ls-files observations are used only as baseline
+            # scope evidence, never to reanchor a changed repository by text.
+            covered = baseline_clean and all(p in baseline_tracked for p in dirty)
+            if not covered:
+                rv, w = None, 'unknown'
+        if w == 'unknown' and not unknown_creates_version:
+            dirty.add(f"<unknown:{op['op_index']}>")
+            uncertain.add(cur)
+            pristine = False
+            w = False
         if rv and rv[0] == "root":
             if " ".join(parts[0].split()).startswith("git stash") and not dirty:
                 rv = None  # stash of a clean tree: nothing happens
@@ -245,6 +277,8 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
             else:
                 wp = op.get("written_paths") or (refine_unknown(op)[1] if op["write"] == "unknown" else [])
                 dirty |= {p for p in wp if not p.startswith("/")} or {f"<op{op['op_index']}>"}
+        if w or move:
+            pristine = False
         h = None
         # Neither status nor plain git diff establishes complete content
         # identity. In particular, do not collapse versions on truncated diffs,
@@ -296,7 +330,7 @@ def build_version_graph(run: dict, ops: list[dict], labels: dict | None = None, 
     labels = labels or {}
     seq, unc = _merge(*version_sequence(ops, unknown_creates_version, support_paths))
     nodes = {ROOT: {"v": ROOT, "x": 0, "y": 0, "first_op": -1, "entries": 1, "verify": 0, "verify_fail": 0,
-                    "evidence": {}, "uncertain": False}}
+                    "evidence": {}, "uncertain": ROOT in unc}}
     edges = []
     row, pending_row, prev_fail = 1, False, False
     first_move = True
@@ -335,7 +369,9 @@ def build_version_graph(run: dict, ops: list[dict], labels: dict | None = None, 
     for n in nodes.values():
         n["final"] = n["v"] == final
     return {"run_id": run["run_id"], "task_id": run["task_id"], "model": run["model"], "resolved": run.get("resolved"),
-            "n_versions": len(nodes) - 1, "final": final, "final_x": nodes[final]["x"], "final_y": nodes[final]["y"],
+            "n_versions": len(nodes) - 1, "final": final,
+            "final_is_initial": final == ROOT and not nodes[final]['uncertain'],
+            "final_x": nodes[final]["x"], "final_y": nodes[final]["y"],
             "nodes": list(nodes.values()), "edges": edges, "op_version": [s["after"] for s in seq]}
 
 
@@ -347,7 +383,7 @@ def summarize(g: dict) -> dict:
     others = [n for n in g["nodes"] if not n["final"] and n["v"] != ROOT]
     return {"run_id": g["run_id"], "task_id": g["task_id"], "model": g["model"], "resolved": g["resolved"],
             "n_versions": g["n_versions"], "n_rows": max(n["y"] for n in g["nodes"]),
-            "n_uncertain": sum(n["uncertain"] for n in g["nodes"]), "final_is_root": final["v"] == ROOT,
+            "n_uncertain": sum(n["uncertain"] for n in g["nodes"]), "final_is_root": final["v"] == ROOT and not final['uncertain'],
             "final_x": g["final_x"], "verify_final": final["verify"], "verify_root": g["nodes"][0]["verify"],
             "verify_other_mean": (sum(n["verify"] for n in others) / len(others)) if others else None,
             "verify_other_total": sum(n["verify"] for n in others),

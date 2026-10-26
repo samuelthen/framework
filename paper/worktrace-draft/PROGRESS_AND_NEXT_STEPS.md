@@ -1,72 +1,142 @@
-# Progress and next steps: solution contribution and coverage
+# Follow-up experiments: contribution measurement and agent behavior
 
-Status checked: 26 October 2026. This supersedes the measurement priorities in the older foundation plan; it does not change the manuscript, saved labels, or frozen analysis outputs.
+Updated 26 October 2026. The prior plan is preserved in
+`results/followup_20261026/prior_experiment_plan.md`. The Mac-local review and
+updated plan quoted by the user were not present in this checkout; the pasted
+instructions supplied the new scope.
 
-## Current position
+## Completed local work
 
-WorkTrace is an implemented exploratory framework with large comparison panels, saved analyses, graphs, and a draft. The proposed solution contribution/coverage framework has definitions but no implemented reference construction, independently adjudicated labels, or computed metric results.
+See `results/followup_20261026/RESULTS.md` and `status.json` for actual results.
+The original eight-pair outputs remain preserved under
+`results/precision_validation_20261026/`.
 
-Verified today:
+- The 8da1f1a pilot has 769 candidates from 449 calls and two blinded model-coded
+  passes. No overall model ranking or human accuracy is established.
+- The two additional restore cases now have real-Git regression coverage:
+  untracked files and staged edits survive worktree checkout. Restores require
+  explicit baseline scope evidence; missing information remains uncertain.
+- Consequential disagreements are prioritized separately for overall,
+  exploration and verification precision. Twelve proposals were reviewed against
+  concrete trace evidence; these are model-coded, not human adjudication.
+- A 30-case blinded expert packet and full 769-component blank review form are
+  prepared. No human judgments are supplied yet.
+- Equal-run role precision reproduces the user's quoted values. Supported repeat
+  candidates are separated from environment/setup failures and unrelated checks.
+- Thirty-task attempt and joint-success semantic samples are frozen separately
+  for the cross-model and cross-harness panels. Archived effort is computed;
+  semantic confirmation has not been completed.
+- Paired state-aware/derived-state-withheld inputs and prefix-only control
+  prototypes are implemented. No live control experiment or cost saving is claimed.
 
-- The draft describes 6,300 cross-model runs and 6,000 cross-harness runs. Saved paired analyses and sensitivity tables exist. Current headline patterns are final-version checking and target revisits, not independently established excessive work.
-- Existing semantic-label pilots contain 1,432 and 4,018 operation records. They use the previous novelty/reproduction construct and cannot be reused as direct solution contribution ground truth.
-- The 200-row human packet has zero populated first-reviewer, second-reviewer, or adjudicated contribution fields.
-- All seven checks in audit/reproduce_reliability.py still fail on this checkout. No estimate of real-data error frequency follows from these challenge cases.
-- Full original traces are not available for every saved aggregate. Recoverability must be checked before selecting the pilot. Do not treat 80-character command summaries as full observations.
+## 1. Validate contribution annotation
 
-## Scientific gap relative to TRACE
+Use the eight development task pairs. An independent expert first reviews raw
+requirements/reference evidence, permits alternative valid fixes and resolves
+or explicitly retains source conflicts. The expert then labels components
+without seeing existing judgments or derived state facts. Preserve disagreements,
+uncertainty, execution status, requirement links and evidence. Freeze the guide
+only after this calibration/adjudication.
 
-TRACE links structural patterns to intermediate correctness, prefix helpfulness, and a limited stopping experiment. WorkTrace currently has structural patterns and outcome associations. The missing bridge is validated action-to-solution attribution and solution progress over code states. A new graph design or additional large unvalidated label batch will not supply that bridge.
+Start at `results/followup_20261026/expert_blind/README.md`. The initial 30 cases
+contain up to two available high-impact disagreements and two random agreement
+controls per task. Task 09 has no label disagreements; no cases were invented.
+This enriched feasibility sample does not estimate population accuracy. Full
+review forms for all 769 units are also provided. Empty/model-coded entries are
+never accepted as human ground truth.
 
-## Measurement specification to freeze
+Against that independent reference, compare exact repeats, target revisits,
+existing novelty labels and the same contribution annotator with explicit
+computed state information withheld. Native-call totals are an effort baseline,
+not a binary action classifier. Both ablation arms retain the same raw chronology,
+issue and final patch; the withheld arm can still infer state from visible edits.
+Include equivalent split/merged work, alternative valid fixes, and checks before
+and after relevant edits. Do not score an unrun ablation or model self-agreement
+as expert accuracy.
 
-For each trajectory, retain P_tau = contributing actions / performed actions, Q_tau as the same density used for failures, and R_tau = achieved reference requirements / total reference requirements. Compute per-run scores before outcome-conditioned means. Preserve uncertainty and its denominator coverage. Do not call Q conventional recall.
+Gate: accepted human references and evidence-linked labels with explicit coverage.
 
-Define solution requirements independently of the evaluated agent outputs, using the issue, executable behavior, and an accepted fix as evidence. Permit different valid implementations. Separate newly achieved repair requirements from already satisfied preservation constraints, or report initial coverage explicitly; otherwise baseline behavior can inflate apparent progress. Reference patch line matching is not the definition.
+## 2. Confirm model and harness comparisons
 
-For every positive contribution label, record action ID, supported requirement ID, concrete contributed content, evidence location, and validity after later edits. Negative-only searches receive no direct contribution credit under the user's definition. Retain uncertain labels when evidence is incomplete. Action granularity, compound calls, repeated support, and final versus peak validity need fixed rules shared by all systems.
+Use fresh-to-contribution-pilot tasks, keeping the existing development tasks out.
+Cross-model: Gemini versus Luna, mini-swe-agent, archived repeat 1.
+Cross-harness: fixed Qwen, mini-swe-agent/OpenHands/SWE-agent.
 
-Primary coverage uses simultaneously valid terminal requirements. Peak coverage is separate. A read can support diagnosis without implementing a required behavior; distinguish epistemic support from achieved implementation requirements.
+`confirmation_sample.csv` freezes two distinct samples per panel:
 
-## Ordered work
+1. Thirty random shared tasks for all-attempt success/effort.
+2. Thirty joint-success tasks for conditional contribution precision.
 
-1. Repair state identity, branch changes, write targets, unknown side effects, failed restores, partial restores, and truncated-observation merges. Pass the seven regression checks; add ordinary regression coverage for the fixes and rebuild affected summaries. Passing seven probes alone is not full real-run validation.
-2. Recover complete inputs for a small matched pilot: task specification, tool arguments and outputs, initial repository revision, code changes, final patch, and verified outcome. Mark missing fields before annotation; record exclusions.
-3. Construct requirements and an annotation guide on development tasks. Use two independent reviewers, keep original judgments, and adjudicate. Freeze guide before held-out annotation. Hide model/harness identity where possible. Retrospective contribution annotation needs the correct solution and full trace; do not reuse the older prefix-only justification protocol for this different construct.
-4. Evaluate whether requirements and contribution can be applied consistently on held-out tasks. Report agreement, disagreement types, unknown share, annotation effort, and automated labels against the independent reference. Reference-unit construction disagreements matter as well as action-label disagreements.
-5. Implement per-run P/Q/R and state-dependent coverage curves. Check command-equivalent routes, split/merged calls, irrelevant detours, valid alternative repairs, and undone changes. These are diagnostics, not independent population evidence.
-6. Compare with binary success, total calls, exact repetition, target revisits, and state-blind contribution attribution. Show specific diagnoses changed by semantic or state information, then aggregate only over the assessable sample.
-7. Run a matched comparison. Initially hold model fixed and compare two harnesses, or hold harness fixed and compare two models. Outcome conditioning changes task composition: report both-success, both-failure, and discordant task outcomes, plus success rate and effort. Reserve fresh tasks for confirmation after exploratory phenomena are selected.
+Keep their selection denominators separate. Report success, effort, direct,
+non_direct and uncertain counts; per-run exploration/verification precision;
+task-paired uncertainty; exclusions and unknown outcomes. Reference-patch-size
+quartiles are a demand proxy independent of the observed success outcomes, not
+an intrinsic reasoning-difficulty measurement.
 
-## Two candidate phenomena
+The archived outcomes/counts are available now. New expert-calibrated component
+labels, normalized units and paired role precision remain pending. Thirty is an
+initial workload, not a power guarantee. Freeze expansion/interval rules before
+using confirmation results; never stop according to which model wins.
 
-- Successful systems can achieve comparable solution requirements with different direct contribution density. Determine whether this difference survives command granularity and task matching.
-- Failed runs may never establish key requirements, or may establish them and later invalidate them. Compare terminal and peak coverage to identify which pattern occurs and in which system.
+## 3. Explain exploration and verification
 
-These replace neither the saved findings nor their names until measured. Existing final-version checking and target revisit patterns can be used to select questions, but should be related to P/Q/R only after independent annotation.
+Reuse the confirmation annotations. For exploration, locate solution-bearing
+observations and non-direct detours. For verification, normalize checked property,
+relevant code scope and assessed state, then plot cumulative distinct supported
+properties against checks within that state. A new command is not a new property.
+A flat property curve alone is not waste: justified confidence can still be direct.
 
-## One-week foundation
+Keep one contribution label (`direct / non_direct / uncertain`) and separate
+reason fields: new relevant coverage, defect used in repair, repeated support,
+environment/setup failure, unrelated checking and uncertainty. Environment cues
+in mixed parent outputs are candidate diagnoses requiring attribution review.
 
-| Day | Deliverable |
-| --- | --- |
-| 1 | State repairs, passing challenge checks, trace-availability inventory |
-| 2 | Three development tasks, accepted requirements, action guide, working scorer |
-| 3–4 | Independent annotation and adjudication on task-separated matched runs |
-| 5 | Agreement, uncertainty, score diagnostics, baseline and state-blind comparisons |
-| 6 | First matched comparison, progress curves, counterexamples, revised hypotheses |
-| 7 | Draft revision with actual pilot results and remaining confirmation study |
+The current strict repeat screen requires both passes to identify repeated
+support on unchanged relevant state, cite a common earlier direct check, and show
+no environment cue. It is a review screen, not proof that an action is removable.
+`verification_property_review.jsonl` and `property_curves.py` support normalized
+review and curves; none are populated with invented expert judgments.
 
-A target is three development tasks with two runs each, followed by up to twelve held-out tasks with two runs each: at most thirty fully reviewed runs. Feasibility depends on context recovery and independent reviewers. If completion time is insufficient, report a smaller feasibility pilot with its actual coverage; do not replace missing human validation with model self-agreement. Enriched outcome sampling supports method development, not representative population estimates.
+Gate: property/state evidence supports interpretable comparisons and rules out
+packaging or broader useful verification as explanations. Do not force either
+candidate phenomenon to appear.
 
-The week should establish whether the measurement works. Broader claims need more independent tasks and fresh confirmation. A small checkpoint/continuation experiment would supply a TRACE-like utility test if executable states are recoverable. Claims about safe execution-cost reduction require such interventions; an optimization algorithm is not required for a measurement study.
+## 4. Evaluate a self-loop control policy
 
-## Concrete completion gates
+Compare unrestricted execution, a simple dedicated-check-count cap and a
+property/state-aware threshold. `scripts/followup/policy.py` implements the pure
+controllers, not a deployed harness integration. The intervention is suppressing
+a dedicated check while continuing the agent; mixed calls are not rewritten.
 
-- Every evaluated task has an auditable, alternative-aware solution reference.
-- Every credited action has evidence and a requirement link; unknowns are visible.
-- Independent reviewers can reproduce the construct with documented disagreement.
-- Corrected state tracking changes or preserves the reported patterns transparently.
-- The measures distinguish meaningful cases that simple baselines miss.
-- Model/harness findings survive task matching, granularity checks, and uncertainty reporting.
+Calibrate k=1,2,3 on development episodes, then freeze the selected k and simple
+cap before held-out execution. k=1 suppresses the first repeated request after
+established deterministic support; k=2 permits one completed repeat first.
+Relevant edits and new properties reset the streak. Unknown state/property,
+unsupported scope or incomplete observations allow more work.
 
-No precision/recall values, validation passes, or newly confirmed phenomena were produced by this status review.
+The online policy requires complete relevant-content snapshots from the runtime,
+not inferred graph IDs, the final patch or future contribution labels. Report
+actual eligible/mixed-call coverage. Start with fixed Gemini/mini-swe-agent from
+the development diagnosis; do not select the system after confirmation outcomes.
+Evaluate all held-out attempts in every frozen arm, including failures. Record
+actual model/tool cost, wall time, task success, uncertainty and introduced failures.
+The proposed five-point absolute success-loss margin is not yet approved/powered;
+freeze margin, sample size and analysis before live held-out execution.
+
+Docker is available, but selected-task adapters and target model/harness backends
+are not configured. No threshold is selected and no live episodes have run.
+
+Experiments 1–3 support the framework-and-behavior story once their gates pass.
+Experiment 4 supplies the stronger utility story. Failed-run recall remains
+optional and deferred until independent requirements and final-state evidence exist.
+
+## Reproduce completed work
+
+```bash
+bash scripts/followup/run_all.sh
+```
+
+This runs local analyses and authored regression tests only. It does not download
+data, launch model jobs, execute trajectory commands or overwrite filled expert
+forms. Machine-readable statuses distinguish computed results from prepared or
+unavailable experiments.

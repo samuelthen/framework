@@ -1,0 +1,38 @@
+{
+  "seed": 20261026,
+  "panels": [
+    {
+      "panel": "cross_model",
+      "systems": [
+        "gemini-3.7-flash",
+        "gpt-5.6-luna"
+      ],
+      "shared_tasks": 689,
+      "joint_success_eligible": 323,
+      "excluded_development_tasks": 11,
+      "outcome_selection": "Semantic sample conditions on all compared systems succeeding; attempt sample does not.",
+      "seed": 20261126,
+      "semantic_seed": 20261127
+    },
+    {
+      "panel": "cross_harness",
+      "systems": [
+        "mini-swe-agent",
+        "openhands",
+        "swe-agent"
+      ],
+      "shared_tasks": 2000,
+      "joint_success_eligible": 902,
+      "excluded_development_tasks": 11,
+      "outcome_selection": "Semantic sample conditions on all compared systems succeeding; attempt sample does not.",
+      "seed": 20261226,
+      "semantic_seed": 20261227
+    }
+  ],
+  "exposure": "Held out from the contribution pilot, not previously unseen by all saved aggregate/novelty analyses.",
+  "sample_sha256": "e5dcb8db46db45bec29d89a0d63b44c2ec292522562646ca300af93b6968f7e6",
+  "stage": "frozen; contribution labels and expert reference pending",
+  "sample_size": "30 starting tasks per panel/purpose; not a power guarantee",
+  "expansion_rule": "After expert calibration, estimate task-level variance and predeclare an interval-width target before adding tasks; no winner-dependent stopping.",
+  "scope": "Saved trajectories only. Actual execution/cost comparison needs separately configured harness/model backends."
+}

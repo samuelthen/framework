@@ -1,0 +1,783 @@
+component_id,order,blinded_label,action_index,component_index,label_disagreement,role_disagreement,execution_disagreement,expert_assessable_disagreement,fixed_denominator_mean_bound_width,exploration_fixed_denominator_priority,verification_fixed_denominator_priority,b_label,c_label,b_role,c_role,b_requirements,c_requirements,b_evidence,c_evidence,command
+09:Y003.c0,9,Y,3,0,False,True,False,False,0.008333333333333333,0.0,0.041666666666666664,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_09.json run Y action 3, component 0', 'command': 'cat patch.txt', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Patch read repeats exact helper code reviewed in Y001.c1 with no relevant edits since.,cat patch.txt
+09:X017.c0,9,X,17,0,False,True,False,False,0.00625,0.0,0.025,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_09.json run X action 17, component 0', 'command': 'cat patch.txt', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reprints unchanged helper diff already reviewed in X014.,cat patch.txt
+07:X006.c4,7,X,6,4,False,True,False,False,0.005952380952380952,0.0,0.025,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4']","{'trace': 'evidence_07.json run X action 6, component 4', 'command': ""sed -n '1,220p' patch.txt"", 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reprints the unchanged resource-helper diff already reviewed in X003.c2; no intervening relevant edit.,"sed -n '1,220p' patch.txt"
+04:Y006.c3,4,Y,6,3,False,False,True,False,0.003048780487804878,0.0,0.020833333333333332,uncertain,uncertain,verification,verification,['R4'],['R4'],04:Y006.c3 `go test ./config -run 'TestLoad/(defaults|deprecated_defaults)' -count=1 -v`. Call ended -1 after diff without test output; chained test completion/PIPESTATUS guard execution cannot be established.,"Action output contains only diff, not go test result; rc -1 does not prove targeted fixture assertions completed. Component: go test ./config -run 'TestLoad/(defaults|deprecated_defaults)' -count=1 -v",go test ./config -run 'TestLoad/(defaults|deprecated_defaults)' -count=1 -v
+08:X005.c0,8,X,5,0,True,False,False,True,0.004032258064516129,0.0,0.015625,non_direct,direct,verification,verification,"['R1', 'R6', 'R7']","['R1', 'R7']","{'trace': 'evidence_08.json run X action 5, component 0', 'command': 'grep -nE ""buffer|tab-select"" qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help/commands.asciidoc doc/help/settings.asciidoc', 'observation': 'Grep repeats renamed symbols/help already established by X004 without intervening edit.', 'downstream': 'Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Search confirms migrated help and exposes stale Resolve a buffer index docstring; X007 changes that precise remaining wording.,"grep -nE ""buffer|tab-select"" qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help/commands.asciidoc doc/help/settings.asciidoc"
+10:Y009.c3,10,Y,9,3,False,False,True,False,0.0026595744680851063,0.0,0.015625,uncertain,uncertain,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R5']","['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_10.json run Y action 9, component 3', 'command': 'go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out', 'observation': 'Redirected go test interrupted with exit -1, no output available from target file; cannot attribute completion or checked results.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}","Broad tests invoked with stdout redirected; call ends -1 and conditional tail has no visible execution, so no package/property result can be assigned.",go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out
+10:Y013.c0,10,Y,13,0,False,True,False,False,0.0026595744680851063,0.0,0.015625,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_10.json run Y action 13, component 0', 'command': ""sed -n '1,240p' patch.txt"", 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Patch read repeats functional diff already reviewed in Y010.c4; intervening changes restore comment spacing only.,"sed -n '1,240p' patch.txt"
+10:Y010.c5,10,Y,10,5,False,False,True,False,0.0026595744680851063,0.0,0.015625,uncertain,uncertain,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R5']","['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_10.json run Y action 10, component 5', 'command': 'go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out', 'observation': 'Redirected aggregate test interrupted with no result tail; cannot infer success from following commands or final outcome.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}","Broad package tests redirect output, end with parent exit -1 and no visible test results; individual package progress cannot be established.",go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out
+08:X010.c0,8,X,10,0,False,True,False,False,0.004032258064516129,0.0,0.015625,non_direct,non_direct,administration,verification,[],"['R1', 'R7']","{'trace': 'evidence_08.json run X action 10, component 0', 'command': ""sed -n '1,260p' patch.txt"", 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Final patch review repeats previously inspected changes except resolver docstring cleanup from X007; that cleanup has no new selection/completion property beyond X005 finding.,"sed -n '1,260p' patch.txt"
+05:Y009.c0,5,Y,9,0,True,False,False,True,0.002840909090909091,0.0,0.013888888888888888,non_direct,direct,verification,verification,"['R4', 'R8']","['R4', 'R5', 'R6']",05:Y009.c0 `yarn test test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts`. Baseline 40 Playback tests pass before edits; existing paused-live liveness expectations concern old playback-dependent semantics and do not expose the requested info-state authority defect. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.,"Baseline 40 playback tests pass, explicitly showing Resumed/start grey and first chunk live; identifies playback-dependent behavior being replaced and legacy expectation conflict, not proof new requirements already hold. Component: yarn test test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts",yarn test test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts
+07:Y028.c0,7,Y,28,0,False,True,False,False,0.004032258064516129,0.0,0.013888888888888888,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4']","{'trace': 'evidence_07.json run Y action 28, component 0', 'command': 'cat patch.txt', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reprints identical patch already displayed in Y026 without relevant code changes.,cat patch.txt
+05:Y040.c0,5,Y,40,0,True,False,False,True,0.002840909090909091,0.0,0.013888888888888888,non_direct,direct,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R7', 'R8', 'R9']","['R1', 'R2', 'R3', 'R7', 'R8', 'R9']",05:Y040.c0 `cat patch.txt`. Patch repeats reviewed helper/export/Playback hunks with no intervening edits; no additional runtime coverage.,Combined final patch read exposes previously unreviewed full helper mapping together with integration; confirms default not-live and exact enum branches alongside sole info setter. Component: cat patch.txt,cat patch.txt
+05:X013.c0,5,X,13,0,True,False,False,False,0.002717391304347826,0.0,0.011363636363636364,direct,uncertain,verification,verification,['R9'],['R9'],"05:X013.c0 `if [ -x node_modules/.bin/eslint ]; then node_modules/.bin/eslint src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts src/voice-broadcast/index.ts; else echo 'eslint unavailable'; fi`. Conditional ESLint invocation returns silently with exit 0 and no unavailable message after standalone rerun; supports edited file import/syntax consistency, not runtime state mapping.","Control construct can either lint or echo unavailable; empty output plus trailing true masks branch status, leaving relevant lint evidence uncertain. Component: if [ -x node_modules/.bin/eslint ]; then node_modules/.bin/eslint src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts src/voice-broadcast/index.ts; else echo 'eslint unavailable'; fi",if [ -x node_modules/.bin/eslint ]; then node_modules/.bin/eslint src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts src/voice-broadcast/index.ts; else echo 'eslint unavailable'; fi
+05:X009.c1,5,X,9,1,True,False,False,True,0.002717391304347826,0.0,0.011363636363636364,direct,non_direct,verification,verification,"['R3', 'R4', 'R9']","['R3', 'R4']","05:X009.c1 `grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Visible grep/nl shows obsolete updateLiveness calls still present at setPosition and setInfoState despite removed method. X10 deletes those residual calls, an actionable integration defect.","The grep repeats the same two stale updateLiveness calls already identified by X008.c3; focused source read X009.c0 supplies the surrounding defect context. Component: grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts","grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:X010.c6,5,X,10,6,False,True,False,False,0.002717391304347826,0.0,0.011363636363636364,non_direct,non_direct,verification,administration,"['R3', 'R4']",[],"05:X010.c6 `git diff -- src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/index.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts | sed -n '1,260p'`. Shell Bad substitution occurs before these later commands; no execution or attributable output supports their supposed inspection. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.","Bad substitution terminates shell after lint pipeline; following grep/stat/diff segments are not executed. Component: git diff -- src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/index.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts | sed -n '1,260p'","git diff -- src/voice-broadcast/models/VoiceBroadcastPlayback.ts src/voice-broadcast/index.ts src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts | sed -n '1,260p'"
+05:X010.c3,5,X,10,3,False,True,False,False,0.002717391304347826,0.0,0.011363636363636364,non_direct,non_direct,verification,administration,"['R3', 'R4']",[],"05:X010.c3 `grep -R ""updateLiveness"" -n src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Shell Bad substitution occurs before these later commands; no execution or attributable output supports their supposed inspection. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.","Bad substitution terminates shell after lint pipeline; following grep/stat/diff segments are not executed. Component: grep -R ""updateLiveness"" -n src/voice-broadcast/models/VoiceBroadcastPlayback.ts","grep -R ""updateLiveness"" -n src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+10:X045.c0,10,X,45,0,True,False,False,False,0.0021929824561403508,0.0,0.010416666666666666,non_direct,uncertain,verification,verification,"['R3', 'R4', 'R5']","['R3', 'R4']","{'trace': 'evidence_10.json run X action 45, component 0', 'command': 'go test -v ./models/... ./config/...', 'observation': 'Models/config package suite passes after changes, but inspected tests lack new server/global WordPress cases; broad success alone does not establish requested scan gate.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Models/config suites pass after changes, but visible tests are generic model/config cases and earlier search finds no FilterInactive test. Specific relevant changed-property coverage is not established by package success.",go test -v ./models/... ./config/...
+04:X021.c0,4,X,21,0,True,False,False,False,0.0026595744680851063,0.0,0.010416666666666666,direct,uncertain,verification,verification,"['R1', 'R2']","['R1', 'R2']",04:X021.c0 `go build ./cmd/flipt`. cmd/flipt builds successfully after adding exported config fields and loader expressions; establishes integration compilation (not value semantics) beyond config tests.,Build emits sqlite C warning then rc -1; no complete build result or new task-specific diagnostic is established. Component: go build ./cmd/flipt,go build ./cmd/flipt
+10:X044.c0,10,X,44,0,True,False,False,True,0.0021929824561403508,0.0,0.010416666666666666,non_direct,direct,verification,verification,"['R4', 'R5']","['R4', 'R5']","{'trace': 'evidence_10.json run X action 44, component 0', 'command': 'git diff models/scanresults.go', 'observation': 'Diff confirms added global OR gate on model filter, not new Status filtering; no new requested property beyond existing server gate.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","First model diff review shows only enablement guard changed, leaving Status-based package filtering intact.",git diff models/scanresults.go
+10:X016.c0,10,X,16,0,False,False,True,False,0.0021929824561403508,0.0,0.010416666666666666,uncertain,uncertain,verification,verification,"['R1', 'R3']","['R1', 'R3']","{'trace': 'evidence_10.json run X action 16, component 0', 'command': 'go test -short ./report/...', 'observation': 'Short report tests have exit -1 and no output; no compilation or regression property can be attributed.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}",Short report test has no output and exit -1; no checked property or execution progress is evidenced.,go test -short ./report/...
+10:X013.c0,10,X,13,0,False,False,True,False,0.0021929824561403508,0.0,0.010416666666666666,uncertain,uncertain,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R5']","['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_10.json run X action 13, component 0', 'command': 'go test ./...', 'observation': 'Broad go test has exit -1 and empty output; cannot establish completion, coverage or failure cause.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}",Whole-repository test call has empty output and exit -1; no execution progress or checked property can be established.,go test ./...
+04:X012.c0,4,X,12,0,True,False,False,True,0.0026595744680851063,0.0,0.010416666666666666,non_direct,direct,verification,verification,['R4'],['R4'],04:X012.c0 `go test -v ./config/...`. Baseline tests pass existing config/server/RPC/cache behavior; pool/meta missing-key assertions are not present and no baseline defect drives the edit. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.,Baseline TestLoad defaults/deprecated/configured visibly pass; those exact preservation assertions are rerun after extending loader. Component: go test -v ./config/...,go test -v ./config/...
+10:X041.c0,10,X,41,0,True,False,False,True,0.0021929824561403508,0.0,0.010416666666666666,non_direct,direct,verification,verification,"['R3', 'R4']","['R3', 'R4']","{'trace': 'evidence_10.json run X action 41, component 0', 'command': 'git diff config/config.go', 'observation': 'Diff merely confirms extra TOML tag; no demonstrated configuration parsing defect repaired.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","First config diff review confirms only IgnoreInactive tag mapping changes, preserving other WordPress configuration fields.",git diff config/config.go
+10:X046.c0,10,X,46,0,True,False,False,True,0.0021929824561403508,0.0,0.010416666666666666,direct,non_direct,verification,verification,"['R1', 'R2']","['R1', 'R2']","{'trace': 'evidence_10.json run X action 46, component 0', 'command': 'go test -v ./wordpress/...', 'observation': 'Changed direct-map signature fails compilation because existing cache test passes *map. Action exposes actionable compatibility defect, but no subsequent source repair resolves it.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 1, 'agent_saw_truncated': False}","WordPress test compilation fails because existing test passes *map to new map-only searchCache; identifies concrete compatibility regression, but no repair follows before final patch.",go test -v ./wordpress/...
+10:X052.c0,10,X,52,0,False,True,False,False,0.0021929824561403508,0.0,0.010416666666666666,non_direct,non_direct,administration,verification,[],"['R1', 'R2', 'R3', 'R4', 'R5']","{'trace': 'evidence_10.json run X action 52, component 0', 'command': 'cat patch.txt', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reprints unchanged combined final patch already reviewed in X050.,cat patch.txt
+03:X017.c0,3,X,17,0,True,False,False,True,0.0023148148148148147,0.0,0.008928571428571428,non_direct,direct,verification,verification,['R4'],['R4'],"03:X017.c0 `go test -v ./internal/server/auth`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.","Visible auth success, skip, expired/missing-token subtests pass before auth error changes, establishing baseline preservation expectations. Component: go test -v ./internal/server/auth",go test -v ./internal/server/auth
+06:Y033.c1,6,Y,33,1,True,False,False,False,0.0016666666666666668,0.0,0.008928571428571428,direct,uncertain,verification,verification,"['R3', 'R4', 'R5', 'R6', 'R7']","['R3', 'R4', 'R5', 'R6', 'R7']","06:Y033.c1 `go test -v -run TestEvaluationReason_AllScenarios ./internal/server`. Focused run executes missing/disabled/no-rule/match cases before panic at GetEvaluationRules nil interface-to-slice assertion. Y34/Y35 correct mock fixture; credits partial named coverage and actionable fixture failure, not suite pass.",First temporary test run has some reason-bearing logs but panics in store mock before suite completes; internally mixed behavioral support and harness failure cannot earn whole-test direct credit. Component: go test -v -run TestEvaluationReason_AllScenarios ./internal/server,go test -v -run TestEvaluationReason_AllScenarios ./internal/server
+06:Y035.c1,6,Y,35,1,True,False,False,False,0.0016666666666666668,0.0,0.008928571428571428,direct,uncertain,verification,verification,"['R3', 'R4', 'R5', 'R6', 'R7']","['R3', 'R4', 'R5', 'R6', 'R7']",06:Y035.c1 `go test -v -run TestEvaluationReason_AllScenarios ./internal/server`. Second focused run progresses farther then panics in GetEvaluationDistributions mock during fixture scenario; next test revision corrects setup. Does not prove all error paths passed.,Reason test again partially runs but panics on unexpected distribution mock in out-of-order case; no clean attribution of complete intended branch coverage. Component: go test -v -run TestEvaluationReason_AllScenarios ./internal/server,go test -v -run TestEvaluationReason_AllScenarios ./internal/server
+03:X016.c0,3,X,16,0,True,False,False,True,0.0023148148148148147,0.0,0.008928571428571428,non_direct,direct,verification,verification,['R4'],['R4'],"03:X016.c0 `go test -v ./internal/server/middleware/grpc`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. Agent-visible output was truncated; no hidden/elided output is credited. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.",Visible TestErrorUnaryInterceptor pass establishes baseline ordinary error mappings/success used to compare the edited mapper; source table read at X013. Component: go test -v ./internal/server/middleware/grpc,go test -v ./internal/server/middleware/grpc
+08:Y055.c0,8,Y,55,0,False,True,False,False,0.0020491803278688526,0.0,0.0078125,non_direct,non_direct,administration,verification,[],"['R1', 'R6', 'R7']","{'trace': 'evidence_08.json run Y action 55, component 0', 'command': 'cat patch.txt', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reads same patch just reviewed in Y053; no relevant code or docs change.,cat patch.txt
+08:Y034.c0,8,Y,34,0,True,False,False,False,0.0020491803278688526,0.0,0.0078125,non_direct,uncertain,verification,verification,['R6'],['R6'],"{'trace': 'evidence_08.json run Y action 34, component 0', 'command': 'pytest tests/unit/completion/test_completer.py', 'observation': 'Completer baseline suite exercises general completion before edits but does not cover renamed final command; failures are teardown environment related.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 1, 'agent_saw_truncated': False}",Generic completer baseline gives 81 passes/1 xfail then X11 teardown error; no specific tab-select registration or provider migration assertion is evidenced.,pytest tests/unit/completion/test_completer.py
+06:X023.c1,6,X,23,1,True,False,False,True,0.0009191176470588235,0.0,0.005952380952380952,direct,non_direct,verification,verification,"['R1', 'R2', 'R8', 'R9']","['R8', 'R9']","06:X023.c1 `grep -n 'fliptEvaluationReason' swagger/flipt.swagger.json`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",Search only repeats reason definition/reference locations; response content already reviewed and enum values inspected later. Component: grep -n 'fliptEvaluationReason' swagger/flipt.swagger.json,grep -n 'fliptEvaluationReason' swagger/flipt.swagger.json
+06:X030.c1,6,X,30,1,True,False,False,True,0.0009191176470588235,0.0,0.005952380952380952,non_direct,direct,verification,verification,['R9'],"['R2', 'R8', 'R9']","06:X030.c1 `sed -n '1380,1405p' swagger/flipt.swagger.json`. Swagger enum read repeats generated string enum confirmation with no schema change.","Swagger definition is string type listing all five required names and UNKNOWN default; first full enum-definition check beyond reference-location grep. Component: sed -n '1380,1405p' swagger/flipt.swagger.json","sed -n '1380,1405p' swagger/flipt.swagger.json"
+06:X029.c1,6,X,29,1,True,True,False,True,0.0009191176470588235,0.0,0.005952380952380952,direct,non_direct,verification,administration,"['R1', 'R2', 'R4', 'R5', 'R6', 'R8']",[],06:X029.c1 `cat /tmp/test.status 2>/dev/null`. Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.,"Background process marker, wait, numeric status read and diff summary are operational bookkeeping; substantive checks are the test log and source/schema reads. Component: cat /tmp/test.status 2>/dev/null",cat /tmp/test.status 2>/dev/null
+06:X022.c2,6,X,22,2,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.005952380952380952,direct,non_direct,verification,exploration,"['R1', 'R2', 'R8', 'R9']",[],"06:X022.c2 `sed -n '1270,1325p' swagger/flipt.swagger.json`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.","Inspected Swagger range is existing batch/comparison schema, not new reason definition; no new task-specific property shown. Component: sed -n '1270,1325p' swagger/flipt.swagger.json","sed -n '1270,1325p' swagger/flipt.swagger.json"
+06:X026.c1,6,X,26,1,True,True,False,True,0.0009191176470588235,0.0,0.005952380952380952,direct,non_direct,verification,administration,"['R3', 'R4', 'R5', 'R6', 'R7']",[],06:X026.c1 `cat /tmp/test.status 2>/dev/null`. Test status 1 and log specifically show evaluator.go resp redeclared against named return; X27 removes local var declaration. This supplies actionable compiler defect rather than a semantic pass.,Reading exit-status file only supplies process bookkeeping; substantive compile failure is in log component X026.c3. Component: cat /tmp/test.status 2>/dev/null,cat /tmp/test.status 2>/dev/null
+06:X028.c1,6,X,28,1,True,False,False,False,0.0009191176470588235,0.0,0.005952380952380952,uncertain,direct,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7']","['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8']",06:X028.c1 `(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)`. Background test launch has only tests-started in this call; completion supported separately by X29 log.,"Second background test run has later status0 and visible internal/server/rpc passes at X029, after redeclaration repair; supports evaluator regression and schema compilation. Component: (go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)",(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)
+06:X025.c3,6,X,25,3,True,False,False,False,0.0009191176470588235,0.0,0.005952380952380952,uncertain,direct,verification,verification,"['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7']","['R3', 'R4', 'R5', 'R6', 'R7']","06:X025.c3 `(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)`. Background test launches but call only prints tests-started; attributable completion/result is read in X26, not established by launch.",Background go test result observed at X026 reports resp redeclared in evaluator; fix X027 changes var block to assignment. Component: (go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status),(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)
+06:X026.c0,6,X,26,0,True,False,False,True,0.0009191176470588235,0.0,0.005952380952380952,direct,non_direct,verification,verification,"['R1', 'R2', 'R8']","['R2', 'R8']","06:X026.c0 `git diff -- rpc/flipt/flipt.pb.go | head -100`. Generated pb.go diff exposes reason enum/map and index shifts; confirms Go declaration output matches proto, distinct from test compilation.",Generated enum diff repeats the five constants and enum integration already visible in X022; changed command alone adds no distinct property coverage. Component: git diff -- rpc/flipt/flipt.pb.go | head -100,git diff -- rpc/flipt/flipt.pb.go | head -100
+06:X029.c3,6,X,29,3,True,False,False,True,0.0009191176470588235,0.0,0.005952380952380952,direct,non_direct,verification,verification,"['R1', 'R2', 'R4', 'R5', 'R6', 'R8']","['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7', 'R8']",06:X029.c3 `tail -30 /tmp/test.log 2>/dev/null`. Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.,Displays successful server/rpc test log already attributed to X028 test execution; this status/log polling adds no distinct test property. Component: tail -30 /tmp/test.log 2>/dev/null,tail -30 /tmp/test.log 2>/dev/null
+07:Y013.c0,7,Y,13,0,True,False,False,True,0.004032258064516129,0.0078125,0.0,direct,non_direct,exploration,exploration,"['R2', 'R4']",[],"{'trace': 'evidence_07.json run Y action 13, component 0', 'command': ""sed -n '175,225p' qutebrowser/utils/utils.py"", 'observation': 'Reads complete factory/read_text boundary while deciding whether zip reads need changes.', 'downstream': 'Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Reprints unchanged resource/preload/read_file code already read in Y001.,"sed -n '175,225p' qutebrowser/utils/utils.py"
+03:Y004.c1,3,Y,4,1,True,True,False,True,0.004166666666666667,0.0,0.0,direct,non_direct,edit,administration,"['R1', 'R2', 'R3', 'R4']",[],"03:Y004.c1 `gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go`. Formats edited auth and grpc middleware, preserving parsable Go imports and the added context branches shown by following diff.","Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go
+07:X000.c0,7,X,0,0,True,False,False,True,0.005952380952380952,0.015625,0.0,non_direct,direct,exploration,exploration,"['R2', 'R4']","['R2', 'R4']","{'trace': 'evidence_07.json run X action 0, component 0', 'command': 'grep -R ""def _glob_resources\\|def preload_resources\\|_glob_resources"" -n . --exclude-dir=.git', 'observation': 'Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.', 'downstream': 'Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Search locates preload_resources at utils.py:196; X001 inspects this implementation and X003 replaces its incompatible glob loop.,"grep -R ""def _glob_resources\|def preload_resources\|_glob_resources"" -n . --exclude-dir=.git"
+07:Y005.c0,7,Y,5,0,True,False,False,True,0.004032258064516129,0.0078125,0.0,direct,non_direct,exploration,exploration,"['R2', 'R4']",[],"{'trace': 'evidence_07.json run Y action 5, component 0', 'command': 'git grep ""_resource_path""', 'observation': 'Identifies every _resource_path caller so path-type changes can preserve readers.', 'downstream': 'Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Lists _resource_path uses already visible in inspected source, plus unrelated release script variables.","git grep ""_resource_path"""
+07:Y000.c0,7,Y,0,0,True,False,False,True,0.004032258064516129,0.0078125,0.0,non_direct,direct,exploration,exploration,['R4'],['R4'],"{'trace': 'evidence_07.json run Y action 0, component 0', 'command': 'git grep -n ""preload_resources""', 'observation': 'Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.', 'downstream': 'Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Locates preload_resources and its cache-test/startup callers, subsequently inspected and changed.","git grep -n ""preload_resources"""
+03:X030.c0,3,X,30,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R3', 'R4']","['R3', 'R4']","03:X030.c0 `sed -n '1,125p' internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.","Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: sed -n '1,125p' internal/server/auth/middleware.go","sed -n '1,125p' internal/server/auth/middleware.go"
+03:X032.c0,3,X,32,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R3', 'R4']","['R3', 'R4']",03:X032.c0 `cat internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.,"Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: cat internal/server/auth/middleware.go",cat internal/server/auth/middleware.go
+05:Y025.c0,5,Y,25,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4', 'R5', 'R6', 'R8']","['R1', 'R2', 'R4', 'R8']","05:Y025.c0 `sed -n '310,350p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Read logic shows updateLiveness depends on Playback state/current last chunk as well as info state; setLiveness already guards unchanged value before emitting. Final removal preserves guard while centralizing mapping in setInfoState.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: sed -n '310,350p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts","sed -n '310,350p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:Y031.c0,5,Y,31,0,True,True,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,administration,['R9'],[],"05:Y031.c0 `node -e 'const pkg = require(""./package.json""); console.log(pkg.scripts);'`. Package scripts/Jest configuration identify available lint/type/test commands for validation after initial attempts used unavailable entrypoints.","Tooling configuration/script discovery, file status or patch staging/packaging; no task property is implemented or checked by this component. Component: node -e 'const pkg = require(""./package.json""); console.log(pkg.scripts);'","node -e 'const pkg = require(""./package.json""); console.log(pkg.scripts);'"
+05:Y027.c0,5,Y,27,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4', 'R5', 'R6', 'R8']","['R1', 'R3', 'R4']","05:Y027.c0 `sed -n '460,495p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Read logic shows updateLiveness depends on Playback state/current last chunk as well as info state; setLiveness already guards unchanged value before emitting. Final removal preserves guard while centralizing mapping in setInfoState.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: sed -n '460,495p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts","sed -n '460,495p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:Y036.c0,5,Y,36,0,True,True,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,administration,['R9'],[],"05:Y036.c0 `node -e 'const pkg = require(""./package.json""); console.log(pkg.jest);'`. Package scripts/Jest configuration identify available lint/type/test commands for validation after initial attempts used unavailable entrypoints.","Tooling configuration/script discovery, file status or patch staging/packaging; no task property is implemented or checked by this component. Component: node -e 'const pkg = require(""./package.json""); console.log(pkg.jest);'","node -e 'const pkg = require(""./package.json""); console.log(pkg.jest);'"
+05:Y023.c0,5,Y,23,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4', 'R5', 'R6', 'R8']",['R9'],"05:Y023.c0 `sed -n '30,45p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Read logic shows updateLiveness depends on Playback state/current last chunk as well as info state; setLiveness already guards unchanged value before emitting. Final removal preserves guard while centralizing mapping in setInfoState.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: sed -n '30,45p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts","sed -n '30,45p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:Y018.c0,5,Y,18,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R2', 'R9']",['R9'],"05:Y018.c0 `sed -n '40,65p' src/voice-broadcast/index.ts`. index.ts defines VoiceBroadcastLiveness live/not-live/grey and Started/Stopped/Paused/Resumed info enum, guiding utility mapping/imports retained in final patch.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: sed -n '40,65p' src/voice-broadcast/index.ts","sed -n '40,65p' src/voice-broadcast/index.ts"
+04:Y006.c1,4,Y,6,1,True,True,False,True,0.003048780487804878,0.0,0.0,direct,non_direct,edit,administration,"['R1', 'R2', 'R3', 'R4']",[],04:Y006.c1 `gofmt -w config/config.go`. Formats modified config struct/constants/loader; following visible diff confirms changes were applied before interrupted test sequence.,"Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: gofmt -w config/config.go",gofmt -w config/config.go
+04:X003.c3,4,X,3,3,True,False,False,True,0.0026595744680851063,0.006578947368421052,0.0,direct,non_direct,exploration,exploration,"['R2', 'R3', 'R4']",[],"04:X003.c3 `cat config/local.yml`. Visible config fixtures show absent optional keys, deprecated cache keys and advanced explicit values. This supports conditional loading without overriding Default and default/deprecated equality checks.",Local/production YAML contains existing URL/migration/TLS settings but is not modified or used by the final loader probes. Component: cat config/local.yml,cat config/local.yml
+05:X007.c0,5,X,7,0,True,False,False,True,0.002717391304347826,0.009615384615384616,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4', 'R5', 'R6', 'R8']","['R1', 'R3', 'R4', 'R5', 'R6']","05:X007.c0 `sed -n '390,510p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Read logic shows updateLiveness depends on Playback state/current last chunk as well as info state; setLiveness already guards unchanged value before emitting. Final removal preserves guard while centralizing mapping in setInfoState.","Focused setter range repeats X006 source on unchanged code; no new call site or liveness rule is revealed. Component: sed -n '390,510p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts","sed -n '390,510p' src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:X006.c1,5,X,6,1,True,True,False,True,0.002717391304347826,0.009615384615384616,0.0,direct,non_direct,exploration,administration,['R9'],[],"05:X006.c1 `cat package.json | sed -n '1,180p'`. Package scripts/Jest configuration identify available lint/type/test commands for validation after initial attempts used unavailable entrypoints. Agent-visible output was truncated; no hidden/elided output is credited.","Package scripts lookup supplies available tooling commands only, not liveness behavior. Component: cat package.json | sed -n '1,180p'","cat package.json | sed -n '1,180p'"
+04:X003.c5,4,X,3,5,True,False,False,True,0.0026595744680851063,0.006578947368421052,0.0,direct,non_direct,exploration,exploration,"['R2', 'R3', 'R4']",[],"04:X003.c5 `cat config/production.yml`. Visible config fixtures show absent optional keys, deprecated cache keys and advanced explicit values. This supports conditional loading without overriding Default and default/deprecated equality checks.",Local/production YAML contains existing URL/migration/TLS settings but is not modified or used by the final loader probes. Component: cat config/production.yml,cat config/production.yml
+10:Y005.c5,10,Y,5,5,True,False,False,True,0.0026595744680851063,0.005681818181818182,0.0,direct,non_direct,exploration,exploration,['R1'],[],"{'trace': 'evidence_10.json run Y action 5, component 5', 'command': ""grep -RIn --include='*.go' 'wpVulnCaches' ."", 'observation': 'Finds all map pointer reads/writes and report constructor sites changed in final patch.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Re-enumerates cache pointer sites already read in Y002/Y005.c0/c1; no new caller semantics beyond those inputs.,grep -RIn --include='*.go' 'wpVulnCaches' .
+10:Y007.c0,10,Y,7,0,True,False,False,True,0.0026595744680851063,0.005681818181818182,0.0,direct,non_direct,exploration,exploration,['R1'],[],"{'trace': 'evidence_10.json run Y action 7, component 0', 'command': 'head -12 go.mod', 'observation': 'Reads Go 1.15 module setting, relevant to avoiding modern formatter build-tag churn later reverted.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Shows module name and Go 1.15 version; final code adds no language feature needing this lookup and no specific used decision is evidenced.,head -12 go.mod
+10:Y004.c1,10,Y,4,1,True,False,False,True,0.0026595744680851063,0.005681818181818182,0.0,direct,non_direct,exploration,exploration,['R5'],[],"{'trace': 'evidence_10.json run Y action 4, component 1', 'command': ""grep -RIn --include='*.go' 'WordPressPackages' config models scan server | head -100"", 'observation': 'Finds package collection and downstream model filter consumers, constraining retained package representation.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Enumerates package definitions and scan/model uses already available from source; no further change is driven by these matches.,grep -RIn --include='*.go' 'WordPressPackages' config models scan server | head -100
+10:Y005.c2,10,Y,5,2,True,False,False,True,0.0026595744680851063,0.005681818181818182,0.0,direct,non_direct,exploration,exploration,['R4'],[],"{'trace': 'evidence_10.json run Y action 5, component 2', 'command': ""sed -n '140,165p' config/config.go"", 'observation': 'Reads global WpIgnoreInactive flag while assessing migration to per-server gate.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Displays global WpIgnoreInactive configuration declaration already found in Y003.c2.,"sed -n '140,165p' config/config.go"
+03:X011.c0,3,X,11,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R3']",[],"03:X011.c0 `grep -rn ""context.Canceled\|context.DeadlineExceeded"" .`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.","Only oplock testing cancellation handling appears; no use of that testing path in the middleware repair or submitted patch. Component: grep -rn ""context.Canceled\|context.DeadlineExceeded"" .","grep -rn ""context.Canceled\|context.DeadlineExceeded"" ."
+10:Y007.c2,10,Y,7,2,True,False,False,True,0.0026595744680851063,0.005681818181818182,0.0,non_direct,direct,exploration,exploration,['R3'],['R3'],"{'trace': 'evidence_10.json run Y action 7, component 2', 'command': ""grep -RIn --include='*.go' 'type ServerConfig\\|Servers map\\|Servers ' config/config.go | head"", 'observation': 'Finds generic Servers map declaration; exact per-server WordPress settings already established.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Shows Servers is map[string]ServerInfo, grounding direct per-server lookup used in final guard.",grep -RIn --include='*.go' 'type ServerConfig\|Servers map\|Servers ' config/config.go | head
+03:X012.c0,3,X,12,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,['R4'],[],"03:X012.c0 `grep -rn ""status\.Code\|status\.FromError\|status\.Error"" .`. Visible status references include the existing status forwarding path and auth error sites; this constrains preservation while adding context classification. Only visible clipped output is credited. Agent-visible output was truncated; no hidden/elided output is credited.","Broad status references include generated Unimplemented methods and already known mappings; no new solution-specific content is established from this broad truncated search. Component: grep -rn ""status\.Code\|status\.FromError\|status\.Error"" .","grep -rn ""status\.Code\|status\.FromError\|status\.Error"" ."
+03:X025.c0,3,X,25,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R3']","['R1', 'R2', 'R3']","03:X025.c0 `grep -rn ""UnaryServerInterceptor"" internal/server/auth/`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.","Interceptor declaration locations repeat previously established registration context; no new inspected implementation or property. Component: grep -rn ""UnaryServerInterceptor"" internal/server/auth/","grep -rn ""UnaryServerInterceptor"" internal/server/auth/"
+03:X026.c0,3,X,26,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R3']","['R1', 'R2', 'R3']","03:X026.c0 `grep -rn ""UnaryServerInterceptor"" internal/`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.","Interceptor declaration locations repeat previously established registration context; no new inspected implementation or property. Component: grep -rn ""UnaryServerInterceptor"" internal/","grep -rn ""UnaryServerInterceptor"" internal/"
+05:Y020.c0,5,Y,20,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,['R9'],['R9'],"05:Y020.c0 `sed -n '44,55p' src/voice-broadcast/index.ts`. Index export location is inspected to add helper alongside other utils, and final patch adds that export.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: sed -n '44,55p' src/voice-broadcast/index.ts","sed -n '44,55p' src/voice-broadcast/index.ts"
+05:Y016.c0,5,Y,16,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4']","['R1', 'R3', 'R4']","05:Y016.c0 `git grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Visible references identify independent updateLiveness calls and liveness writes in Playback and setInfoState. Final patch removes updateLiveness and routes writes through info state mapping.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: git grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts","git grep -n ""updateLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+05:Y017.c0,5,Y,17,0,True,False,False,True,0.002840909090909091,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R3', 'R4']","['R1', 'R3', 'R4']","05:Y017.c0 `git grep -n ""liveness\|setLiveness\|getLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts`. Visible references identify independent updateLiveness calls and liveness writes in Playback and setInfoState. Final patch removes updateLiveness and routes writes through info state mapping.","Focused searches/source displays repeat already visible updater/setter/import/export context at Y001/Y002/Y005/Y006/Y015; later edit uses the same known sites, without new semantic content from this repetition. Component: git grep -n ""liveness\|setLiveness\|getLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts","git grep -n ""liveness\|setLiveness\|getLiveness"" src/voice-broadcast/models/VoiceBroadcastPlayback.ts"
+06:X004.c6,6,X,4,6,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X004.c6 `head -40 rpc/flipt/flipt.pb.go`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Build/generator recipe, plugin/version inspection supplies generation setup; this component neither changes schema nor checks an outcome property. Component: head -40 rpc/flipt/flipt.pb.go",head -40 rpc/flipt/flipt.pb.go
+06:X004.c1,6,X,4,1,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X004.c1 `cat buf.gen.yaml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Build/generator recipe, plugin/version inspection supplies generation setup; this component neither changes schema nor checks an outcome property. Component: cat buf.gen.yaml",cat buf.gen.yaml
+06:X004.c0,6,X,4,0,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X004.c0 `sed -n '60,110p' Taskfile.yml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.","Build/generator recipe, plugin/version inspection supplies generation setup; this component neither changes schema nor checks an outcome property. Component: sed -n '60,110p' Taskfile.yml","sed -n '60,110p' Taskfile.yml"
+06:X003.c0,6,X,3,0,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X003.c0 `grep -n ""buf\|swagger\|generate"" Taskfile.yml rpc/flipt/flipt.yaml buf.gen.yaml buf.public.gen.yaml | head -100`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.","Build/generator recipe, plugin/version inspection supplies generation setup; this component neither changes schema nor checks an outcome property. Component: grep -n ""buf\|swagger\|generate"" Taskfile.yml rpc/flipt/flipt.yaml buf.gen.yaml buf.public.gen.yaml | head -100","grep -n ""buf\|swagger\|generate"" Taskfile.yml rpc/flipt/flipt.yaml buf.gen.yaml buf.public.gen.yaml | head -100"
+06:Y023.c0,6,Y,23,0,True,False,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R8']",['R2'],"06:Y023.c0 `grep -n -A 10 ""enum "" rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1–10 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.","Response/enum excerpts repeat Y016/Y017 on unchanged schema before the edit; no additional field contract or enum convention is exposed. Component: grep -n -A 10 ""enum "" rpc/flipt/flipt.proto","grep -n -A 10 ""enum "" rpc/flipt/flipt.proto"
+06:Y022.c0,6,Y,22,0,True,False,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R8']","['R1', 'R2', 'R8']","06:Y022.c0 `sed -n '55,90p' rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1–10 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.","Response/enum excerpts repeat Y016/Y017 on unchanged schema before the edit; no additional field contract or enum convention is exposed. Component: sed -n '55,90p' rpc/flipt/flipt.proto","sed -n '55,90p' rpc/flipt/flipt.proto"
+06:Y021.c0,6,Y,21,0,True,False,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,exploration,"['R1', 'R8', 'R9']",[],"06:Y021.c0 `git grep -n ""EvaluationResponse""`. EvaluationResponse search identifies evaluator construction plus protobuf and Swagger response definitions. Final patch changes these three layers to carry reason.","EvaluationResponse reference search repeats Y001 with no new implementation content. Component: git grep -n ""EvaluationResponse""","git grep -n ""EvaluationResponse"""
+06:Y020.c0,6,Y,20,0,True,False,False,True,0.0016666666666666668,0.0078125,0.0,non_direct,direct,exploration,exploration,[],"['R1', 'R8']",06:Y020.c0 `cat internal/server/middleware.go`. No additional response reference/tool file or middleware cache behavior supplies a distinct reason assignment decision beyond already located evaluator/proto/schema.,Middleware shows evaluation metadata/success/error handling; reason stays on evaluator response and no transport-specific assignment is needed. Component: cat internal/server/middleware.go,cat internal/server/middleware.go
+06:Y013.c3,6,Y,13,3,True,False,False,True,0.0016666666666666668,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y013.c3 `go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0",go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0
+06:Y013.c2,6,Y,13,2,True,False,False,True,0.0016666666666666668,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y013.c2 `go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.12.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.12.0",go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.12.0
+06:Y013.c1,6,Y,13,1,True,False,False,True,0.0016666666666666668,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y013.c1 `go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.12.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.12.0",go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.12.0
+06:Y013.c0,6,Y,13,0,True,False,False,True,0.0016666666666666668,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y013.c0 `go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: go install github.com/bufbuild/buf/cmd/buf@v1.9.0",go install github.com/bufbuild/buf/cmd/buf@v1.9.0
+06:Y012.c0,6,Y,12,0,True,True,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y012.c0 `cat _tools/go.mod`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema. Agent-visible output was truncated; no hidden/elided output is credited.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: cat _tools/go.mod",cat _tools/go.mod
+06:Y011.c0,6,Y,11,0,True,False,False,True,0.0016666666666666668,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y011.c0 `go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1",go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
+06:Y004.c2,6,Y,4,2,True,True,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y004.c2 `cat script/bootstrap`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: cat script/bootstrap",cat script/bootstrap
+06:Y004.c0,6,Y,4,0,True,True,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y004.c0 `cat buf.gen.yaml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: cat buf.gen.yaml",cat buf.gen.yaml
+06:Y003.c0,6,Y,3,0,True,True,False,True,0.0016666666666666668,0.0078125,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:Y003.c0 `cat Taskfile.yml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: cat Taskfile.yml",cat Taskfile.yml
+08:Y016.c0,8,Y,16,0,True,False,False,True,0.0020491803278688526,0.004032258064516129,0.0,non_direct,direct,exploration,exploration,['R6'],['R6'],"{'trace': 'evidence_08.json run Y action 16, component 0', 'command': 'git grep -n ""delete_buffer"" qutebrowser/', 'observation': 'Private delete_buffer callback naming is internal; rename adds no new user-visible completion requirement.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Enumerates delete_buffer callback definition and both list-category consumers; Y037 renames all consistently.,"git grep -n ""delete_buffer"" qutebrowser/"
+08:Y010.c0,8,Y,10,0,True,False,False,True,0.0020491803278688526,0.004032258064516129,0.0,non_direct,direct,exploration,exploration,['R6'],['R6'],"{'trace': 'evidence_08.json run Y action 10, component 0', 'command': 'git grep -i ""tab-take""', 'observation': 'Broad tab-take occurrence search repeats known related command and test locations.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Shows tab-take shares other_buffer completion; final rename preserves that consumer with other_tabs rather than leaving broken reference.,"git grep -i ""tab-take"""
+08:Y006.c0,8,Y,6,0,True,False,False,True,0.0020491803278688526,0.004032258064516129,0.0,direct,non_direct,exploration,exploration,['R6'],[],"{'trace': 'evidence_08.json run Y action 6, component 0', 'command': 'git grep -n ""miscmodels.other_buffer"" qutebrowser/', 'observation': 'Locates other-window provider dependency renamed by Y040.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Repeats tab_take completion reference already found by Y002.,"git grep -n ""miscmodels.other_buffer"" qutebrowser/"
+08:Y003.c0,8,Y,3,0,True,False,False,True,0.0020491803278688526,0.004032258064516129,0.0,direct,non_direct,exploration,exploration,['R1'],[],"{'trace': 'evidence_08.json run Y action 3, component 0', 'command': 'git grep -n ""tab_select"" qutebrowser/', 'observation': 'No tab_select definition exists, establishing missing intended primary command.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 1, 'agent_saw_truncated': False}",No tab_select matches; negative-only naming search adds no implementation content.,"git grep -n ""tab_select"" qutebrowser/"
+10:X048.c0,10,X,48,0,True,True,False,True,0.0021929824561403508,0.0,0.0,direct,non_direct,edit,administration,"['R4', 'R5']",[],"{'trace': 'evidence_10.json run X action 48, component 0', 'command': 'cat << \'EOF\' > test_verify.go\npackage main\n\nimport (\n\t""fmt""\n\t""os""\n\n\t""github.com/future-architect/vuls/config""\n\t""github.com/future-architect/vuls/models""\n)\n\nfunc main() {\n\tfmt.Println(""Testing WordPress package filtering and config..."")\n\n\t// 1. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = true\n\tconfig.Conf = config.Config{\n\t\tServers: map[string]config.ServerInfo{\n\t\t\t""myserver"": {\n\t\t\t\tServerName: ""myserver"",\n\t\t\t\tWordPress: config.WordPressConf{\n\t\t\t\t\tIgnoreInactive: true,\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t}\n\n\tres := models.ScanResult{\n\t\tServerName: ""myserver"",\n\t\tWordPressPackages: &models.WordPressPackages{\n\t\t\t{Name: ""core"", Version: ""5.4"", Type: models.WPCore},\n\t\t\t{Name: ""active-plugin"", Status: ""active"", Version: ""1.0"", Type: models.WPPlugin},\n\t\t\t{Name: ""inactive-plugin"", Status: ""inactive"", Version: ""1.0"", Type: models.WPPlugin},\n\t\t},\n\t\tScannedCves: models.VulnInfos{\n\t\t\t""CVE-2020-0001"": {\n\t\t\t\tCveID: ""CVE-2020-0001"",\n\t\t\t\tWpPackageFixStats: []models.WpPackageFixStatus{\n\t\t\t\t\t{Name: ""active-plugin"", FixedIn: ""1.1""},\n\t\t\t\t},\n\t\t\t},\n\t\t\t""CVE-2020-0002"": {\n\t\t\t\tCveID: ""CVE-2020-0002"",\n\t\t\t\tWpPackageFixStats: []models.WpPackageFixStatus{\n\t\t\t\t\t{Name: ""inactive-plugin"", FixedIn: ""1.1""},\n\t\t\t\t},\n\t\t\t},\n\t\t\t""CVE-2020-0003"": {\n\t\t\t\tCveID: ""CVE-2020-0003"",\n\t\t\t\t// OS / non-wp vuln\n\t\t\t},\n\t\t},\n\t}\n\n\tfiltered := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered.ScannedCves[""CVE-2020-0001""]; !ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0001 for active plugin should be kept!\\n"")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered.ScannedCves[""CVE-2020-0002""]; ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\\n"")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered.ScannedCves[""CVE-2020-0003""]; !ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0003 for non-wp vuln should be kept!\\n"")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(""PASS: FilterInactiveWordPressLibs with Server config IgnoreInactive = true"")\n\n\t// 2. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = false but global WpIgnoreInactive = true\n\tconfig.Conf.Servers[""myserver""] = config.ServerInfo{\n\t\tServerName: ""myserver"",\n\t\tWordPress: config.WordPressConf{\n\t\t\tIgnoreInactive: false,\n\t\t},\n\t}\n\tconfig.Conf.WpIgnoreInactive = true\n\n\tfiltered2 := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered2.ScannedCves[""CVE-2020-0001""]; !ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0001 for active plugin should be kept!\\n"")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered2.ScannedCves[""CVE-2020-0002""]; ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\\n"")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(""PASS: FilterInactiveWordPressLibs with Global WpIgnoreInactive = true"")\n\n\t// 3. Test FilterInactiveWordPressLibs with both false\n\tconfig.Conf.WpIgnoreInactive = false\n\tfiltered3 := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered3.ScannedCves[""CVE-2020-0001""]; !ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0001 should be kept!\\n"")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered3.ScannedCves[""CVE-2020-0002""]; !ok {\n\t\tfmt.Printf(""FAIL: CVE-2020-0002 should be kept when ignoreInactive = false!\\n"")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(""PASS: FilterInactiveWordPressLibs with both false"")\n\n\tfmt.Println(""All verification checks PASSED!"")\n}\nEOF', 'observation': 'Writes temporary verification harness for server/global/disabled model CVE filtering with active/inactive packages; X048.c1 executes it. No permanent implementation credit beyond enabling concrete check.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Writes temporary verification program; assertions are executed by separate go run component.,"cat << 'EOF' > test_verify.go
+package main
+
+import (
+	""fmt""
+	""os""
+
+	""github.com/future-architect/vuls/config""
+	""github.com/future-architect/vuls/models""
+)
+
+func main() {
+	fmt.Println(""Testing WordPress package filtering and config..."")
+
+	// 1. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = true
+	config.Conf = config.Config{
+		Servers: map[string]config.ServerInfo{
+			""myserver"": {
+				ServerName: ""myserver"",
+				WordPress: config.WordPressConf{
+					IgnoreInactive: true,
+				},
+			},
+		},
+	}
+
+	res := models.ScanResult{
+		ServerName: ""myserver"",
+		WordPressPackages: &models.WordPressPackages{
+			{Name: ""core"", Version: ""5.4"", Type: models.WPCore},
+			{Name: ""active-plugin"", Status: ""active"", Version: ""1.0"", Type: models.WPPlugin},
+			{Name: ""inactive-plugin"", Status: ""inactive"", Version: ""1.0"", Type: models.WPPlugin},
+		},
+		ScannedCves: models.VulnInfos{
+			""CVE-2020-0001"": {
+				CveID: ""CVE-2020-0001"",
+				WpPackageFixStats: []models.WpPackageFixStatus{
+					{Name: ""active-plugin"", FixedIn: ""1.1""},
+				},
+			},
+			""CVE-2020-0002"": {
+				CveID: ""CVE-2020-0002"",
+				WpPackageFixStats: []models.WpPackageFixStatus{
+					{Name: ""inactive-plugin"", FixedIn: ""1.1""},
+				},
+			},
+			""CVE-2020-0003"": {
+				CveID: ""CVE-2020-0003"",
+				// OS / non-wp vuln
+			},
+		},
+	}
+
+	filtered := res.FilterInactiveWordPressLibs()
+	if _, ok := filtered.ScannedCves[""CVE-2020-0001""]; !ok {
+		fmt.Printf(""FAIL: CVE-2020-0001 for active plugin should be kept!\n"")
+		os.Exit(1)
+	}
+	if _, ok := filtered.ScannedCves[""CVE-2020-0002""]; ok {
+		fmt.Printf(""FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\n"")
+		os.Exit(1)
+	}
+	if _, ok := filtered.ScannedCves[""CVE-2020-0003""]; !ok {
+		fmt.Printf(""FAIL: CVE-2020-0003 for non-wp vuln should be kept!\n"")
+		os.Exit(1)
+	}
+	fmt.Println(""PASS: FilterInactiveWordPressLibs with Server config IgnoreInactive = true"")
+
+	// 2. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = false but global WpIgnoreInactive = true
+	config.Conf.Servers[""myserver""] = config.ServerInfo{
+		ServerName: ""myserver"",
+		WordPress: config.WordPressConf{
+			IgnoreInactive: false,
+		},
+	}
+	config.Conf.WpIgnoreInactive = true
+
+	filtered2 := res.FilterInactiveWordPressLibs()
+	if _, ok := filtered2.ScannedCves[""CVE-2020-0001""]; !ok {
+		fmt.Printf(""FAIL: CVE-2020-0001 for active plugin should be kept!\n"")
+		os.Exit(1)
+	}
+	if _, ok := filtered2.ScannedCves[""CVE-2020-0002""]; ok {
+		fmt.Printf(""FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\n"")
+		os.Exit(1)
+	}
+	fmt.Println(""PASS: FilterInactiveWordPressLibs with Global WpIgnoreInactive = true"")
+
+	// 3. Test FilterInactiveWordPressLibs with both false
+	config.Conf.WpIgnoreInactive = false
+	filtered3 := res.FilterInactiveWordPressLibs()
+	if _, ok := filtered3.ScannedCves[""CVE-2020-0001""]; !ok {
+		fmt.Printf(""FAIL: CVE-2020-0001 should be kept!\n"")
+		os.Exit(1)
+	}
+	if _, ok := filtered3.ScannedCves[""CVE-2020-0002""]; !ok {
+		fmt.Printf(""FAIL: CVE-2020-0002 should be kept when ignoreInactive = false!\n"")
+		os.Exit(1)
+	}
+	fmt.Println(""PASS: FilterInactiveWordPressLibs with both false"")
+
+	fmt.Println(""All verification checks PASSED!"")
+}
+EOF"
+10:X040.c0,10,X,40,0,True,False,False,True,0.0021929824561403508,0.0,0.0,non_direct,direct,edit,edit,"['R3', 'R4']","['R3', 'R4']","{'trace': 'evidence_10.json run X action 40, component 0', 'command': 'python3 -c \'\nwith open(""config/config.go"", ""r"") as f:\n    content = f.read()\n\ncontent = content.replace(""""""\\tIgnoreInactive bool   `json:""ignoreInactive,omitempty""`"""""", """"""\\tIgnoreInactive bool   `toml:""ignoreInactive,omitempty"" json:""ignoreInactive,omitempty""`"""""")\n\nwith open(""config/config.go"", ""w"") as f:\n    f.write(content)\n\'', 'observation': 'Adds TOML tag toml:""ignoreInactive,omitempty"" despite loader already copying server flag; no failing parse or test establishes necessity. Tag change survives but contribution to requested repair is unsupported.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Adds explicit TOML ignoreInactive tag on per-server WordPressConf field; final patch retains tag. Existing decoder may already accept untagged field, so this is explicit mapping support rather than proof of prior decoding failure.","python3 -c '
+with open(""config/config.go"", ""r"") as f:
+    content = f.read()
+
+content = content.replace(""""""\tIgnoreInactive bool   `json:""ignoreInactive,omitempty""`"""""", """"""\tIgnoreInactive bool   `toml:""ignoreInactive,omitempty"" json:""ignoreInactive,omitempty""`"""""")
+
+with open(""config/config.go"", ""w"") as f:
+    f.write(content)
+'"
+10:X043.c0,10,X,43,0,True,False,False,True,0.0021929824561403508,0.0,0.0,non_direct,direct,edit,edit,"['R4', 'R5']","['R3', 'R4', 'R5']","{'trace': 'evidence_10.json run X action 43, component 0', 'command': 'python3 -c \'\nwith open(""models/scanresults.go"", ""r"") as f:\n    content = f.read()\n\nold_code = """"""// FilterInactiveWordPressLibs is filter function.\nfunc (r ScanResult) FilterInactiveWordPressLibs() ScanResult {\n\\tif !config.Conf.Servers[r.ServerName].WordPress.IgnoreInactive {\n\\t\\treturn r\n\\t}""""""\n\nnew_code = """"""// FilterInactiveWordPressLibs is filter function.\nfunc (r ScanResult) FilterInactiveWordPressLibs() ScanResult {\n\\tignoreInactive := config.Conf.WpIgnoreInactive\n\\tif s, ok := config.Conf.Servers[r.ServerName]; ok {\n\\t\\tignoreInactive = ignoreInactive || s.WordPress.IgnoreInactive\n\\t}\n\\tif !ignoreInactive {\n\\t\\treturn r\n\\t}""""""\n\ncontent = content.replace(old_code, new_code)\n\nwith open(""models/scanresults.go"", ""w"") as f:\n    f.write(content)\n\'', 'observation': 'Extends already per-server model CVE filter to global OR. Requested per-server behavior already existed there; global CLI extension is a compatibility interpretation beyond explicit repair, and does not fix inactive helper.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Updates report model guard to combine global and per-server flags, keeping original Status filtering; retained final patch supports consistent enablement, with precedence scope unresolved.","python3 -c '
+with open(""models/scanresults.go"", ""r"") as f:
+    content = f.read()
+
+old_code = """"""// FilterInactiveWordPressLibs is filter function.
+func (r ScanResult) FilterInactiveWordPressLibs() ScanResult {
+\tif !config.Conf.Servers[r.ServerName].WordPress.IgnoreInactive {
+\t\treturn r
+\t}""""""
+
+new_code = """"""// FilterInactiveWordPressLibs is filter function.
+func (r ScanResult) FilterInactiveWordPressLibs() ScanResult {
+\tignoreInactive := config.Conf.WpIgnoreInactive
+\tif s, ok := config.Conf.Servers[r.ServerName]; ok {
+\t\tignoreInactive = ignoreInactive || s.WordPress.IgnoreInactive
+\t}
+\tif !ignoreInactive {
+\t\treturn r
+\t}""""""
+
+content = content.replace(old_code, new_code)
+
+with open(""models/scanresults.go"", ""w"") as f:
+    f.write(content)
+'"
+10:X021.c0,10,X,21,0,True,False,False,True,0.0021929824561403508,0.003787878787878788,0.0,direct,non_direct,exploration,exploration,['R5'],[],"{'trace': 'evidence_10.json run X action 21, component 0', 'command': ""sed -n '660,740p' scan/base.go"", 'observation': 'Reads scan JSON package creation showing Status comes from wp CLI and must be used unchanged.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Reads unchanged SSH WordPress discovery commands and package assembly; final patch modifies vulnerability/cache/report guards, not this discovery code.","sed -n '660,740p' scan/base.go"
+10:X025.c0,10,X,25,0,True,False,False,True,0.0021929824561403508,0.003787878787878788,0.0,non_direct,direct,exploration,exploration,['R3'],"['R3', 'R4']","{'trace': 'evidence_10.json run X action 25, component 0', 'command': 'head -n 60 config/tomlloader.go', 'observation': 'Loader header adds no new fact beyond already confirmed loaded server settings.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}","Shows TOML DecodeFile into Config and construction of server records, supporting the settings serialization path modified by final explicit IgnoreInactive tag.",head -n 60 config/tomlloader.go
+10:X033.c0,10,X,33,0,True,False,False,True,0.0021929824561403508,0.003787878787878788,0.0,direct,non_direct,exploration,exploration,['R4'],[],"{'trace': 'evidence_10.json run X action 33, component 0', 'command': 'grep -rn -i ""wordpress"" subcmds/', 'observation': 'Reads CLI/discovery template WordPress options informing intent to retain global flag alongside server setting.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Finds CLI/discovery WordPress mentions already covered by settings source; no additional used implementation detail is shown.,"grep -rn -i ""wordpress"" subcmds/"
+10:X031.c0,10,X,31,0,True,False,False,True,0.0021929824561403508,0.003787878787878788,0.0,direct,non_direct,exploration,exploration,['R5'],[],"{'trace': 'evidence_10.json run X action 31, component 0', 'command': 'grep -rn ""removeInactives"" .', 'observation': 'Finds theme/plugin removeInactives use and its existing test, showing helper is already correct.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Repeats removeInactives definition/call sites already visible in source/test inspection.,"grep -rn ""removeInactives"" ."
+10:X019.c0,10,X,19,0,True,False,False,True,0.0021929824561403508,0.003787878787878788,0.0,direct,non_direct,exploration,exploration,"['R3', 'R4']",[],"{'trace': 'evidence_10.json run X action 19, component 0', 'command': 'grep -rn ""IgnoreInactive"" .', 'observation': 'Finds tomlloader propagation of WordPress.IgnoreInactive and divergent global gate.', 'downstream': 'Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Repeats IgnoreInactive locations already seen in X007/X010/X011 without additional configuration content.,"grep -rn ""IgnoreInactive"" ."
+03:X029.c0,3,X,29,0,True,False,False,True,0.0023148148148148147,0.004807692307692308,0.0,direct,non_direct,exploration,exploration,"['R1', 'R2', 'R4']","['R1', 'R2', 'R4']","03:X029.c0 `sed -n '1,75p' internal/server/middleware/grpc/middleware.go`. ErrorUnaryInterceptor calls handler, returns nil unchanged, and maps typed application errors after status forwarding; context errors lack branches. Final patch adds errors.Is classification at this switch.","Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: sed -n '1,75p' internal/server/middleware/grpc/middleware.go","sed -n '1,75p' internal/server/middleware/grpc/middleware.go"
+06:X007.c6,6,X,7,6,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X007.c6 `grep -n 'protoc-gen-go\|buf' go.mod _tools/go.mod script/bootstrap | head -30`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.,"Build/generator recipe, plugin/version inspection supplies generation setup; this component neither changes schema nor checks an outcome property. Component: grep -n 'protoc-gen-go\|buf' go.mod _tools/go.mod script/bootstrap | head -30",grep -n 'protoc-gen-go\|buf' go.mod _tools/go.mod script/bootstrap | head -30
+06:X007.c8,6,X,7,8,True,False,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,exploration,"['R8', 'R9']",[],"06:X007.c8 `sed -n '1,120p' swagger/flipt.swagger.json`. Swagger response schema has existing properties without reason and enum definitions using strings. Final generated schema adds reference and string enum with five values.","Swagger top-level endpoint/info listing supplies no new reason-specific property beyond schema read at X002. Component: sed -n '1,120p' swagger/flipt.swagger.json","sed -n '1,120p' swagger/flipt.swagger.json"
+05:X010.c4,5,X,10,4,False,False,True,False,0.002717391304347826,0.0,0.0,non_direct,non_direct,administration,administration,[],[],05:X010.c4 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.,"Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: true",true
+05:Y041.c0,5,Y,41,0,True,False,True,False,0.002840909090909091,0.0,0.0,non_direct,uncertain,administration,administration,[],[],05:Y041.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission output absent and rc -1; marker and short-circuit patch read execution not established. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT,echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+05:Y035.c0,5,Y,35,0,False,True,False,False,0.002840909090909091,0.004807692307692308,0.0,non_direct,non_direct,exploration,administration,[],[],05:Y035.c0 `ls jest*`. Utility absence/style/nearby helper or test-path discovery adds no distinct mapping/state observation beyond focused Playback/type inspection; missing jest filename is navigation only.,"Tooling configuration/script discovery, file status or patch staging/packaging; no task property is implemented or checked by this component. Component: ls jest*",ls jest*
+04:Y013.c1,4,Y,13,1,False,False,True,False,0.003048780487804878,0.0,0.0,non_direct,non_direct,administration,administration,[],[],04:Y013.c1 `cat patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission wrapper rejects non-exact command; neither marker nor cat executed as shell action. Component: cat patch.txt,cat patch.txt
+04:Y013.c0,4,Y,13,0,False,False,True,False,0.003048780487804878,0.0,0.0,non_direct,non_direct,administration,administration,[],[],04:Y013.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission wrapper rejects non-exact command; neither marker nor cat executed as shell action. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT,echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+06:X027.c2,6,X,27,2,True,True,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,edit,administration,"['R3', 'R4', 'R5', 'R6', 'R7']",[],"06:X027.c2 `gofmt -w internal/server/evaluator.go`. Changes local var resp declaration to assignment and formats evaluator, fixing named-return compilation needed by deferred reason mapping. Final evaluator diff reflects this correction.","Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: gofmt -w internal/server/evaluator.go",gofmt -w internal/server/evaluator.go
+06:X008.c0,6,X,8,0,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X008.c0 `sed -n '1,45p' script/bootstrap`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.","Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: sed -n '1,45p' script/bootstrap","sed -n '1,45p' script/bootstrap"
+06:X008.c2,6,X,8,2,True,True,False,True,0.0009191176470588235,0.005681818181818182,0.0,direct,non_direct,exploration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X008.c2 `sed -n '1,100p' _tools/tools.go`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.","Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: sed -n '1,100p' _tools/tools.go","sed -n '1,100p' _tools/tools.go"
+06:X015.c0,6,X,15,0,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X015.c0 `(GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2 && GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2 && GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 && GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1; echo $? >/tmp/install2.status) >/tmp/install2.log 2>&1`. Background plugin installation eventually completes with all four executables in X20; X21 uses that tool directory to generate bindings and schema.,"Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: (GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2 && GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2 && GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 && GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1; echo $? >/tmp/install2.status) >/tmp/install2.log 2>&1",(GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2 && GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2 && GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 && GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1; echo $? >/tmp/install2.status) >/tmp/install2.log 2>&1
+06:X014.c4,6,X,14,4,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X014.c4 `ls -l /tmp/flipt-tools 2>/dev/null`. Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.","Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: ls -l /tmp/flipt-tools 2>/dev/null",ls -l /tmp/flipt-tools 2>/dev/null
+06:X014.c1,6,X,14,1,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],"06:X014.c1 `cat /tmp/install.status 2>/dev/null`. Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.","Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: cat /tmp/install.status 2>/dev/null",cat /tmp/install.status 2>/dev/null
+06:X013.c0,6,X,13,0,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X013.c0 `(GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0 >/tmp/install.log 2>&1; echo $? >/tmp/install.status)`. Background buf installation is confirmed by following install.status 0 and visible buf executable; this executable later runs X21 generation of required schema/bindings.,"Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: (GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0 >/tmp/install.log 2>&1; echo $? >/tmp/install.status)",(GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0 >/tmp/install.log 2>&1; echo $? >/tmp/install.status)
+06:X020.c4,6,X,20,4,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X020.c4 `ls -l /tmp/flipt-tools`. Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.,"Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: ls -l /tmp/flipt-tools",ls -l /tmp/flipt-tools
+06:X020.c1,6,X,20,1,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X020.c1 `cat /tmp/install2.status 2>/dev/null`. Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.,"Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: cat /tmp/install2.status 2>/dev/null",cat /tmp/install2.status 2>/dev/null
+06:X019.c4,6,X,19,4,True,False,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,administration,administration,"['R8', 'R9']",[],06:X019.c4 `ls -l /tmp/flipt-tools`. Visible log/listing newly shows grpc-gateway and openapiv2 executables; these are required plugins subsequently used to generate the REST schema.,"Observed tool availability, install subprocess startup/status or download polling only; no evaluator reason or wire-schema property checked. Component: ls -l /tmp/flipt-tools",ls -l /tmp/flipt-tools
+06:X024.c1,6,X,24,1,True,True,False,True,0.0009191176470588235,0.0,0.0,direct,non_direct,edit,administration,"['R3', 'R4', 'R5', 'R6', 'R7']",[],"06:X024.c1 `gofmt -w internal/server/evaluator.go`. Formats evaluator edits; next grep confirms added assignments, but does not detect resp redeclaration.","Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: gofmt -w internal/server/evaluator.go",gofmt -w internal/server/evaluator.go
+03:X052.c0,3,X,52,0,True,False,True,False,0.0023148148148148147,0.0,0.0,non_direct,uncertain,administration,administration,[],[],03:X052.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission call has empty output and rc -1; execution of marker and short-circuited patch read is not independently established. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT,echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+03:X035.c0,3,X,35,0,True,False,False,False,0.0023148148148148147,0.0,0.0,uncertain,non_direct,edit,edit,"['R1', 'R2', 'R4']",[],"03:X035.c0 `cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go`. Temporary context test table has direct/wrapped/deep cancellation and deadline cases plus ordinary error/status checks, but unused imports prevent execution; repaired fixture follows.","Initial reproduce test has unused imports and fails compilation at X036; rewritten at X037 before behavioral checks execute. Component: cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go
+package grpc_middleware
+
+import (
+	""context""
+	""errors""
+	""fmt""
+	""testing""
+	""time""
+
+	""github.com/stretchr/testify/assert""
+	""github.com/stretchr/testify/require""
+	errs ""go.flipt.io/flipt/errors""
+	authrpc ""go.flipt.io/flipt/rpc/flipt/auth""
+	""go.uber.org/zap/zaptest""
+	""google.golang.org/grpc""
+	""google.golang.org/grpc/codes""
+	""google.golang.org/grpc/metadata""
+	""google.golang.org/grpc/status""
+)
+
+type mockAuthenticator struct {
+	getAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)
+}
+
+func (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {
+	return m.getAuthFunc(ctx, clientToken)
+}
+
+func TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {
+	tests := []struct {
+		name     string
+		ctx      func() context.Context
+		err      error
+		wantCode codes.Code
+	}{
+		{
+			name:     ""direct context.Canceled"",
+			ctx:      context.Background,
+			err:      context.Canceled,
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""wrapped context.Canceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""wrapped error: %w"", context.Canceled),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""deeply wrapped context.Canceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""level 1: %w"", fmt.Errorf(""level 2: %w"", context.Canceled)),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""errs.ErrCanceled"",
+			ctx:      context.Background,
+			err:      errs.ErrCanceled(""operation canceled""),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""wrapped errs.ErrCanceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""db query failed: %w"", errs.ErrCanceled(""query canceled"")),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""direct context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      context.DeadlineExceeded,
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""wrapped context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""db query timed out: %w"", context.DeadlineExceeded),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""deeply wrapped context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""outer: %w"", fmt.Errorf(""inner: %w"", context.DeadlineExceeded)),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name: ""canceled context with generic error"",
+			ctx: func() context.Context {
+				c, cancel := context.WithCancel(context.Background())
+				cancel()
+				return c
+			},
+			err:      errors.New(""something went wrong""),
+			wantCode: codes.Canceled,
+		},
+		{
+			name: ""deadline exceeded context with generic error"",
+			ctx: func() context.Context {
+				c, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))
+				defer cancel()
+				return c
+			},
+			err:      errors.New(""something went wrong""),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""not found error"",
+			ctx:      context.Background,
+			err:      errs.ErrNotFound(""flag""),
+			wantCode: codes.NotFound,
+		},
+		{
+			name:     ""invalid error"",
+			ctx:      context.Background,
+			err:      errs.ErrInvalid(""bad value""),
+			wantCode: codes.InvalidArgument,
+		},
+		{
+			name:     ""unauthenticated error"",
+			ctx:      context.Background,
+			err:      errs.ErrUnauthenticated(""bad token""),
+			wantCode: codes.Unauthenticated,
+		},
+		{
+			name:     ""generic error"",
+			ctx:      context.Background,
+			err:      errors.New(""unknown error""),
+			wantCode: codes.Internal,
+		},
+		{
+			name:     ""existing status error unchanged"",
+			ctx:      context.Background,
+			err:      status.Error(codes.PermissionDenied, ""forbidden""),
+			wantCode: codes.PermissionDenied,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			spyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {
+				return nil, tt.err
+			})
+
+			ctx := tt.ctx()
+			_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)
+			require.Error(t, err)
+			st := status.Convert(err)
+			assert.Equal(t, tt.wantCode, st.Code())
+		})
+	}
+}
+EOF","cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go
+package grpc_middleware
+
+import (
+	""context""
+	""errors""
+	""fmt""
+	""testing""
+	""time""
+
+	""github.com/stretchr/testify/assert""
+	""github.com/stretchr/testify/require""
+	errs ""go.flipt.io/flipt/errors""
+	authrpc ""go.flipt.io/flipt/rpc/flipt/auth""
+	""go.uber.org/zap/zaptest""
+	""google.golang.org/grpc""
+	""google.golang.org/grpc/codes""
+	""google.golang.org/grpc/metadata""
+	""google.golang.org/grpc/status""
+)
+
+type mockAuthenticator struct {
+	getAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)
+}
+
+func (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {
+	return m.getAuthFunc(ctx, clientToken)
+}
+
+func TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {
+	tests := []struct {
+		name     string
+		ctx      func() context.Context
+		err      error
+		wantCode codes.Code
+	}{
+		{
+			name:     ""direct context.Canceled"",
+			ctx:      context.Background,
+			err:      context.Canceled,
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""wrapped context.Canceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""wrapped error: %w"", context.Canceled),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""deeply wrapped context.Canceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""level 1: %w"", fmt.Errorf(""level 2: %w"", context.Canceled)),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""errs.ErrCanceled"",
+			ctx:      context.Background,
+			err:      errs.ErrCanceled(""operation canceled""),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""wrapped errs.ErrCanceled"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""db query failed: %w"", errs.ErrCanceled(""query canceled"")),
+			wantCode: codes.Canceled,
+		},
+		{
+			name:     ""direct context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      context.DeadlineExceeded,
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""wrapped context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""db query timed out: %w"", context.DeadlineExceeded),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""deeply wrapped context.DeadlineExceeded"",
+			ctx:      context.Background,
+			err:      fmt.Errorf(""outer: %w"", fmt.Errorf(""inner: %w"", context.DeadlineExceeded)),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name: ""canceled context with generic error"",
+			ctx: func() context.Context {
+				c, cancel := context.WithCancel(context.Background())
+				cancel()
+				return c
+			},
+			err:      errors.New(""something went wrong""),
+			wantCode: codes.Canceled,
+		},
+		{
+			name: ""deadline exceeded context with generic error"",
+			ctx: func() context.Context {
+				c, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))
+				defer cancel()
+				return c
+			},
+			err:      errors.New(""something went wrong""),
+			wantCode: codes.DeadlineExceeded,
+		},
+		{
+			name:     ""not found error"",
+			ctx:      context.Background,
+			err:      errs.ErrNotFound(""flag""),
+			wantCode: codes.NotFound,
+		},
+		{
+			name:     ""invalid error"",
+			ctx:      context.Background,
+			err:      errs.ErrInvalid(""bad value""),
+			wantCode: codes.InvalidArgument,
+		},
+		{
+			name:     ""unauthenticated error"",
+			ctx:      context.Background,
+			err:      errs.ErrUnauthenticated(""bad token""),
+			wantCode: codes.Unauthenticated,
+		},
+		{
+			name:     ""generic error"",
+			ctx:      context.Background,
+			err:      errors.New(""unknown error""),
+			wantCode: codes.Internal,
+		},
+		{
+			name:     ""existing status error unchanged"",
+			ctx:      context.Background,
+			err:      status.Error(codes.PermissionDenied, ""forbidden""),
+			wantCode: codes.PermissionDenied,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			spyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {
+				return nil, tt.err
+			})
+
+			ctx := tt.ctx()
+			_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)
+			require.Error(t, err)
+			st := status.Convert(err)
+			assert.Equal(t, tt.wantCode, st.Code())
+		})
+	}
+}
+EOF"
+10:Y011.c0,10,Y,11,0,False,True,False,False,0.0026595744680851063,0.0,0.0,non_direct,non_direct,edit,administration,[],[],"{'trace': 'evidence_10.json run Y action 11, component 0', 'command': ""python3 - <<'PY'\nfrom pathlib import Path\np=Path('wordpress/wordpress.go'); s=p.read_text()\ns=s.replace('// WpCveInfos is for wpvulndb\\'s json','//WpCveInfos is for wpvulndb\\'s json')\ns=s.replace('// WpCveInfo is for wpvulndb\\'s json','//WpCveInfo is for wpvulndb\\'s json')\ns=s.replace('// References is for wpvulndb\\'s json','//References is for wpvulndb\\'s json')\np.write_text(s)\nPY"", 'observation': 'Reverts comment spacing introduced by formatter to reduce unrelated diff; does not change requested behavior.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Restores preexisting comment spacing after gofmt; behavior and functional patch are unchanged.,"python3 - <<'PY'
+from pathlib import Path
+p=Path('wordpress/wordpress.go'); s=p.read_text()
+s=s.replace('// WpCveInfos is for wpvulndb\'s json','//WpCveInfos is for wpvulndb\'s json')
+s=s.replace('// WpCveInfo is for wpvulndb\'s json','//WpCveInfo is for wpvulndb\'s json')
+s=s.replace('// References is for wpvulndb\'s json','//References is for wpvulndb\'s json')
+p.write_text(s)
+PY"
+10:Y010.c2,10,Y,10,2,False,True,False,False,0.0026595744680851063,0.0,0.0,non_direct,non_direct,edit,administration,[],[],"{'trace': 'evidence_10.json run Y action 10, component 2', 'command': 'GOPATH=/tmp gofmt -w wordpress/wordpress.go', 'observation': 'Formats comments in WordPress source; Y011 explicitly reverts comment churn, no requested behavior effect.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}","Formats changed wordpress source; functional edits originate in Y010.c1, formatting itself adds no task property.",GOPATH=/tmp gofmt -w wordpress/wordpress.go
+04:X022.c0,4,X,22,0,True,False,False,False,0.0026595744680851063,0.0,0.0,uncertain,non_direct,edit,edit,"['R1', 'R2', 'R3', 'R4']",[],"04:X022.c0 `cat << 'EOF' > /tmp/verify_test.go`. Temporary probe encodes default/deprecated equality and explicit pool/meta checks, but *_test.go filename prevents go run; repaired probe follows.","Writes probe as *_test.go with unused testing import; go run rejects filename before assertions and corrected probe replaces it at X023. Component: cat << 'EOF' > /tmp/verify_test.go
+package main
+
+import (
+	""fmt""
+	""io/ioutil""
+	""os""
+	""path/filepath""
+	""reflect""
+	""testing""
+	""time""
+
+	""github.com/markphelps/flipt/config""
+)
+
+func main() {
+	// Test 1: default.yml
+	defCfg, err := config.Load(""./config/testdata/config/default.yml"")
+	if err != nil {
+		panic(err)
+	}
+	if !reflect.DeepEqual(defCfg, config.Default()) {
+		panic(fmt.Sprintf(""default.yml != Default(): got %+v, want %+v"", defCfg, config.Default()))
+	}
+	fmt.Println(""Test 1 passed: default.yml == Default()"")
+
+	// Test 2: deprecated.yml
+	depCfg, err := config.Load(""./config/testdata/config/deprecated.yml"")
+	if err != nil {
+		panic(err)
+	}
+	if !reflect.DeepEqual(depCfg, config.Default()) {
+		panic(fmt.Sprintf(""deprecated.yml != Default(): got %+v, want %+v"", depCfg, config.Default()))
+	}
+	fmt.Println(""Test 2 passed: deprecated.yml == Default()"")
+
+	// Test 3: custom config with db pool options and meta.check_for_updates = false
+	tmpDir, err := ioutil.TempDir("""", ""flipt-test"")
+	if err != nil {
+		panic(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	yamlContent := `
+db:
+  url: ""postgres://localhost:5432/test""
+  max_idle_conn: 5
+  max_open_conn: 25
+  conn_max_lifetime: 10m
+
+meta:
+  check_for_updates: false
+`
+	tmpFile := filepath.Join(tmpDir, ""custom.yml"")
+	if err := ioutil.WriteFile(tmpFile, []byte(yamlContent), 0644); err != nil {
+		panic(err)
+	}
+
+	customCfg, err := config.Load(tmpFile)
+	if err != nil {
+		panic(err)
+	}
+
+	if customCfg.Database.MaxIdleConn != 5 {
+		panic(fmt.Sprintf(""expected MaxIdleConn 5, got %d"", customCfg.Database.MaxIdleConn))
+	}
+	if customCfg.Database.MaxOpenConn != 25 {
+		panic(fmt.Sprintf(""expected MaxOpenConn 25, got %d"", customCfg.Database.MaxOpenConn))
+	}
+	if customCfg.Database.ConnMaxLifetime != 10*time.Minute {
+		panic(fmt.Sprintf(""expected ConnMaxLifetime 10m, got %v"", customCfg.Database.ConnMaxLifetime))
+	}
+	if customCfg.Meta.CheckForUpdates != false {
+		panic(fmt.Sprintf(""expected CheckForUpdates false, got %v"", customCfg.Meta.CheckForUpdates))
+	}
+	fmt.Println(""Test 3 passed: custom db pool options and meta.check_for_updates: false loaded correctly"")
+
+	// Test 4: custom config with meta.check_for_updates = true
+	yamlContentTrue := `
+meta:
+  check_for_updates: true
+`
+	tmpFileTrue := filepath.Join(tmpDir, ""custom_true.yml"")
+	if err := ioutil.WriteFile(tmpFileTrue, []byte(yamlContentTrue), 0644); err != nil {
+		panic(err)
+	}
+
+	customCfgTrue, err := config.Load(tmpFileTrue)
+	if err != nil {
+		panic(err)
+	}
+	if customCfgTrue.Meta.CheckForUpdates != true {
+		panic(fmt.Sprintf(""expected CheckForUpdates true, got %v"", customCfgTrue.Meta.CheckForUpdates))
+	}
+	fmt.Println(""Test 4 passed: meta.check_for_updates: true loaded correctly"")
+
+	fmt.Println(""ALL CHECKS PASSED!"")
+}
+EOF","cat << 'EOF' > /tmp/verify_test.go
+package main
+
+import (
+	""fmt""
+	""io/ioutil""
+	""os""
+	""path/filepath""
+	""reflect""
+	""testing""
+	""time""
+
+	""github.com/markphelps/flipt/config""
+)
+
+func main() {
+	// Test 1: default.yml
+	defCfg, err := config.Load(""./config/testdata/config/default.yml"")
+	if err != nil {
+		panic(err)
+	}
+	if !reflect.DeepEqual(defCfg, config.Default()) {
+		panic(fmt.Sprintf(""default.yml != Default(): got %+v, want %+v"", defCfg, config.Default()))
+	}
+	fmt.Println(""Test 1 passed: default.yml == Default()"")
+
+	// Test 2: deprecated.yml
+	depCfg, err := config.Load(""./config/testdata/config/deprecated.yml"")
+	if err != nil {
+		panic(err)
+	}
+	if !reflect.DeepEqual(depCfg, config.Default()) {
+		panic(fmt.Sprintf(""deprecated.yml != Default(): got %+v, want %+v"", depCfg, config.Default()))
+	}
+	fmt.Println(""Test 2 passed: deprecated.yml == Default()"")
+
+	// Test 3: custom config with db pool options and meta.check_for_updates = false
+	tmpDir, err := ioutil.TempDir("""", ""flipt-test"")
+	if err != nil {
+		panic(err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	yamlContent := `
+db:
+  url: ""postgres://localhost:5432/test""
+  max_idle_conn: 5
+  max_open_conn: 25
+  conn_max_lifetime: 10m
+
+meta:
+  check_for_updates: false
+`
+	tmpFile := filepath.Join(tmpDir, ""custom.yml"")
+	if err := ioutil.WriteFile(tmpFile, []byte(yamlContent), 0644); err != nil {
+		panic(err)
+	}
+
+	customCfg, err := config.Load(tmpFile)
+	if err != nil {
+		panic(err)
+	}
+
+	if customCfg.Database.MaxIdleConn != 5 {
+		panic(fmt.Sprintf(""expected MaxIdleConn 5, got %d"", customCfg.Database.MaxIdleConn))
+	}
+	if customCfg.Database.MaxOpenConn != 25 {
+		panic(fmt.Sprintf(""expected MaxOpenConn 25, got %d"", customCfg.Database.MaxOpenConn))
+	}
+	if customCfg.Database.ConnMaxLifetime != 10*time.Minute {
+		panic(fmt.Sprintf(""expected ConnMaxLifetime 10m, got %v"", customCfg.Database.ConnMaxLifetime))
+	}
+	if customCfg.Meta.CheckForUpdates != false {
+		panic(fmt.Sprintf(""expected CheckForUpdates false, got %v"", customCfg.Meta.CheckForUpdates))
+	}
+	fmt.Println(""Test 3 passed: custom db pool options and meta.check_for_updates: false loaded correctly"")
+
+	// Test 4: custom config with meta.check_for_updates = true
+	yamlContentTrue := `
+meta:
+  check_for_updates: true
+`
+	tmpFileTrue := filepath.Join(tmpDir, ""custom_true.yml"")
+	if err := ioutil.WriteFile(tmpFileTrue, []byte(yamlContentTrue), 0644); err != nil {
+		panic(err)
+	}
+
+	customCfgTrue, err := config.Load(tmpFileTrue)
+	if err != nil {
+		panic(err)
+	}
+	if customCfgTrue.Meta.CheckForUpdates != true {
+		panic(fmt.Sprintf(""expected CheckForUpdates true, got %v"", customCfgTrue.Meta.CheckForUpdates))
+	}
+	fmt.Println(""Test 4 passed: meta.check_for_updates: true loaded correctly"")
+
+	fmt.Println(""ALL CHECKS PASSED!"")
+}
+EOF"
+04:X030.c0,4,X,30,0,True,False,True,False,0.0026595744680851063,0.0,0.0,non_direct,uncertain,administration,administration,[],[],04:X030.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission call result empty and rc -1; neither marker nor dependent cat execution is proven. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT,echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+10:Y009.c1,10,Y,9,1,False,True,False,False,0.0026595744680851063,0.0,0.0,non_direct,non_direct,edit,administration,[],[],"{'trace': 'evidence_10.json run Y action 9, component 1', 'command': 'gofmt -w wordpress/wordpress.go report/report.go', 'observation': 'Formatter only changes comments/build tag; Y010 resets these changes. No requested behavior improvement.', 'downstream': 'Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}",gofmt only changes comments and modern build tag after aborted functional edit; next checkout discards these incidental changes.,gofmt -w wordpress/wordpress.go report/report.go
+08:Y033.c0,8,Y,33,0,False,True,False,False,0.0020491803278688526,0.004032258064516129,0.0,non_direct,non_direct,exploration,administration,[],[],"{'trace': 'evidence_08.json run Y action 33, component 0', 'command': ""sed -n '220,250p' tests/conftest.py"", 'observation': 'Reads Qt workaround fixture to diagnose display setup; no retained fix or new requirement evidence follows.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': 0, 'agent_saw_truncated': False}",Inspects check_display fixture requiring DISPLAY to diagnose harness errors; no source solution change follows.,"sed -n '220,250p' tests/conftest.py"
+06:Y008.c0,6,Y,8,0,True,False,False,False,0.0016666666666666668,0.0,0.0,uncertain,non_direct,administration,administration,[],[],"06:Y008.c0 `go install \`. Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.","Installer invocation times out with empty output; remains dependency setup, no task-property checks. Component: go install \
+    github.com/bufbuild/buf/cmd/buf \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+    google.golang.org/protobuf/cmd/protoc-gen-go","go install \
+    github.com/bufbuild/buf/cmd/buf \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+    google.golang.org/protobuf/cmd/protoc-gen-go"
+06:Y007.c1,6,Y,7,1,True,False,False,False,0.0016666666666666668,0.0,0.0,uncertain,non_direct,administration,administration,[],[],"06:Y007.c1 `./script/bootstrap`. Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.","Repository/tooling inspection, install setup, or availability bookkeeping; no outcome reason/schema property is implemented or checked here. Component: ./script/bootstrap",./script/bootstrap
+08:Y031.c0,8,Y,31,0,True,False,True,False,0.0020491803278688526,0.0,0.0,uncertain,non_direct,administration,administration,[],[],"{'trace': 'evidence_08.json run Y action 31, component 0', 'command': 'Xvfb :99 -screen 0 1024x768x24', 'observation': 'Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.', 'downstream': 'Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.', 'recorded_call_exit': -1, 'agent_saw_truncated': False}",Starts Xvfb test display; environment setup only.,Xvfb :99 -screen 0 1024x768x24
+06:Y046.c0,6,Y,46,0,True,False,True,False,0.0016666666666666668,0.0,0.0,non_direct,uncertain,administration,administration,[],[],06:Y046.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.,Submission call empty rc -1; marker and dependent patch read execution not established. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT,echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT
+06:X009.c2,6,X,9,2,False,True,False,False,0.0009191176470588235,0.0,0.0,non_direct,non_direct,edit,administration,"['R1', 'R2', 'R8', 'R9']",[],06:X009.c2 `PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=../buf.gen.yaml ../rpc/flipt/flipt.proto --path flipt.proto 2>&1 | head -80`. Generation is behind failed go install in && chain; install error prevents establishing execution or effects from this component. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.,Failed go install before && makes generation pipeline unexecuted; no generated task contribution. Component: PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=../buf.gen.yaml ../rpc/flipt/flipt.proto --path flipt.proto 2>&1 | head -80,PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=../buf.gen.yaml ../rpc/flipt/flipt.proto --path flipt.proto 2>&1 | head -80
+06:X008.c1,6,X,8,1,False,True,False,False,0.0009191176470588235,0.005681818181818182,0.0,non_direct,non_direct,exploration,administration,[],[],06:X008.c1 `find . -maxdepth 2 -type f -name 'buf' -o -name 'protoc*'`. No additional response reference/tool file or middleware cache behavior supplies a distinct reason assignment decision beyond already located evaluator/proto/schema.,"Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: find . -maxdepth 2 -type f -name 'buf' -o -name 'protoc*'",find . -maxdepth 2 -type f -name 'buf' -o -name 'protoc*'
+06:X011.c0,6,X,11,0,True,False,False,False,0.0009191176470588235,0.0,0.0,uncertain,non_direct,administration,administration,[],[],06:X011.c0 `GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.,Repeated buf installation setup begins; no task behavior check. Component: GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0,GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0
+06:X010.c2,6,X,10,2,True,False,False,False,0.0009191176470588235,0.0,0.0,uncertain,non_direct,administration,administration,[],[],06:X010.c2 `GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.,"Temporary tool-directory reset and first installer start; output shows buf dependency downloads, no schema behavior check. Component: GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0",GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0

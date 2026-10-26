@@ -1,0 +1,6 @@
+{
+  "status": "repaired and regression-covered",
+  "pilot_graphs": 16,
+  "graphs_with_version_count_change": 2,
+  "limits": "Scope proof now requires initial complete tracked listing and clean baseline; missing evidence preserves uncertainty. Not a complete filesystem snapshot reconstruction."
+}

@@ -1,0 +1,11 @@
+panel,purpose,system,tasks,known_outcomes,resolved,success_rate,mean_native_calls,median_native_calls,cost_observed,mean_cost_usd
+cross_model,attempt_panel,gemini-3.7-flash,30,30,18,0.6,54.833333333333336,55.0,30,0.7178679666666666
+cross_model,attempt_panel,gpt-5.6-luna,30,30,14,0.4666666666666667,17.1,17.0,30,0.015838355333333335
+cross_model,joint_success_semantic_panel,gemini-3.7-flash,30,30,30,1.0,45.2,40.0,30,0.4643405666666666
+cross_model,joint_success_semantic_panel,gpt-5.6-luna,30,30,30,1.0,15.166666666666666,14.5,30,0.011351135999999996
+cross_harness,attempt_panel,mini-swe-agent,30,30,19,0.6333333333333333,45.6,41.0,0,
+cross_harness,attempt_panel,openhands,30,30,19,0.6333333333333333,52.3,43.0,0,
+cross_harness,attempt_panel,swe-agent,30,30,22,0.7333333333333333,58.03333333333333,47.0,0,
+cross_harness,joint_success_semantic_panel,mini-swe-agent,30,30,30,1.0,44.166666666666664,36.0,0,
+cross_harness,joint_success_semantic_panel,openhands,30,30,30,1.0,55.166666666666664,46.5,0,
+cross_harness,joint_success_semantic_panel,swe-agent,30,30,30,1.0,60.266666666666666,55.5,0,

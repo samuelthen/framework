@@ -1,0 +1,12 @@
+{
+  "restore_cases": "repaired; regression-covered",
+  "disagreement_review": "12 model-coded proposals; independent expert forms prepared",
+  "experiment_1": "pending human reference and actual ablation outputs",
+  "experiment_2": "samples frozen; archived effort computed; semantic confirmation pending",
+  "experiment_3": "repeat/failure screen computed; normalized expert property/state curves pending",
+  "experiment_4": "prefix-only prototype tested; target runtime/configuration and live cost/success experiments pending",
+  "human_accuracy_computed": false,
+  "new_live_episodes": 0,
+  "threshold_selected": null,
+  "failed_run_recall": "deferred"
+}

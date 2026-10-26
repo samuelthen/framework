@@ -1,0 +1,7 @@
+panel,purpose,first,second,tasks,mean_native_call_difference,ci95_lo,ci95_hi,interpretation
+cross_harness,attempt_panel,mini-swe-agent,openhands,30,-6.7,-12.833333333333334,-0.7,archived interaction counts; not contribution or equal work
+cross_harness,attempt_panel,mini-swe-agent,swe-agent,30,-12.433333333333334,-20.3025,-5.033333333333333,archived interaction counts; not contribution or equal work
+cross_harness,joint_success_semantic_panel,mini-swe-agent,openhands,30,-11.0,-15.766666666666667,-6.165833333333346,archived interaction counts; not contribution or equal work
+cross_harness,joint_success_semantic_panel,mini-swe-agent,swe-agent,30,-16.1,-21.333333333333332,-10.933333333333334,archived interaction counts; not contribution or equal work
+cross_model,attempt_panel,gemini-3.7-flash,gpt-5.6-luna,30,37.733333333333334,31.532500000000002,44.36666666666667,archived interaction counts; not contribution or equal work
+cross_model,joint_success_semantic_panel,gemini-3.7-flash,gpt-5.6-luna,30,30.033333333333335,24.266666666666666,36.6,archived interaction counts; not contribution or equal work

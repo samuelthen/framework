@@ -381,6 +381,11 @@ def write_info(parts: list[str], scripts: dict | None = None) -> tuple[bool | st
         if (toks[:2] == ["git", "switch"] or
                 (toks[:2] == ["git", "checkout"] and "--" not in toks and toks[2:] != ["."])):
             unknown = True
+        if toks[:2] in (["git", "add"], ["git", "commit"], ["git", "update-index"],
+                        ["git", "read-tree"], ["git", "rm"]):
+            # Index/HEAD changes affect the meaning of a later worktree restore.
+            # They are not evidence that source state stayed unchanged.
+            unknown = True
         red = _redirect_targets(p)
         if red and k not in ("edit", "revert"):
             res = True

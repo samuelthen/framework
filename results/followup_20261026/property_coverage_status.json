@@ -1,0 +1,8 @@
+{
+  "verification_candidates": 157,
+  "supported_repeat_screen": 15,
+  "property_saturation_curve": "not_identifiable_until_normalized_properties_and_relevant_states_are_reviewed",
+  "command_variety_is_coverage": false,
+  "strict_repeat_screen": "non_direct in reconciliation; both repeated_support; both unchanged; common earlier check direct in both; no environment cue",
+  "caution": "Shared parent outputs can mix causes. Screen is a review aid, not a validated suppression target. Environment failures are never counted in the repeated-support screen."
+}

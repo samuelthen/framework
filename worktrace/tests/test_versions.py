@@ -13,6 +13,10 @@ def labels(g):
     return [e["label"] for e in g["edges"]]
 
 
+def baseline(*paths):
+    return [('git status --porcelain', '', 0), ('git ls-files', '\n'.join(paths)+'\n', 0)]
+
+
 def test_linear_edits_and_verify():
     g = _run([("cat a.py", "x = 1\n" * 5, 0), ("sed -i 's/1/2/' a.py", "", 0), ("pytest", "FAILED test_a - assert", 1),
               ("sed -i 's/2/3/' a.py", "", 0), ("pytest", "1 passed", 0), ("pytest", "1 passed", 0), ("git diff > patch.txt", "", 0),
@@ -30,14 +34,14 @@ def test_tmp_write_is_not_a_version():
 
 
 def test_full_revert_returns_to_root_and_next_version_goes_up_a_row():
-    g = _run([("sed -i 's/a/b/' a.py", "", 0), ("git checkout .", "", 0), ("sed -i 's/a/c/' a.py", "", 0)])
+    g = _run(baseline('a.py') + [("sed -i 's/a/b/' a.py", "", 0), ("git checkout .", "", 0), ("sed -i 's/a/c/' a.py", "", 0)])
     assert labels(g) == ["initial", "backtrack", "revise"]
     assert g["n_versions"] == 2
     assert [(n["x"], n["y"]) for n in g["nodes"]] == [(0, 0), (1, 1), (2, 2)]
 
 
 def test_partial_revert_of_all_written_files_is_root():
-    g = _run([("sed -i 's/a/b/' a.py", "", 0), ("git checkout -- a.py", "", 0)])
+    g = _run(baseline('a.py') + [("sed -i 's/a/b/' a.py", "", 0), ("git checkout -- a.py", "", 0)])
     assert labels(g) == ["initial", "backtrack"] and g["final"] == 0
 
 
@@ -50,7 +54,7 @@ def test_identical_plain_diff_is_not_complete_content_identity():
 
 
 def test_stash_pop_returns_to_stashed_version():
-    g = _run([("sed -i 's/x/y/' a.py", "", 0), ("git stash", "Saved", 0), ("pytest", "fail", 1), ("git stash pop", "", 0)])
+    g = _run(baseline('a.py') + [("sed -i 's/x/y/' a.py", "", 0), ("git stash", "Saved", 0), ("pytest", "fail", 1), ("git stash pop", "", 0)])
     assert labels(g) == ["initial", "backtrack", "backtrack"]
     assert g["final"] == 1 and g["nodes"][0]["verify"] == 1
 

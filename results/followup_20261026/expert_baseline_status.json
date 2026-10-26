@@ -1,0 +1,12 @@
+{
+  "human_reference_cases": 0,
+  "methods": [
+    "framework",
+    "parent_exact_repeat",
+    "parent_target_revisit",
+    "parent_novelty_non_distinct"
+  ],
+  "call_counts": "effort only; not an action classifier",
+  "ablation": "no annotator outputs; input specifications only",
+  "scope": "reference and prediction uncertainty reported separately; never fill blank labels"
+}

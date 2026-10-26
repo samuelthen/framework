@@ -1,0 +1,12 @@
+{
+  "cases": 30,
+  "tasks": 8,
+  "full_components": 769,
+  "status": "prepared; awaiting independent expert judgments",
+  "priority_measure": "absolute change in equal-task mean bound width at fixed component denominator; execution/role changes require separate sensitivity",
+  "target_cases": 32,
+  "selection": "up to 2 available high-impact label disagreements + 2 random agreements per task; seeded and label-blind packet",
+  "tasks_without_label_disagreements": [
+    9
+  ]
+}

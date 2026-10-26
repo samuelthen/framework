@@ -1,0 +1,52 @@
+{
+  "status":"prepared; expert validation and execution inputs pending",
+  "development":"Original 3 calibration + 8 evaluation tasks are excluded from confirmation samples",
+  "experiment_1":{
+    "reference":"Independent human requirement review and component judgments, no prior model labels or derived-state facts",
+    "initial_expert_cases":30,
+    "planned_max_expert_cases":32,
+    "sampling":"Up to 2 available high-impact label disagreements + 2 random agreement controls per task; task 09 has no label disagreements; enriched feasibility sample",
+    "full_review_available":769,
+    "baselines":["native-call totals (effort, not an action classifier)","exact-repeat","target-revisit","novelty contribution","same annotator with derived-state features withheld"],
+    "ablation":"Identical raw chronology/issue/final patch and same model/settings; only explicit computed state features differ. State inference from raw edits is still possible.",
+    "gate":"Accepted human requirement references and supplied human component judgments; unresolved cases remain uncertain"
+  },
+  "experiment_2":{
+    "cross_model":"Gemini versus Luna under mini-swe-agent, archived repeat 1",
+    "cross_harness":"Fixed Qwen across mini-swe-agent/OpenHands/SWE-agent",
+    "initial_tasks_per_panel":30,
+    "attempt_sample":"Random shared tasks, selected without outcome conditioning; all attempts reported",
+    "semantic_sample":"Separate seeded sample of joint-success tasks from complete shared population; report conditional selection",
+    "primary":"Per-run exploration and verification precision followed by paired task means",
+    "other_outputs":["success and native effort on all attempts","absolute direct/non_direct/uncertain component counts","task-paired intervals","selection and missingness counts"],
+    "demand":"Reference patch-size quartiles, not outcome-derived difficulty",
+    "expansion":"Freeze interval-width/power target after expert calibration; no winner-dependent stopping"
+  },
+  "experiment_3":{
+    "reuse":"Reviewed experiment-2 annotations",
+    "exploration":"Cumulative supported solution observations and non-direct detours",
+    "verification":"Distinct normalized supported properties against check count within assessed relevant code states",
+    "separate_reasons":["new relevant coverage","defect used in repair","repeated support","environment/setup failure","unrelated check","uncertain"],
+    "curve_gate":"Reviewed normalized property IDs and relevant-state evidence; neither new commands nor requirement counts are treated as distinct property coverage"
+  },
+  "experiment_4":{
+    "status":"Prefix-only controllers implemented and unit-tested; no live intervention performed",
+    "initial_system":"Gemini under mini-swe-agent, fixed on development evidence; do not select system after confirmation outcomes",
+    "arms":["unrestricted","simple dedicated-check count cap","property/state-aware repeat threshold"],
+    "intervention":"Suppress a dedicated verification request while continuing the agent; do not terminate the run",
+    "threshold_candidates":[1,2,3],
+    "selected_threshold":null,
+    "cap_candidates":[1,2,3,5,10],
+    "selected_cap":null,
+    "resets":"New property or relevant content change; unknown state/property/determinism allows work",
+    "eligibility":"Dedicated checks only; no automatic partial rewriting of compound calls",
+    "state_evidence":"Complete relevant-content snapshot from runtime, not inferred graph IDs or future labels",
+    "calibration":"Choose only on development episodes; retain failures and reject threshold if no acceptable setting",
+    "acceptance_margin_proposal":0.05,
+    "margin_status":"Proposed absolute success-loss margin; freeze with sample size before held-out execution",
+    "held_out_attempts":"All 30 attempt-panel tasks in every frozen arm; do not condition on success",
+    "report":["actual model/tool cost","wall time","success","uncertainty","new failures","mixed-call ineligibility coverage"],
+    "required":"Expert measurement gate, target model/harness configurations, selected-task environments, recorded actual runtime costs"
+  },
+  "failed_run_recall":"deferred; not required to finish experiments 1–3"
+}

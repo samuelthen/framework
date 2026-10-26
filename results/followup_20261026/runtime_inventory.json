@@ -1,0 +1,13 @@
+{
+  "checked_date":"2026-10-26",
+  "docker_server":"29.8.1",
+  "docker_check_provenance":"Authorized read-only docker info and docker image ls tool calls",
+  "docker_available":true,
+  "existing_images":"Python/base images and several SWE-bench task images; selected-task execution adapters are not configured by this repository",
+  "exported_target_api_credentials":{"OPENAI_API_KEY":false,"SOCLAAS_API_KEY":false},
+  "existing_annotation_proxy_file":"soclaas.env exists; not proof of Gemini/Luna/Qwen target endpoint availability",
+  "target_model_harness_runner":"not configured",
+  "human_expert_reference":"not supplied",
+  "new_live_agent_episodes":0,
+  "new_paid_api_jobs":0
+}
