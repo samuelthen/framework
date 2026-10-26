@@ -1,0 +1,5 @@
+role,included,direct,indirect,uncertain,lower,upper
+exploration,8,6,2,0,0.75,0.75
+edit,2,1,1,0,0.5,0.5
+verification,4,2,0,2,0.5,1.0
+administration,16,1,7,8,0.0625,0.5625

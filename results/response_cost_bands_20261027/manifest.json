@@ -22,6 +22,7 @@
     "cached_input_percent_of_run": "run cached-input tokens",
     "output_percent_of_run": "run output tokens"
   },
+  "contribution_caption": null,
   "contribution_counts": {
     "3": {
       "direct": 9,

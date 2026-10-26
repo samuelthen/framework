@@ -1,0 +1,26 @@
+{
+  "annotation_scheme": "direct_effort_three_label_v1",
+  "inputs": {
+    "results/luna_task03_v2_20261027/components.jsonl": "888fc28ceec9dd558f1d984e1b292fd3f566e5a60bad92c4e4d6a80d7cf0e83b",
+    "results/luna_task03_v2_20261027/response_usage.jsonl": "38adb12ae37286620a72bcdf036998118c489120bec7ce188ed47249fc9fbd26",
+    "results/luna_task03_three_label_20261027/annotations.jsonl": "b3d41867cedee82ca54673e8c9dc2f2abc59e798f5b150470a21d54775b4ad01"
+  },
+  "code_sha256": "d7a4f863c7614176339c8c4e89b3e2a7aa0cc58dd22c5d75ea98aa8ff3bdfb2e",
+  "output_hashes": {
+    "RESULTS.md": "5af902228f4cdc67d17e154a9b8148ec5c941a24b0f0134ae269b0779767e382",
+    "annotations.jsonl": "b3d41867cedee82ca54673e8c9dc2f2abc59e798f5b150470a21d54775b4ad01",
+    "checks.txt": "3d14b649682aea3f150a133c48c99d7508548cf227667ce712f64f19807d4d4c",
+    "component_allocations.jsonl": "f14b9b729f574d3ecb9b353e7b2b8de84b0cc57495ad331ca0d9cab8071749fe",
+    "component_table.csv": "31235709484ece54b3fffbbfcc627bf9206e0802a6185340926b220d00752410",
+    "components.jsonl": "e6ff9e505fc7db80ef8bcf6fb87e60ea08c5bf5d38410eeb2c960f7b2b67cdad",
+    "direct_effort_resources.csv": "990c8c780483f3158ff152f907bbb03e56d1d81c9596dcd89991243e64510f57",
+    "response_cost_bands/component_display_labels.csv": "64d7321b4274f27eb42e7f9aded0f133dae6eaf76348c4d0c5b92aaccff34d4b",
+    "response_cost_bands/luna_task_03_response_costs.pdf": "baaf9ce86fac52e3a4a1c4f395f12b60737b2a538bd5c8da0f8202823e106865",
+    "response_cost_bands/luna_task_03_response_costs.png": "d413bd452457fa3d1f9818564a875a64f519a42d8fe4acbfcd7ea8d73ca765d1",
+    "response_cost_bands/luna_task_03_response_costs.svg": "57c723e4db2e95d750bd1fe40daf947f31c3e25a88d53feffe88ac04614111be",
+    "response_cost_bands/manifest.json": "22684751b6db9f1e7186e100b65ddcf607398385ef5cbadccdeb17ce1aa8ea49",
+    "response_cost_bands/response_band_totals.csv": "4a3c98aa2e401f01d24bffe21f2ef29352183813b30a13afcd69690d72acdf97",
+    "role_precision.csv": "7830be8f04a62c65ec539d7199e1588bfda1680a5686b82f3ed199772aabe13b",
+    "summary.json": "07ef1c2299b226bda964da0d1b16ed23a61f8c03113a70f990f322fe53eebe15"
+  }
+}
