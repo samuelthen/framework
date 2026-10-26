@@ -1,0 +1,19 @@
+measure,value
+runs,500
+runs with a submit,500
+runs with any op after the first submit,500
+ops after the first submit (all runs),1942
+"ops after the first submit, share of all ops",5.9%
+"ops after the first submit, per continuing run (mean / median)",3.9 / 3
+pre-submit: ops,31155
+pre-submit: matched share,30.1%
+pre-submit: non-distinct share of all ops,"2.2% [2.0, 2.4]"
+pre-submit: non-distinct share of matched ops,"7.3% [6.6, 8.0]"
+pre-submit: uncertain share of matched ops,"0.8% [0.6, 1.0]"
+pre-submit: op kinds,"read 28%, run 26%, search 19%, edit 19%, probe 4%, revert 2%"
+post-submit: ops,1942
+post-submit: matched share,61.8%
+post-submit: non-distinct share of all ops,"8.4% [7.0, 9.8]"
+post-submit: non-distinct share of matched ops,"13.6% [11.4, 15.9]"
+post-submit: uncertain share of matched ops,"0.4% [0.1, 0.8]"
+post-submit: op kinds,"run 28%, submit 26%, revert 16%, probe 13%, edit 11%, search 2%"

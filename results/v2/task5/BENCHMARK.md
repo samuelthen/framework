@@ -68,7 +68,7 @@
    - OpenHands and SWE-agent make about 30% more tool calls than mini-swe-agent.
    - They revisit the same object much more often (31–34% vs 19%).
    - SWE-agent writes about 2.3× the assistant text of mini-swe-agent.
-   - Part of the revisit gap is mechanical: `str_replace_editor view` re-opens a file by path, where mini-swe-agent uses `sed -n` ranges or `grep`.
+   - Part of the revisit gap is mechanical. *Corrected after the 500-task labelled run (`results/v2/qwen/main/SUMMARY.md` §2):* the gap comes from **edits**, not reads. `str_replace_editor` makes one change per call, so each further edit to a file counts as a revisit. Read revisits are not higher for OpenHands or SWE-agent.
    - The extra cost does not buy resolve rate: mini-swe-agent resolves the most (57% vs 51–55%).
 3. **"Repetition grows with difficulty" is again not supported.**
    - From the easiest to the hardest bin, tool calls rise 1.42× and resolve rate falls 65% → 39%.

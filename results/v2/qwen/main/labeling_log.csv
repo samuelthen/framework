@@ -1,0 +1,4 @@
+harness,skip_rule_applied,pilot_unmatched_distinct,runs,ops,llm_labels,rule_labels,label_errors,usage,served
+mini-swe-agent,True,0.997,500,25653,4934,20719,5,"{""prompt_tokens"": 11598791, ""completion_tokens"": 3436032, ""calls"": 4961}",deepseek-v4.1-flash-1017
+openhands,True,0.994,500,32991,11442,21549,23,"{""prompt_tokens"": 28309641, ""completion_tokens"": 7873768, ""calls"": 11566}",deepseek-v4.1-flash-1017
+swe-agent,True,0.997,500,33097,10587,22510,12,"{""prompt_tokens"": 25088119, ""completion_tokens"": 7842291, ""calls"": 10683}",deepseek-v4.1-flash-1017

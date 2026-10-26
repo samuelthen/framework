@@ -1,0 +1,4 @@
+harness,runs,versions_per_run,median_versions,runs_with_backtrack,verify_runs_on_final_version,verify_runs_total,final_share_of_verifies
+mini-swe-agent,500,"6.36 [5.83, 6.89]",5.0,37.2%,"2.59 [2.34, 2.87]","9.08 [8.47, 9.73]",29%
+openhands,500,"14.24 [13.43, 15.19]",12.0,44.8%,"1.32 [1.14, 1.51]","9.29 [8.67, 9.93]",14%
+swe-agent,500,"11.54 [10.88, 12.34]",9.0,36.0%,"2.52 [2.29, 2.76]","12.34 [11.60, 13.24]",20%

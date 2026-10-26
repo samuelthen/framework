@@ -1,0 +1,85 @@
+run_id,task_id,model,start,length,signature,distinct_commands,exact_repeats,kinds,harness
+os:minisweagent:alteryx__woodwork-657:d7b1e4f5,alteryx__woodwork-657,qwen3.8-27b,75,3,attributeerror: 'dataframe' object has no attribute 'append'. did you mean: '_append'?,3,0,run,mini-swe-agent
+os:minisweagent:beetbox_confuse_pr50:f316765d,beetbox_confuse_pr50,qwen3.8-27b,23,4,confuse.notfounderror: fetchart.sources not found,4,0,run,mini-swe-agent
+os:minisweagent:compas-dev_compas_pr332:3aabb0fd,compas-dev_compas_pr332,qwen3.8-27b,37,3,failed tests/compas/datastructures/test_mesh_operations.py::test_mesh_substitute_vertex_in_faces,3,0,revert|run,mini-swe-agent
+os:minisweagent:espdev_csaps_pr102:4f0c1d7b,espdev_csaps_pr102,qwen3.8-27b,37,3,"valueerror: setting an array element with a sequence. the requested array has an inhomogeneous shape after 1 dimensions. the detected shape was (2,) + inhomogeneous part.",3,0,edit|read,mini-swe-agent
+os:minisweagent:genjidb__genji-126:51d877d8,genjidb__genji-126,qwen3.8-27b,42,3,error: error message not equal:,3,0,edit|revert|run,mini-swe-agent
+os:minisweagent:influxdb_influxdb-python_pr827:25d14fc2,influxdb_influxdb-python_pr827,qwen3.8-27b,30,3,failed influxdb/tests/dataframe_client_test.py::testdataframeclient::test_write_points_from_dataframe_with_tags_and_nan_json,3,0,revert|run,mini-swe-agent
+os:minisweagent:infobloxopen_infoblox-client_pr165:020c7067,infobloxopen_infoblox-client_pr165,qwen3.8-27b,29,3,assertionerror,3,0,edit|run,mini-swe-agent
+os:minisweagent:litestar-org__polyfactory-479:a2999096,litestar-org__polyfactory-479,qwen3.8-27b,20,3,error tests/sqlalchemy_factory/test_sqlalchemy_factory_common.py::test_async_persistence[<lambda>1],3,0,revert|run,mini-swe-agent
+os:minisweagent:litestar-org__polyfactory-602:5fc55159,litestar-org__polyfactory-602,qwen3.8-27b,30,4,failed tests/test_pydantic_factory.py::test_optional_url_field_parsed_correctly[amqpdsn],4,0,revert|run,mini-swe-agent
+os:minisweagent:materialsvirtuallab_monty_pr272:73f0aa8e,materialsvirtuallab_monty_pr272,qwen3.8-27b,16,3,failed tests/test_json.py::jsontest::test_pydantic_integrations - pydantic.er...,3,0,revert|run,mini-swe-agent
+os:minisweagent:mirumee_ariadne-codegen_pr264:c4e875a7,mirumee_ariadne-codegen_pr264,qwen3.8-27b,40,3,failed tests/main/test_main.py::test_main_generates_correct_schema_file[project_dir1-schema.py-expected_file_path1],3,0,revert|run,mini-swe-agent
+os:minisweagent:narwhals-dev__narwhals-1625:ef2c6e4e,narwhals-dev__narwhals-1625,qwen3.8-27b,64,3,failed narwhals/expr.py::narwhals.expr.exprdatetimenamespace.weekday,3,0,run,mini-swe-agent
+os:minisweagent:omni-us_jsonargparse_pr390:1ee10b8a,omni-us_jsonargparse_pr390,qwen3.8-27b,128,3,"valueerror: not enough values to unpack (expected 4, got 3)",3,0,edit,mini-swe-agent
+os:minisweagent:pallets__click-1609:17307208,pallets__click-1609,qwen3.8-27b,25,3,error tests/test_arguments.py::test_bytes_args - attributeerror: can't set at...,3,0,revert|run,mini-swe-agent
+os:minisweagent:pallets_click_pr1820:f49d46b7,pallets_click_pr1820,qwen3.8-27b,69,3,error tests/test_arguments.py::test_bytes_args - attributeerror: property 'en...,3,0,revert|run,mini-swe-agent
+os:minisweagent:ploomber__jupysql-823:ba968e75,ploomber__jupysql-823,qwen3.8-27b,44,4,error src/tests/test_config.py::test_toml_optional_message - keyerror: 'default',4,0,run,mini-swe-agent
+os:minisweagent:populationgenomics_production-pipelines_pr661:2651bfcd,populationgenomics_production-pipelines_pr661,qwen3.8-27b,70,3,failed test/test_large_cohort.py::testalllargecohortmethods::test_with_sample_data,3,0,revert|run,mini-swe-agent
+os:minisweagent:projectmesa_mesa_pr1472:68ca0674,projectmesa_mesa_pr1472,qwen3.8-27b,20,3,failed tests/test_main.py::testcli::test_run - attributeerror: <module 'mesa....,3,0,revert|run,mini-swe-agent
+os:minisweagent:qiskit-community__ffsim-248:d5c083df,qiskit-community__ffsim-248,qwen3.8-27b,53,4,traceback (most recent call last):,4,0,edit|run,mini-swe-agent
+os:minisweagent:xarray-contrib_cf-xarray_pr167:22a9b10d,xarray-contrib_cf-xarray_pr167,qwen3.8-27b,26,3,failed cf_xarray/tests/test_accessor.py::test_bounds - typeerror: exceptions ...,3,0,revert|run,mini-swe-agent
+os:minisweagent:xgcm_xrft_pr118:c5df8eb9,xgcm_xrft_pr118,qwen3.8-27b,41,3,failed xrft/tests/test_xrft.py::testspectrum::test_power_spectrum[false] - fa...,3,0,edit|run,mini-swe-agent
+os:minisweagent:yt-project_unyt_pr23:48d7b4b8,yt-project_unyt_pr23,qwen3.8-27b,29,3,failed unyt/tests/test_unyt_array.py::test_ufuncs - typeerror: 'out' must be ...,3,0,revert|run,mini-swe-agent
+os:openhands:auth0_auth0-python_pr486:6f6e0932,auth0_auth0-python_pr486,qwen3.8-27b,18,3,failed auth0/test/management/test_rest.py::testrest::test_put_can_timeout - r...,3,0,revert|run,openhands
+os:openhands:benchopt__benchopt-723:596249ec,benchopt__benchopt-723,qwen3.8-27b,45,3,error benchopt/cli/tests/test_cli.py::testinstallcmd::test_no_error_minimal_requirements,3,0,revert|run,openhands
+os:openhands:chimpler_pyhocon_pr119:8f0bf4f4,chimpler_pyhocon_pr119,qwen3.8-27b,23,3,failed tests/test_tool.py::testhoconconverter::test_convert_from_file - asser...,3,0,revert|run,openhands
+os:openhands:conan-io__conan-13041:bd1ff217,conan-io__conan-13041,qwen3.8-27b,38,3,failed conans/test/unittests/client/optimize_conanfile_load_test.py::optimizeconanfileloadtest::test_multiple_load,3,0,revert|run,openhands
+os:openhands:cookiecutter_cookiecutter_pr1284:f1cf2afb,cookiecutter_cookiecutter_pr1284,qwen3.8-27b,44,3,failed tests/test_utils.py::test_make_sure_path_exists - assertionerror: asse...,3,0,revert|run,openhands
+os:openhands:ericmjl__pyjanitor-714:0b5761fe,ericmjl__pyjanitor-714,qwen3.8-27b,62,3,failed tests/functions/test_bin_numeric.py::test_bin_numeric_expected_columns,3,0,revert|run,openhands
+os:openhands:ethereum__web3.py-3620:6d6bdcc7,ethereum__web3.py-3620,qwen3.8-27b,69,3,error tests/core/contracts/test_contract_call_interface.py - pytest.pytestrem...,3,0,revert|run,openhands
+os:openhands:fonttools_fonttools_pr2137:03cc2590,fonttools_fonttools_pr2137,qwen3.8-27b,56,3,failed tests/pens/cu2qupen_test.py::testcu2qupen::test_ignore_single_points,3,0,revert|run,openhands
+os:openhands:frostming_unearth_pr43:5a3efe74,frostming_unearth_pr43,qwen3.8-27b,12,3,modulenotfounderror: no module named 'unearth',3,0,run|search,openhands
+os:openhands:hhatto_autopep8_pr450:55c93aa4,hhatto_autopep8_pr450,qwen3.8-27b,37,3,failed test/test_autopep8.py::experimentalsystemtests::test_e501_experimental_with_function_should_not_break_on_colon,3,0,revert|run,openhands
+os:openhands:influxdb_influxdb-python_pr827:9fd8a17f,influxdb_influxdb-python_pr827,qwen3.8-27b,23,3,failed influxdb/tests/dataframe_client_test.py::testdataframeclient::test_write_points_from_dataframe_with_tags_and_nan_json,3,0,revert|run,openhands
+os:openhands:infobloxopen_infoblox-client_pr28:31acb289,infobloxopen_infoblox-client_pr28,qwen3.8-27b,22,3,failed (errors=2),3,0,revert|run,openhands
+os:openhands:iterative_scmrepo_pr282:117ace4b,iterative_scmrepo_pr282,qwen3.8-27b,60,3,failed tests/test_scmrepo.py::test_clone - scmrepo.exceptions.cloneerror: fai...,3,0,revert|run,openhands
+os:openhands:jazzband_django-axes_pr747:a43b740c,jazzband_django-axes_pr747,qwen3.8-27b,16,3,failed tests/test_logging.py::accesslogtestcase::test_log_data_truncated - ax...,3,0,revert|run,openhands
+os:openhands:jlowin__fastmcp-448:deed20f7,jlowin__fastmcp-448,qwen3.8-27b,62,3,failed tests/tools/test_tool.py::testlegacytooljsonparsing::test_tool_tuple_coercion,3,0,revert|run,openhands
+os:openhands:materialsvirtuallab_monty_pr272:1405dfc0,materialsvirtuallab_monty_pr272,qwen3.8-27b,30,3,failed tests/test_json.py::jsontest::test_pydantic_integrations - pydantic.er...,3,0,revert|run,openhands
+os:openhands:mne-tools__mne-bids-1258:9ee2da63,mne-tools__mne-bids-1258,qwen3.8-27b,64,3,failed mne_bids/tests/test_read.py::test_get_head_mri_trans - runtimewarning:...,3,0,revert|run,openhands
+os:openhands:optimizely_python-sdk_pr448:7f4ae16d,optimizely_python-sdk_pr448,qwen3.8-27b,27,3,failed tests/test_config_manager.py::pollingconfigmanagertest::test_fetch_datafile__exception_polling_thread_failed,3,0,revert|run,openhands
+os:openhands:pallets-eco_flask-admin_pr1077:0a3bc559,pallets-eco_flask-admin_pr1077,qwen3.8-27b,75,3,failed flask_admin/tests/test_form_upload.py::test_image_upload_field - oserr...,3,0,revert|run,openhands
+os:openhands:pallets__click-1609:fa621c37,pallets__click-1609,qwen3.8-27b,32,3,error tests/test_arguments.py::test_bytes_args - attributeerror: can't set at...,3,0,edit|run,openhands
+os:openhands:pallets_click_pr1615:a570ab1d,pallets_click_pr1615,qwen3.8-27b,27,4,error tests/test_arguments.py::test_bytes_args - attributeerror: property 'en...,4,0,revert|run,openhands
+os:openhands:pallets_click_pr1820:a10a94f9,pallets_click_pr1820,qwen3.8-27b,46,3,error tests/test_arguments.py::test_bytes_args - attributeerror: property 'en...,3,0,revert|run,openhands
+os:openhands:piskvorky_sqlitedict_pr128:fe53d08c,piskvorky_sqlitedict_pr128,qwen3.8-27b,25,4,error tests/test_core.py::sqlitedictterminatefailtest::test_terminate_cannot_delete,4,0,edit|revert,openhands
+os:openhands:ploomber__jupysql-823:4f1cfdc8,ploomber__jupysql-823,qwen3.8-27b,39,4,error tests/test_config.py::test_toml_optional_message - keyerror: 'default',4,0,run,openhands
+os:openhands:populationgenomics_production-pipelines_pr661:caf4222e,populationgenomics_production-pipelines_pr661,qwen3.8-27b,84,3,failed test/test_large_cohort.py::testalllargecohortmethods::test_with_sample_data,3,0,revert|run,openhands
+os:openhands:python-openapi_openapi-spec-validator_pr35:2c326fcc,python-openapi_openapi-spec-validator_pr35,qwen3.8-27b,56,3,error tests/integration/test_validate.py::testpetstoreexpandedexample::test_valid,3,0,revert|run,openhands
+os:openhands:scikit-rf_scikit-rf_pr591:f9d2b27a,scikit-rf_scikit-rf_pr591,qwen3.8-27b,62,3,error skrf/vi/tests/test_vectorstar.py,3,0,revert|run,openhands
+os:openhands:sethmlarson_truststore_pr152:0d147443,sethmlarson_truststore_pr152,qwen3.8-27b,52,3,importerror: the library security failed to load,3,0,run,openhands
+os:openhands:urql-graphql__urql-3442:4fe94cd0,urql-graphql__urql-3442,qwen3.8-27b,57,3,typeerror: r is not a function,3,0,edit,openhands
+os:openhands:valohai_valohai-cli_pr12:d3beb8a8,valohai_valohai-cli_pr12,qwen3.8-27b,26,3,failed tests/commands/execution/test_run.py::test_run_no_git - subprocess.cal...,3,0,revert|run,openhands
+os:openhands:xarray-contrib_cf-xarray_pr167:09153540,xarray-contrib_cf-xarray_pr167,qwen3.8-27b,38,4,failed cf_xarray/tests/test_accessor.py::test_bounds - typeerror: exceptions ...,4,0,edit|revert|run,openhands
+os:openhands:yt-project_unyt_pr151:cccafd92,yt-project_unyt_pr151,qwen3.8-27b,62,3,unyt.exceptions.unitparseerror: could not find unit symbol 'ydegc' in the provided symbols.,3,0,run,openhands
+os:openhands:yt-project_unyt_pr151:cccafd92,yt-project_unyt_pr151,qwen3.8-27b,126,3,"typeerror: __setstate__() argument 1 must be sequence of length 4, not 6",3,0,run,openhands
+os:openhands:zalando__patroni-2344:d4b52158,zalando__patroni-2344,qwen3.8-27b,32,3,error tests/test_ctl.py,3,0,revert|run,openhands
+os:sweagent:agnostiqhq__covalent-1251:1f996852,agnostiqhq__covalent-1251,qwen3.8-27b,39,3,oserror: [errno 9] bad file descriptor,3,0,edit,swe-agent
+os:sweagent:clap-rs__clap-4573:6babe017,clap-rs__clap-4573,qwen3.8-27b,146,4,error: the following required arguments were not provided:,4,0,edit|run,swe-agent
+os:sweagent:compas-dev_compas_pr805:8e5a5a2d,compas-dev_compas_pr805,qwen3.8-27b,27,3,failed tests/compas/datastructures/test_mesh.py::test_from_ply - urllib.error...,3,0,run,swe-agent
+os:sweagent:cookiecutter_cookiecutter_pr1284:3ce8fb52,cookiecutter_cookiecutter_pr1284,qwen3.8-27b,38,3,failed tests/test_utils.py::test_make_sure_path_exists - assertionerror: asse...,3,0,run,swe-agent
+os:sweagent:dynaconf__dynaconf-1237:df9aae1f,dynaconf__dynaconf-1237,qwen3.8-27b,31,4,failed tests/test_base.py::test_get_item - keyerror: 'dotenv_int does not exist',4,0,revert|run,swe-agent
+os:sweagent:evergreen-ci_evergreen.py_pr98:153e237a,evergreen-ci_evergreen.py_pr98,qwen3.8-27b,40,3,failed tests/evergreen/test_alias.py::flake-8::flake8 - /testbed/tests/evergr...,3,0,edit|run,swe-agent
+os:sweagent:evidentlyai_evidently_pr340:c9cffe17,evidentlyai_evidently_pr340,qwen3.8-27b,73,3,failed tests/model_monitoring/monitors/test_prob_classification_regression_monitor.py::test_probability_classification_with_multi_classes,3,0,revert|run,swe-agent
+os:sweagent:fonttools_fonttools_pr1706:fb5b07a2,fonttools_fonttools_pr1706,qwen3.8-27b,98,3,error tests/ttlib/tables/otconverters_test.py,3,0,run,swe-agent
+os:sweagent:influxdb_influxdb-python_pr827:25b3fbc6,influxdb_influxdb-python_pr827,qwen3.8-27b,20,3,failed influxdb/tests/dataframe_client_test.py::testdataframeclient::test_write_points_from_dataframe_with_tags_and_nan_json,3,0,revert|run,swe-agent
+os:sweagent:iterative_scmrepo_pr282:6728ddbd,iterative_scmrepo_pr282,qwen3.8-27b,58,3,failed tests/test_scmrepo.py::test_clone - scmrepo.exceptions.cloneerror: fai...,3,0,run,swe-agent
+os:sweagent:jackdewinter_pymarkdown_pr1457:cd0591a9,jackdewinter_pymarkdown_pr1457,qwen3.8-27b,43,3,pymarkdown.general.bad_tokenization_error.badtokenizationerror: an unhandled error occurred processing the document.,3,0,edit|run,swe-agent
+os:sweagent:jsx-eslint__eslint-plugin-react-3694:7fc9b350,jsx-eslint__eslint-plugin-react-3694,qwen3.8-27b,55,3,"error: timeout of 2000ms exceeded. for async tests and hooks, ensure ""done()"" is called; if returning a promise, ensure it resolves. (/testbed/tests/lib/rules/boolean-prop-naming.js)",3,0,revert|run,swe-agent
+os:sweagent:lasselindqvist_robotframework-imaplibrary2_pr17:2aa5d3a4,lasselindqvist_robotframework-imaplibrary2_pr17,qwen3.8-27b,49,4,traceback (most recent call last):,4,0,run,swe-agent
+os:sweagent:materialsvirtuallab_monty_pr272:a6c72a9a,materialsvirtuallab_monty_pr272,qwen3.8-27b,13,3,failed tests/test_json.py::jsontest::test_pydantic_integrations - pydantic.er...,3,0,revert|run,swe-agent
+os:sweagent:matthewwardrop_formulaic_pr225:0f217fe1,matthewwardrop_formulaic_pr225,qwen3.8-27b,41,3,formulaic.errors.factorevaluationerror: unable to evaluate factor `s(a)`. [nameerror: name 's' is not defined],3,0,edit|run,swe-agent
+os:sweagent:optimizely_python-sdk_pr448:4c9d5416,optimizely_python-sdk_pr448,qwen3.8-27b,27,3,failed tests/test_config_manager.py::pollingconfigmanagertest::test_fetch_datafile__exception_polling_thread_failed,3,0,revert|run,swe-agent
+os:sweagent:pallets_click_pr1820:ee133ac8,pallets_click_pr1820,qwen3.8-27b,43,3,error tests/test_arguments.py::test_bytes_args - attributeerror: property 'en...,3,0,revert|run,swe-agent
+os:sweagent:peternator7__strum-353:3fead490,peternator7__strum-353,qwen3.8-27b,39,4,bash: ./verify_generated: no such file or directory,4,0,edit|run,swe-agent
+os:sweagent:petl-developers_petl_pr402:c34f5dfe,petl-developers_petl_pr402,qwen3.8-27b,26,3,failed petl/test/transform/test_dedup.py::test_unique_empty - runtimeerror: g...,3,0,revert|run,swe-agent
+os:sweagent:pipecat-ai_pipecat-flows_pr128:f75ac7a4,pipecat-ai_pipecat-flows_pr128,qwen3.8-27b,16,3,failed tests/test_context_strategies.py::testcontextstrategies::test_provider_specific_summary_formatting,3,0,run,swe-agent
+os:sweagent:piskvorky_sqlitedict_pr128:1f572af2,piskvorky_sqlitedict_pr128,qwen3.8-27b,19,3,error tests/test_core.py::sqlitedictterminatefailtest::test_terminate_cannot_delete,3,0,edit|revert,swe-agent
+os:sweagent:projectmesa_mesa_pr1472:ba02ad79,projectmesa_mesa_pr1472,qwen3.8-27b,24,3,failed tests/test_main.py::testcli::test_run - attributeerror: <module 'mesa....,3,0,revert|run,swe-agent
+os:sweagent:scikit-rf_scikit-rf_pr591:cf07ce5d,scikit-rf_scikit-rf_pr591,qwen3.8-27b,65,3,error skrf/vi/tests/test_vectorstar.py,3,0,revert|run,swe-agent
+os:sweagent:spaship__spaship-361:629b79c1,spaship__spaship-361,qwen3.8-27b,35,3,typeerror: caught error after test environment was torn down,3,0,revert|run,swe-agent
+os:sweagent:splitio_python-client_pr104:cf4683b8,splitio_python-client_pr104,qwen3.8-27b,27,3,failed splitio/tests/test_input_validator.py::testinputsanitizationredismanager::test_manager_with_valid_feature_name,3,0,revert|run,swe-agent
+os:sweagent:warpnet__salt-lint-284:e7df2ccd,warpnet__salt-lint-284,qwen3.8-27b,36,3,failed (failures=3),3,0,run,swe-agent
+os:sweagent:xarray-contrib_cf-xarray_pr54:dc6659d7,xarray-contrib_cf-xarray_pr54,qwen3.8-27b,54,3,valueerror: dictionary update sequence element #0 has length 3; 2 is required,3,0,run,swe-agent
+os:sweagent:yt-project_unyt_pr111:7514b011,yt-project_unyt_pr111,qwen3.8-27b,31,3,failed unyt/tests/test_units.py::test_create_from_string - assert (mass)**0.5...,3,0,revert|run,swe-agent

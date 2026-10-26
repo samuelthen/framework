@@ -1,0 +1,11 @@
+subset,comparison,measure,diff_pts
+revisits (relation revisits or reproduces),openhands - mini-swe-agent,non-distinct share,"-4.9 [-6.0, -4.0]"
+revisits (relation revisits or reproduces),swe-agent - mini-swe-agent,non-distinct share,"-0.7 [-1.9, 0.4]"
+revisits (relation revisits or reproduces),swe-agent - openhands,non-distinct share,"4.2 [3.4, 5.1]"
+exact repeats,openhands - mini-swe-agent,non-distinct share,"13.8 [-9.4, 32.2]"
+exact repeats,swe-agent - mini-swe-agent,non-distinct share,"-4.8 [-23.4, 13.6]"
+exact repeats,swe-agent - openhands,non-distinct share,"-18.5 [-35.5, -0.4]"
+all ops,openhands - mini-swe-agent,revisit share of ops,"12.72 [11.80, 13.62]"
+all ops,openhands - mini-swe-agent,non-distinct revisit share of ops,"-0.23 [-0.45, -0.03]"
+all ops,swe-agent - mini-swe-agent,revisit share of ops,"11.27 [10.37, 12.12]"
+all ops,swe-agent - mini-swe-agent,non-distinct revisit share of ops,"0.88 [0.60, 1.15]"

@@ -1,0 +1,4 @@
+harness,sampled_matched_ops,matched_share_of_ops,"primary: cand-redundant share of matched, lo-hi","primary: implied rate (share of ops), lo-hi","model2: cand-redundant share of matched, lo-hi","model2: implied rate (share of ops), lo-hi"
+mini-swe-agent,174,19.2%,1.1% - 1.1%,0.22% - 0.22%,2.9% - 2.9%,0.55% - 0.55%
+openhands,416,34.7%,0.0% - 0.0%,0.00% - 0.00%,1.2% - 1.2%,0.42% - 0.42%
+swe-agent,410,32.0%,1.7% - 1.7%,0.55% - 0.55%,2.9% - 2.9%,0.94% - 0.94%

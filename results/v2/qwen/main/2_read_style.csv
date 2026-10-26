@@ -1,0 +1,16 @@
+harness,read_style,ops,share_of_all_ops,revisits,revisits_share_of_all_ops,revisit_rate_within_style,non_distinct_among_revisits
+mini-swe-agent,directory listing,1,0.0%,1,0.0%,100.0%,n/a
+mini-swe-agent,grep / search,6479,25.3%,334,1.3%,5.2%,"11.7% [7.7, 16.0]"
+mini-swe-agent,other,18,0.1%,11,0.0%,61.1%,"0.0% [0.0, 0.0]"
+mini-swe-agent,range read,4095,16.0%,1941,7.6%,47.4%,"12.2% [10.7, 13.8]"
+mini-swe-agent,whole-file view,2535,9.9%,136,0.5%,5.4%,"10.3% [5.5, 15.8]"
+openhands,directory listing,74,0.2%,0,0.0%,0.0%,n/a
+openhands,grep / search,7639,23.2%,342,1.0%,4.5%,"11.1% [7.8, 14.7]"
+openhands,other,16,0.0%,7,0.0%,43.8%,"14.3% [0.0, 42.9]"
+openhands,range read,3826,11.6%,1533,4.6%,40.1%,"4.9% [3.8, 6.1]"
+openhands,whole-file view,2488,7.5%,154,0.5%,6.2%,"4.5% [1.4, 8.3]"
+swe-agent,directory listing,186,0.6%,1,0.0%,0.5%,n/a
+swe-agent,grep / search,7033,21.2%,375,1.1%,5.3%,"22.1% [17.3, 27.1]"
+swe-agent,other,32,0.1%,17,0.1%,53.1%,"0.0% [0.0, 0.0]"
+swe-agent,range read,4463,13.5%,2288,6.9%,51.3%,"11.5% [10.2, 12.7]"
+swe-agent,whole-file view,2930,8.9%,224,0.7%,7.6%,"16.1% [10.9, 21.8]"

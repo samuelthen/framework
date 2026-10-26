@@ -9,6 +9,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
+import sys  # noqa: E402
+sys.path.insert(0, os.path.dirname(__file__))
+from v2_viewb import _rci  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 R, FIG = f"{ROOT}/results", f"{ROOT}/figures/overview"
@@ -240,7 +243,51 @@ def f7_versions():
          "version. Points with fewer than 30 runs are omitted.")
 
 
+def f8_qwen_revisits():
+    O = pd.read_parquet(f"{R}/v2/qwen/main/ops.parquet", columns=["harness", "task_id", "kind", "relation", "contribution", "post_submit"])
+    O = O.assign(rev=O.relation.isin(["revisits", "reproduces"]), nd=O.contribution == "non_distinct")
+    n = O.groupby("harness").size()
+    kinds = [("edit", "edit the same file again", S1), ("read", "read again", S3), ("run", "run again", "#eda100"),
+             ("other", "other", MUTED)]
+    K = O[O.rev].assign(k=lambda d: d.kind.where(d.kind.isin(["edit", "read", "run"]), "other")).groupby(["harness", "k"]).size().unstack(1).fillna(0)
+    K = K.div(n, axis=0) * 100
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.5, 3.4), gridspec_kw={"wspace": 0.35})
+    y = np.arange(3)[::-1]
+    for i, (h, lab, _) in enumerate(HARN):
+        left = 0
+        for k, kl, c in kinds:
+            v = K.loc[h, k]
+            a1.barh(y[i], v, left=left, color=c, height=0.55, edgecolor=SURF, linewidth=2, label=kl if i == 0 else None)
+            if v >= 2.5:
+                a1.text(left + v / 2, y[i], f"{v:.0f}", ha="center", va="center", color="white" if c in (S1, S3) else INK, fontsize=8.5)
+            left += v
+        a1.text(left + 0.4, y[i], f"{left:.1f}%", va="center", fontsize=9, fontweight="bold")
+    a1.set_yticks(y, ["mini-swe-agent", "OpenHands", "SWE-agent"])
+    a1.set_xlim(0, 35); a1.set_xlabel("revisits, % of all operations")
+    a1.legend(loc="lower center", bbox_to_anchor=(0.5, 1.02), ncol=4, frameon=False, fontsize=8.5)
+    a1.set_title("What the revisits are", fontsize=10, pad=24)
+    style(a1)
+    for i, (h, lab, c) in enumerate(HARN):
+        g = O[O.harness == h].assign(v=lambda d: (d.rev & d.nd).astype(float))
+        p_, lo, hi = _rci(g, "v")
+        a2.barh(y[i], 100 * p_, color=S2, height=0.55, edgecolor=SURF, linewidth=2)
+        a2.errorbar(100 * p_, y[i], xerr=[[100 * (p_ - lo)], [100 * (hi - p_)]], color=INK, lw=1.2, capsize=3)
+        a2.text(100 * hi + 0.08, y[i], f"{100 * p_:.2f}%", va="center", fontsize=9, fontweight="bold")
+    w = O[(O.harness == "swe-agent") & O.post_submit]
+    a2.barh(y[2], 100 * (w.rev & w.nd).sum() / n["swe-agent"], left=100 * ((O.harness == "swe-agent") & ~O.post_submit & O.rev & O.nd).sum() / n["swe-agent"],
+            color="none", height=0.55, hatch="////", edgecolor=SURF, linewidth=0)
+    a2.text(0.02, y[2] - 0.36, "hatched: after SWE-agent's first submit", fontsize=8, color=INK2)
+    a2.set_yticks(y, ["mini-swe-agent", "OpenHands", "SWE-agent"])
+    a2.set_xlim(0, 3.5); a2.set_xlabel("non-distinct revisits, % of all operations")
+    a2.set_title("How much of it is non-distinct", fontsize=10, pad=24)
+    style(a2)
+    fig.suptitle("Qwen: OpenHands and SWE-agent revisit ~12 pts more, mostly by editing a file in more calls; little of it is redundant",
+                 x=0.01, ha="left", fontweight="bold", fontsize=12, y=1.08)
+    save(fig, "8_qwen_revisits", "Open-SWE-Traces v1.2, Qwen3.8-27B, the same 500 tasks in each harness. Error bars: task-clustered 95% CIs. "
+         "LLM labels (primary annotator);\nthe GLM second annotator agrees only moderately on Qwen (κ 0.45), so the non-distinct shares are less certain than the revisit shares.")
+
+
 if __name__ == "__main__":
     os.makedirs(FIG, exist_ok=True)
-    for f in (f1_work_breakdown, f2_harness, f3_difficulty, f4_return_after_k, f5_signatures, f6_final_verify, f7_versions):
+    for f in (f1_work_breakdown, f2_harness, f3_difficulty, f4_return_after_k, f5_signatures, f6_final_verify, f7_versions, f8_qwen_revisits):
         f()

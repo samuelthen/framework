@@ -1,0 +1,4 @@
+harness,runs,runs_with_error_loop,loops,mean_length,error_loop_signature_matches,non_distinct_share
+mini-swe-agent,500,4.4%,22,3.2,48,0.0%
+openhands,500,6.6%,34,3.1,72,0.0%
+swe-agent,500,5.6%,28,3.1,60,3.3%
