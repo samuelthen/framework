@@ -1,0 +1,502 @@
+{
+  "status": "illustrative only; synthetic usage, not measured experiment",
+  "responses": [
+    {
+      "response_id": "example:R1",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 600
+      }
+    },
+    {
+      "response_id": "example:R2",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 900
+      }
+    },
+    {
+      "response_id": "example:R3",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 240
+      }
+    },
+    {
+      "response_id": "example:R4",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 60
+      }
+    },
+    {
+      "response_id": "example:R5",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 120
+      }
+    },
+    {
+      "response_id": "example:R6",
+      "run_id": "illustrative_only",
+      "usage": {
+        "output_tokens": 80
+      }
+    }
+  ],
+  "components": [
+    {
+      "component_id": "C1",
+      "response_id": "example:R1",
+      "role": "exploration",
+      "contribution_label": "direct",
+      "version_region": "V0",
+      "title": "Read parser.py"
+    },
+    {
+      "component_id": "C2",
+      "response_id": "example:R1",
+      "role": "exploration",
+      "contribution_label": "direct",
+      "version_region": "V0",
+      "title": "Read parser tests"
+    },
+    {
+      "component_id": "C3",
+      "response_id": "example:R2",
+      "role": "edit",
+      "contribution_label": "direct",
+      "version_region": "V0 -> V1",
+      "title": "Implement the fix"
+    },
+    {
+      "component_id": "C4",
+      "response_id": "example:R3",
+      "role": "verification",
+      "contribution_label": "direct",
+      "version_region": "V1",
+      "title": "Check repaired behavior"
+    },
+    {
+      "component_id": "C5",
+      "response_id": "example:R4",
+      "role": "verification",
+      "contribution_label": "non_direct",
+      "version_region": "V1",
+      "title": "Repeat the same check"
+    },
+    {
+      "component_id": "C6",
+      "response_id": "example:R5",
+      "role": "exploration",
+      "contribution_label": "non_direct",
+      "version_region": "V1",
+      "title": "Re-read unchanged code"
+    },
+    {
+      "component_id": "C7",
+      "response_id": "example:R6",
+      "role": "verification",
+      "contribution_label": "uncertain",
+      "version_region": "V1",
+      "title": "Check another edge case"
+    }
+  ],
+  "allocations": [
+    {
+      "response_id": "example:R1",
+      "run_id": "illustrative_only",
+      "component_id": "C1",
+      "parent_op_id": null,
+      "allocation_weight": 0.5,
+      "allocation_method": "equal_share_response_allocation",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 2,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 300.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 600,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "exploration",
+      "contribution_label": "direct",
+      "version_region": "V0",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#2878B5",
+        "contribution_border": "#237A3B",
+        "size_value": 300.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "equal_share_response_allocation"
+      }
+    },
+    {
+      "response_id": "example:R1",
+      "run_id": "illustrative_only",
+      "component_id": "C2",
+      "parent_op_id": null,
+      "allocation_weight": 0.5,
+      "allocation_method": "equal_share_response_allocation",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 2,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 300.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 600,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "exploration",
+      "contribution_label": "direct",
+      "version_region": "V0",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#2878B5",
+        "contribution_border": "#237A3B",
+        "size_value": 300.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "equal_share_response_allocation"
+      }
+    },
+    {
+      "response_id": "example:R2",
+      "run_id": "illustrative_only",
+      "component_id": "C3",
+      "parent_op_id": null,
+      "allocation_weight": 1.0,
+      "allocation_method": "single_component_response_association",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 900.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 900,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "edit",
+      "contribution_label": "direct",
+      "version_region": "V0 -> V1",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#8058AF",
+        "contribution_border": "#237A3B",
+        "size_value": 900.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "single_component_response_association"
+      }
+    },
+    {
+      "response_id": "example:R3",
+      "run_id": "illustrative_only",
+      "component_id": "C4",
+      "parent_op_id": null,
+      "allocation_weight": 1.0,
+      "allocation_method": "single_component_response_association",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 240.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 240,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "verification",
+      "contribution_label": "direct",
+      "version_region": "V1",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#168577",
+        "contribution_border": "#237A3B",
+        "size_value": 240.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "single_component_response_association"
+      }
+    },
+    {
+      "response_id": "example:R4",
+      "run_id": "illustrative_only",
+      "component_id": "C5",
+      "parent_op_id": null,
+      "allocation_weight": 1.0,
+      "allocation_method": "single_component_response_association",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 60.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 60,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "verification",
+      "contribution_label": "non_direct",
+      "version_region": "V1",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#168577",
+        "contribution_border": "#C35E18",
+        "size_value": 60.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "single_component_response_association"
+      }
+    },
+    {
+      "response_id": "example:R5",
+      "run_id": "illustrative_only",
+      "component_id": "C6",
+      "parent_op_id": null,
+      "allocation_weight": 1.0,
+      "allocation_method": "single_component_response_association",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 120.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 120,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "exploration",
+      "contribution_label": "non_direct",
+      "version_region": "V1",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#2878B5",
+        "contribution_border": "#C35E18",
+        "size_value": 120.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "single_component_response_association"
+      }
+    },
+    {
+      "response_id": "example:R6",
+      "run_id": "illustrative_only",
+      "component_id": "C7",
+      "parent_op_id": null,
+      "allocation_weight": 1.0,
+      "allocation_method": "single_component_response_association",
+      "allocation_basis": "all_emitted_candidate_components; not performed-action denominator",
+      "response_component_count": 1,
+      "usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 80.0,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "response_usage": {
+        "input_tokens": null,
+        "cached_input_tokens": null,
+        "output_tokens": 80,
+        "reasoning_tokens": null,
+        "cost_usd": null
+      },
+      "execution_status": "not_applicable",
+      "role": "verification",
+      "contribution_label": "uncertain",
+      "version_region": "V1",
+      "target_region": "unknown",
+      "visual": {
+        "role_color": "#168577",
+        "contribution_border": "#777777",
+        "size_value": 80.0,
+        "size_metric": "allocated output_tokens; null means unavailable",
+        "allocation_method": "single_component_response_association"
+      }
+    }
+  ],
+  "version_regions": [
+    {
+      "version_region": "V0",
+      "components": 2,
+      "responses_touched": 1,
+      "response_equivalent_weight": 1.0,
+      "region_method": "equal_component_allocation",
+      "input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "cached_input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "output_tokens": {
+        "known_total": 600.0,
+        "whole_response_associated_total": 600.0,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": 300.0,
+        "usage_coverage_response_weight": 1.0,
+        "unknown_usage_responses": 0
+      },
+      "reasoning_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "cost_usd": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      }
+    },
+    {
+      "version_region": "V0 -> V1",
+      "components": 1,
+      "responses_touched": 1,
+      "response_equivalent_weight": 1.0,
+      "region_method": "equal_component_allocation",
+      "input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "cached_input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "output_tokens": {
+        "known_total": 900.0,
+        "whole_response_associated_total": 900.0,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": 900.0,
+        "usage_coverage_response_weight": 1.0,
+        "unknown_usage_responses": 0
+      },
+      "reasoning_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      },
+      "cost_usd": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 1
+      }
+    },
+    {
+      "version_region": "V1",
+      "components": 4,
+      "responses_touched": 4,
+      "response_equivalent_weight": 4.0,
+      "region_method": "equal_component_allocation",
+      "input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 4
+      },
+      "cached_input_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 4
+      },
+      "output_tokens": {
+        "known_total": 500.0,
+        "whole_response_associated_total": 500.0,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": 125.0,
+        "usage_coverage_response_weight": 1.0,
+        "unknown_usage_responses": 0
+      },
+      "reasoning_tokens": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 4
+      },
+      "cost_usd": {
+        "known_total": null,
+        "whole_response_associated_total": null,
+        "shared_response_allocated_total": null,
+        "mean_allocated_per_component": null,
+        "usage_coverage_response_weight": 0.0,
+        "unknown_usage_responses": 4
+      }
+    }
+  ]
+}

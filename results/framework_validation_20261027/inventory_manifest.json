@@ -1,0 +1,40 @@
+{
+  "status": "saved-data identity coverage verified; token allocation and checkpoint validity unresolved",
+  "counts": {
+    "components": 769,
+    "native_calls": 449,
+    "runs": 16,
+    "tasks": 8,
+    "generating_responses_with_components": 413,
+    "roles": {
+      "administration": 282,
+      "exploration": 270,
+      "verification": 159,
+      "edit": 58
+    },
+    "contribution": {
+      "non_direct": 331,
+      "direct": 233,
+      "uncertain": 205
+    }
+  },
+  "checks": {
+    "candidate_ids_preserved": true,
+    "native_call_coverage_complete": true,
+    "run_native_call_totals_match": true
+  },
+  "response_usage_available": false,
+  "complete_code_snapshots_verified": false,
+  "actual_new_agent_runs": 0,
+  "actual_new_model_labels": 0,
+  "actual_task_evaluations": 0,
+  "interpretation": "run token totals are real archived fields; component token fields are deliberately null; inferred graph states are not evaluated snapshots",
+  "inputs": {
+    "results/precision_validation_20261026/components.jsonl": "e944474873c461178b57bc51fb2d8b8fead29942b9df27dfd2bff3a2149e8782",
+    "results/precision_validation_20261026/reconciled_component_annotations.jsonl": "3a130366e999bdc4955b3f5d4febe8773c08f9000af7e4f2fc7d5ce98bae1937",
+    "results/one_day_precision_20261026/packets/blinding_key.csv": "2ad134f525d46e5aba654ca0d58f32a59d1be4d205cb77308ceb92a513d0e58e",
+    "data/runs.parquet": "7dc259a4281a1234d775e2c354f94ab4ff521e8e597a1e3707e7e2474ecd51f7",
+    "data/ops_compact.parquet": "fc5783d9a9130fa6dc868885220df2ff3a210d77b8b7cd91fe4df41fc25e6c2c",
+    "results/followup_20261026/corrected_version_graphs.jsonl": "d05ed2cdfe2ff7f7bb9b2082e1446d2f72a9132c95c66d44b86a0040d0439844"
+  }
+}

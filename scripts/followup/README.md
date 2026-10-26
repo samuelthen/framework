@@ -1,5 +1,11 @@
 # Follow-up study tools
 
+For the component/version/token and intermediate-checkpoint study, start with
+[`CODEX_FRAMEWORK_VALIDATION.md`](../../CODEX_FRAMEWORK_VALIDATION.md). Response
+accounting is implemented in `component_resources.py`; independent checkpoint
+replay and empirical PASS overlays remain pending. The plotting examples use
+synthetic data and are not result figures.
+
 ```bash
 bash scripts/followup/run_all.sh
 ```

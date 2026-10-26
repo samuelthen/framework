@@ -6,6 +6,8 @@ import re
 
 import pandas as pd
 
+from ..resources import response_ledger
+
 REVISION = "a5ec6ad8428715a689ee62cf7cef82334773c958"
 MODEL_NAMES = {"luna": "gpt-5.6-luna", "terra": "gpt-5.6-terra", "gemini_3_7_flash": "gemini-3.7-flash", "mini": "gpt-5.4-mini"}
 INFRA_STATUSES = {"failed"}
@@ -79,7 +81,8 @@ def load_row(row) -> tuple[dict, list[dict]]:
                 res = {"output": "", "exit_code": None, "agent_saw_truncated": False}
             ops.append({
                 "source": "jetbrains", "model": model, "harness": "mini-swe-agent",
-                "task_id": row["instance_id"], "run_id": run_id, "turn_id": turn_id, "op_id": f"{turn_id}.{k}",
+                "task_id": row["instance_id"], "run_id": run_id, "turn_id": turn_id,
+                "response_id": turn_id, "op_id": f"{turn_id}.{k}",
                 "agent_message": msg if k == 0 else "(same turn as previous operation)",
                 "tool": o.get("name") or "bash", "command": cmd, "exit_code": res["exit_code"], "output": res["output"],
                 "agent_saw_truncated": res["agent_saw_truncated"], "missing_result": o["call_id"] not in results,
@@ -98,6 +101,16 @@ def load_row(row) -> tuple[dict, list[dict]]:
         "gold_files": None, "gold_lines": None,
     }
     return run, ops
+
+
+def load_response_usage(row) -> list[dict]:
+    """Separate response-level ledger; never copies shared usage onto tool ops.
+
+    Existing load_row callers retain their return shape and run-level totals.
+    Missing response usage is null even when a run total is available.
+    """
+    run_id = f"jb:{row['model']}:{row['instance_id']}:r{int(row['run'])}"
+    return response_ledger(json.loads(row["messages"]), run_id)
 
 
 def _int(v):

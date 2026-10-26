@@ -1,0 +1,91 @@
+{
+  "status": "synthetic illustration; not empirical evidence",
+  "components": [
+    {
+      "component_id": "C1",
+      "role": "exploration",
+      "contribution": "direct",
+      "response_id": "R1",
+      "input_tokens": 1000,
+      "cached_input_tokens": 600,
+      "output_tokens": 300
+    },
+    {
+      "component_id": "C2",
+      "role": "exploration",
+      "contribution": "direct",
+      "response_id": "R1",
+      "input_tokens": 1000,
+      "cached_input_tokens": 600,
+      "output_tokens": 300
+    },
+    {
+      "component_id": "C3",
+      "role": "edit",
+      "contribution": "direct",
+      "response_id": "R2",
+      "input_tokens": 2500,
+      "cached_input_tokens": 1800,
+      "output_tokens": 900
+    },
+    {
+      "component_id": "C4",
+      "role": "verification",
+      "contribution": "direct",
+      "response_id": "R3",
+      "input_tokens": 3000,
+      "cached_input_tokens": 2400,
+      "output_tokens": 240
+    },
+    {
+      "component_id": "C5",
+      "role": "verification",
+      "contribution": "non_direct",
+      "response_id": "R4",
+      "input_tokens": 3100,
+      "cached_input_tokens": 2500,
+      "output_tokens": 60
+    },
+    {
+      "component_id": "C6",
+      "role": "edit",
+      "contribution": "uncertain",
+      "response_id": "R5",
+      "input_tokens": 3200,
+      "cached_input_tokens": 2600,
+      "output_tokens": 200
+    },
+    {
+      "component_id": "C7",
+      "role": "verification",
+      "contribution": "uncertain",
+      "response_id": "R6",
+      "input_tokens": 3400,
+      "cached_input_tokens": 2800,
+      "output_tokens": 120
+    },
+    {
+      "component_id": "C8",
+      "role": "exploration",
+      "contribution": "non_direct",
+      "response_id": "R7",
+      "input_tokens": 3500,
+      "cached_input_tokens": 2900,
+      "output_tokens": 100
+    },
+    {
+      "component_id": "C9",
+      "role": "verification",
+      "contribution": "uncertain",
+      "response_id": "R8",
+      "input_tokens": 3600,
+      "cached_input_tokens": 3000,
+      "output_tokens": 80
+    }
+  ],
+  "version_outcomes": {
+    "V0": "synthetic_fail",
+    "V1": "synthetic_pass",
+    "V2": "synthetic_pass"
+  }
+}

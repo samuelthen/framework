@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-27",
+  "base_revision": "94e8ca1506fd956f31d57616ec39fd64620c0a9d",
+  "python": "3.12.14",
+  "tests": {
+    "project_study_followup": 149,
+    "original_audit": 7,
+    "restore_scope": 3,
+    "end_to_end_cli_tests_in_project_count": 3,
+    "all_passed": true
+  },
+  "saved_data_inventory": {
+    "components": 769,
+    "native_calls": 449,
+    "runs": 16,
+    "tasks": 8,
+    "generating_responses_with_components": 413,
+    "roles": {
+      "administration": 282,
+      "exploration": 270,
+      "verification": 159,
+      "edit": 58
+    },
+    "contribution": {
+      "non_direct": 331,
+      "direct": 233,
+      "uncertain": 205
+    }
+  },
+  "empirical_status": {
+    "raw_jetbrains_shards_present": false,
+    "raw_task_metadata_present": false,
+    "response_usage_recovered": false,
+    "complete_snapshot_identity_verified": false,
+    "intermediate_final_benchmark_outcomes_established": false,
+    "new_agent_runs": 0,
+    "new_model_calls": 0,
+    "new_model_labels": 0,
+    "task_evaluations": 0,
+    "existing_labels_changed": false,
+    "graph_examples": "synthetic only"
+  },
+  "remaining_work": [
+    "recover actual response usage and reconcile run totals",
+    "reconstruct complete checkpoints in isolated benchmark environments",
+    "evaluate intermediate versions and summarize post-pass expenditure",
+    "independent human label validation",
+    "semantic confirmation on frozen model and harness panels"
+  ],
+  "source_hashes": {
+    "CODEX_FRAMEWORK_VALIDATION.md": "c770cea9dd6d5449140b8abd0b2823e2063a606316f1fecc545b38392be45ce9",
+    "paper/worktrace-draft/FRAMEWORK_REVIEW.md": "3796458d82e06cf474f8c652063455031d5de58a7f8d582a3fcf5d66e4d44c68",
+    "worktrace/RESOURCE_ATTRIBUTION.md": "18f5020c5ba83359ca259e1107f7a30a0cdaf15bb9fd724e9b21d1bf06eba73d",
+    "worktrace/worktrace/resources.py": "1aa8313502890c4cdb010d2a009b645484d770761097078d6da2f935adce0d16",
+    "worktrace/worktrace/loaders/jetbrains.py": "d1aea8187b9d1fe1ba4dc889caf7851cce945edd39d2bbd66143c22c99bd4256",
+    "worktrace/tests/test_resources.py": "5abca12cd3cedf747b84166501e556c523f82e3b67e7c9dfdf1f11a66d847438",
+    "worktrace/tests/test_resource_loader.py": "6b6baca087fe1ae02feb68206118def9538e8818b3ae2f91cbcac1fbb45acf86",
+    "worktrace/tests/test_resource_cli.py": "f27cb8296357f551ec5778afdef69670bfbbb31841448e6f5321676553963aca",
+    "scripts/followup/component_resources.py": "c93d551792a1b96b15105a1c1a44fb46e2649520f3ea645c181a7cd9a5ee8a2b",
+    "scripts/followup/framework_inventory.py": "35c3bd4839a4271a4ab5ea474378729f7af4c99fda6e881edd78a49e8b1c19f7",
+    "scripts/followup/draw_resource_example.py": "d8946de0284598b4df65bba1f09a2a54940710802e46a9350d9d556db8d78631",
+    "scripts/followup/draw_component_version_example.py": "76b660122ae5c9b38e5034189692995525bf8b9f184a053f93658d27a1be18a0"
+  },
+  "output_hashes": {
+    "RESULTS.md": "c67c936f8cbed38450e0576ceae561b835af9efa7d782489563a48fffae738b7",
+    "inventory_manifest.json": "0366e993aa68ec2721c2d00f134f1da374d91b38633239068ebf7878dd1924e1",
+    "component_identity_join.csv": "896934c51af6c99be798bb2e69ccf8426783a4f838c72d8fa92fac6382909f79",
+    "pilot_inventory_by_run.csv": "a5a8c94129f5ee485874016abf27652a3dd8b1747a07c58666f9f2e7df514df0",
+    "project_tests.txt": "23091eca64df8711acbc46ac174952cde1581fe285fa6787af908c837d71d215",
+    "original_audit_checks.txt": "9cd51e2ea05f8211ea4bd05d6d3cc9a84f6a65a9f99a885ec7f1e5e2c89ddcbf",
+    "restore_scope_checks.txt": "b6a15a019c316677d7fef44ae02ed1204b6e03dcb9df0755d484d5ce0411a5df"
+  }
+}
