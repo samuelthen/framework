@@ -1,0 +1,24 @@
+[
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "candidate_checkpoints": 3,
+    "evaluations_executed": 0,
+    "semantic_outcomes": 0,
+    "earliest_evaluated_passing_version": null,
+    "later_evaluated_failures": [],
+    "unevaluated": 3,
+    "post_pass_expenditure": null,
+    "post_pass_status": "unavailable: no evaluated passing snapshot"
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "candidate_checkpoints": 3,
+    "evaluations_executed": 0,
+    "semantic_outcomes": 0,
+    "earliest_evaluated_passing_version": null,
+    "later_evaluated_failures": [],
+    "unevaluated": 3,
+    "post_pass_expenditure": null,
+    "post_pass_status": "unavailable: no evaluated passing snapshot"
+  }
+]

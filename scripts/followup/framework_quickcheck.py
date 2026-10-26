@@ -111,11 +111,13 @@ def main():
             reviewed_subset.append(dict(order=item['order'], run_id=item['run_id'], model=item['model'], role=role,
                 **contribution_score([r for r in group if r['role'] == role and r['contribution_review_status'] == 'reviewed'])))
         for contribution in [*CONTRIBUTION_LABELS, 'non_direct']:
-            example = next((r for r in group if r['role'] == 'verification'
-                and r['contribution_label'] == contribution and r['execution_status'] == 'executed'), None)
-            if example is None:
-                example = next((r for r in group if r['contribution_label'] == contribution
-                                and r['execution_status'] == 'executed'), None)
+            candidates = [r for r in group if r['contribution_label'] == contribution
+                          and r['execution_status'] == 'executed']
+            # Expose reviewed evidence in callouts without changing labels.
+            candidates.sort(key=lambda r: (r['contribution_review_status'] != 'reviewed',
+                                           r['role'] != 'verification',
+                                           r['action_index'], r['component_index']))
+            example = candidates[0] if candidates else None
             if example:
                 cost = usage.get(example['component_id'])
                 examples.append(dict(example, run_id=item['run_id'], model=item['model'],
@@ -165,7 +167,8 @@ def main():
         axes[0].set_ylabel('Inferred state AFTER parent native call')
         fig.suptitle(f'Archived example: evaluation task {order:02d} — {selected[0]["task_id"].split("__")[0].split("_")[-1]}',
                      x=.07, ha='left', fontsize=17, weight='bold')
-        fig.text(.07, .885, 'REAL ARCHIVED ACTIONS / MODEL-CODED LABELS  |  Intermediate final-test outcomes: UNTESTED', fontsize=10, color='#53616B')
+        task_reviewed = sum(r['contribution_review_status'] == 'reviewed' for r in labels if int(r['order']) == order)
+        fig.text(.07, .885, f'MODEL-CODED LABELS / {task_reviewed} CURRENT REVIEWS  |  Archived final: resolved; independent checkpoints: UNTESTED', fontsize=10, color='#53616B')
         fig.subplots_adjust(left=.07, right=.98, top=.77, bottom=.30, wspace=.12)
         role_handles = [Line2D([], [], marker=ROLE_MARKERS[role], ls='None', color='#43515B',
                                markersize=7, label=role.title())
@@ -183,7 +186,9 @@ def main():
                    bbox_to_anchor=(.60, .235), ncol=3, frameon=False, fontsize=10,
                    title_fontsize=10, handletextpad=.5, columnspacing=1.8)
         fig.text(.07, .08, 'States follow parent calls; gray bands mark uncertain inferred states. Execution timing inside compound calls is unresolved.', fontsize=9)
-        fig.text(.07, .04, 'Tokens above are whole-run totals; component usage is unknown without raw responses. Faint symbols = known unexecuted candidates.', fontsize=9)
+        resource_note = ('Recorded response tokens joined; shared-component values are equal-share estimates (linked tables).'
+                         if usage else 'Tokens above are run totals; component usage is unknown without raw responses.')
+        fig.text(.07, .04, resource_note + ' Faint = known unexecuted.', fontsize=9)
         for ext in ['png', 'pdf', 'svg']:
             path = args.out / f'task_{order:02d}_progression.{ext}'
             fig.savefig(path, dpi=150, facecolor=fig.get_facecolor())
@@ -215,7 +220,7 @@ def main():
     for order in orders:
         report += [f'![Task {order} inferred progression](task_{order:02d}_progression.png)', '']
     report += ['## Component examples', '',
-        'First executed verification example per available label/run, falling back to another action type if needed. Labels not observed are not fabricated. Legacy non-direct is explicitly unsplit. Qualitative illustrations, not prevalence estimates. Model reviews are not human ground truth.', '']
+        'Executed examples per available label/run, preferring bounded reviewed cases and then verification. Labels not observed are not fabricated. Legacy non-direct is explicitly unsplit. Qualitative illustrations, not prevalence estimates. Model reviews are not human ground truth.', '']
     for e in examples:
         report += [f"### {e['component_id']} — {e['model']}, {e['contribution_label']}", '',
                    '```bash', e['command'], '```', '', f"Archived reason: {e.get('reason', 'unknown')}", '',

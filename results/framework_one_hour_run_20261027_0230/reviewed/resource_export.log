@@ -1,0 +1,8 @@
+{
+  "responses": 104,
+  "components": 175,
+  "responses_with_any_usage": 104,
+  "method": "equal emitted-candidate shares; missing stays null; mixed-region sensitivity exported",
+  "actual_new_agent_runs": 0,
+  "status": "exported; inspect usage coverage and source accounting before empirical claims"
+}

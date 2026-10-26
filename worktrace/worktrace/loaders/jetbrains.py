@@ -6,7 +6,7 @@ import re
 
 import pandas as pd
 
-from ..resources import response_ledger
+from ..resources import normalize_usage, response_ledger
 
 REVISION = "a5ec6ad8428715a689ee62cf7cef82334773c958"
 MODEL_NAMES = {"luna": "gpt-5.6-luna", "terra": "gpt-5.6-terra", "gemini_3_7_flash": "gemini-3.7-flash", "mini": "gpt-5.4-mini"}
@@ -110,7 +110,24 @@ def load_response_usage(row) -> list[dict]:
     Missing response usage is null even when a run total is available.
     """
     run_id = f"jb:{row['model']}:{row['instance_id']}:r{int(row['run'])}"
-    return response_ledger(json.loads(row["messages"]), run_id)
+    messages = json.loads(row["messages"])
+    ledger = response_ledger(messages, run_id)
+    stored = [m for m in messages if m.get("object") == "response"]
+    for record, message in zip(ledger, stored):
+        extra_cost = (message.get("extra") or {}).get("cost")
+        record["raw_extra_cost"] = extra_cost
+        record["run_cost_source"] = row.get("cost_source")
+        # Inspected SWE-TaskFlow payloads put harness-recorded response cost in
+        # extra.cost. Gemini's public-map run costs coexist with zero response
+        # placeholders: those zeros are not observations of free responses.
+        if record["usage"]["cost_usd"] is not None:
+            record["cost_provenance"] = "stored usage.cost_usd"
+        elif row.get("cost_source") == "harbor_agent_result" and extra_cost is not None:
+            record["usage"]["cost_usd"] = normalize_usage({"cost_usd": extra_cost})["cost_usd"]
+            record["cost_provenance"] = "stored response extra.cost; harness-reported, not independently billed"
+        else:
+            record["cost_provenance"] = "unavailable; extra.cost not accepted for this run cost_source"
+    return ledger
 
 
 def _int(v):

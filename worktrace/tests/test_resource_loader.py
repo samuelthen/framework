@@ -21,3 +21,25 @@ def test_jetbrains_usage_is_kept_once_per_response_not_per_tool():
     assert ledger[0]['tool_call_count']==0
     assert sum(r['usage']['output_tokens'] for r in ledger)==60
     assert 'output_tokens' not in ops[0] and 'usage' not in ops[0]
+
+
+def test_harbor_response_cost_has_explicit_provenance_and_missing_stays_null():
+    row = dict(model='luna', instance_id='task', run=1, cost_source='harbor_agent_result',
+               messages=json.dumps([
+                   dict(object='response', output=[], extra=dict(cost=.001)),
+                   dict(object='response', output=[], usage=None)]))
+    first, second = load_response_usage(row)
+    assert first['usage']['cost_usd'] == .001
+    assert first['raw_extra_cost'] == .001
+    assert 'extra.cost' in first['cost_provenance']
+    assert first['usage']['input_tokens'] is None
+    assert second['usage']['cost_usd'] is None
+
+
+def test_public_map_zero_response_placeholders_are_not_free_usage():
+    row = dict(model='gemini_3_7_flash', instance_id='task', run=1,
+               cost_source='trajectory_tokens_litellm_public_map',
+               messages=json.dumps([dict(object='response', output=[], extra=dict(cost=0.0))]))
+    record, = load_response_usage(row)
+    assert record['raw_extra_cost'] == 0
+    assert record['usage']['cost_usd'] is None

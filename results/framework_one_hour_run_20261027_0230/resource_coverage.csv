@@ -1,0 +1,5 @@
+order,model,run_id,components,native_calls,responses,input_responses,cache_responses,output_responses,cost_responses,no_tool_responses,missing_provider_response_ids,input_tokens,cached_input_tokens,output_tokens,run_cost_usd,cost_source
+3,gemini-3.7-flash,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,54,53,53,53,53,53,0,0,53,3448740,3200762,51678,0.619833,trajectory_tokens_litellm_public_map
+3,gpt-5.6-luna,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,30,10,8,8,8,8,8,0,8,100650,87377,2069,0.00688494,harbor_agent_result
+4,gemini-3.7-flash,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,48,31,31,31,31,31,0,0,31,951973,760343,18961,0.271852,trajectory_tokens_litellm_public_map
+4,gpt-5.6-luna,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,43,15,12,12,12,12,12,0,12,137056,124650,3025,0.008604200000000001,harbor_agent_result

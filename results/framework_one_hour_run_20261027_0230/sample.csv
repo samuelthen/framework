@@ -1,0 +1,5 @@
+order,split,task_id,model,run_id,repeat,resolved,n_actions,exclusion
+3,evaluation,instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0,gemini-3.7-flash,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,1,True,53,
+3,evaluation,instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0,gpt-5.6-luna,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,1,True,10,
+4,evaluation,instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca,gemini-3.7-flash,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,1,True,31,
+4,evaluation,instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca,gpt-5.6-luna,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,1,True,15,

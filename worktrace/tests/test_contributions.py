@@ -66,3 +66,9 @@ def test_review_sample_is_bounded_and_does_not_select_unexecuted_candidates():
     skipped = dict(component('not-run', -1), execution_status='not_executed')
     sample = review_sample([skipped, *source])
     assert len(sample) == 5 and {r['component_id'] for r in sample} == {c['component_id'] for c in source}
+
+
+def test_empty_role_precision_is_undefined_not_zero():
+    score = contribution_score([])
+    assert score['included'] == 0
+    assert score['lower'] is None and score['upper'] is None

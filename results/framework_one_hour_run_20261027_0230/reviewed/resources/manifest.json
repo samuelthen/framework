@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "raw/jetbrains/gemini_3_7_flash-run1.parquet": "dee351735e2dd3a1115501c475ec8f7df054ab58da3bf21ea9a9b1fea5c6166e",
+    "raw/jetbrains/luna-run1.parquet": "1a7af8a0531b4d1283bca357b00f1e4f42ab65b4a5088bee8082a95ff6e2017b",
+    "results/framework_one_hour_run_20261027_0230/reviewed/components.jsonl": "083a488d03f2acae1c070a3f6f12a2893bd91d7ef9d8c530f331d013059d625b",
+    "/home/user/framework/results/one_day_precision_20261026/packets/blinding_key.csv": "2ad134f525d46e5aba654ca0d58f32a59d1be4d205cb77308ceb92a513d0e58e"
+  },
+  "responses": 104,
+  "components": 175,
+  "responses_with_any_usage": 104,
+  "method": "equal emitted-candidate shares; missing stays null; mixed-region sensitivity exported",
+  "actual_new_agent_runs": 0,
+  "status": "exported; inspect usage coverage and source accounting before empirical claims"
+}

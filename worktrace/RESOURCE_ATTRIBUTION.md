@@ -49,6 +49,16 @@ ledger and must not be summed together.
 Expenditure-contribution ratios are null for missing/zero usage. All unknown
 fields remain null. Cost is accepted only when recorded; no price is applied.
 
+The JetBrains adapter also preserves `raw_extra_cost` and the run's
+`cost_source`. For inspected `harbor_agent_result` records, response
+`extra.cost` is accepted as harness-recorded USD, with explicit provenance;
+this is not independent billing verification. Response zero placeholders on
+`trajectory_tokens_litellm_public_map` runs are not accepted as free responses.
+Run-level reconstructed costs never fill missing response costs. The fixed
+two-task empirical run is recorded under
+`results/framework_one_hour_run_20261027_0230/`; inspect its coverage and
+reconciliation rather than assuming every source contains response usage.
+
 ## Export normalized inputs
 
 From repository root:
@@ -94,7 +104,9 @@ reconciliation targets, never substitutes for absent response usage.
 Graph-overlay data is implemented; existing viewer rendering is not yet wired to
 it. The exporter does not change previous labels, figures, manuscripts or results.
 Use a fresh output directory for each method/input version. Real per-response
-usage and empirical token-colored graphs remain pending source recovery.
+usage is recovered for the fixed two-task run linked above; this does not imply
+coverage of other datasets. Its empirical figures use contribution colors and
+fixed marker sizes, with separate token fields in a linked table.
 
 ## Component-versus-version figure and checkpoint follow-up
 

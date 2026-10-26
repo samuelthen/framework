@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-10-26T18:39:25.872980+00:00",
+  "docker_query_exit_code": 0,
+  "installed_image_count": 46,
+  "required_task_tag": "flipt-io.flipt-flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0",
+  "matching_local_images": [],
+  "configured_repo_adapter_paths": [],
+  "python_swebench_module_available": false,
+  "base_commit": "3bf3255a7b7e2cbe9f71ec167f16a5449a357a5e",
+  "selected_test_ids": [
+    "TestErrorUnaryInterceptor"
+  ],
+  "setup_elapsed_seconds": 1.197,
+  "setup_limit_seconds": 180,
+  "max_evaluations": 6,
+  "evaluation_timeout_seconds": 120,
+  "max_concurrent": 2,
+  "actual_evaluations": 0,
+  "task_commands_executed_on_host": 0,
+  "images_built_or_downloaded": 0,
+  "status": "unavailable",
+  "reason": "No local image for the selected SWE-bench Pro task; no configured final-protocol benchmark adapter or complete pinned task checkout. Other SWE-bench Python images are incompatible. Dataset test IDs/setup text do not constitute an executable final protocol.",
+  "checkout_search_scope": "working repository and top-level /tmp/*flipt* and /home/user/*flipt*; no complete pinned checkout located in these paths"
+}
