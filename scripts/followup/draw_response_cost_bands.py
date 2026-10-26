@@ -36,6 +36,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, default=ROOT / 'results/framework_one_hour_run_20261027_0230')
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--contribution-view', choices=['merged', 'detailed'], default='merged',
+                        help='Merged displays indirect/no-demonstrated/legacy non-direct together as Indirect; source labels are preserved')
     args = parser.parse_args()
     inputs = [args.run_dir / 'component_usage.csv', args.run_dir / 'reviewed/resources/response_usage.jsonl',
               args.run_dir / 'resource_coverage.csv']
@@ -54,7 +56,10 @@ def main():
     from matplotlib.lines import Line2D
     names = {'direct': 'Direct', 'indirect': 'Indirect', 'no_demonstrated': 'No demonstrated',
              'uncertain': 'Uncertain', 'non_direct': 'Legacy unsplit'}
-    band_rows = []
+    display_map = {label: ('indirect' if args.contribution_view == 'merged'
+                            and label in {'indirect', 'no_demonstrated', 'non_direct'} else label)
+                   for label in CONTRIBUTION_COLORS}
+    band_rows, display_rows = [], []
     for order in [3, 4]:
         group = [r for r in components if ':luna:' in r['run_id'] and r['component_id'].startswith(f'{order:02d}:')]
         assert group, f'Missing Luna task {order}'
@@ -114,9 +119,12 @@ def main():
         yy = [int(r['inferred_state_after_parent_call']) for r in group]
         ax.plot(xx, yy, color='#8A969E', lw=1.5, zorder=2)
         for x, y, component in zip(xx, yy, group):
+            displayed = display_map[component['contribution']]
             ax.scatter(x, y, s=90, marker=ROLE_MARKERS[component['role']],
-                       color=CONTRIBUTION_COLORS[component['contribution']], edgecolors='#FCFCFA',
+                       color=CONTRIBUTION_COLORS[displayed], edgecolors='#FCFCFA',
                        linewidths=.7, alpha=.4 if component['execution_status'] == 'not_executed' else 1, zorder=4)
+            display_rows.append(dict(component_id=component['component_id'],
+                                     source_contribution=component['contribution'], display_contribution=displayed))
         for component_id in [f'{order:02d}:Y008.c0' if order == 3 else f'{order:02d}:Y012.c0']:
             index = next((i for i, c in enumerate(group) if c['component_id'] == component_id), None)
             if index is not None:
@@ -137,7 +145,7 @@ def main():
             ax.spines[side].set_visible(False)
         role_handles = [Line2D([], [], marker=ROLE_MARKERS[r], ls='None', color='#43515B', markersize=8, label=r.title())
                         for r in ['exploration', 'edit', 'verification', 'administration']]
-        present = {c['contribution'] for c in group}
+        present = {display_map[c['contribution']] for c in group}
         contribution_handles = [Line2D([], [], marker='o', ls='None', color=CONTRIBUTION_COLORS[r], markersize=8, label=names[r])
                                 for r in CONTRIBUTION_COLORS if r in present]
         fig.legend(handles=role_handles, title='Shape = action type', loc='upper left', bbox_to_anchor=(.05, .20),
@@ -148,6 +156,9 @@ def main():
                  fontsize=10, color='#53616B')
         fig.text(.055, .038, 'USD is harness-recorded. Shared component costs remain allocated estimates. Compound-call internal states are unresolved; independent checkpoints are UNTESTED.',
                  fontsize=10, color='#53616B')
+        if args.contribution_view == 'merged':
+            fig.text(.055, .012, 'Display grouping: Indirect combines source indirect, no demonstrated contribution and legacy non-direct; original annotations and scores are preserved.',
+                     fontsize=9, color='#53616B')
         for ext in ['png', 'pdf', 'svg']:
             path = args.out / f'luna_task_{order:02d}_response_costs.{ext}'
             fig.savefig(path, dpi=150, facecolor=fig.get_facecolor())
@@ -157,8 +168,13 @@ def main():
     with (args.out / 'response_band_totals.csv').open('w', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(band_rows[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(band_rows)
+    with (args.out / 'component_display_labels.csv').open('w', newline='') as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(display_rows[0]), lineterminator='\n')
+        writer.writeheader(); writer.writerows(display_rows)
     manifest = dict(method='alternating response bands on unchanged component-order axis; recorded response costs shown once',
                     model='gpt-5.6-luna', tasks=[3, 4], bands=len(band_rows),
+                    contribution_view=args.contribution_view, contribution_display_mapping=display_map,
+                    source_annotations_changed=False, precision_scores_changed=False,
                     new_labels=0, new_agent_runs=0, checkpoint_evaluations=0,
                     source_hashes={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs})
     (args.out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

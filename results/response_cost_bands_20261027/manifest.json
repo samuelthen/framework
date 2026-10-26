@@ -6,6 +6,16 @@
     4
   ],
   "bands": 20,
+  "contribution_view": "merged",
+  "contribution_display_mapping": {
+    "direct": "direct",
+    "indirect": "indirect",
+    "no_demonstrated": "indirect",
+    "uncertain": "uncertain",
+    "non_direct": "indirect"
+  },
+  "source_annotations_changed": false,
+  "precision_scores_changed": false,
   "new_labels": 0,
   "new_agent_runs": 0,
   "checkpoint_evaluations": 0,

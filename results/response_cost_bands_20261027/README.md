@@ -8,6 +8,11 @@ response's recorded dollar amount and input/cache/output tokens **once**.
 - Task 03: eight response bands and 30 components.
 - Task 04: twelve response bands and 43 components.
 - Shape encodes action type; solid color encodes contribution.
+- The default display merges source indirect, no demonstrated contribution and
+  legacy non-direct into **Indirect** (blue), with direct green and uncertain
+  gray. This is a display grouping; original annotations and precision scores
+  are preserved. `component_display_labels.csv` records the explicit mapping.
+  Use `--contribution-view detailed` to reproduce the finer source categories.
 - I includes cached input C. Do not add C to I again.
 - USD is harness-recorded expenditure; plot labels are rounded to six decimals.
 - These are measured response budgets. They do not measure each component's
