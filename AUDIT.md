@@ -1,5 +1,10 @@
 # WorkTrace reliability audit — 25 October 2026
 
+**Update, 26 October:** the seven regression probes now pass after conservative
+parser/fact/version repairs. A separate [eight-pair validation report](results/precision_validation_20261026/RESULTS.md)
+records the changes, rebuilt pilot graphs and remaining measurement limits.
+The findings below describe the historical audited revision, not the repaired code.
+
 **Verdict: useful as an exploratory research prototype; not yet a validated measure of agent waste.** The saved pilot arithmetic checks out, but important state-tracking errors are reproducible, the skip-rule check is constrained by the label definition, and the intended human-validation gates remain unmet. The overview's statement that “the method works” is stronger than the available evidence supports.
 
 Audited revision: `239406b`. Scope: local code, tests, saved pilot/scale labels, annotation files, and result summaries. No external model calls, paid labeling, or raw-data download was performed. No implementation or saved result was changed. The probes below demonstrate possible failures; this audit does **not** estimate their frequency or numerical impact in the original trajectories.

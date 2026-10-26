@@ -1,0 +1,1390 @@
+{
+  "scope": "03\u201306 role/reason audit only",
+  "snapshot": "pre_role_audit_03_06/03.json through 06.json",
+  "method": "Manual role and reason corrections after reviewer quality audit. Original annotations preserved before these revisions. No legacy labels or model identities consulted.",
+  "changes": [
+    {
+      "component_id": "03:X016.c0",
+      "changes": {
+        "evidence": {
+          "before": "03:X016.c0 `go test -v ./internal/server/middleware/grpc`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. Agent-visible output was truncated; no hidden/elided output is credited.",
+          "after": "03:X016.c0 `go test -v ./internal/server/middleware/grpc`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. Agent-visible output was truncated; no hidden/elided output is credited. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:X017.c0",
+      "changes": {
+        "evidence": {
+          "before": "03:X017.c0 `go test -v ./internal/server/auth`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent.",
+          "after": "03:X017.c0 `go test -v ./internal/server/auth`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:X020.c0",
+      "changes": {
+        "evidence": {
+          "before": "03:X020.c0 `go test ./internal/server ./internal/server/audit/... ./internal/server/cache/... ./internal/server/metadata/... ./internal/server/metrics/... ./internal/server/otel/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping.",
+          "after": "03:X020.c0 `go test ./internal/server ./internal/server/audit/... ./internal/server/cache/... ./internal/server/metadata/... ./internal/server/metrics/... ./internal/server/otel/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:X021.c0",
+      "changes": {
+        "evidence": {
+          "before": "03:X021.c0 `go test ./internal/server/auth/method/token ./internal/server/auth/public ./internal/storage/auth/memory ./internal/storage/fs/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping.",
+          "after": "03:X021.c0 `go test ./internal/server/auth/method/token ./internal/server/auth/public ./internal/storage/auth/memory ./internal/storage/fs/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:Y005.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "uncertain",
+          "after": null
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:Y006.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "uncertain",
+          "after": null
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:Y008.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:Y008.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "03:Y008.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:X010.c0",
+      "changes": {
+        "property_checked": {
+          "before": "Repeated default fixture inspection adds no key absent/present fact beyond prior fixture reads.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "04:X003.c1",
+            "04:X004.c2"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "repeated_context"
+        },
+        "role": {
+          "before": "verification",
+          "after": "exploration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:X010.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Repeated default fixture inspection adds no key absent/present fact beyond prior fixture reads.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "04:X003.c1",
+            "04:X004.c2"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "repeated_context"
+        },
+        "role": {
+          "before": "verification",
+          "after": "exploration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:X012.c0",
+      "changes": {
+        "evidence": {
+          "before": "04:X012.c0 `go test -v ./config/...`. Baseline tests pass existing config/server/RPC/cache behavior; pool/meta missing-key assertions are not present and no baseline defect drives the edit.",
+          "after": "04:X012.c0 `go test -v ./config/...`. Baseline tests pass existing config/server/RPC/cache behavior; pool/meta missing-key assertions are not present and no baseline defect drives the edit. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:X013.c0",
+      "changes": {
+        "evidence": {
+          "before": "04:X013.c0 `go test ./server/... ./errors/... ./rpc/... ./storage/cache/...`. Baseline tests pass existing config/server/RPC/cache behavior; pool/meta missing-key assertions are not present and no baseline defect drives the edit.",
+          "after": "04:X013.c0 `go test ./server/... ./errors/... ./rpc/... ./storage/cache/...`. Baseline tests pass existing config/server/RPC/cache behavior; pool/meta missing-key assertions are not present and no baseline defect drives the edit. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:Y006.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Call ended -1 after diff without test output; chained test completion/PIPESTATUS guard execution cannot be established.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "uncertain",
+          "after": null
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:Y008.c0",
+      "changes": {
+        "property_checked": {
+          "before": "Whitespace check supplies no pool or meta semantics; unchanged source since initial diff.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:Y012.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Standard diff headers and allowed config path checks verify delivery scope, not config field/loading behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "04:Y012.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Standard diff headers and allowed config path checks verify delivery scope, not config field/loading behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X008.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Whitespace-only diff check does not establish correct liveness state authority.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "unrelated_or_nonbehavioral_check",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X010.c5",
+      "changes": {
+        "property_checked": {
+          "before": "Shell Bad substitution occurs before these later commands; no execution or attributable output supports their supposed inspection.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "uncertain",
+          "after": null
+        },
+        "reason": {
+          "before": "short_circuit_not_executed",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X011.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Whitespace validation on edited source does not check liveness behavior.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "uncertain",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "unrelated_or_nonbehavioral_check",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X015.c0",
+      "changes": {
+        "property_checked": {
+          "before": "Patch path/header/whitespace exclusions are artifact administration checks; they do not check state mapping or emissions.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X015.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Patch path/header/whitespace exclusions are artifact administration checks; they do not check state mapping or emissions.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:X015.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Patch path/header/whitespace exclusions are artifact administration checks; they do not check state mapping or emissions.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "05:Y009.c0",
+      "changes": {
+        "evidence": {
+          "before": "05:Y009.c0 `yarn test test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts`. Baseline 40 Playback tests pass before edits; existing paused-live liveness expectations concern old playback-dependent semantics and do not expose the requested info-state authority defect.",
+          "after": "05:Y009.c0 `yarn test test/voice-broadcast/models/VoiceBroadcastPlayback-test.ts`. Baseline 40 Playback tests pass before edits; existing paused-live liveness expectations concern old playback-dependent semantics and do not expose the requested info-state authority defect. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated."
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": "uncertain"
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "baseline_no_solution_link"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X014.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "new_relevant_coverage",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "new_relevant_coverage",
+          "after": "supported_prerequisite"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X014.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Install log tail is empty; the separately printed status and executable listing establish completion, not this log-read component.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c1"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X014.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "new_relevant_coverage",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "new_relevant_coverage",
+          "after": "supported_prerequisite"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X016.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X016.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X016.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X017.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X017.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X017.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X018.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X018.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X018.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X014.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X019.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Install still running; no completion state or reason-field coverage established.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X018.c1"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X019.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X018.c3"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X019.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Visible log/listing newly shows grpc-gateway and openapiv2 executables; these are required plugins subsequently used to generate the REST schema.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "new_relevant_coverage",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "new_relevant_coverage",
+          "after": "supported_prerequisite"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X020.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X019.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "new_relevant_coverage",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "new_relevant_coverage",
+          "after": "supported_prerequisite"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X020.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X018.c3"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X020.c4",
+      "changes": {
+        "property_checked": {
+          "before": "Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:X019.c4"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "new_relevant_coverage",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "changed",
+          "after": null
+        },
+        "reason": {
+          "before": "new_relevant_coverage",
+          "after": "supported_prerequisite"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X031.c2",
+      "changes": {
+        "property_checked": {
+          "before": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X031.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X032.c1",
+      "changes": {
+        "property_checked": {
+          "before": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X032.c3",
+      "changes": {
+        "property_checked": {
+          "before": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:X032.c5",
+      "changes": {
+        "property_checked": {
+          "before": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    },
+    {
+      "component_id": "06:Y045.c0",
+      "changes": {
+        "property_checked": {
+          "before": "Patch stat/header excerpt repeats retained file scope and earlier evaluator diff; no source edit or new behavioral check.",
+          "after": null
+        },
+        "earlier_check_ids": {
+          "before": [
+            "06:Y042.c0",
+            "06:Y043.c0"
+          ],
+          "after": null
+        },
+        "verification_gain": {
+          "before": "repeated_support",
+          "after": null
+        },
+        "relevant_state_changed": {
+          "before": "unchanged",
+          "after": null
+        },
+        "reason": {
+          "before": "repeated_support",
+          "after": "administration"
+        },
+        "role": {
+          "before": "verification",
+          "after": "administration"
+        }
+      },
+      "explanation": "Role audit: source/context reads are exploration; install polling and artifact format checks are administration; baseline without demonstrated solution link uses baseline_no_solution_link rather than repeated_support. Contribution label unchanged."
+    }
+  ]
+}

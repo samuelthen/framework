@@ -1,0 +1,2507 @@
+{
+  "order": 8,
+  "reviewer": "reviewer_b",
+  "validation_status": "independent model-coded second pass; not human validation",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "The tab-select command should be registered as the primary user-visible command for tab selection, completely replacing the deprecated buffer command in the command system.",
+      "kind": "repair",
+      "source": "packet 08, Requirements text bullet 1; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R2",
+      "description": "The tab-select command should accept index arguments that can be interpreted as numeric tab indices or substring patterns for matching against tab titles and URLs.",
+      "kind": "preserve",
+      "source": "packet 08, Requirements text bullet 2; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R3",
+      "description": "The tab-select command should support optional count arguments that take precedence over index arguments when both are provided.",
+      "kind": "preserve",
+      "source": "packet 08, Requirements text bullet 3; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R4",
+      "description": "The command should handle window-specific tab references using the win_id/index format for cross-window tab selection.",
+      "kind": "preserve",
+      "source": "packet 08, Requirements text bullet 4; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R5",
+      "description": "The tab selection should activate the referenced tab and bring its associated window to the foreground when the tab is found.",
+      "kind": "preserve",
+      "source": "packet 08, Requirements text bullet 5; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R6",
+      "description": "The command completion system should provide tab-select in autocompletion lists and exclude any references to the deprecated buffer command.",
+      "kind": "repair",
+      "source": "packet 08, Requirements text bullet 6; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R7",
+      "description": "All help documentation should reference tab-select instead of buffer, providing accurate syntax and usage information for the current command.",
+      "kind": "repair",
+      "source": "packet 08, Requirements text bullet 7; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Rename dispatcher/provider and all current user-facing references while retaining existing resolver/count/focus logic; regenerate help or edit it consistently."
+      ],
+      "conflicts": [
+        "X leaves qutebrowser/config/configdata.yml gt binding pointing at removed :buffer; source-only restriction competes with complete user-facing migration. Historical changelog references are not current help usage. Existing tests call legacy providers."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "08:X000.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R6",
+        "R7"
+      ],
+      "reason": "Finds registered buffer method, completion providers and config binding that need coordinated rename; final patch uses command/provider hits but leaves config binding unresolved.",
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 0, component 0",
+        "command": "grep -RInE \"buffer|tab-select|other_buffer|def buffer|def other\" qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py qutebrowser | head -240",
+        "observation": "Finds registered buffer method, completion providers and config binding that need coordinated rename; final patch uses command/provider hits but leaves config binding unresolved.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "08:X001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads resolver and tab activation/count logic, supporting rename while preserving existing behavior.",
+      "support_links": [
+        "08:X004.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 1, component 0",
+        "command": "sed -n '390,460p;840,960p' qutebrowser/browser/commands.py",
+        "observation": "Reads resolver and tab activation/count logic, supporting rename while preserving existing behavior.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "08:X002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Reads _buffer/other_buffer wrappers and deletion/filter wiring renamed in X004.",
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 2, component 0",
+        "command": "sed -n '80,205p' qutebrowser/completion/models/miscmodels.py",
+        "observation": "Reads _buffer/other_buffer wrappers and deletion/filter wiring renamed in X004.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "08:X002.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Finds command help anchors and settings examples changed in final patch, as well as config binding omitted by this run.",
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 2, component 1",
+        "command": "grep -RInE ':buffer|buffer command|\\bbuffer\\b' doc qutebrowser/config --exclude='*.pyc' | head -200",
+        "observation": "Finds command help anchors and settings examples changed in final patch, as well as config binding omitted by this run.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "08:X003.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Broad documentation/test file list supplies no new rename site beyond prior targeted search.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 3, component 0",
+        "command": "find . -maxdepth 3 -type f | grep -E '(help|commands|doc|test)' | head -100",
+        "observation": "Broad documentation/test file list supplies no new rename site beyond prior targeted search.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "08:X003.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 3, component 1",
+        "command": "git status --short",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "08:X004.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "reason": "Renames command, resolver, completion providers and help/settings references; retained in final patch. Core index/count/window activation body is preserved; configdata default binding remains :buffer.",
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 4, component 0",
+        "command": "python - <<'PY'\nfrom pathlib import Path\np=Path('qutebrowser/browser/commands.py')\ns=p.read_text()\ns=s.replace('miscmodels.other_buffer', 'miscmodels.other_tabs')\ns=s.replace('self._resolve_buffer_index(index)', 'self._resolve_tab_index(index)')\ns=s.replace('def _resolve_buffer_index(self, index):', 'def _resolve_tab_index(self, index):')\ns=s.replace('model = miscmodels.buffer()', 'model = miscmodels.tabs()')\ns=s.replace(\"completion=miscmodels.buffer\", \"completion=miscmodels.tabs\")\ns=s.replace('def buffer(self, index=None, count=None):', 'def tab_select(self, index=None, count=None):')\np.write_text(s)\n\np=Path('qutebrowser/completion/models/miscmodels.py')\ns=p.read_text()\ns=s.replace('def _buffer(', 'def _tabs(')\ns=s.replace('buffer/other_buffer', 'tabs/other_tabs')\ns=s.replace('def delete_buffer(data):', 'def delete_tab(data):')\ns=s.replace('delete_func=delete_buffer', 'delete_func=delete_tab')\ns=s.replace('def buffer(*, info=None):', 'def tabs(*, info=None):')\ns=s.replace('switching the buffer command', 'switching the tab-select command')\ns=s.replace('return _buffer()', 'return _tabs()')\ns=s.replace('def other_buffer(*, info):', 'def other_tabs(*, info):')\ns=s.replace('return _buffer(win_id_filter=', 'return _tabs(win_id_filter=')\ns=s.replace('model = _buffer(win_id_filter=', 'model = _tabs(win_id_filter=')\ns=s.replace('tab-take command', 'tab-take command')\np.write_text(s)\n\np=Path('doc/help/commands.asciidoc')\ns=p.read_text().replace('<<buffer,buffer>>', '<<tab-select,tab-select>>')\ns=s.replace('[[buffer]]\\n=== buffer\\nSyntax: +:buffer [\\'index\\']+', \"[[tab-select]]\\n=== tab-select\\nSyntax: +:tab-select ['index']+\")\np.write_text(s)\n\np=Path('doc/help/settings.asciidoc')\ns=p.read_text().replace('set-cmd-text -s :buffer', 'set-cmd-text -s :tab-select')\np.write_text(s)\nPY",
+        "observation": "Renames command, resolver, completion providers and help/settings references; retained in final patch. Core index/count/window activation body is preserved; configdata default binding remains :buffer.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "08:X004.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R6",
+        "R7"
+      ],
+      "reason": "Scoped grep yields no old command/provider references in selected edited files; explicitly omits configdata.yml where stale binding remains.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Absence of selected legacy names in edited source/help files",
+      "evidence": {
+        "trace": "evidence_08.json run X action 4, component 1",
+        "command": "grep -RInE \"miscmodels\\.(buffer|other_buffer)|def buffer\\(|def other_buffer\\(|:buffer|\\[\\[buffer\\]\\]\" qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help",
+        "observation": "Scoped grep yields no old command/provider references in selected edited files; explicitly omits configdata.yml where stale binding remains.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 2,
+      "component_id": "08:X004.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 4, component 2",
+        "command": "true",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 3,
+      "component_id": "08:X004.c3",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Displays new tabs/other_tabs wrappers and current-window helper call, confirming renamed provider wiring.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "New completion provider names and helper wiring",
+      "evidence": {
+        "trace": "evidence_08.json run X action 4, component 3",
+        "command": "sed -n '155,190p' qutebrowser/completion/models/miscmodels.py",
+        "observation": "Displays new tabs/other_tabs wrappers and current-window helper call, confirming renamed provider wiring.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 4,
+      "component_id": "08:X004.c4",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R3",
+        "R5"
+      ],
+      "reason": "Displays tab_select decorator and retained count/focus body after rename.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Registered method and preserved count/window activation code",
+      "evidence": {
+        "trace": "evidence_08.json run X action 4, component 4",
+        "command": "sed -n '910,950p' qutebrowser/browser/commands.py",
+        "observation": "Displays tab_select decorator and retained count/focus body after rename.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "08:X005.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R6",
+        "R7"
+      ],
+      "reason": "Grep repeats renamed symbols/help already established by X004 without intervening edit.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:X004.c1",
+        "08:X004.c3",
+        "08:X004.c4"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Legacy/new symbol occurrences in same edited files",
+      "evidence": {
+        "trace": "evidence_08.json run X action 5, component 0",
+        "command": "grep -nE \"buffer|tab-select\" qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help/commands.asciidoc doc/help/settings.asciidoc",
+        "observation": "Grep repeats renamed symbols/help already established by X004 without intervening edit.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "08:X006.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R6"
+      ],
+      "reason": "compileall validates syntax of both edited Python modules, no runtime command execution.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Python compilation of dispatcher and completion models",
+      "evidence": {
+        "trace": "evidence_08.json run X action 6, component 0",
+        "command": "python -m compileall -q qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py",
+        "observation": "compileall validates syntax of both edited Python modules, no runtime command execution.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "08:X006.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "Whitespace-only diff check adds no evidence of command registration or completion behavior.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Patch whitespace cleanliness",
+      "evidence": {
+        "trace": "evidence_08.json run X action 6, component 1",
+        "command": "git diff --check",
+        "observation": "Whitespace-only diff check adds no evidence of command registration or completion behavior.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "08:X006.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 6, component 2",
+        "command": "git diff --stat",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 3,
+      "component_id": "08:X006.c3",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "reason": "Diff exposes full coordinated rename and retained resolver/count/activation logic; helps review preservation, not runtime proof.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Full source/help diff after main edit",
+      "evidence": {
+        "trace": "evidence_08.json run X action 6, component 3",
+        "command": "git diff -- qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help/commands.asciidoc doc/help/settings.asciidoc",
+        "observation": "Diff exposes full coordinated rename and retained resolver/count/activation logic; helps review preservation, not runtime proof.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "08:X007.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Updates resolver docstring from buffer to tab, retained in final patch.",
+      "support_links": [
+        "evidence_08.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 7, component 0",
+        "command": "python - <<'PY'\nfrom pathlib import Path\np=Path('qutebrowser/browser/commands.py')\ns=p.read_text().replace('Resolve a buffer index to the tabbedbrowser and tab.', 'Resolve a tab index to the tabbedbrowser and tab.')\np.write_text(s)\nPY",
+        "observation": "Updates resolver docstring from buffer to tab, retained in final patch.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 1,
+      "component_id": "08:X007.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Locates completion test files after selecting a nonexistent command-test path; no subsequent executable test uses results.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 7, component 1",
+        "command": "find tests -type f -name '*.py' -print0 | xargs -0 grep -lE 'buffer|tab_select|tab-select' | head -30",
+        "observation": "Locates completion test files after selecting a nonexistent command-test path; no subsequent executable test uses results.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 2,
+      "component_id": "08:X007.c2",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "reason": "Pytest reports collected 0 items/no tests ran; suppressed stderr and || true do not supply behavior validation.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Attempted command tests; zero collected",
+      "evidence": {
+        "trace": "evidence_08.json run X action 7, component 2",
+        "command": "python -m pytest -q tests/unit/browser/test_commands.py --disable-warnings --maxfail=1 2>/dev/null",
+        "observation": "Pytest reports collected 0 items/no tests ran; suppressed stderr and || true do not supply behavior validation.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 3,
+      "component_id": "08:X007.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 7, component 3",
+        "command": "true",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 4,
+      "component_id": "08:X007.c4",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "Repeated whitespace check after docstring change does not check requested runtime behavior.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "08:X006.c1"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Diff whitespace",
+      "evidence": {
+        "trace": "evidence_08.json run X action 7, component 4",
+        "command": "git diff --check",
+        "observation": "Repeated whitespace check after docstring change does not check requested runtime behavior.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "08:X008.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Finds command test paths but no later test is run.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 8, component 0",
+        "command": "find tests -type f -name '*.py' | grep -E 'command|cmd' | sort | head -50",
+        "observation": "Finds command test paths but no later test is run.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 1,
+      "component_id": "08:X008.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Finds old buffer API test calls, documenting regression risk; no test execution or compatibility edit follows.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 8, component 1",
+        "command": "grep -RIn \"CommandDispatcher\\|tab-select\\|buffer\" tests/unit/browser tests/unit/commands tests/unit/completion 2>/dev/null | head -100",
+        "observation": "Finds old buffer API test calls, documenting regression risk; no test execution or compatibility edit follows.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "08:X009.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 9, component 0",
+        "command": "git diff -- qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py doc/help/commands.asciidoc doc/help/settings.asciidoc > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "08:X010.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 10, component 0",
+        "command": "sed -n '1,260p' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 1,
+      "component_id": "08:X010.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 10, component 1",
+        "command": "printf '\\n--- headers ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 2,
+      "component_id": "08:X010.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 10, component 2",
+        "command": "grep -E '^--- a/|^\\+\\+\\+ b/' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 3,
+      "component_id": "08:X010.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 10, component 3",
+        "command": "printf '\\n--- status ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 4,
+      "component_id": "08:X010.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run X action 10, component 4",
+        "command": "git status --short",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "08:X011.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_08.json run X action 11, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 1,
+      "component_id": "08:X011.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_08.json run X action 11, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "08:Y000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 0, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "08:Y001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R6"
+      ],
+      "reason": "Locates both dispatcher and completion buffer definitions renamed by Y037/Y040.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 1, component 0",
+        "command": "git grep -n \"def buffer\" qutebrowser/",
+        "observation": "Locates both dispatcher and completion buffer definitions renamed by Y037/Y040.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "08:Y002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Finds other_buffer provider and tab-take decorator requiring synchronized rename.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 2, component 0",
+        "command": "git grep -n \"other_buffer\" qutebrowser/",
+        "observation": "Finds other_buffer provider and tab-take decorator requiring synchronized rename.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "08:Y003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "No tab_select definition exists, establishing missing intended primary command.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 3, component 0",
+        "command": "git grep -n \"tab_select\" qutebrowser/",
+        "observation": "No tab_select definition exists, establishing missing intended primary command.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "08:Y004.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "No tab-select occurrence repeats the missing-command fact from Y003.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 4, component 0",
+        "command": "git grep -n \"tab-select\" qutebrowser/",
+        "observation": "No tab-select occurrence repeats the missing-command fact from Y003.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "08:Y005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R6"
+      ],
+      "reason": "Finds resolver model and completion decorator dependencies renamed to tabs.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 5, component 0",
+        "command": "git grep -n \"miscmodels.buffer\" qutebrowser/",
+        "observation": "Finds resolver model and completion decorator dependencies renamed to tabs.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "08:Y006.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Locates other-window provider dependency renamed by Y040.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 6, component 0",
+        "command": "git grep -n \"miscmodels.other_buffer\" qutebrowser/",
+        "observation": "Locates other-window provider dependency renamed by Y040.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "08:Y007.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repeated absent tab_select definition adds nothing after Y003.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 7, component 0",
+        "command": "git grep -n \"def tab_select\" qutebrowser/",
+        "observation": "Repeated absent tab_select definition adds nothing after Y003.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "08:Y008.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Locates configdata gt default binding later fixed by Y041.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 8, component 0",
+        "command": "git grep -n \":buffer\" qutebrowser/",
+        "observation": "Locates configdata gt default binding later fixed by Y041.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "08:Y009.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Finds current help/settings command references later regenerated; historical changelog hits are not current help requirements.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 9, component 0",
+        "command": "git grep -i \":buffer\"",
+        "observation": "Finds current help/settings command references later regenerated; historical changelog hits are not current help requirements.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "08:Y010.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Broad tab-take occurrence search repeats known related command and test locations.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 10, component 0",
+        "command": "git grep -i \"tab-take\"",
+        "observation": "Broad tab-take occurrence search repeats known related command and test locations.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "08:Y011.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repository-wide absent tab-select repeats absence already established by Y003/Y004.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 11, component 0",
+        "command": "git grep -i \"tab-select\"",
+        "observation": "Repository-wide absent tab-select repeats absence already established by Y003/Y004.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "08:Y012.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Finds src2asciidoc generator used in Y043 to regenerate help.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 12, component 0",
+        "command": "git grep -n \"commands.asciidoc\"",
+        "observation": "Finds src2asciidoc generator used in Y043 to regenerate help.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "08:Y013.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads numeric/pattern resolution, cross-window parsing, count priority and activation; these behaviors survive Y040.",
+      "support_links": [
+        "08:Y040.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 13, component 0",
+        "command": "sed -n '860,960p' qutebrowser/browser/commands.py",
+        "observation": "Reads numeric/pattern resolution, cross-window parsing, count priority and activation; these behaviors survive Y040.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "08:Y014.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Reads full provider implementation, current-window filtering and close callbacks preserved by Y037.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 14, component 0",
+        "command": "sed -n '100,190p' qutebrowser/completion/models/miscmodels.py",
+        "observation": "Reads full provider implementation, current-window filtering and close callbacks preserved by Y037.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "08:Y015.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R6"
+      ],
+      "reason": "Finds tab_take and select resolver calls for coordinated private helper rename.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 15, component 0",
+        "command": "git grep -n \"_resolve_buffer_index\" qutebrowser/",
+        "observation": "Finds tab_take and select resolver calls for coordinated private helper rename.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "08:Y016.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Private delete_buffer callback naming is internal; rename adds no new user-visible completion requirement.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 16, component 0",
+        "command": "git grep -n \"delete_buffer\" qutebrowser/",
+        "observation": "Private delete_buffer callback naming is internal; rename adds no new user-visible completion requirement.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "08:Y017.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Broad _buffer search repeats known provider references and unrelated console buffers.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 17, component 0",
+        "command": "git grep -n \"_buffer\" qutebrowser/",
+        "observation": "Broad _buffer search repeats known provider references and unrelated console buffers.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "08:Y018.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R6"
+      ],
+      "reason": "Repeats dispatcher buffer references already found by Y001/Y005/Y015.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 18, component 0",
+        "command": "git grep -n \"buffer\" qutebrowser/browser/commands.py",
+        "observation": "Repeats dispatcher buffer references already found by Y001/Y005/Y015.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "08:Y019.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R6"
+      ],
+      "reason": "Reads tab_take constraints to preserve cross-window take behavior during provider rename.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 19, component 0",
+        "command": "sed -n '425,455p' qutebrowser/browser/commands.py",
+        "observation": "Reads tab_take constraints to preserve cross-window take behavior during provider rename.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "08:Y020.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Absent _resolve_tab search adds no behavior requirement beyond existing resolver inspection.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 20, component 0",
+        "command": "git grep -n \"_resolve_tab\" qutebrowser/",
+        "observation": "Absent _resolve_tab search adds no behavior requirement beyond existing resolver inspection.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "08:Y021.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Repeats exact config binding identified by Y008.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 21, component 0",
+        "command": "git grep -n -i \"buffer\" qutebrowser/config/configdata.yml",
+        "observation": "Repeats exact config binding identified by Y008.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "08:Y022.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Reads default-binding context before replacing gt command in Y041.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 22, component 0",
+        "command": "sed -n '3300,3340p' qutebrowser/config/configdata.yml",
+        "observation": "Reads default-binding context before replacing gt command in Y041.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "08:Y023.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R6"
+      ],
+      "reason": "Repository-wide buffer search repeats known edit sites and unrelated memory buffers.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 23, component 0",
+        "command": "git grep -n -i \"buffer\" qutebrowser/",
+        "observation": "Repository-wide buffer search repeats known edit sites and unrelated memory buffers.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "08:Y024.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "No miscmodels references in scripts; no source change depends on this absence.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 24, component 0",
+        "command": "git grep -n \"miscmodels\" scripts/",
+        "observation": "No miscmodels references in scripts; no source change depends on this absence.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "08:Y025.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "No :buffer in scripts; generator location already known and no affected script needs edit.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 25, component 0",
+        "command": "git grep -n \":buffer\" scripts/",
+        "observation": "No :buffer in scripts; generator location already known and no affected script needs edit.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "08:Y026.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Finds tests using old provider names and importer wiring; informs existing-API regression boundary though tests remain unmodified.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 26, component 0",
+        "command": "git grep -n \"miscmodels\"",
+        "observation": "Finds tests using old provider names and importer wiring; informs existing-API regression boundary though tests remain unmodified.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "08:Y027.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "73 completion model tests pass on baseline before edits, then X11 teardown fails; passing test body establishes limited baseline only.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Baseline command/help/tab completion model tests, excluding failing X11 teardown",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 27, component 0",
+        "command": "pytest tests/unit/completion/test_models.py",
+        "observation": "73 completion model tests pass on baseline before edits, then X11 teardown fails; passing test body establishes limited baseline only.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "08:Y028.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Same 73 baseline tests pass then same X11 teardown failure; xvfb wrapper changes no relevant source or property coverage.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y027.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Repeated baseline completion model suite",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 28, component 0",
+        "command": "xvfb-run -a pytest tests/unit/completion/test_models.py",
+        "observation": "Same 73 baseline tests pass then same X11 teardown failure; xvfb wrapper changes no relevant source or property coverage.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "08:Y029.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Offscreen attempt produces 73 fixture errors; no relevant completion property is exercised or source defect isolated.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Attempted baseline model suite under altered Qt environment",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 29, component 0",
+        "command": "QT_QPA_PLATFORM=offscreen pytest -p no:xvfb tests/unit/completion/test_models.py",
+        "observation": "Offscreen attempt produces 73 fixture errors; no relevant completion property is exercised or source defect isolated.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "08:Y030.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 30, component 0",
+        "command": "echo \"DISPLAY=$DISPLAY\"",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 30,
+      "component_index": 1,
+      "component_id": "08:Y030.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 30, component 1",
+        "command": "ps aux | grep -i X",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "08:Y031.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Background Xvfb command has no distinct startup or completion result attributable to it; pytest output alone does not prove successful setup.",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 31, component 0",
+        "command": "Xvfb :99 -screen 0 1024x768x24",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 31,
+      "component_index": 1,
+      "component_id": "08:Y031.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 31, component 1",
+        "command": "sleep 1",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 31,
+      "component_index": 2,
+      "component_id": "08:Y031.c2",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Focused baseline tab completion tests pass before X11 teardown error; subset adds no coverage beyond Y027.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y027.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Baseline tab/other-buffer completion subset",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 31, component 2",
+        "command": "DISPLAY=:99 pytest tests/unit/completion/test_models.py -k \"tab_completion or other_buffer\"",
+        "observation": "Focused baseline tab completion tests pass before X11 teardown error; subset adds no coverage beyond Y027.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "08:Y032.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Qt aborts with display connection failure; no requested behavior check completes.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Attempted tab completion test under explicit DISPLAY",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 32, component 0",
+        "command": "DISPLAY=:99 pytest --no-xvfb tests/unit/completion/test_models.py -k \"tab_completion\"",
+        "observation": "Qt aborts with display connection failure; no requested behavior check completes.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 134,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "08:Y033.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Reads Qt workaround fixture to diagnose display setup; no retained fix or new requirement evidence follows.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 33, component 0",
+        "command": "sed -n '220,250p' tests/conftest.py",
+        "observation": "Reads Qt workaround fixture to diagnose display setup; no retained fix or new requirement evidence follows.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 34,
+      "component_index": 0,
+      "component_id": "08:Y034.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Completer baseline suite exercises general completion before edits but does not cover renamed final command; failures are teardown environment related.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "General completer baseline regression tests",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 34, component 0",
+        "command": "pytest tests/unit/completion/test_completer.py",
+        "observation": "Completer baseline suite exercises general completion before edits but does not cover renamed final command; failures are teardown environment related.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 35,
+      "component_index": 0,
+      "component_id": "08:Y035.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R6"
+      ],
+      "reason": "Repeats known buffer occurrences with no intervening source change.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 35, component 0",
+        "command": "git grep -n -i \"buffer\" qutebrowser/",
+        "observation": "Repeats known buffer occurrences with no intervening source change.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 36,
+      "component_index": 0,
+      "component_id": "08:Y036.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Repeats provider body read at Y014 before same replacement.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 36, component 0",
+        "command": "sed -n '100,195p' qutebrowser/completion/models/miscmodels.py",
+        "observation": "Repeats provider body read at Y014 before same replacement.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 37,
+      "component_index": 0,
+      "component_id": "08:Y037.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Renames providers to tabs/other_tabs and rewires _tabs and delete callback; exact implementation retained in final patch.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 37, component 0",
+        "command": "python3 -c \"\nwith open('qutebrowser/completion/models/miscmodels.py', 'r') as f:\n    content = f.read()\n\nold_text = '''def _buffer(*, win_id_filter=lambda _win_id: True, add_win_id=True):\n    \\\"\\\"\\\"Helper to get the completion model for buffer/other_buffer.\n\n    Args:\n        win_id_filter: A filter function for window IDs to include.\n                       Should return True for all included windows.\n        add_win_id: Whether to add the window ID to the completion items.\n    \\\"\\\"\\\"\n    def delete_buffer(data):\n        \\\"\\\"\\\"Close the selected tab.\\\"\\\"\\\"\n        win_id, tab_index = data[0].split('/')\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=int(win_id))\n        tabbed_browser.on_tab_close_requested(int(tab_index) - 1)\n\n    model = completionmodel.CompletionModel(column_widths=(6, 40, 46, 8))\n\n    tabs_are_windows = config.val.tabs.tabs_are_windows\n    # list storing all single-tabbed windows when tabs_are_windows\n    windows: List[Tuple[str, str, str, str]] = []\n\n    for win_id in objreg.window_registry:\n        if not win_id_filter(win_id):\n            continue\n\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=win_id)\n        if tabbed_browser.is_shutting_down:\n            continue\n        tabs: List[Tuple[str, str, str, str]] = []\n        for idx in range(tabbed_browser.widget.count()):\n            tab = tabbed_browser.widget.widget(idx)\n            tab_str = (\\\"{}/{}\\\".format(win_id, idx + 1) if add_win_id\n                       else str(idx + 1))\n\n            pid = tab.renderer_process_pid()\n\n            tabs.append((\n                tab_str,\n                tab.url().toDisplayString(),\n                tabbed_browser.widget.page_title(idx),\n                \\\"\\\" if pid is None else f\\\"PID {pid}\\\",\n            ))\n\n        if tabs_are_windows:\n            windows += tabs\n        else:\n            title = str(win_id) if add_win_id else \\\"Tabs\\\"\n            cat = listcategory.ListCategory(\n                title, tabs, delete_func=delete_buffer, sort=False)\n            model.add_category(cat)\n\n    if tabs_are_windows:\n        win = listcategory.ListCategory(\n            \\\"Windows\\\", windows, delete_func=delete_buffer, sort=False)\n        model.add_category(win)\n\n    return model\n\n\ndef buffer(*, info=None):\n    \\\"\\\"\\\"A model to complete on open tabs across all windows.\n\n    Used for switching the buffer command.\n    \\\"\\\"\\\"\n    utils.unused(info)\n    return _buffer()\n\n\ndef other_buffer(*, info):\n    \\\"\\\"\\\"A model to complete on open tabs across all windows except the current.\n\n    Used for the tab-take command.\n    \\\"\\\"\\\"\n    return _buffer(win_id_filter=lambda win_id: win_id != info.win_id)\n\n\ndef tab_focus(*, info):\n    \\\"\\\"\\\"A model to complete on open tabs in the current window.\\\"\\\"\\\"\n    model = _buffer(win_id_filter=lambda win_id: win_id == info.win_id,\n                    add_win_id=False)'''\n\nnew_text = '''def _tabs(*, win_id_filter=lambda _win_id: True, add_win_id=True):\n    \\\"\\\"\\\"Helper to get the completion model for tabs/other_tabs.\n\n    Args:\n        win_id_filter: A filter function for window IDs to include.\n                       Should return True for all included windows.\n        add_win_id: Whether to add the window ID to the completion items.\n    \\\"\\\"\\\"\n    def delete_tab(data):\n        \\\"\\\"\\\"Close the selected tab.\\\"\\\"\\\"\n        win_id, tab_index = data[0].split('/')\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=int(win_id))\n        tabbed_browser.on_tab_close_requested(int(tab_index) - 1)\n\n    model = completionmodel.CompletionModel(column_widths=(6, 40, 46, 8))\n\n    tabs_are_windows = config.val.tabs.tabs_are_windows\n    # list storing all single-tabbed windows when tabs_are_windows\n    windows: List[Tuple[str, str, str, str]] = []\n\n    for win_id in objreg.window_registry:\n        if not win_id_filter(win_id):\n            continue\n\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=win_id)\n        if tabbed_browser.is_shutting_down:\n            continue\n        tabs: List[Tuple[str, str, str, str]] = []\n        for idx in range(tabbed_browser.widget.count()):\n            tab = tabbed_browser.widget.widget(idx)\n            tab_str = (\\\"{}/{}\\\".format(win_id, idx + 1) if add_win_id\n                       else str(idx + 1))\n\n            pid = tab.renderer_process_pid()\n\n            tabs.append((\n                tab_str,\n                tab.url().toDisplayString(),\n                tabbed_browser.widget.page_title(idx),\n                \\\"\\\" if pid is None else f\\\"PID {pid}\\\",\n            ))\n\n        if tabs_are_windows:\n            windows += tabs\n        else:\n            title = str(win_id) if add_win_id else \\\"Tabs\\\"\n            cat = listcategory.ListCategory(\n                title, tabs, delete_func=delete_tab, sort=False)\n            model.add_category(cat)\n\n    if tabs_are_windows:\n        win = listcategory.ListCategory(\n            \\\"Windows\\\", windows, delete_func=delete_tab, sort=False)\n        model.add_category(win)\n\n    return model\n\n\ndef tabs(*, info=None):\n    \\\"\\\"\\\"A model to complete on open tabs across all windows.\n\n    Used for the tab-select command.\n    \\\"\\\"\\\"\n    utils.unused(info)\n    return _tabs()\n\n\ndef other_tabs(*, info):\n    \\\"\\\"\\\"A model to complete on open tabs across all windows except the current.\n\n    Used for the tab-take command.\n    \\\"\\\"\\\"\n    return _tabs(win_id_filter=lambda win_id: win_id != info.win_id)\n\n\ndef tab_focus(*, info):\n    \\\"\\\"\\\"A model to complete on open tabs in the current window.\\\"\\\"\\\"\n    model = _tabs(win_id_filter=lambda win_id: win_id == info.win_id,\n                  add_win_id=False)'''\n\nassert old_text in content, 'old_text not found!'\ncontent = content.replace(old_text, new_text)\nwith open('qutebrowser/completion/models/miscmodels.py', 'w') as f:\n    f.write(content)\nprint('Updated miscmodels.py successfully')\n\"",
+        "observation": "Renames providers to tabs/other_tabs and rewires _tabs and delete callback; exact implementation retained in final patch.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 38,
+      "component_index": 0,
+      "component_id": "08:Y038.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R6"
+      ],
+      "reason": "Repeats tab_take code read at Y019 before coordinated rename.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 38, component 0",
+        "command": "sed -n '428,450p' qutebrowser/browser/commands.py",
+        "observation": "Repeats tab_take code read at Y019 before coordinated rename.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 39,
+      "component_index": 0,
+      "component_id": "08:Y039.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Repeats resolver/count/focus body already read at Y013.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 39, component 0",
+        "command": "sed -n '870,950p' qutebrowser/browser/commands.py",
+        "observation": "Repeats resolver/count/focus body already read at Y013.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 40,
+      "component_index": 0,
+      "component_id": "08:Y040.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6"
+      ],
+      "reason": "Renames registered method to tab_select and resolver to _resolve_tab_index; updates tab_take provider and model calls while preserving numeric/pattern/count/window activation code.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 40, component 0",
+        "command": "python3 -c \"\nwith open('qutebrowser/browser/commands.py', 'r') as f:\n    content = f.read()\n\nold_tab_take = '''    @cmdutils.register(instance='command-dispatcher', scope='window',\n                       maxsplit=0)\n    @cmdutils.argument('index', completion=miscmodels.other_buffer)\n    def tab_take(self, index, keep=False):\n        \\\"\\\"\\\"Take a tab from another window.\n\n        Args:\n            index: The [win_id/]index of the tab to take. Or a substring\n                   in which case the closest match will be taken.\n            keep: If given, keep the old tab around.\n        \\\"\\\"\\\"\n        if config.val.tabs.tabs_are_windows:\n            raise cmdutils.CommandError(\\\"Can't take tabs when using \\\"\n                                        \\\"windows as tabs\\\")\n\n        tabbed_browser, tab = self._resolve_buffer_index(index)'''\n\nnew_tab_take = '''    @cmdutils.register(instance='command-dispatcher', scope='window',\n                       maxsplit=0)\n    @cmdutils.argument('index', completion=miscmodels.other_tabs)\n    def tab_take(self, index, keep=False):\n        \\\"\\\"\\\"Take a tab from another window.\n\n        Args:\n            index: The [win_id/]index of the tab to take. Or a substring\n                   in which case the closest match will be taken.\n            keep: If given, keep the old tab around.\n        \\\"\\\"\\\"\n        if config.val.tabs.tabs_are_windows:\n            raise cmdutils.CommandError(\\\"Can't take tabs when using \\\"\n                                        \\\"windows as tabs\\\")\n\n        tabbed_browser, tab = self._resolve_tab_index(index)'''\n\nold_buffer = '''    def _resolve_buffer_index(self, index):\n        \\\"\\\"\\\"Resolve a buffer index to the tabbedbrowser and tab.\n\n        Args:\n            index: The [win_id/]index of the tab to be selected. Or a substring\n                   in which case the closest match will be focused.\n        \\\"\\\"\\\"\n        index_parts = index.split('/', 1)\n\n        try:\n            for part in index_parts:\n                int(part)\n        except ValueError:\n            model = miscmodels.buffer()\n            model.set_pattern(index)\n            if model.count() > 0:\n                index = model.data(model.first_item())\n                index_parts = index.split('/', 1)\n            else:\n                raise cmdutils.CommandError(\n                    \\\"No matching tab for: {}\\\".format(index))\n\n        if len(index_parts) == 2:\n            win_id = int(index_parts[0])\n            idx = int(index_parts[1])\n        elif len(index_parts) == 1:\n            idx = int(index_parts[0])\n            active_win = QApplication.activeWindow()\n            if active_win is None:\n                # Not sure how you enter a command without an active window...\n                raise cmdutils.CommandError(\n                    \\\"No window specified and couldn't find active window!\\\")\n            win_id = active_win.win_id\n\n        if win_id not in objreg.window_registry:\n            raise cmdutils.CommandError(\n                \\\"There's no window with id {}!\\\".format(win_id))\n\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=win_id)\n        if not 0 < idx <= tabbed_browser.widget.count():\n            raise cmdutils.CommandError(\n                \\\"There's no tab with index {}!\\\".format(idx))\n\n        return (tabbed_browser, tabbed_browser.widget.widget(idx-1))\n\n    @cmdutils.register(instance='command-dispatcher', scope='window',\n                       maxsplit=0)\n    @cmdutils.argument('index', completion=miscmodels.buffer)\n    @cmdutils.argument('count', value=cmdutils.Value.count)\n    def buffer(self, index=None, count=None):\n        \\\"\\\"\\\"Select tab by index or url/title best match.\n\n        Focuses window if necessary when index is given. If both index and\n        count are given, use count.\n\n        With neither index nor count given, open the qute://tabs page.\n\n        Args:\n            index: The [win_id/]index of the tab to focus. Or a substring\n                   in which case the closest match will be focused.\n            count: The tab index to focus, starting with 1.\n        \\\"\\\"\\\"\n        if count is None and index is None:\n            self.openurl('qute://tabs/', tab=True)\n            return\n\n        if count is not None:\n            index = str(count)\n\n        tabbed_browser, tab = self._resolve_buffer_index(index)'''\n\nnew_buffer = '''    def _resolve_tab_index(self, index):\n        \\\"\\\"\\\"Resolve a tab index to the tabbedbrowser and tab.\n\n        Args:\n            index: The [win_id/]index of the tab to be selected. Or a substring\n                   in which case the closest match will be focused.\n        \\\"\\\"\\\"\n        index_parts = index.split('/', 1)\n\n        try:\n            for part in index_parts:\n                int(part)\n        except ValueError:\n            model = miscmodels.tabs()\n            model.set_pattern(index)\n            if model.count() > 0:\n                index = model.data(model.first_item())\n                index_parts = index.split('/', 1)\n            else:\n                raise cmdutils.CommandError(\n                    \\\"No matching tab for: {}\\\".format(index))\n\n        if len(index_parts) == 2:\n            win_id = int(index_parts[0])\n            idx = int(index_parts[1])\n        elif len(index_parts) == 1:\n            idx = int(index_parts[0])\n            active_win = QApplication.activeWindow()\n            if active_win is None:\n                # Not sure how you enter a command without an active window...\n                raise cmdutils.CommandError(\n                    \\\"No window specified and couldn't find active window!\\\")\n            win_id = active_win.win_id\n\n        if win_id not in objreg.window_registry:\n            raise cmdutils.CommandError(\n                \\\"There's no window with id {}!\\\".format(win_id))\n\n        tabbed_browser = objreg.get('tabbed-browser', scope='window',\n                                    window=win_id)\n        if not 0 < idx <= tabbed_browser.widget.count():\n            raise cmdutils.CommandError(\n                \\\"There's no tab with index {}!\\\".format(idx))\n\n        return (tabbed_browser, tabbed_browser.widget.widget(idx-1))\n\n    @cmdutils.register(instance='command-dispatcher', scope='window',\n                       maxsplit=0)\n    @cmdutils.argument('index', completion=miscmodels.tabs)\n    @cmdutils.argument('count', value=cmdutils.Value.count)\n    def tab_select(self, index=None, count=None):\n        \\\"\\\"\\\"Select tab by index or url/title best match.\n\n        Focuses window if necessary when index is given. If both index and\n        count are given, use count.\n\n        With neither index nor count given, open the qute://tabs page.\n\n        Args:\n            index: The [win_id/]index of the tab to focus. Or a substring\n                   in which case the closest match will be focused.\n            count: The tab index to focus, starting with 1.\n        \\\"\\\"\\\"\n        if count is None and index is None:\n            self.openurl('qute://tabs/', tab=True)\n            return\n\n        if count is not None:\n            index = str(count)\n\n        tabbed_browser, tab = self._resolve_tab_index(index)'''\n\nassert old_tab_take in content, 'old_tab_take not found!'\nassert old_buffer in content, 'old_buffer not found!'\n\ncontent = content.replace(old_tab_take, new_tab_take)\ncontent = content.replace(old_buffer, new_buffer)\n\nwith open('qutebrowser/browser/commands.py', 'w') as f:\n    f.write(content)\nprint('Updated commands.py successfully')\n\"",
+        "observation": "Renames registered method to tab_select and resolver to _resolve_tab_index; updates tab_take provider and model calls while preserving numeric/pattern/count/window activation code.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 41,
+      "component_index": 0,
+      "component_id": "08:Y041.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Replaces gt default binding :buffer with :tab-select, retained in final patch and regenerated settings help.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 41, component 0",
+        "command": "python3 -c \"\nwith open('qutebrowser/config/configdata.yml', 'r') as f:\n    content = f.read()\n\nold_binding = '      gt: set-cmd-text -s :buffer'\nnew_binding = '      gt: set-cmd-text -s :tab-select'\n\nassert old_binding in content, 'old_binding not found!'\ncontent = content.replace(old_binding, new_binding)\n\nwith open('qutebrowser/config/configdata.yml', 'w') as f:\n    f.write(content)\nprint('Updated configdata.yml successfully')\n\"",
+        "observation": "Replaces gt default binding :buffer with :tab-select, retained in final patch and regenerated settings help.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 42,
+      "component_index": 0,
+      "component_id": "08:Y042.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "reason": "Diff confirms coordinated dispatcher/provider/config change before documentation generation.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Source/config rename and preservation diff",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 42, component 0",
+        "command": "git diff",
+        "observation": "Diff confirms coordinated dispatcher/provider/config change before documentation generation.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 43,
+      "component_index": 0,
+      "component_id": "08:Y043.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Although invoked with --help, output says Generating settings help/command help; Y045 and final patch show generated tab-select help and settings replacement.",
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 43, component 0",
+        "command": "python3 scripts/dev/src2asciidoc.py --help",
+        "observation": "Although invoked with --help, output says Generating settings help/command help; Y045 and final patch show generated tab-select help and settings replacement.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 44,
+      "component_index": 0,
+      "component_id": "08:Y044.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 44, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 45,
+      "component_index": 0,
+      "component_id": "08:Y045.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Doc diff confirms generator removed old buffer section and generated tab-select section with syntax/count/window semantics and updated gt help.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Generated help command and settings replacements",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 45, component 0",
+        "command": "git diff doc/",
+        "observation": "Doc diff confirms generator removed old buffer section and generated tab-select section with syntax/count/window semantics and updated gt help.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 46,
+      "component_index": 0,
+      "component_id": "08:Y046.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Remaining :buffer hits are historical changelog lines, distinguishing them from current generated help; no new repair needed.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Legacy references limited to historical documentation after generation",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 46, component 0",
+        "command": "git grep -n -i \":buffer\" doc/",
+        "observation": "Remaining :buffer hits are historical changelog lines, distinguishing them from current generated help; no new repair needed.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 47,
+      "component_index": 0,
+      "component_id": "08:Y047.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R7"
+      ],
+      "reason": "Repeats tab-select anchors/settings already in Y045 diff, unchanged state.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y045.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Generated tab-select occurrences",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 47, component 0",
+        "command": "git grep -n -i \"tab-select\" doc/",
+        "observation": "Repeats tab-select anchors/settings already in Y045 diff, unchanged state.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 48,
+      "component_index": 0,
+      "component_id": "08:Y048.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R6"
+      ],
+      "reason": "Confirms tabs model used in resolver and decorator; already in Y042 diff.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y042.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "New tabs provider references",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 48, component 0",
+        "command": "git grep -n \"miscmodels.tabs\" qutebrowser/",
+        "observation": "Confirms tabs model used in resolver and decorator; already in Y042 diff.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 49,
+      "component_index": 0,
+      "component_id": "08:Y049.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "Confirms other_tabs decorator reference, already visible in Y042.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y042.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Other-window provider wiring",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 49, component 0",
+        "command": "git grep -n \"miscmodels.other_tabs\" qutebrowser/",
+        "observation": "Confirms other_tabs decorator reference, already visible in Y042.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 50,
+      "component_index": 0,
+      "component_id": "08:Y050.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "No miscmodels.buffer references; targeted negative check complements positive wiring and rules out dangling old provider calls.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Absence of stale miscmodels.buffer calls",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 50, component 0",
+        "command": "git grep -n \"miscmodels.buffer\" qutebrowser/",
+        "observation": "No miscmodels.buffer references; targeted negative check complements positive wiring and rules out dangling old provider calls.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 51,
+      "component_index": 0,
+      "component_id": "08:Y051.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R6"
+      ],
+      "reason": "No miscmodels.other_buffer references; targeted negative check rules out dangling old other-window provider calls.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_08.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Absence of stale miscmodels.other_buffer calls",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 51, component 0",
+        "command": "git grep -n \"miscmodels.other_buffer\" qutebrowser/",
+        "observation": "No miscmodels.other_buffer references; targeted negative check rules out dangling old other-window provider calls.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 52,
+      "component_index": 0,
+      "component_id": "08:Y052.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 52, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 53,
+      "component_index": 0,
+      "component_id": "08:Y053.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "reason": "Final diff repeats source/config diff and generated-doc diff without intervening edits.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "08:Y042.c0",
+        "08:Y045.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Combined final source/config/documentation diff",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 53, component 0",
+        "command": "git diff",
+        "observation": "Final diff repeats source/config diff and generated-doc diff without intervening edits.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 54,
+      "component_index": 0,
+      "component_id": "08:Y054.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 54, component 0",
+        "command": "git diff -- doc/help/commands.asciidoc doc/help/settings.asciidoc qutebrowser/browser/commands.py qutebrowser/completion/models/miscmodels.py qutebrowser/config/configdata.yml > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 55,
+      "component_index": 0,
+      "component_id": "08:Y055.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_08.json run Y action 55, component 0",
+        "command": "cat patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 56,
+      "component_index": 0,
+      "component_id": "08:Y056.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 56, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 56,
+      "component_index": 1,
+      "component_id": "08:Y056.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_08.json run Y action 56, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_08.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Independent model-coded annotation only; no human validation or new execution of trajectory commands.",
+    "Requirements follow explicit dataset bullets; accepted reference patch is one route, not exact required scope.",
+    "Run outcome headings were not used as evidence of component contribution.",
+    "Recorded call-level outputs were attributed by command/output content; interrupted and missing outputs remain uncertain."
+  ]
+}

@@ -27,8 +27,9 @@ _ENV_ASSIGN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*=")
 _PREFIX_CMDS = {"sudo", "env", "command", "exec", "nice", "time", "stdbuf", "xargs", "nohup"}
 
 
-def split_chain(command: str) -> list[str]:
+def split_chain(command: str, *, split_pipelines: bool = True) -> list[str]:
     """Split a shell command on &&, ||, ;, | and newlines, respecting quotes, $(...), and heredoc bodies.
+    With split_pipelines=False, keep output-producing pipelines together.
     A heredoc body stays attached to the part that opened it. Structured tool calls ('tool:...') are one part."""
     if command.startswith("tool:"):
         return [command]
@@ -61,7 +62,9 @@ def split_chain(command: str) -> list[str]:
             j = command.find("\n", i)
             i = n if j < 0 else j
             continue
-        if command.startswith("$(", i) or c == "(":
+        if command.startswith("$(", i):
+            depth += 1; buf.append("$("); i += 2; continue
+        if c == "(":
             depth += 1; buf.append(c); i += 1; continue
         if c == ")" and depth > 0:
             depth -= 1; buf.append(c); i += 1; continue
@@ -90,13 +93,17 @@ def split_chain(command: str) -> list[str]:
             flush(); i += 1; continue
         if depth == 0 and (command.startswith("&&", i) or command.startswith("||", i)):
             flush(); i += 2; continue
-        if depth == 0 and c == "|" and not command.startswith("|&", i):
+        if depth == 0 and c == "|" and not command.startswith("|&", i) and split_pipelines:
             flush(); i += 1; continue
         if depth == 0 and c == ";":
             flush(); i += 1; continue
         if depth == 0 and c == "&" and not command.startswith("&>", i) and (i == 0 or command[i - 1] not in "<>"):
             flush(); i += 1; continue
         buf.append(c); i += 1
+    if quote or depth or pending_heredocs:
+        # Malformed/unsupported shell text is one opaque attempted action, not
+        # dozens of fictitious commands from an unterminated quoted script.
+        return [command] if command.strip() else []
     flush()
     return parts
 
@@ -300,11 +307,37 @@ def written_paths(parts: list[str], cwd: str = "") -> list[str]:
     for p in parts:
         k = classify(p)
         if k in ("edit", "revert"):
-            out.append(main_object(p, k, cwd))
+            out.extend(_mutation_paths(p, cwd))
         else:
             for t in _redirect_targets(p):
                 out.append(_join(cwd, t))
     return list(dict.fromkeys(out))
+
+
+def _mutation_paths(part: str, cwd: str = "") -> list[str]:
+    """Known mutation operands, independently of any unknown additional effects."""
+    toks = _strip_prefix(_tokens(part))
+    red = [_join(cwd, t) for t in _redirect_targets(part)]
+    if toks and toks[0] in ("sed", "perl"):
+        args, skip, expressions = [], False, False
+        for t in toks[1:]:
+            if skip:
+                skip = False
+                continue
+            if t in ("-e", "--expression", "-f", "--file"):
+                expressions, skip = True, True
+                continue
+            if t.startswith(("-e", "--expression=")):
+                expressions = True
+                continue
+            if t.startswith("-"):
+                continue
+            args.append(t)
+        files = args if expressions else args[1:]
+        return list(dict.fromkeys(red + [_join(cwd, p) for p in files]))
+    if toks and toks[0] in ("rm", "touch", "truncate", "tee"):
+        return list(dict.fromkeys(red + [_join(cwd, p) for p in _file_args(toks)]))
+    return list(dict.fromkeys(red + [main_object(part, classify(part), cwd)]))
 
 
 def _python_code(part: str, toks: list[str], cwd: str, scripts: dict | None):
@@ -333,14 +366,21 @@ def _shell_write_for_python(cmd: str):
 
 
 def write_info(parts: list[str], scripts: dict | None = None) -> tuple[bool | str, list[str]]:
-    """(write, paths): write is True if any part writes files (paths = targets), 'unknown' if a part runs something
-    that might write and no part certainly writes, else False. Inline Python is analysed statically (pyinline)."""
-    cwd, res, paths = "", False, []
+    """Return known paths and write=True/False/'unknown' independently.
+    Unknown additional effects take precedence over a known write, retaining
+    its known paths. Inline Python is analysed statically (pyinline)."""
+    cwd, res, paths, unknown = "", False, [], False
     for p in parts:
         k = classify(p)
         if k in ("edit", "revert"):
             res = True
-            paths.append(main_object(p, k, cwd))
+            paths += _mutation_paths(p, cwd)
+        toks = _strip_prefix(_tokens(p))
+        # Branch/HEAD changes can alter all tracked files, even when classified
+        # as `other`. They cannot be described as an unchanged repository.
+        if (toks[:2] == ["git", "switch"] or
+                (toks[:2] == ["git", "checkout"] and "--" not in toks and toks[2:] != ["."])):
+            unknown = True
         red = _redirect_targets(p)
         if red and k not in ("edit", "revert"):
             res = True
@@ -354,10 +394,11 @@ def write_info(parts: list[str], scripts: dict | None = None) -> tuple[bool | st
                 if ww is True:
                     res = True
                     paths += pp
-                elif ww == "unknown" and res is not True:
-                    res = "unknown"
+                elif ww == "unknown":
+                    unknown = True
+                    paths += pp
         cwd = cwd_after(p, cwd)
-    return res, list(dict.fromkeys(paths))
+    return "unknown" if unknown else res, list(dict.fromkeys(paths))
 
 
 def _run_write(p, toks, c0, cwd, scripts):

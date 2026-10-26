@@ -1,0 +1,20 @@
+{
+  "status": "two complete blinded component passes compared",
+  "components_each_pass": 769,
+  "contribution_disagreements": 109,
+  "role_disagreements": 39,
+  "execution_disagreements": 13,
+  "reconciliation": "Disagreements remain unresolved and widen uncertainty; no manufactured consensus.",
+  "reconciled_label_counts": {
+    "non_direct": 331,
+    "direct": 233,
+    "uncertain": 205
+  },
+  "included_reconciled_label_counts": {
+    "non_direct": 320,
+    "direct": 233,
+    "uncertain": 203
+  },
+  "human_validation": "not_performed",
+  "failed_run_recall": "deferred"
+}

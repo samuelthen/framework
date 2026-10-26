@@ -1,0 +1,20 @@
+[
+  {
+    "source":"03:X045.c0", "relation":"invalidates_implementation_state", "target":"03:X031.c0",
+    "scope":"internal/server/middleware/grpc/middleware.go at the earlier whole-file rewrite",
+    "evidence":"Action 45 runs git checkout on that exact file and outputs 'Updated 1 path from the index'. Action 43's patch showed unintended cache/log changes from the rewrite; action 47 reapplies a targeted repair. This establishes replacement of that file state, not permanent loss of all requirements.",
+    "state_status":"trace-established path restore; repository-wide snapshot unknown", "review_provenance":"Codex primary inspection of actions 31,43,45,47 and final patch"
+  },
+  {
+    "source":"07:Y021.c0", "relation":"invalidates_property_claim", "target":"07:Y019.c0",
+    "scope":"missing zip directory should raise the intended assertion rather than TypeError",
+    "evidence":"Action 21 fails at utils.py line 221 while formatting the Path in the assertion message: zipfile.__str__ calls posixpath.join with root.filename None, raising TypeError. Action 19 installed that assertion-message implementation.",
+    "state_status":"specific failing property observed", "review_provenance":"Codex primary inspection of actions 19,21,22,23"
+  },
+  {
+    "source":"07:Y022.c0", "relation":"repairs_property", "target":"reviewer_b:07:R2",
+    "scope":"missing zip-directory assertion formatting",
+    "evidence":"Action 22 replaces the formatted assert with assert path.exists(), prints Updated utils.py; action 23 subsequently completes custom resource checks. The negative-extension try/except tests catch their own assertion and do not independently validate those preconditions.",
+    "state_status":"edit and subsequent relevant result observed; no complete repository snapshot", "review_provenance":"Codex primary inspection of actions 21,22,23 and final patch"
+  }
+]

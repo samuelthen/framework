@@ -1,0 +1,2104 @@
+{
+  "order": 3,
+  "reviewer": "Codex component reviewer C",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "Map context.Canceled and wrapped causes to gRPC Canceled.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 1; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R2",
+      "description": "Map context.DeadlineExceeded and wrapped causes to gRPC DeadlineExceeded.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 2; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R3",
+      "description": "Authentication must propagate context-derived status instead of Unauthenticated.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 3; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R4",
+      "description": "Preserve existing context-unrelated error handling and success flows.",
+      "kind": "preserve",
+      "source": "packet 03: Requirements text bullet 4; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    }
+  ],
+  "components": [
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "03:X000.c0",
+      "parent_op_id": "03:X000",
+      "command": "git status",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git status",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "03:X001.c0",
+      "parent_op_id": "03:X001",
+      "command": "grep -rn \"codes.Internal\" . | head -50",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Search exposes the Internal fallback and TestErrorUnaryInterceptor location; final switch adds cancellation/deadline branches at that fallback. Component: grep -rn \"codes.Internal\" . | head -50",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "03:X002.c0",
+      "parent_op_id": "03:X002",
+      "command": "grep -rn \"codes.Unauthenticated\" .",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Search exposes auth errUnauthenticated and existing expected codes, identifying the masking path changed in auth middleware. Component: grep -rn \"codes.Unauthenticated\" .",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "03:X003.c0",
+      "parent_op_id": "03:X003",
+      "command": "cat internal/server/middleware/grpc/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible ErrorUnaryInterceptor preserves status errors then defaults raw context errors to Internal; final patch adds errors.Is branches and retains other mappings. Component: cat internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "03:X004.c0",
+      "parent_op_id": "03:X004",
+      "command": "cat internal/server/auth/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Authenticator errors are unconditionally replaced by errUnauthenticated; this exact block receives context-error handling in the final auth patch. Component: cat internal/server/auth/middleware.go",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "03:X005.c0",
+      "parent_op_id": "03:X005",
+      "command": "grep -rn \"UnaryInterceptor\" .",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible interceptor registration places ErrorUnaryInterceptor around authentication; establishes where propagated auth failures receive gRPC mapping. Component: grep -rn \"UnaryInterceptor\" .",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "03:X006.c0",
+      "parent_op_id": "03:X006",
+      "command": "sed -n '240,320p' internal/cmd/grpc.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible interceptor registration places ErrorUnaryInterceptor around authentication; establishes where propagated auth failures receive gRPC mapping. Component: sed -n '240,320p' internal/cmd/grpc.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "03:X007.c0",
+      "parent_op_id": "03:X007",
+      "command": "cat internal/cmd/auth.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible interceptor registration places ErrorUnaryInterceptor around authentication; establishes where propagated auth failures receive gRPC mapping. Component: cat internal/cmd/auth.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "03:X008.c0",
+      "parent_op_id": "03:X008",
+      "command": "grep -rn \"Canceled\" .",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "ErrCanceled is a typed Flipt error, SQL query_canceled adapts to it, and AsMatch uses errors.As; final patch explicitly includes ErrCanceled matching. Component: grep -rn \"Canceled\" .",
+      "requirement_ids": [
+        "R1"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "03:X009.c0",
+      "parent_op_id": "03:X009",
+      "command": "cat errors/errors.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "ErrCanceled is a typed Flipt error, SQL query_canceled adapts to it, and AsMatch uses errors.As; final patch explicitly includes ErrCanceled matching. Component: cat errors/errors.go",
+      "requirement_ids": [
+        "R1"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "03:X010.c0",
+      "parent_op_id": "03:X010",
+      "command": "cat internal/storage/sql/errors.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "ErrCanceled is a typed Flipt error, SQL query_canceled adapts to it, and AsMatch uses errors.As; final patch explicitly includes ErrCanceled matching. Component: cat internal/storage/sql/errors.go",
+      "requirement_ids": [
+        "R1"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "03:X011.c0",
+      "parent_op_id": "03:X011",
+      "command": "grep -rn \"context.Canceled\\|context.DeadlineExceeded\" .",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "Only oplock testing cancellation handling appears; no use of that testing path in the middleware repair or submitted patch. Component: grep -rn \"context.Canceled\\|context.DeadlineExceeded\" .",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "03:X012.c0",
+      "parent_op_id": "03:X012",
+      "command": "grep -rn \"status\\.Code\\|status\\.FromError\\|status\\.Error\" .",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "Broad status references include generated Unimplemented methods and already known mappings; no new solution-specific content is established from this broad truncated search. Component: grep -rn \"status\\.Code\\|status\\.FromError\\|status\\.Error\" .",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "03:X013.c0",
+      "parent_op_id": "03:X013",
+      "command": "sed -n '80,146p' internal/server/middleware/grpc/middleware_test.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Existing test table explicitly expects NotFound, InvalidArgument, Unauthenticated, Internal and nil success; these are preservation properties exercised after edits. Component: sed -n '80,146p' internal/server/middleware/grpc/middleware_test.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X034.c0",
+        "03:X049.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "03:X014.c0",
+      "parent_op_id": "03:X014",
+      "command": "cat internal/server/auth/middleware_test.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Auth tests specify successful headers/cookies/skips and unauthenticated expired/missing tokens; these existing cases connect to post-edit auth regression runs. Component: cat internal/server/auth/middleware_test.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X034.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "03:X015.c0",
+      "parent_op_id": "03:X015",
+      "command": "go test ./internal/server/middleware/grpc/... ./internal/server/auth/...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior. Component: go test ./internal/server/middleware/grpc/... ./internal/server/auth/...",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior.",
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "03:X016.c0",
+      "parent_op_id": "03:X016",
+      "command": "go test -v ./internal/server/middleware/grpc",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Visible TestErrorUnaryInterceptor pass establishes baseline ordinary error mappings/success used to compare the edited mapper; source table read at X013. Component: go test -v ./internal/server/middleware/grpc",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X034.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Visible TestErrorUnaryInterceptor pass establishes baseline ordinary error mappings/success used to compare the edited mapper; source table read at X013.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "03:X017.c0",
+      "parent_op_id": "03:X017",
+      "command": "go test -v ./internal/server/auth",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Visible auth success, skip, expired/missing-token subtests pass before auth error changes, establishing baseline preservation expectations. Component: go test -v ./internal/server/auth",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X034.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Visible auth success, skip, expired/missing-token subtests pass before auth error changes, establishing baseline preservation expectations.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "03:X018.c0",
+      "parent_op_id": "03:X018",
+      "command": "go list ./...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: go list ./...",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "03:X019.c0",
+      "parent_op_id": "03:X019",
+      "command": "go test -short ./...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior. Component: go test -short ./...",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior.",
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Empty result with rc -1 supplies no test assertions or completion; attempted suite cannot establish baseline regression behavior.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "03:X020.c0",
+      "parent_op_id": "03:X020",
+      "command": "go test ./internal/server ./internal/server/audit/... ./internal/server/cache/... ./internal/server/metadata/... ./internal/server/metrics/... ./internal/server/otel/...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "reason": "unrelated_check",
+      "evidence": "Audit/cache/storage/fs suite results and Docker redis failure do not exercise the changed context-to-status or auth-error masking path. Component: go test ./internal/server ./internal/server/audit/... ./internal/server/cache/... ./internal/server/metadata/... ./internal/server/metrics/... ./internal/server/otel/...",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Audit/cache/storage/fs suite results and Docker redis failure do not exercise the changed context-to-status or auth-error masking path.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "03:X021.c0",
+      "parent_op_id": "03:X021",
+      "command": "go test ./internal/server/auth/method/token ./internal/server/auth/public ./internal/storage/auth/memory ./internal/storage/fs/...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "reason": "unrelated_check",
+      "evidence": "Audit/cache/storage/fs suite results and Docker redis failure do not exercise the changed context-to-status or auth-error masking path. Component: go test ./internal/server/auth/method/token ./internal/server/auth/public ./internal/storage/auth/memory ./internal/storage/fs/...",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Audit/cache/storage/fs suite results and Docker redis failure do not exercise the changed context-to-status or auth-error masking path.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "03:X022.c0",
+      "parent_op_id": "03:X022",
+      "command": "cat internal/server/auth/http.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "HTTP cookie/error handler inspection is not changed or shown to determine the gRPC middleware repair. Component: cat internal/server/auth/http.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "03:X023.c0",
+      "parent_op_id": "03:X023",
+      "command": "grep -rn \"status\\.\" internal/server/*.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "No matching status references; negative-only unrelated lookup yields no implementation support. Component: grep -rn \"status\\.\" internal/server/*.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "03:X024.c0",
+      "parent_op_id": "03:X024",
+      "command": "go doc google.golang.org/grpc/status FromContextError",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "FromContextError docs describe a valid alternative, but neither implementation invokes this helper and no downstream use is evidenced. Component: go doc google.golang.org/grpc/status FromContextError",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "03:X025.c0",
+      "parent_op_id": "03:X025",
+      "command": "grep -rn \"UnaryServerInterceptor\" internal/server/auth/",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "repeated_support",
+      "evidence": "Interceptor declaration locations repeat previously established registration context; no new inspected implementation or property. Component: grep -rn \"UnaryServerInterceptor\" internal/server/auth/",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "03:X026.c0",
+      "parent_op_id": "03:X026",
+      "command": "grep -rn \"UnaryServerInterceptor\" internal/",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "repeated_support",
+      "evidence": "Interceptor declaration locations repeat previously established registration context; no new inspected implementation or property. Component: grep -rn \"UnaryServerInterceptor\" internal/",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "03:X027.c0",
+      "parent_op_id": "03:X027",
+      "command": "cat internal/server/auth/server.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "Authentication server CRUD paths are unchanged and not shown to determine the interceptor context classification. Component: cat internal/server/auth/server.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "03:X028.c0",
+      "parent_op_id": "03:X028",
+      "command": "grep -n -A 30 \"func.*GetAuthenticationByClientToken\" internal/storage/auth/sql/store.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "GetAuthenticationByClientToken wraps driver.AdaptError, confirming why wrapped causes and typed SQL cancellations must survive authentication mapping. Component: grep -n -A 30 \"func.*GetAuthenticationByClientToken\" internal/storage/auth/sql/store.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X033.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "03:X029.c0",
+      "parent_op_id": "03:X029",
+      "command": "sed -n '1,75p' internal/server/middleware/grpc/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "repeated_support",
+      "evidence": "Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: sed -n '1,75p' internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "03:X030.c0",
+      "parent_op_id": "03:X030",
+      "command": "sed -n '1,125p' internal/server/auth/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "repeated_support",
+      "evidence": "Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: sed -n '1,125p' internal/server/auth/middleware.go",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "03:X031.c0",
+      "parent_op_id": "03:X031",
+      "command": "cat << 'EOF' > internal/server/middleware/grpc/middleware.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\t\"fmt\"\n\t\"time\"\n\n\t\"github.com/gofrs/uuid\"\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/server/audit\"\n\t\"go.flipt.io/flipt/internal/server/auth\"\n\t\"go.flipt.io/flipt/internal/server/cache\"\n\t\"go.flipt.io/flipt/internal/server/metrics\"\n\tflipt \"go.flipt.io/flipt/rpc/flipt\"\n\tfauth \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.opentelemetry.io/otel/trace\"\n\t\"go.uber.org/zap\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/status\"\n\t\"google.golang.org/protobuf/proto\"\n\ttimestamp \"google.golang.org/protobuf/types/known/timestamppb\"\n)\n\n// ValidationUnaryInterceptor validates incoming requests\nfunc ValidationUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tif v, ok := req.(flipt.Validator); ok {\n\t\tif err := v.Validate(); err != nil {\n\t\t\treturn nil, err\n\t\t}\n\t}\n\n\treturn handler(ctx, req)\n}\n\n// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errors.Is(err, context.Canceled),\n\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\tcode = codes.Canceled\n\tcase errors.Is(err, context.DeadlineExceeded),\n\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\tcode = codes.DeadlineExceeded\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\n\n// EvaluationUnaryInterceptor sets required request/response fields.\n// Note: this should be added before any caching interceptor to ensure the request id/response fields are unique.\nfunc EvaluationUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tswitch r := req.(type) {\n\tcase *flipt.EvaluationRequest:\n\t\tstartTime := time.Now()\n\n\t\t// set request ID if not present\n\t\tif r.RequestId == \"\" {\n\t\t\tr.RequestId = uuid.Must(uuid.NewV4()).String()\n\t\t}\n\n\t\tresp, err = handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\t// set response fields\n\t\tif resp != nil {\n\t\t\tif rr, ok := resp.(*flipt.EvaluationResponse); ok {\n\t\t\t\trr.RequestId = r.RequestId\n\t\t\t\trr.Timestamp = timestamp.New(time.Now().UTC())\n\t\t\t\trr.RequestDurationMillis = float64(time.Since(startTime)) / float64(time.Millisecond)\n\t\t\t}\n\t\t\treturn resp, nil\n\t\t}\n\n\tcase *flipt.BatchEvaluationRequest:\n\t\tstartTime := time.Now()\n\n\t\t// set request ID if not present\n\t\tif r.RequestId == \"\" {\n\t\t\tr.RequestId = uuid.Must(uuid.NewV4()).String()\n\t\t}\n\n\t\tresp, err = handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\tnow := timestamp.New(time.Now().UTC())\n\t\t// set response fields\n\t\tif resp != nil {\n\t\t\tif rr, ok := resp.(*flipt.BatchEvaluationResponse); ok {\n\t\t\t\trr.RequestId = r.RequestId\n\t\t\t\trr.RequestDurationMillis = float64(time.Since(startTime)) / float64(time.Millisecond)\n\t\t\t\tfor _, response := range rr.Responses {\n\t\t\t\t\tresponse.Timestamp = now\n\t\t\t\t}\n\t\t\t\treturn resp, nil\n\t\t\t}\n\t\t}\n\t}\n\n\treturn handler(ctx, req)\n}\n\n// CacheUnaryInterceptor caches the response of a request if the request is cacheable.\n// TODO: we could clean this up by using generics in 1.18+ to avoid the type switch/duplicate code.\nfunc CacheUnaryInterceptor(cache cache.Cacher, logger *zap.Logger) grpc.UnaryServerInterceptor {\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\tif cache == nil {\n\t\t\treturn handler(ctx, req)\n\t\t}\n\n\t\tswitch r := req.(type) {\n\t\tcase *flipt.EvaluationRequest:\n\t\t\tkey, err := evaluationCacheKey(r)\n\t\t\tif err != nil {\n\t\t\t\tlogger.Error(\"getting cache key\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tcached, ok, err := cache.Get(ctx, key)\n\t\t\tif err != nil {\n\t\t\t\t// if error, log and without cache\n\t\t\t\tlogger.Error(\"getting from cache\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tif ok {\n\t\t\t\tresp := &flipt.EvaluationResponse{}\n\t\t\t\tif err := proto.Unmarshal(cached, resp); err != nil {\n\t\t\t\t\tlogger.Error(\"unmarshalling from cache\", zap.Error(err))\n\t\t\t\t\treturn handler(ctx, req)\n\t\t\t\t}\n\n\t\t\t\tlogger.Debug(\"evaluate cache hit\", zap.Stringer(\"response\", resp))\n\t\t\t\treturn resp, nil\n\t\t\t}\n\n\t\t\tlogger.Debug(\"evaluate cache miss\")\n\t\t\tresp, err := handler(ctx, req)\n\t\t\tif err != nil {\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// marshal response\n\t\t\tdata, merr := proto.Marshal(resp.(*flipt.EvaluationResponse))\n\t\t\tif merr != nil {\n\t\t\t\tlogger.Error(\"marshalling for cache\", zap.Error(err))\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// set in cache\n\t\t\tif cerr := cache.Set(ctx, key, data); cerr != nil {\n\t\t\t\tlogger.Error(\"setting in cache\", zap.Error(err))\n\t\t\t}\n\n\t\t\treturn resp, err\n\n\t\tcase *flipt.GetFlagRequest:\n\t\t\tkey := flagCacheKey(r.GetNamespaceKey(), r.GetKey())\n\t\t\tcached, ok, err := cache.Get(ctx, key)\n\t\t\tif err != nil {\n\t\t\t\t// if error, log and without cache\n\t\t\t\tlogger.Error(\"getting from cache\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tif ok {\n\t\t\t\tresp := &flipt.Flag{}\n\t\t\t\tif err := proto.Unmarshal(cached, resp); err != nil {\n\t\t\t\t\tlogger.Error(\"unmarshalling from cache\", zap.Error(err))\n\t\t\t\t\treturn handler(ctx, req)\n\t\t\t\t}\n\n\t\t\t\tlogger.Debug(\"get flag hit\", zap.Stringer(\"response\", resp))\n\t\t\t\treturn resp, nil\n\t\t\t}\n\n\t\t\tlogger.Debug(\"get flag miss\")\n\t\t\tresp, err := handler(ctx, req)\n\t\t\tif err != nil {\n\t\t\t\treturn nil, err\n\t\t\t}\n\n\t\t\t// marshal response\n\t\t\tdata, merr := proto.Marshal(resp.(*flipt.Flag))\n\t\t\tif merr != nil {\n\t\t\t\tlogger.Error(\"marshalling for cache\", zap.Error(err))\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// set in cache\n\t\t\tif cerr := cache.Set(ctx, key, data); cerr != nil {\n\t\t\t\tlogger.Error(\"setting in cache\", zap.Error(err))\n\t\t\t}\n\n\t\t\treturn resp, err\n\n\t\tcase *flipt.UpdateFlagRequest, *flipt.DeleteFlagRequest:\n\t\t\t// need to do this assertion because the request type is not known in this block\n\t\t\tkeyer := r.(flagKeyer)\n\t\t\t// delete from cache\n\t\t\tif err := cache.Delete(ctx, flagCacheKey(keyer.GetNamespaceKey(), keyer.GetKey())); err != nil {\n\t\t\t\tlogger.Error(\"deleting from cache\", zap.Error(err))\n\t\t\t}\n\t\tcase *flipt.CreateVariantRequest, *flipt.UpdateVariantRequest, *flipt.DeleteVariantRequest:\n\t\t\t// need to do this assertion because the request type is not known in this block\n\t\t\tkeyer := r.(variantFlagKeyger)\n\t\t\t// delete from cache\n\t\t\tif err := cache.Delete(ctx, flagCacheKey(keyer.GetNamespaceKey(), keyer.GetFlagKey())); err != nil {\n\t\t\t\tlogger.Error(\"deleting from cache\", zap.Error(err))\n\t\t\t}\n\t\t}\n\n\t\treturn handler(ctx, req)\n\t}\n}\n\n// AuditUnaryInterceptor sends audit logs to configured sinks upon successful RPC requests for auditable events.\nfunc AuditUnaryInterceptor(logger *zap.Logger) grpc.UnaryServerInterceptor {\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\tresp, err := handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\tactor := auth.ActorFromContext(ctx)\n\n\t\tvar event *audit.Event\n\n\t\tdefer func() {\n\t\t\tif event != nil {\n\t\t\t\tspan := trace.SpanFromContext(ctx)\n\t\t\t\tspan.AddEvent(\"event\", trace.WithAttributes(event.DecodeToAttributes()...))\n\t\t\t}\n\t\t}()\n\n\t\t// Delete request(s) have to be handled separately because they do not\n\t\t// return the concrete type but rather an *empty.Empty response.\n\t\tswitch r := req.(type) {\n\t\tcase *flipt.DeleteFlagRequest:\n\t\t\tevent = audit.NewEvent(audit.FlagType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteVariantRequest:\n\t\t\tevent = audit.NewEvent(audit.VariantType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteSegmentRequest:\n\t\t\tevent = audit.NewEvent(audit.SegmentType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteDistributionRequest:\n\t\t\tevent = audit.NewEvent(audit.DistributionType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteConstraintRequest:\n\t\t\tevent = audit.NewEvent(audit.ConstraintType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteNamespaceRequest:\n\t\t\tevent = audit.NewEvent(audit.NamespaceType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteRuleRequest:\n\t\t\tevent = audit.NewEvent(audit.RuleType, audit.Delete, actor, r)\n\t\t}\n\n\t\t// Short circuiting the middleware here since we have a non-nil event from\n\t\t// detecting a delete.\n\t\tif event != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\taction := audit.GRPCMethodToAction(info.FullMethod)\n\n\t\tswitch r := resp.(type) {\n\t\tcase *flipt.Flag:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.FlagType, action, actor, audit.NewFlag(r))\n\t\t\t}\n\t\tcase *flipt.Variant:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.VariantType, action, actor, audit.NewVariant(r))\n\t\t\t}\n\t\tcase *flipt.Segment:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.SegmentType, action, actor, audit.NewSegment(r))\n\t\t\t}\n\t\tcase *flipt.Distribution:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.DistributionType, action, actor, audit.NewDistribution(r))\n\t\t\t}\n\t\tcase *flipt.Constraint:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.ConstraintType, action, actor, audit.NewConstraint(r))\n\t\t\t}\n\t\tcase *flipt.Namespace:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.NamespaceType, action, actor, audit.NewNamespace(r))\n\t\t\t}\n\t\tcase *flipt.Rule:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.RuleType, action, actor, audit.NewRule(r))\n\t\t\t}\n\t\tcase *fauth.CreateTokenResponse:\n\t\t\tevent = audit.NewEvent(audit.TokenType, audit.Create, actor, r.Authentication.Metadata)\n\t\t}\n\n\t\treturn resp, err\n\t}\n}\n\ntype namespaceKeyer interface {\n\tGetNamespaceKey() string\n}\n\ntype flagKeyer interface {\n\tnamespaceKeyer\n\tGetKey() string\n}\n\ntype variantFlagKeyger interface {\n\tnamespaceKeyer\n\tGetFlagKey() string\n}\n\nfunc flagCacheKey(namespaceKey, key string) string {\n\tvar k string\n\t// for backward compatibility\n\tif namespaceKey != \"\" {\n\t\tk = fmt.Sprintf(\"f:%s:%s\", namespaceKey, key)\n\t} else {\n\t\tk = fmt.Sprintf(\"f:%s\", key)\n\t}\n\n\treturn fmt.Sprintf(\"flipt:%x\", md5.Sum([]byte(k)))\n}\n\nfunc evaluationCacheKey(r *flipt.EvaluationRequest) (string, error) {\n\tout, err := json.Marshal(r.GetContext())\n\tif err != nil {\n\t\treturn \"\", fmt.Errorf(\"marshalling req to json: %w\", err)\n\t}\n\n\tvar k string\n\t// for backward compatibility\n\tif r.GetNamespaceKey() != \"\" {\n\t\tk = fmt.Sprintf(\"e:%s:%s:%s:%s\", r.GetNamespaceKey(), r.GetFlagKey(), r.GetEntityId(), out)\n\t} else {\n\t\tk = fmt.Sprintf(\"e:%s:%s:%s\", r.GetFlagKey(), r.GetEntityId(), out)\n\t}\n\n\treturn fmt.Sprintf(\"flipt:%x\", md5.Sum([]byte(k))), nil\n}\nEOF",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "uncertain",
+      "role": "edit",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Full-file rewrite combines relevant context branches with unrelated cache response/log changes later reverted at X045; one canonical heredoc cannot isolate useful and discarded changes. Component: cat << 'EOF' > internal/server/middleware/grpc/middleware.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\t\"fmt\"\n\t\"time\"\n\n\t\"github.com/gofrs/uuid\"\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/server/audit\"\n\t\"go.flipt.io/flipt/internal/server/auth\"\n\t\"go.flipt.io/flipt/internal/server/cache\"\n\t\"go.flipt.io/flipt/internal/server/metrics\"\n\tflipt \"go.flipt.io/flipt/rpc/flipt\"\n\tfauth \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.opentelemetry.io/otel/trace\"\n\t\"go.uber.org/zap\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/status\"\n\t\"google.golang.org/protobuf/proto\"\n\ttimestamp \"google.golang.org/protobuf/types/known/timestamppb\"\n)\n\n// ValidationUnaryInterceptor validates incoming requests\nfunc ValidationUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tif v, ok := req.(flipt.Validator); ok {\n\t\tif err := v.Validate(); err != nil {\n\t\t\treturn nil, err\n\t\t}\n\t}\n\n\treturn handler(ctx, req)\n}\n\n// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errors.Is(err, context.Canceled),\n\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\tcode = codes.Canceled\n\tcase errors.Is(err, context.DeadlineExceeded),\n\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\tcode = codes.DeadlineExceeded\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\n\n// EvaluationUnaryInterceptor sets required request/response fields.\n// Note: this should be added before any caching interceptor to ensure the request id/response fields are unique.\nfunc EvaluationUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tswitch r := req.(type) {\n\tcase *flipt.EvaluationRequest:\n\t\tstartTime := time.Now()\n\n\t\t// set request ID if not present\n\t\tif r.RequestId == \"\" {\n\t\t\tr.RequestId = uuid.Must(uuid.NewV4()).String()\n\t\t}\n\n\t\tresp, err = handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\t// set response fields\n\t\tif resp != nil {\n\t\t\tif rr, ok := resp.(*flipt.EvaluationResponse); ok {\n\t\t\t\trr.RequestId = r.RequestId\n\t\t\t\trr.Timestamp = timestamp.New(time.Now().UTC())\n\t\t\t\trr.RequestDurationMillis = float64(time.Since(startTime)) / float64(time.Millisecond)\n\t\t\t}\n\t\t\treturn resp, nil\n\t\t}\n\n\tcase *flipt.BatchEvaluationRequest:\n\t\tstartTime := time.Now()\n\n\t\t// set request ID if not present\n\t\tif r.RequestId == \"\" {\n\t\t\tr.RequestId = uuid.Must(uuid.NewV4()).String()\n\t\t}\n\n\t\tresp, err = handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\tnow := timestamp.New(time.Now().UTC())\n\t\t// set response fields\n\t\tif resp != nil {\n\t\t\tif rr, ok := resp.(*flipt.BatchEvaluationResponse); ok {\n\t\t\t\trr.RequestId = r.RequestId\n\t\t\t\trr.RequestDurationMillis = float64(time.Since(startTime)) / float64(time.Millisecond)\n\t\t\t\tfor _, response := range rr.Responses {\n\t\t\t\t\tresponse.Timestamp = now\n\t\t\t\t}\n\t\t\t\treturn resp, nil\n\t\t\t}\n\t\t}\n\t}\n\n\treturn handler(ctx, req)\n}\n\n// CacheUnaryInterceptor caches the response of a request if the request is cacheable.\n// TODO: we could clean this up by using generics in 1.18+ to avoid the type switch/duplicate code.\nfunc CacheUnaryInterceptor(cache cache.Cacher, logger *zap.Logger) grpc.UnaryServerInterceptor {\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\tif cache == nil {\n\t\t\treturn handler(ctx, req)\n\t\t}\n\n\t\tswitch r := req.(type) {\n\t\tcase *flipt.EvaluationRequest:\n\t\t\tkey, err := evaluationCacheKey(r)\n\t\t\tif err != nil {\n\t\t\t\tlogger.Error(\"getting cache key\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tcached, ok, err := cache.Get(ctx, key)\n\t\t\tif err != nil {\n\t\t\t\t// if error, log and without cache\n\t\t\t\tlogger.Error(\"getting from cache\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tif ok {\n\t\t\t\tresp := &flipt.EvaluationResponse{}\n\t\t\t\tif err := proto.Unmarshal(cached, resp); err != nil {\n\t\t\t\t\tlogger.Error(\"unmarshalling from cache\", zap.Error(err))\n\t\t\t\t\treturn handler(ctx, req)\n\t\t\t\t}\n\n\t\t\t\tlogger.Debug(\"evaluate cache hit\", zap.Stringer(\"response\", resp))\n\t\t\t\treturn resp, nil\n\t\t\t}\n\n\t\t\tlogger.Debug(\"evaluate cache miss\")\n\t\t\tresp, err := handler(ctx, req)\n\t\t\tif err != nil {\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// marshal response\n\t\t\tdata, merr := proto.Marshal(resp.(*flipt.EvaluationResponse))\n\t\t\tif merr != nil {\n\t\t\t\tlogger.Error(\"marshalling for cache\", zap.Error(err))\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// set in cache\n\t\t\tif cerr := cache.Set(ctx, key, data); cerr != nil {\n\t\t\t\tlogger.Error(\"setting in cache\", zap.Error(err))\n\t\t\t}\n\n\t\t\treturn resp, err\n\n\t\tcase *flipt.GetFlagRequest:\n\t\t\tkey := flagCacheKey(r.GetNamespaceKey(), r.GetKey())\n\t\t\tcached, ok, err := cache.Get(ctx, key)\n\t\t\tif err != nil {\n\t\t\t\t// if error, log and without cache\n\t\t\t\tlogger.Error(\"getting from cache\", zap.Error(err))\n\t\t\t\treturn handler(ctx, req)\n\t\t\t}\n\n\t\t\tif ok {\n\t\t\t\tresp := &flipt.Flag{}\n\t\t\t\tif err := proto.Unmarshal(cached, resp); err != nil {\n\t\t\t\t\tlogger.Error(\"unmarshalling from cache\", zap.Error(err))\n\t\t\t\t\treturn handler(ctx, req)\n\t\t\t\t}\n\n\t\t\t\tlogger.Debug(\"get flag hit\", zap.Stringer(\"response\", resp))\n\t\t\t\treturn resp, nil\n\t\t\t}\n\n\t\t\tlogger.Debug(\"get flag miss\")\n\t\t\tresp, err := handler(ctx, req)\n\t\t\tif err != nil {\n\t\t\t\treturn nil, err\n\t\t\t}\n\n\t\t\t// marshal response\n\t\t\tdata, merr := proto.Marshal(resp.(*flipt.Flag))\n\t\t\tif merr != nil {\n\t\t\t\tlogger.Error(\"marshalling for cache\", zap.Error(err))\n\t\t\t\treturn resp, err\n\t\t\t}\n\n\t\t\t// set in cache\n\t\t\tif cerr := cache.Set(ctx, key, data); cerr != nil {\n\t\t\t\tlogger.Error(\"setting in cache\", zap.Error(err))\n\t\t\t}\n\n\t\t\treturn resp, err\n\n\t\tcase *flipt.UpdateFlagRequest, *flipt.DeleteFlagRequest:\n\t\t\t// need to do this assertion because the request type is not known in this block\n\t\t\tkeyer := r.(flagKeyer)\n\t\t\t// delete from cache\n\t\t\tif err := cache.Delete(ctx, flagCacheKey(keyer.GetNamespaceKey(), keyer.GetKey())); err != nil {\n\t\t\t\tlogger.Error(\"deleting from cache\", zap.Error(err))\n\t\t\t}\n\t\tcase *flipt.CreateVariantRequest, *flipt.UpdateVariantRequest, *flipt.DeleteVariantRequest:\n\t\t\t// need to do this assertion because the request type is not known in this block\n\t\t\tkeyer := r.(variantFlagKeyger)\n\t\t\t// delete from cache\n\t\t\tif err := cache.Delete(ctx, flagCacheKey(keyer.GetNamespaceKey(), keyer.GetFlagKey())); err != nil {\n\t\t\t\tlogger.Error(\"deleting from cache\", zap.Error(err))\n\t\t\t}\n\t\t}\n\n\t\treturn handler(ctx, req)\n\t}\n}\n\n// AuditUnaryInterceptor sends audit logs to configured sinks upon successful RPC requests for auditable events.\nfunc AuditUnaryInterceptor(logger *zap.Logger) grpc.UnaryServerInterceptor {\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\tresp, err := handler(ctx, req)\n\t\tif err != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\tactor := auth.ActorFromContext(ctx)\n\n\t\tvar event *audit.Event\n\n\t\tdefer func() {\n\t\t\tif event != nil {\n\t\t\t\tspan := trace.SpanFromContext(ctx)\n\t\t\t\tspan.AddEvent(\"event\", trace.WithAttributes(event.DecodeToAttributes()...))\n\t\t\t}\n\t\t}()\n\n\t\t// Delete request(s) have to be handled separately because they do not\n\t\t// return the concrete type but rather an *empty.Empty response.\n\t\tswitch r := req.(type) {\n\t\tcase *flipt.DeleteFlagRequest:\n\t\t\tevent = audit.NewEvent(audit.FlagType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteVariantRequest:\n\t\t\tevent = audit.NewEvent(audit.VariantType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteSegmentRequest:\n\t\t\tevent = audit.NewEvent(audit.SegmentType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteDistributionRequest:\n\t\t\tevent = audit.NewEvent(audit.DistributionType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteConstraintRequest:\n\t\t\tevent = audit.NewEvent(audit.ConstraintType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteNamespaceRequest:\n\t\t\tevent = audit.NewEvent(audit.NamespaceType, audit.Delete, actor, r)\n\t\tcase *flipt.DeleteRuleRequest:\n\t\t\tevent = audit.NewEvent(audit.RuleType, audit.Delete, actor, r)\n\t\t}\n\n\t\t// Short circuiting the middleware here since we have a non-nil event from\n\t\t// detecting a delete.\n\t\tif event != nil {\n\t\t\treturn resp, err\n\t\t}\n\n\t\taction := audit.GRPCMethodToAction(info.FullMethod)\n\n\t\tswitch r := resp.(type) {\n\t\tcase *flipt.Flag:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.FlagType, action, actor, audit.NewFlag(r))\n\t\t\t}\n\t\tcase *flipt.Variant:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.VariantType, action, actor, audit.NewVariant(r))\n\t\t\t}\n\t\tcase *flipt.Segment:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.SegmentType, action, actor, audit.NewSegment(r))\n\t\t\t}\n\t\tcase *flipt.Distribution:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.DistributionType, action, actor, audit.NewDistribution(r))\n\t\t\t}\n\t\tcase *flipt.Constraint:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.ConstraintType, action, actor, audit.NewConstraint(r))\n\t\t\t}\n\t\tcase *flipt.Namespace:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.NamespaceType, action, actor, audit.NewNamespace(r))\n\t\t\t}\n\t\tcase *flipt.Rule:\n\t\t\tif action != \"\" {\n\t\t\t\tevent = audit.NewEvent(audit.RuleType, action, actor, audit.NewRule(r))\n\t\t\t}\n\t\tcase *fauth.CreateTokenResponse:\n\t\t\tevent = audit.NewEvent(audit.TokenType, audit.Create, actor, r.Authentication.Metadata)\n\t\t}\n\n\t\treturn resp, err\n\t}\n}\n\ntype namespaceKeyer interface {\n\tGetNamespaceKey() string\n}\n\ntype flagKeyer interface {\n\tnamespaceKeyer\n\tGetKey() string\n}\n\ntype variantFlagKeyger interface {\n\tnamespaceKeyer\n\tGetFlagKey() string\n}\n\nfunc flagCacheKey(namespaceKey, key string) string {\n\tvar k string\n\t// for backward compatibility\n\tif namespaceKey != \"\" {\n\t\tk = fmt.Sprintf(\"f:%s:%s\", namespaceKey, key)\n\t} else {\n\t\tk = fmt.Sprintf(\"f:%s\", key)\n\t}\n\n\treturn fmt.Sprintf(\"flipt:%x\", md5.Sum([]byte(k)))\n}\n\nfunc evaluationCacheKey(r *flipt.EvaluationRequest) (string, error) {\n\tout, err := json.Marshal(r.GetContext())\n\tif err != nil {\n\t\treturn \"\", fmt.Errorf(\"marshalling req to json: %w\", err)\n\t}\n\n\tvar k string\n\t// for backward compatibility\n\tif r.GetNamespaceKey() != \"\" {\n\t\tk = fmt.Sprintf(\"e:%s:%s:%s:%s\", r.GetNamespaceKey(), r.GetFlagKey(), r.GetEntityId(), out)\n\t} else {\n\t\tk = fmt.Sprintf(\"e:%s:%s:%s\", r.GetFlagKey(), r.GetEntityId(), out)\n\t}\n\n\treturn fmt.Sprintf(\"flipt:%x\", md5.Sum([]byte(k))), nil\n}\nEOF",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "uncertainty_reason": "Full-file rewrite combines relevant context branches with unrelated cache response/log changes later reverted at X045; one canonical heredoc cannot isolate useful and discarded changes.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "03:X032.c0",
+      "parent_op_id": "03:X032",
+      "command": "cat internal/server/auth/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "repeated_support",
+      "evidence": "Unchanged mapper/auth source repeats the concrete logic already exposed at X003/X004; no new behavior, defect or implementation decision is established by the repeated display. Component: cat internal/server/auth/middleware.go",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "03:X033.c0",
+      "parent_op_id": "03:X033",
+      "command": "cat << 'EOF' > internal/server/auth/middleware.go\npackage auth\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"net/http\"\n\t\"strings\"\n\t\"time\"\n\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/containers\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\nconst (\n\tauthenticationHeaderKey = \"authorization\"\n\tcookieHeaderKey         = \"grpcgateway-cookie\"\n\n\t// tokenCookieKey is the key used when storing the flipt client token\n\t// as a http cookie.\n\ttokenCookieKey = \"flipt_client_token\"\n)\n\nvar errUnauthenticated = status.Error(codes.Unauthenticated, \"request was not authenticated\")\n\ntype authenticationContextKey struct{}\n\n// Authenticator is the minimum subset of an authentication provider\n// required by the middleware to perform lookups for Authentication instances\n// using a obtained clientToken.\ntype Authenticator interface {\n\tGetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\n// GetAuthenticationFrom is a utility for extracting an Authentication stored\n// on a context.Context instance\nfunc GetAuthenticationFrom(ctx context.Context) *authrpc.Authentication {\n\tauth := ctx.Value(authenticationContextKey{})\n\tif auth == nil {\n\t\treturn nil\n\t}\n\n\treturn auth.(*authrpc.Authentication)\n}\n\n// ContextWithAuthentication returns a context with the specified authentication\nfunc ContextWithAuthentication(ctx context.Context, a *authrpc.Authentication) context.Context {\n\treturn context.WithValue(ctx, authenticationContextKey{}, a)\n}\n\n// InterceptorOptions configure the UnaryInterceptor\ntype InterceptorOptions struct {\n\tskippedServers []any\n}\n\nfunc (o InterceptorOptions) skipped(server any) bool {\n\tfor _, s := range o.skippedServers {\n\t\tif s == server {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn false\n}\n\n// WithServerSkipsAuthentication can be used to configure an auth unary interceptor\n// which skips authentication when the provided server instance matches the intercepted\n// calls parent server instance.\n// This allows the caller to registers servers which explicitly skip authentication (e.g. OIDC).\nfunc WithServerSkipsAuthentication(server any) containers.Option[InterceptorOptions] {\n\treturn func(o *InterceptorOptions) {\n\t\to.skippedServers = append(o.skippedServers, server)\n\t}\n}\n\n// UnaryInterceptor is a grpc.UnaryServerInterceptor which extracts a clientToken found\n// within the authorization field on the incoming requests metadata.\n// The fields value is expected to be in the form \"Bearer <clientToken>\".\nfunc UnaryInterceptor(logger *zap.Logger, authenticator Authenticator, o ...containers.Option[InterceptorOptions]) grpc.UnaryServerInterceptor {\n\tvar opts InterceptorOptions\n\tcontainers.ApplyAll(&opts, o...)\n\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\t// skip auth for any preconfigured servers\n\t\tif opts.skipped(info.Server) {\n\t\t\tlogger.Debug(\"skipping authentication for server\", zap.String(\"method\", info.FullMethod))\n\t\t\treturn handler(ctx, req)\n\t\t}\n\n\t\tif err := ctx.Err(); err != nil {\n\t\t\tswitch {\n\t\t\tcase errors.Is(err, context.Canceled):\n\t\t\t\treturn ctx, status.Error(codes.Canceled, err.Error())\n\t\t\tcase errors.Is(err, context.DeadlineExceeded):\n\t\t\t\treturn ctx, status.Error(codes.DeadlineExceeded, err.Error())\n\t\t\t}\n\t\t}\n\n\t\tmd, ok := metadata.FromIncomingContext(ctx)\n\t\tif !ok {\n\t\t\tlogger.Error(\"unauthenticated\", zap.String(\"reason\", \"metadata not found on context\"))\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tclientToken, err := clientTokenFromMetadata(md)\n\t\tif err != nil {\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"no authorization provided\"),\n\t\t\t\tzap.Error(err))\n\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\t\tif err != nil {\n\t\t\tswitch {\n\t\t\tcase errors.Is(err, context.Canceled),\n\t\t\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\t\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\t\t\treturn ctx, status.Error(codes.Canceled, err.Error())\n\t\t\tcase errors.Is(err, context.DeadlineExceeded),\n\t\t\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\t\t\treturn ctx, status.Error(codes.DeadlineExceeded, err.Error())\n\t\t\t}\n\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\t\t\t\tzap.Error(err))\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tif auth.ExpiresAt != nil && auth.ExpiresAt.AsTime().Before(time.Now()) {\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"authorization expired\"),\n\t\t\t\tzap.String(\"authentication_id\", auth.Id),\n\t\t\t)\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\treturn handler(ContextWithAuthentication(ctx, auth), req)\n\t}\n}\n\nfunc clientTokenFromMetadata(md metadata.MD) (string, error) {\n\tif authenticationHeader := md.Get(authenticationHeaderKey); len(authenticationHeader) > 0 {\n\t\treturn clientTokenFromAuthorization(authenticationHeader[0])\n\t}\n\n\tcookie, err := cookieFromMetadata(md, tokenCookieKey)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\n\treturn cookie.Value, nil\n}\n\nfunc clientTokenFromAuthorization(auth string) (string, error) {\n\t// ensure token was prefixed with \"Bearer \"\n\tif clientToken := strings.TrimPrefix(auth, \"Bearer \"); auth != clientToken {\n\t\treturn clientToken, nil\n\t}\n\n\treturn \"\", errUnauthenticated\n}\n\nfunc cookieFromMetadata(md metadata.MD, key string) (*http.Cookie, error) {\n\t// sadly net/http does not expose cookie parsing\n\t// outside of http.Request.\n\t// so instead we fabricate a request around the cookie\n\t// in order to extract it appropriately.\n\treturn (&http.Request{\n\t\tHeader: http.Header{\"Cookie\": md.Get(cookieHeaderKey)},\n\t}).Cookie(key)\n}\nEOF",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "edit",
+      "reason": "requirement_implementation",
+      "evidence": "Auth heredoc adds errors.Is cancellation/deadline checks, ErrCanceled support and ctx.Err fallback; retained in final auth patch. Fallback may misclassify unrelated errors when request is canceled (R4 limitation). Component: cat << 'EOF' > internal/server/auth/middleware.go\npackage auth\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"net/http\"\n\t\"strings\"\n\t\"time\"\n\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/containers\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\nconst (\n\tauthenticationHeaderKey = \"authorization\"\n\tcookieHeaderKey         = \"grpcgateway-cookie\"\n\n\t// tokenCookieKey is the key used when storing the flipt client token\n\t// as a http cookie.\n\ttokenCookieKey = \"flipt_client_token\"\n)\n\nvar errUnauthenticated = status.Error(codes.Unauthenticated, \"request was not authenticated\")\n\ntype authenticationContextKey struct{}\n\n// Authenticator is the minimum subset of an authentication provider\n// required by the middleware to perform lookups for Authentication instances\n// using a obtained clientToken.\ntype Authenticator interface {\n\tGetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\n// GetAuthenticationFrom is a utility for extracting an Authentication stored\n// on a context.Context instance\nfunc GetAuthenticationFrom(ctx context.Context) *authrpc.Authentication {\n\tauth := ctx.Value(authenticationContextKey{})\n\tif auth == nil {\n\t\treturn nil\n\t}\n\n\treturn auth.(*authrpc.Authentication)\n}\n\n// ContextWithAuthentication returns a context with the specified authentication\nfunc ContextWithAuthentication(ctx context.Context, a *authrpc.Authentication) context.Context {\n\treturn context.WithValue(ctx, authenticationContextKey{}, a)\n}\n\n// InterceptorOptions configure the UnaryInterceptor\ntype InterceptorOptions struct {\n\tskippedServers []any\n}\n\nfunc (o InterceptorOptions) skipped(server any) bool {\n\tfor _, s := range o.skippedServers {\n\t\tif s == server {\n\t\t\treturn true\n\t\t}\n\t}\n\n\treturn false\n}\n\n// WithServerSkipsAuthentication can be used to configure an auth unary interceptor\n// which skips authentication when the provided server instance matches the intercepted\n// calls parent server instance.\n// This allows the caller to registers servers which explicitly skip authentication (e.g. OIDC).\nfunc WithServerSkipsAuthentication(server any) containers.Option[InterceptorOptions] {\n\treturn func(o *InterceptorOptions) {\n\t\to.skippedServers = append(o.skippedServers, server)\n\t}\n}\n\n// UnaryInterceptor is a grpc.UnaryServerInterceptor which extracts a clientToken found\n// within the authorization field on the incoming requests metadata.\n// The fields value is expected to be in the form \"Bearer <clientToken>\".\nfunc UnaryInterceptor(logger *zap.Logger, authenticator Authenticator, o ...containers.Option[InterceptorOptions]) grpc.UnaryServerInterceptor {\n\tvar opts InterceptorOptions\n\tcontainers.ApplyAll(&opts, o...)\n\n\treturn func(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {\n\t\t// skip auth for any preconfigured servers\n\t\tif opts.skipped(info.Server) {\n\t\t\tlogger.Debug(\"skipping authentication for server\", zap.String(\"method\", info.FullMethod))\n\t\t\treturn handler(ctx, req)\n\t\t}\n\n\t\tif err := ctx.Err(); err != nil {\n\t\t\tswitch {\n\t\t\tcase errors.Is(err, context.Canceled):\n\t\t\t\treturn ctx, status.Error(codes.Canceled, err.Error())\n\t\t\tcase errors.Is(err, context.DeadlineExceeded):\n\t\t\t\treturn ctx, status.Error(codes.DeadlineExceeded, err.Error())\n\t\t\t}\n\t\t}\n\n\t\tmd, ok := metadata.FromIncomingContext(ctx)\n\t\tif !ok {\n\t\t\tlogger.Error(\"unauthenticated\", zap.String(\"reason\", \"metadata not found on context\"))\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tclientToken, err := clientTokenFromMetadata(md)\n\t\tif err != nil {\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"no authorization provided\"),\n\t\t\t\tzap.Error(err))\n\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\t\tif err != nil {\n\t\t\tswitch {\n\t\t\tcase errors.Is(err, context.Canceled),\n\t\t\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\t\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\t\t\treturn ctx, status.Error(codes.Canceled, err.Error())\n\t\t\tcase errors.Is(err, context.DeadlineExceeded),\n\t\t\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\t\t\treturn ctx, status.Error(codes.DeadlineExceeded, err.Error())\n\t\t\t}\n\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\t\t\t\tzap.Error(err))\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\tif auth.ExpiresAt != nil && auth.ExpiresAt.AsTime().Before(time.Now()) {\n\t\t\tlogger.Error(\"unauthenticated\",\n\t\t\t\tzap.String(\"reason\", \"authorization expired\"),\n\t\t\t\tzap.String(\"authentication_id\", auth.Id),\n\t\t\t)\n\t\t\treturn ctx, errUnauthenticated\n\t\t}\n\n\t\treturn handler(ContextWithAuthentication(ctx, auth), req)\n\t}\n}\n\nfunc clientTokenFromMetadata(md metadata.MD) (string, error) {\n\tif authenticationHeader := md.Get(authenticationHeaderKey); len(authenticationHeader) > 0 {\n\t\treturn clientTokenFromAuthorization(authenticationHeader[0])\n\t}\n\n\tcookie, err := cookieFromMetadata(md, tokenCookieKey)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\n\treturn cookie.Value, nil\n}\n\nfunc clientTokenFromAuthorization(auth string) (string, error) {\n\t// ensure token was prefixed with \"Bearer \"\n\tif clientToken := strings.TrimPrefix(auth, \"Bearer \"); auth != clientToken {\n\t\treturn clientToken, nil\n\t}\n\n\treturn \"\", errUnauthenticated\n}\n\nfunc cookieFromMetadata(md metadata.MD, key string) (*http.Cookie, error) {\n\t// sadly net/http does not expose cookie parsing\n\t// outside of http.Request.\n\t// so instead we fabricate a request around the cookie\n\t// in order to extract it appropriately.\n\treturn (&http.Request{\n\t\tHeader: http.Header{\"Cookie\": md.Get(cookieHeaderKey)},\n\t}).Cookie(key)\n}\nEOF",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 34,
+      "component_index": 0,
+      "component_id": "03:X034.c0",
+      "parent_op_id": "03:X034",
+      "command": "go test -v ./internal/server/middleware/grpc ./internal/server/auth",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Both edited packages visibly pass existing error/status and auth flow tests; confirms preservation for their tested ordinary inputs, not every ctx.Err fallback case. Component: go test -v ./internal/server/middleware/grpc ./internal/server/auth",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Both edited packages visibly pass existing error/status and auth flow tests; confirms preservation for their tested ordinary inputs, not every ctx.Err fallback case.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X016.c0",
+        "03:X017.c0"
+      ],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 35,
+      "component_index": 0,
+      "component_id": "03:X035.c0",
+      "parent_op_id": "03:X035",
+      "command": "cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"fmt\"\n\t\"testing\"\n\t\"time\"\n\n\t\"github.com/stretchr/testify/assert\"\n\t\"github.com/stretchr/testify/require\"\n\terrs \"go.flipt.io/flipt/errors\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap/zaptest\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\ntype mockAuthenticator struct {\n\tgetAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\nfunc (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\treturn m.getAuthFunc(ctx, clientToken)\n}\n\nfunc TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {\n\ttests := []struct {\n\t\tname     string\n\t\tctx      func() context.Context\n\t\terr      error\n\t\twantCode codes.Code\n\t}{\n\t\t{\n\t\t\tname:     \"direct context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.Canceled,\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"wrapped error: %w\", context.Canceled),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"level 1: %w\", fmt.Errorf(\"level 2: %w\", context.Canceled)),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrCanceled(\"operation canceled\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query failed: %w\", errs.ErrCanceled(\"query canceled\")),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"direct context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.DeadlineExceeded,\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query timed out: %w\", context.DeadlineExceeded),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"outer: %w\", fmt.Errorf(\"inner: %w\", context.DeadlineExceeded)),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname: \"canceled context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname: \"deadline exceeded context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"not found error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrNotFound(\"flag\"),\n\t\t\twantCode: codes.NotFound,\n\t\t},\n\t\t{\n\t\t\tname:     \"invalid error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrInvalid(\"bad value\"),\n\t\t\twantCode: codes.InvalidArgument,\n\t\t},\n\t\t{\n\t\t\tname:     \"unauthenticated error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrUnauthenticated(\"bad token\"),\n\t\t\twantCode: codes.Unauthenticated,\n\t\t},\n\t\t{\n\t\t\tname:     \"generic error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errors.New(\"unknown error\"),\n\t\t\twantCode: codes.Internal,\n\t\t},\n\t\t{\n\t\t\tname:     \"existing status error unchanged\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      status.Error(codes.PermissionDenied, \"forbidden\"),\n\t\t\twantCode: codes.PermissionDenied,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tspyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\treturn nil, tt.err\n\t\t\t})\n\n\t\t\tctx := tt.ctx()\n\t\t\t_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)\n\t\t\trequire.Error(t, err)\n\t\t\tst := status.Convert(err)\n\t\t\tassert.Equal(t, tt.wantCode, st.Code())\n\t\t})\n\t}\n}\nEOF",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "reason": "discarded_edit",
+      "evidence": "Initial reproduce test has unused imports and fails compilation at X036; rewritten at X037 before behavioral checks execute. Component: cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"fmt\"\n\t\"testing\"\n\t\"time\"\n\n\t\"github.com/stretchr/testify/assert\"\n\t\"github.com/stretchr/testify/require\"\n\terrs \"go.flipt.io/flipt/errors\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap/zaptest\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\ntype mockAuthenticator struct {\n\tgetAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\nfunc (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\treturn m.getAuthFunc(ctx, clientToken)\n}\n\nfunc TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {\n\ttests := []struct {\n\t\tname     string\n\t\tctx      func() context.Context\n\t\terr      error\n\t\twantCode codes.Code\n\t}{\n\t\t{\n\t\t\tname:     \"direct context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.Canceled,\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"wrapped error: %w\", context.Canceled),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"level 1: %w\", fmt.Errorf(\"level 2: %w\", context.Canceled)),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrCanceled(\"operation canceled\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query failed: %w\", errs.ErrCanceled(\"query canceled\")),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"direct context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.DeadlineExceeded,\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query timed out: %w\", context.DeadlineExceeded),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"outer: %w\", fmt.Errorf(\"inner: %w\", context.DeadlineExceeded)),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname: \"canceled context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname: \"deadline exceeded context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"not found error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrNotFound(\"flag\"),\n\t\t\twantCode: codes.NotFound,\n\t\t},\n\t\t{\n\t\t\tname:     \"invalid error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrInvalid(\"bad value\"),\n\t\t\twantCode: codes.InvalidArgument,\n\t\t},\n\t\t{\n\t\t\tname:     \"unauthenticated error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrUnauthenticated(\"bad token\"),\n\t\t\twantCode: codes.Unauthenticated,\n\t\t},\n\t\t{\n\t\t\tname:     \"generic error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errors.New(\"unknown error\"),\n\t\t\twantCode: codes.Internal,\n\t\t},\n\t\t{\n\t\t\tname:     \"existing status error unchanged\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      status.Error(codes.PermissionDenied, \"forbidden\"),\n\t\t\twantCode: codes.PermissionDenied,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tspyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\treturn nil, tt.err\n\t\t\t})\n\n\t\t\tctx := tt.ctx()\n\t\t\t_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)\n\t\t\trequire.Error(t, err)\n\t\t\tst := status.Convert(err)\n\t\t\tassert.Equal(t, tt.wantCode, st.Code())\n\t\t})\n\t}\n}\nEOF",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 36,
+      "component_index": 0,
+      "component_id": "03:X036.c0",
+      "parent_op_id": "03:X036",
+      "command": "go test -v -run TestErrorUnaryInterceptor_ContextErrors ./internal/server/middleware/grpc",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "actionable_defect",
+      "evidence": "Build reports unused authrpc/zaptest/grpc/metadata imports in reproduce_test.go; subsequent rewrite X037 uses these imports and reaches context tests. Component: go test -v -run TestErrorUnaryInterceptor_ContextErrors ./internal/server/middleware/grpc",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X037.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Build reports unused authrpc/zaptest/grpc/metadata imports in reproduce_test.go; subsequent rewrite X037 uses these imports and reaches context tests.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 37,
+      "component_index": 0,
+      "component_id": "03:X037.c0",
+      "parent_op_id": "03:X037",
+      "command": "cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"fmt\"\n\t\"testing\"\n\t\"time\"\n\n\t\"github.com/stretchr/testify/assert\"\n\t\"github.com/stretchr/testify/require\"\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/server/auth\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap/zaptest\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\ntype mockAuthenticator struct {\n\tgetAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\nfunc (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\treturn m.getAuthFunc(ctx, clientToken)\n}\n\nfunc TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {\n\ttests := []struct {\n\t\tname     string\n\t\tctx      func() context.Context\n\t\terr      error\n\t\twantCode codes.Code\n\t}{\n\t\t{\n\t\t\tname:     \"direct context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.Canceled,\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"wrapped error: %w\", context.Canceled),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"level 1: %w\", fmt.Errorf(\"level 2: %w\", context.Canceled)),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrCanceled(\"operation canceled\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query failed: %w\", errs.ErrCanceled(\"query canceled\")),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"direct context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.DeadlineExceeded,\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query timed out: %w\", context.DeadlineExceeded),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"outer: %w\", fmt.Errorf(\"inner: %w\", context.DeadlineExceeded)),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname: \"canceled context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname: \"deadline exceeded context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"not found error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrNotFound(\"flag\"),\n\t\t\twantCode: codes.NotFound,\n\t\t},\n\t\t{\n\t\t\tname:     \"invalid error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrInvalid(\"bad value\"),\n\t\t\twantCode: codes.InvalidArgument,\n\t\t},\n\t\t{\n\t\t\tname:     \"unauthenticated error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrUnauthenticated(\"bad token\"),\n\t\t\twantCode: codes.Unauthenticated,\n\t\t},\n\t\t{\n\t\t\tname:     \"generic error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errors.New(\"unknown error\"),\n\t\t\twantCode: codes.Internal,\n\t\t},\n\t\t{\n\t\t\tname:     \"existing status error unchanged\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      status.Error(codes.PermissionDenied, \"forbidden\"),\n\t\t\twantCode: codes.PermissionDenied,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tspyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\treturn nil, tt.err\n\t\t\t})\n\n\t\t\tctx := tt.ctx()\n\t\t\t_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)\n\t\t\trequire.Error(t, err)\n\t\t\tst := status.Convert(err)\n\t\t\tassert.Equal(t, tt.wantCode, st.Code())\n\t\t})\n\t}\n}\n\nfunc TestAuthUnaryInterceptor_ContextErrors(t *testing.T) {\n\tlogger := zaptest.NewLogger(t)\n\n\ttests := []struct {\n\t\tname        string\n\t\tctx         func() context.Context\n\t\tmd          metadata.MD\n\t\tmockAuth    func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n\t\twantCode    codes.Code\n\t\twantAuthNil bool\n\t}{\n\t\t{\n\t\t\tname: \"authenticator returns context.Canceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, context.Canceled\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns wrapped context.Canceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, fmt.Errorf(\"querying auth store: %w\", context.Canceled)\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns errs.ErrCanceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, errs.ErrCanceled(\"query canceled\")\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns context.DeadlineExceeded\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, context.DeadlineExceeded\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns wrapped context.DeadlineExceeded\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, fmt.Errorf(\"getting auth: %w\", context.DeadlineExceeded)\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"context already canceled before call\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, nil\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"context deadline exceeded before call\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, nil\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns standard not found error\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer invalid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, errors.New(\"token not found\")\n\t\t\t},\n\t\t\twantCode:    codes.Unauthenticated,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"successful authentication\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn &authrpc.Authentication{Id: \"test-auth-id\"}, nil\n\t\t\t},\n\t\t\twantCode:    codes.OK,\n\t\t\twantAuthNil: false,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tauthenticator := &mockAuthenticator{\n\t\t\t\tgetAuthFunc: tt.mockAuth,\n\t\t\t}\n\n\t\t\tvar retrievedAuth *authrpc.Authentication\n\t\t\thandler := func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\tretrievedAuth = auth.GetAuthenticationFrom(ctx)\n\t\t\t\treturn \"ok\", nil\n\t\t\t}\n\n\t\t\tctx := tt.ctx()\n\t\t\tif tt.md != nil {\n\t\t\t\tctx = metadata.NewIncomingContext(ctx, tt.md)\n\t\t\t}\n\n\t\t\tresp, err := auth.UnaryInterceptor(logger, authenticator)(\n\t\t\t\tctx,\n\t\t\t\tnil,\n\t\t\t\t&grpc.UnaryServerInfo{},\n\t\t\t\thandler,\n\t\t\t)\n\n\t\t\tif tt.wantCode == codes.OK {\n\t\t\t\trequire.NoError(t, err)\n\t\t\t\tassert.Equal(t, \"ok\", resp)\n\t\t\t\tassert.NotNil(t, retrievedAuth)\n\t\t\t\tassert.Equal(t, \"test-auth-id\", retrievedAuth.Id)\n\t\t\t} else {\n\t\t\t\trequire.Error(t, err)\n\t\t\t\tst := status.Convert(err)\n\t\t\t\tassert.Equal(t, tt.wantCode, st.Code(), \"expected code %v but got %v: %v\", tt.wantCode, st.Code(), err)\n\t\t\t}\n\t\t})\n\t}\n}\nEOF",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "edit",
+      "reason": "requirement_implementation",
+      "evidence": "Temporary test defines direct/wrapped context, typed cancellation, auth context errors and normal success/failure assertions; executed successfully at X038 before cleanup. Component: cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go\npackage grpc_middleware\n\nimport (\n\t\"context\"\n\t\"errors\"\n\t\"fmt\"\n\t\"testing\"\n\t\"time\"\n\n\t\"github.com/stretchr/testify/assert\"\n\t\"github.com/stretchr/testify/require\"\n\terrs \"go.flipt.io/flipt/errors\"\n\t\"go.flipt.io/flipt/internal/server/auth\"\n\tauthrpc \"go.flipt.io/flipt/rpc/flipt/auth\"\n\t\"go.uber.org/zap/zaptest\"\n\t\"google.golang.org/grpc\"\n\t\"google.golang.org/grpc/codes\"\n\t\"google.golang.org/grpc/metadata\"\n\t\"google.golang.org/grpc/status\"\n)\n\ntype mockAuthenticator struct {\n\tgetAuthFunc func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n}\n\nfunc (m *mockAuthenticator) GetAuthenticationByClientToken(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\treturn m.getAuthFunc(ctx, clientToken)\n}\n\nfunc TestErrorUnaryInterceptor_ContextErrors(t *testing.T) {\n\ttests := []struct {\n\t\tname     string\n\t\tctx      func() context.Context\n\t\terr      error\n\t\twantCode codes.Code\n\t}{\n\t\t{\n\t\t\tname:     \"direct context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.Canceled,\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"wrapped error: %w\", context.Canceled),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.Canceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"level 1: %w\", fmt.Errorf(\"level 2: %w\", context.Canceled)),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrCanceled(\"operation canceled\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped errs.ErrCanceled\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query failed: %w\", errs.ErrCanceled(\"query canceled\")),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname:     \"direct context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      context.DeadlineExceeded,\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"db query timed out: %w\", context.DeadlineExceeded),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"deeply wrapped context.DeadlineExceeded\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      fmt.Errorf(\"outer: %w\", fmt.Errorf(\"inner: %w\", context.DeadlineExceeded)),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname: \"canceled context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.Canceled,\n\t\t},\n\t\t{\n\t\t\tname: \"deadline exceeded context with generic error\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\terr:      errors.New(\"something went wrong\"),\n\t\t\twantCode: codes.DeadlineExceeded,\n\t\t},\n\t\t{\n\t\t\tname:     \"not found error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrNotFound(\"flag\"),\n\t\t\twantCode: codes.NotFound,\n\t\t},\n\t\t{\n\t\t\tname:     \"invalid error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrInvalid(\"bad value\"),\n\t\t\twantCode: codes.InvalidArgument,\n\t\t},\n\t\t{\n\t\t\tname:     \"unauthenticated error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errs.ErrUnauthenticated(\"bad token\"),\n\t\t\twantCode: codes.Unauthenticated,\n\t\t},\n\t\t{\n\t\t\tname:     \"generic error\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      errors.New(\"unknown error\"),\n\t\t\twantCode: codes.Internal,\n\t\t},\n\t\t{\n\t\t\tname:     \"existing status error unchanged\",\n\t\t\tctx:      context.Background,\n\t\t\terr:      status.Error(codes.PermissionDenied, \"forbidden\"),\n\t\t\twantCode: codes.PermissionDenied,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tspyHandler := grpc.UnaryHandler(func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\treturn nil, tt.err\n\t\t\t})\n\n\t\t\tctx := tt.ctx()\n\t\t\t_, err := ErrorUnaryInterceptor(ctx, nil, nil, spyHandler)\n\t\t\trequire.Error(t, err)\n\t\t\tst := status.Convert(err)\n\t\t\tassert.Equal(t, tt.wantCode, st.Code())\n\t\t})\n\t}\n}\n\nfunc TestAuthUnaryInterceptor_ContextErrors(t *testing.T) {\n\tlogger := zaptest.NewLogger(t)\n\n\ttests := []struct {\n\t\tname        string\n\t\tctx         func() context.Context\n\t\tmd          metadata.MD\n\t\tmockAuth    func(ctx context.Context, clientToken string) (*authrpc.Authentication, error)\n\t\twantCode    codes.Code\n\t\twantAuthNil bool\n\t}{\n\t\t{\n\t\t\tname: \"authenticator returns context.Canceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, context.Canceled\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns wrapped context.Canceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, fmt.Errorf(\"querying auth store: %w\", context.Canceled)\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns errs.ErrCanceled\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, errs.ErrCanceled(\"query canceled\")\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns context.DeadlineExceeded\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, context.DeadlineExceeded\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns wrapped context.DeadlineExceeded\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, fmt.Errorf(\"getting auth: %w\", context.DeadlineExceeded)\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"context already canceled before call\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithCancel(context.Background())\n\t\t\t\tcancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, nil\n\t\t\t},\n\t\t\twantCode:    codes.Canceled,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"context deadline exceeded before call\",\n\t\t\tctx: func() context.Context {\n\t\t\t\tc, cancel := context.WithDeadline(context.Background(), time.Now().Add(-time.Second))\n\t\t\t\tdefer cancel()\n\t\t\t\treturn c\n\t\t\t},\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, nil\n\t\t\t},\n\t\t\twantCode:    codes.DeadlineExceeded,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"authenticator returns standard not found error\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer invalid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn nil, errors.New(\"token not found\")\n\t\t\t},\n\t\t\twantCode:    codes.Unauthenticated,\n\t\t\twantAuthNil: true,\n\t\t},\n\t\t{\n\t\t\tname: \"successful authentication\",\n\t\t\tctx:  context.Background,\n\t\t\tmd: metadata.MD{\n\t\t\t\t\"authorization\": []string{\"Bearer valid-token\"},\n\t\t\t},\n\t\t\tmockAuth: func(ctx context.Context, clientToken string) (*authrpc.Authentication, error) {\n\t\t\t\treturn &authrpc.Authentication{Id: \"test-auth-id\"}, nil\n\t\t\t},\n\t\t\twantCode:    codes.OK,\n\t\t\twantAuthNil: false,\n\t\t},\n\t}\n\n\tfor _, tt := range tests {\n\t\tt.Run(tt.name, func(t *testing.T) {\n\t\t\tauthenticator := &mockAuthenticator{\n\t\t\t\tgetAuthFunc: tt.mockAuth,\n\t\t\t}\n\n\t\t\tvar retrievedAuth *authrpc.Authentication\n\t\t\thandler := func(ctx context.Context, req interface{}) (interface{}, error) {\n\t\t\t\tretrievedAuth = auth.GetAuthenticationFrom(ctx)\n\t\t\t\treturn \"ok\", nil\n\t\t\t}\n\n\t\t\tctx := tt.ctx()\n\t\t\tif tt.md != nil {\n\t\t\t\tctx = metadata.NewIncomingContext(ctx, tt.md)\n\t\t\t}\n\n\t\t\tresp, err := auth.UnaryInterceptor(logger, authenticator)(\n\t\t\t\tctx,\n\t\t\t\tnil,\n\t\t\t\t&grpc.UnaryServerInfo{},\n\t\t\t\thandler,\n\t\t\t)\n\n\t\t\tif tt.wantCode == codes.OK {\n\t\t\t\trequire.NoError(t, err)\n\t\t\t\tassert.Equal(t, \"ok\", resp)\n\t\t\t\tassert.NotNil(t, retrievedAuth)\n\t\t\t\tassert.Equal(t, \"test-auth-id\", retrievedAuth.Id)\n\t\t\t} else {\n\t\t\t\trequire.Error(t, err)\n\t\t\t\tst := status.Convert(err)\n\t\t\t\tassert.Equal(t, tt.wantCode, st.Code(), \"expected code %v but got %v: %v\", tt.wantCode, st.Code(), err)\n\t\t\t}\n\t\t})\n\t}\n}\nEOF",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X038.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 38,
+      "component_index": 0,
+      "component_id": "03:X038.c0",
+      "parent_op_id": "03:X038",
+      "command": "go test -v -run \"TestErrorUnaryInterceptor_ContextErrors|TestAuthUnaryInterceptor_ContextErrors\" ./internal/server/middleware/grpc",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Named direct/wrapped context and auth context-error subtests plus successful authentication visibly pass; temporary assertions show new cancellation/deadline coverage. Component: go test -v -run \"TestErrorUnaryInterceptor_ContextErrors|TestAuthUnaryInterceptor_ContextErrors\" ./internal/server/middleware/grpc",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Named direct/wrapped context and auth context-error subtests plus successful authentication visibly pass; temporary assertions show new cancellation/deadline coverage.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X034.c0"
+      ],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 39,
+      "component_index": 0,
+      "component_id": "03:X039.c0",
+      "parent_op_id": "03:X039",
+      "command": "rm internal/server/middleware/grpc/reproduce_test.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: rm internal/server/middleware/grpc/reproduce_test.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 40,
+      "component_index": 0,
+      "component_id": "03:X040.c0",
+      "parent_op_id": "03:X040",
+      "command": "git status",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git status",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 41,
+      "component_index": 0,
+      "component_id": "03:X041.c0",
+      "parent_op_id": "03:X041",
+      "command": "go test ./internal/server/middleware/grpc ./internal/server/auth ./internal/server/auth/method/token ./internal/server/auth/public ./internal/server ./internal/server/audit ./internal/server/cache/memory ./internal/storage/auth/memory ./internal/storage/fs/...",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "reason": "repeated_support",
+      "evidence": "Mapper/auth packages pass again; added token/storage/fs packages repeat earlier unrelated context without exposing new task-property assertions. Relevant source unchanged since X034/X038. Component: go test ./internal/server/middleware/grpc ./internal/server/auth ./internal/server/auth/method/token ./internal/server/auth/public ./internal/server ./internal/server/audit ./internal/server/cache/memory ./internal/storage/auth/memory ./internal/storage/fs/...",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Mapper/auth packages pass again; added token/storage/fs packages repeat earlier unrelated context without exposing new task-property assertions. Relevant source unchanged since X034/X038.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:X034.c0",
+        "03:X038.c0"
+      ],
+      "verification_gain": "repeated_support"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 42,
+      "component_index": 0,
+      "component_id": "03:X042.c0",
+      "parent_op_id": "03:X042",
+      "command": "git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 43,
+      "component_index": 0,
+      "component_id": "03:X043.c0",
+      "parent_op_id": "03:X043",
+      "command": "cat patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "actionable_defect",
+      "evidence": "Patch review exposes unrelated GetFlag cache response/log modifications from full-file rewrite; source restored at X045 then minimally re-edited at X047. Component: cat patch.txt",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X045.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [
+        "03:X031.c0"
+      ],
+      "property_checked": "Patch review exposes unrelated GetFlag cache response/log modifications from full-file rewrite; source restored at X045 then minimally re-edited at X047.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 44,
+      "component_index": 0,
+      "component_id": "03:X044.c0",
+      "parent_op_id": "03:X044",
+      "command": "git show HEAD:internal/server/middleware/grpc/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Original source reinspection supplies exact unchanged cache and mapper code used to restore unrelated behavior before minimal mapper edit. Component: git show HEAD:internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 45,
+      "component_index": 0,
+      "component_id": "03:X045.c0",
+      "parent_op_id": "03:X045",
+      "command": "git checkout internal/server/middleware/grpc/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "edit",
+      "reason": "requirement_implementation",
+      "evidence": "Checkout removes accidental cache behavior/log rewrite; X047 reapplies only mapper changes, leaving cache outside final diff. Component: git checkout internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 46,
+      "component_index": 0,
+      "component_id": "03:X046.c0",
+      "parent_op_id": "03:X046",
+      "command": "sed -n '1,75p' internal/server/middleware/grpc/middleware.go",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Original source reinspection supplies exact unchanged cache and mapper code used to restore unrelated behavior before minimal mapper edit. Component: sed -n '1,75p' internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:X047.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 47,
+      "component_index": 0,
+      "component_id": "03:X047.c0",
+      "parent_op_id": "03:X047",
+      "command": "python3 -c '\nwith open(\"internal/server/middleware/grpc/middleware.go\", \"r\") as f:\n    content = f.read()\n\nold_import = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\"\"\"\n\nnew_import = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\"\"\"\n\n# Wait, check if encoding/json is already in import\nold_import_block = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"fmt\"\n\"\"\"\n\nnew_import_block = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\t\"fmt\"\n\"\"\"\n\nold_interceptor = \"\"\"// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\"\"\"\n\nnew_interceptor = \"\"\"// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errors.Is(err, context.Canceled),\n\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\tcode = codes.Canceled\n\tcase errors.Is(err, context.DeadlineExceeded),\n\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\tcode = codes.DeadlineExceeded\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\"\"\"\n\nassert old_import_block in content, \"old_import_block not found\"\nassert old_interceptor in content, \"old_interceptor not found\"\n\ncontent = content.replace(old_import_block, new_import_block, 1)\ncontent = content.replace(old_interceptor, new_interceptor, 1)\n\nwith open(\"internal/server/middleware/grpc/middleware.go\", \"w\") as f:\n    f.write(content)\nprint(\"Updated successfully\")\n'",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "edit",
+      "reason": "requirement_implementation",
+      "evidence": "Minimal errors.Is/ErrCanceled/ctx.Err mapper branches replace temporary full-file rewrite and survive final patch. ctx.Err fallback preservation remains a limitation. Component: python3 -c '\nwith open(\"internal/server/middleware/grpc/middleware.go\", \"r\") as f:\n    content = f.read()\n\nold_import = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\"\"\"\n\nnew_import = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\"\"\"\n\n# Wait, check if encoding/json is already in import\nold_import_block = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"fmt\"\n\"\"\"\n\nnew_import_block = \"\"\"import (\n\t\"context\"\n\t\"crypto/md5\"\n\t\"encoding/json\"\n\t\"errors\"\n\t\"fmt\"\n\"\"\"\n\nold_interceptor = \"\"\"// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\"\"\"\n\nnew_interceptor = \"\"\"// ErrorUnaryInterceptor intercepts known errors and returns the appropriate GRPC status code\nfunc ErrorUnaryInterceptor(ctx context.Context, req interface{}, _ *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {\n\tresp, err = handler(ctx, req)\n\tif err == nil {\n\t\treturn resp, nil\n\t}\n\n\tmetrics.ErrorsTotal.Add(ctx, 1)\n\n\t// given already a *status.Error then forward unchanged\n\tif _, ok := status.FromError(err); ok {\n\t\treturn\n\t}\n\n\tcode := codes.Internal\n\tswitch {\n\tcase errors.Is(err, context.Canceled),\n\t\terrs.AsMatch[errs.ErrCanceled](err),\n\t\terrors.Is(ctx.Err(), context.Canceled):\n\t\tcode = codes.Canceled\n\tcase errors.Is(err, context.DeadlineExceeded),\n\t\terrors.Is(ctx.Err(), context.DeadlineExceeded):\n\t\tcode = codes.DeadlineExceeded\n\tcase errs.AsMatch[errs.ErrNotFound](err):\n\t\tcode = codes.NotFound\n\tcase errs.AsMatch[errs.ErrInvalid](err),\n\t\terrs.AsMatch[errs.ErrValidation](err):\n\t\tcode = codes.InvalidArgument\n\tcase errs.AsMatch[errs.ErrUnauthenticated](err):\n\t\tcode = codes.Unauthenticated\n\t}\n\n\terr = status.Error(code, err.Error())\n\treturn\n}\"\"\"\n\nassert old_import_block in content, \"old_import_block not found\"\nassert old_interceptor in content, \"old_interceptor not found\"\n\ncontent = content.replace(old_import_block, new_import_block, 1)\ncontent = content.replace(old_interceptor, new_interceptor, 1)\n\nwith open(\"internal/server/middleware/grpc/middleware.go\", \"w\") as f:\n    f.write(content)\nprint(\"Updated successfully\")\n'",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 48,
+      "component_index": 0,
+      "component_id": "03:X048.c0",
+      "parent_op_id": "03:X048",
+      "command": "git diff",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Diff now contains only auth/context mapper branches and duplicate status guard removal, confirming accidental cache changes were removed. Component: git diff",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Diff now contains only auth/context mapper branches and duplicate status guard removal, confirming accidental cache changes were removed.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X043.c0"
+      ],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 49,
+      "component_index": 0,
+      "component_id": "03:X049.c0",
+      "parent_op_id": "03:X049",
+      "command": "go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Mapper/auth tests pass after restore and minimal reapplication, checking a materially changed mapper version. Component: go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Mapper/auth tests pass after restore and minimal reapplication, checking a materially changed mapper version.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X034.c0",
+        "03:X041.c0"
+      ],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 50,
+      "component_index": 0,
+      "component_id": "03:X050.c0",
+      "parent_op_id": "03:X050",
+      "command": "git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 51,
+      "component_index": 0,
+      "component_id": "03:X051.c0",
+      "parent_op_id": "03:X051",
+      "command": "cat patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "reason": "repeated_support",
+      "evidence": "Final patch content repeats X048 on unchanged source; no new property or fix follows. Component: cat patch.txt",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Final patch content repeats X048 on unchanged source; no new property or fix follows.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:X048.c0"
+      ],
+      "verification_gain": "repeated_support"
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 52,
+      "component_index": 0,
+      "component_id": "03:X052.c0",
+      "parent_op_id": "03:X052",
+      "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Submission call has empty output and rc -1; execution of marker and short-circuited patch read is not independently established. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "requirement_ids": [],
+      "uncertainty_reason": "Submission call has empty output and rc -1; execution of marker and short-circuited patch read is not independently established.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "X",
+      "action_index": 52,
+      "component_index": 1,
+      "component_id": "03:X052.c1",
+      "parent_op_id": "03:X052",
+      "command": "cat patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Submission call has empty output and rc -1; execution of marker and short-circuited patch read is not independently established. Component: cat patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": "Submission call has empty output and rc -1; execution of marker and short-circuited patch read is not independently established.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "03:Y000.c0",
+      "parent_op_id": "03:Y000",
+      "command": "printf '%s\\n' '--- files ---'",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: printf '%s\\n' '--- files ---'",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 1,
+      "component_id": "03:Y000.c1",
+      "parent_op_id": "03:Y000",
+      "command": "find . -maxdepth 3 -type f | head -80",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "Repository listing provides navigation only; actual mapper/auth content is obtained separately. Component: find . -maxdepth 3 -type f | head -80",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 2,
+      "component_id": "03:Y000.c2",
+      "parent_op_id": "03:Y000",
+      "command": "printf '%s\\n' '--- context/status references ---'",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: printf '%s\\n' '--- context/status references ---'",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 3,
+      "component_id": "03:Y000.c3",
+      "parent_op_id": "03:Y000",
+      "command": "grep -RInE 'Unauthenticated|DeadlineExceeded|context\\.Canceled|status\\.Code|ToStatus|FromError' --include='*.go' . | head -240",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Search output identifies Internal mapping, auth Unauthenticated substitution and context-related references later inspected and changed. Component: grep -RInE 'Unauthenticated|DeadlineExceeded|context\\.Canceled|status\\.Code|ToStatus|FromError' --include='*.go' . | head -240",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y004.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "03:Y001.c0",
+      "parent_op_id": "03:Y001",
+      "command": "sed -n '1,180p' internal/server/middleware/grpc/middleware.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Raw handler errors reach Internal switch while existing status errors bypass conversion; final edit adds errors.Is branches. Component: sed -n '1,180p' internal/server/middleware/grpc/middleware.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y004.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 1,
+      "component_id": "03:Y001.c1",
+      "parent_op_id": "03:Y001",
+      "command": "sed -n '1,190p' internal/server/auth/middleware.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Auth code masks every provider failure as Unauthenticated; final edit propagates raw context causes to outer mapper. Component: sed -n '1,190p' internal/server/auth/middleware.go",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y004.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "03:Y002.c0",
+      "parent_op_id": "03:Y002",
+      "command": "cat go.mod | head -40",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "reason": "unused_context",
+      "evidence": "go.mod header/version is setup context; no specific dependency incompatibility or change follows. Component: cat go.mod | head -40",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "03:Y002.c1",
+      "parent_op_id": "03:Y002",
+      "command": "grep -RIn 'grpc.*middleware\\|Unary.*Interceptor\\|Auth.*Middleware' internal/server --include='*.go' | head -100",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Search exposes middleware and auth interceptor test locations; tests/source supply preservation cases and final edit targets. Component: grep -RIn 'grpc.*middleware\\|Unary.*Interceptor\\|Auth.*Middleware' internal/server --include='*.go' | head -100",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y003.c0",
+        "03:Y003.c1"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "03:Y003.c0",
+      "parent_op_id": "03:Y003",
+      "command": "sed -n '1,190p' internal/server/middleware/grpc/middleware_test.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible error-map and auth success/failure test tables specify ordinary behavior to preserve alongside context additions. Component: sed -n '1,190p' internal/server/middleware/grpc/middleware_test.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y004.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "03:Y003.c1",
+      "parent_op_id": "03:Y003",
+      "command": "sed -n '1,150p' internal/server/auth/middleware_test.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "reason": "solution_context",
+      "evidence": "Visible error-map and auth success/failure test tables specify ordinary behavior to preserve alongside context additions. Component: sed -n '1,150p' internal/server/auth/middleware_test.go",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [
+        "03:Y004.c0"
+      ],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "03:Y004.c0",
+      "parent_op_id": "03:Y004",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('internal/server/middleware/grpc/middleware.go')\ns=p.read_text()\ns=s.replace('import (\\n\\t\"context\"', 'import (\\n\\t\"context\"\\n\\tstderrors \"errors\"')\nold='''\\tcode := codes.Internal\n\\tswitch {\n\\tcase errs.AsMatch[errs.ErrNotFound](err):'''\nnew='''\\tcode := codes.Internal\n\\tswitch {\n\\tcase stderrors.Is(err, context.Canceled):\n\\t\\tcode = codes.Canceled\n\\tcase stderrors.Is(err, context.DeadlineExceeded):\n\\t\\tcode = codes.DeadlineExceeded\n\\tcase errs.AsMatch[errs.ErrNotFound](err):'''\nif old not in s: raise SystemExit('grpc insertion point not found')\np.write_text(s.replace(old,new))\n\np=Path('internal/server/auth/middleware.go')\ns=p.read_text()\ns=s.replace('import (\\n\\t\"context\"', 'import (\\n\\t\"context\"\\n\\tstderrors \"errors\"')\nold='''\\t\\tmd, ok := metadata.FromIncomingContext(ctx)\n\\t\\tif !ok {'''\nnew='''\\t\\t// Preserve request cancellation and deadline errors rather than reporting\n\\t\\t// them as authentication failures.\n\\t\\tif err := ctx.Err(); err != nil {\n\\t\\t\\treturn ctx, err\n\\t\\t}\n\n\\t\\tmd, ok := metadata.FromIncomingContext(ctx)\n\\t\\tif !ok {'''\nif old not in s: raise SystemExit('auth entry point not found')\ns=s.replace(old,new)\nold='''\\t\\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\\t\\tif err != nil {\n\\t\\t\\tlogger.Error(\"unauthenticated\",\n\\t\\t\\t\\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\\t\\t\\t\\tzap.Error(err))\n\\t\\t\\treturn ctx, errUnauthenticated\n\\t\\t}'''\nnew='''\\t\\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\\t\\tif err != nil {\n\\t\\t\\tlogger.Error(\"unauthenticated\",\n\\t\\t\\t\\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\\t\\t\\t\\tzap.Error(err))\n\\t\\t\\tif stderrors.Is(err, context.Canceled) || stderrors.Is(err, context.DeadlineExceeded) {\n\\t\\t\\t\\treturn ctx, err\n\\t\\t\\t}\n\\t\\t\\treturn ctx, errUnauthenticated\n\\t\\t}'''\nif old not in s: raise SystemExit('auth error block not found')\np.write_text(s.replace(old,new))\nPY",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "edit",
+      "reason": "requirement_implementation",
+      "evidence": "Python adds wrapped-cause aware errors.Is mappings and raw auth context propagation; retained final patch is a valid alternative to converting status within auth. Component: python3 - <<'PY'\nfrom pathlib import Path\np=Path('internal/server/middleware/grpc/middleware.go')\ns=p.read_text()\ns=s.replace('import (\\n\\t\"context\"', 'import (\\n\\t\"context\"\\n\\tstderrors \"errors\"')\nold='''\\tcode := codes.Internal\n\\tswitch {\n\\tcase errs.AsMatch[errs.ErrNotFound](err):'''\nnew='''\\tcode := codes.Internal\n\\tswitch {\n\\tcase stderrors.Is(err, context.Canceled):\n\\t\\tcode = codes.Canceled\n\\tcase stderrors.Is(err, context.DeadlineExceeded):\n\\t\\tcode = codes.DeadlineExceeded\n\\tcase errs.AsMatch[errs.ErrNotFound](err):'''\nif old not in s: raise SystemExit('grpc insertion point not found')\np.write_text(s.replace(old,new))\n\np=Path('internal/server/auth/middleware.go')\ns=p.read_text()\ns=s.replace('import (\\n\\t\"context\"', 'import (\\n\\t\"context\"\\n\\tstderrors \"errors\"')\nold='''\\t\\tmd, ok := metadata.FromIncomingContext(ctx)\n\\t\\tif !ok {'''\nnew='''\\t\\t// Preserve request cancellation and deadline errors rather than reporting\n\\t\\t// them as authentication failures.\n\\t\\tif err := ctx.Err(); err != nil {\n\\t\\t\\treturn ctx, err\n\\t\\t}\n\n\\t\\tmd, ok := metadata.FromIncomingContext(ctx)\n\\t\\tif !ok {'''\nif old not in s: raise SystemExit('auth entry point not found')\ns=s.replace(old,new)\nold='''\\t\\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\\t\\tif err != nil {\n\\t\\t\\tlogger.Error(\"unauthenticated\",\n\\t\\t\\t\\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\\t\\t\\t\\tzap.Error(err))\n\\t\\t\\treturn ctx, errUnauthenticated\n\\t\\t}'''\nnew='''\\t\\tauth, err := authenticator.GetAuthenticationByClientToken(ctx, clientToken)\n\\t\\tif err != nil {\n\\t\\t\\tlogger.Error(\"unauthenticated\",\n\\t\\t\\t\\tzap.String(\"reason\", \"error retrieving authentication for client token\"),\n\\t\\t\\t\\tzap.Error(err))\n\\t\\t\\tif stderrors.Is(err, context.Canceled) || stderrors.Is(err, context.DeadlineExceeded) {\n\\t\\t\\t\\treturn ctx, err\n\\t\\t\\t}\n\\t\\t\\treturn ctx, errUnauthenticated\n\\t\\t}'''\nif old not in s: raise SystemExit('auth error block not found')\np.write_text(s.replace(old,new))\nPY",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "03:Y004.c1",
+      "parent_op_id": "03:Y004",
+      "command": "gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 2,
+      "component_id": "03:Y004.c2",
+      "parent_op_id": "03:Y004",
+      "command": "git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "direct",
+      "role": "verification",
+      "reason": "property_evidence",
+      "evidence": "Post-edit diff visibly shows the two errors.Is mapper branches and auth early/context-provider propagation while other error branches remain. Component: git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Post-edit diff visibly shows the two errors.Is mapper branches and auth early/context-provider propagation while other error branches remain.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage"
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "03:Y005.c0",
+      "parent_op_id": "03:Y005",
+      "command": "go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "go test has empty rc -1 result; cannot establish assertions completed or passed. Component: go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": "go test has empty rc -1 result; cannot establish assertions completed or passed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "go test has empty rc -1 result; cannot establish assertions completed or passed.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 1,
+      "component_id": "03:Y005.c1",
+      "parent_op_id": "03:Y005",
+      "command": "git diff --check",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: git diff --check",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 2,
+      "component_id": "03:Y005.c2",
+      "parent_op_id": "03:Y005",
+      "command": "git status --short",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: git status --short",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "03:Y006.c0",
+      "parent_op_id": "03:Y006",
+      "command": "go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "go test has empty rc -1 result; cannot establish assertions completed or passed. Component: go test ./internal/server/middleware/grpc ./internal/server/auth",
+      "requirement_ids": [
+        "R4"
+      ],
+      "uncertainty_reason": "go test has empty rc -1 result; cannot establish assertions completed or passed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "go test has empty rc -1 result; cannot establish assertions completed or passed.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain"
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "03:Y006.c1",
+      "parent_op_id": "03:Y006",
+      "command": "rc=$?",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: rc=$?",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "03:Y006.c2",
+      "parent_op_id": "03:Y006",
+      "command": "git diff --check",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: git diff --check",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 3,
+      "component_id": "03:Y006.c3",
+      "parent_op_id": "03:Y006",
+      "command": "printf 'go_test_rc=%s\\n' \"$rc\"",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: printf 'go_test_rc=%s\\n' \"$rc\"",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 4,
+      "component_id": "03:Y006.c4",
+      "parent_op_id": "03:Y006",
+      "command": "exit \"$rc\"",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran. Component: exit \"$rc\"",
+      "requirement_ids": [],
+      "uncertainty_reason": "Parent timed-out/empty result does not establish whether later shell bookkeeping or short-circuit segments ran.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "03:Y007.c0",
+      "parent_op_id": "03:Y007",
+      "command": "git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go > patch.txt",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go > patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "03:Y008.c0",
+      "parent_op_id": "03:Y008",
+      "command": "cat patch.txt",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "reason": "repeated_support",
+      "evidence": "Patch read repeats the reviewed Y004 diff on unchanged source; following header/whitespace checks add no task behavior coverage. Component: cat patch.txt",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": [],
+      "property_checked": "Patch read repeats the reviewed Y004 diff on unchanged source; following header/whitespace checks add no task behavior coverage.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:Y004.c2"
+      ],
+      "verification_gain": "repeated_support"
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 1,
+      "component_id": "03:Y008.c1",
+      "parent_op_id": "03:Y008",
+      "command": "printf '\\n--- checks ---\\n'",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: printf '\\n--- checks ---\\n'",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 2,
+      "component_id": "03:Y008.c2",
+      "parent_op_id": "03:Y008",
+      "command": "grep -q '^--- a/' patch.txt",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: grep -q '^--- a/' patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 3,
+      "component_id": "03:Y008.c3",
+      "parent_op_id": "03:Y008",
+      "command": "grep -q '^+++ b/' patch.txt",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: grep -q '^+++ b/' patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 4,
+      "component_id": "03:Y008.c4",
+      "parent_op_id": "03:Y008",
+      "command": "git diff --check -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: git diff --check -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 5,
+      "component_id": "03:Y008.c5",
+      "parent_op_id": "03:Y008",
+      "command": "printf '%s\\n' 'patch contains only intended source changes with standard headers'",
+      "directory_context": [
+        "cd /app"
+      ],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "executed",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "reason": "administration",
+      "evidence": "Operational setup, formatting, cleanup, status, or patch packaging; no task behavior is checked or implemented by this component. Component: printf '%s\\n' 'patch contains only intended source changes with standard headers'",
+      "requirement_ids": [],
+      "uncertainty_reason": null,
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "03:Y009.c0",
+      "parent_op_id": "03:Y009",
+      "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Submission output is absent with null exit code; marker and patch read execution remain unestablished. Component: echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+      "requirement_ids": [],
+      "uncertainty_reason": "Submission output is absent with null exit code; marker and patch read execution remain unestablished.",
+      "support_links": [],
+      "invalidation_links": []
+    },
+    {
+      "order": 3,
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 1,
+      "component_id": "03:Y009.c1",
+      "parent_op_id": "03:Y009",
+      "command": "cat patch.txt",
+      "directory_context": [],
+      "output_attribution": "shared call output; reviewer must establish component attribution",
+      "execution_status": "uncertain",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "reason": "insufficient_attribution_or_result",
+      "evidence": "Submission output is absent with null exit code; marker and patch read execution remain unestablished. Component: cat patch.txt",
+      "requirement_ids": [],
+      "uncertainty_reason": "Submission output is absent with null exit code; marker and patch read execution remain unestablished.",
+      "support_links": [],
+      "invalidation_links": []
+    }
+  ],
+  "limits": [
+    "Independent anonymous component review using frozen requirements; no reviewer B/component/legacy labels or model key consulted.",
+    "X ctx.Err fallback can override context-unrelated failures (R4 conflict); direct contribution to context handling does not imply full correctness. Y raw auth propagation through outer mapper is a valid alternative.",
+    "No trajectory commands were executed. Empty/timeout/masked checks remain uncertain; only observed assertions support verification."
+  ]
+}

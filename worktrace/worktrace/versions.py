@@ -4,10 +4,10 @@
   resolves write=unknown for inline Node.js (`node -e` with fs.writeFileSync etc.) and JS/TS test/lint tools
   (parse/jsinline.py); the v2 facts and labels are not changed by this. An unknown write's
   version is flagged uncertain.
-- A write that restores an earlier version returns to that node: a full revert (`git reset --hard`, `git checkout .`,
-  a plain `git stash`) or a partial revert that undoes every file written so far returns to the root; `git stash pop`
-  / `apply` returns to the version that was stashed; two versions whose full `git diff` output is identical (and
-  non-empty) are the same node; a clean `git status` means the root.
+- A successful standalone restore can return to the root only when all dirty
+  state is accounted for. Unknown effects survive partial restores. A stash
+  records both its version and dirty paths. Status and diff text cannot prove
+  complete content identity and never merge versions.
 - Non-write operations attach to the current version as evidence. A `run` op is a verify self-loop, except inline
   Python that only reads files with stdlib imports (an inspection, counted as evidence, not a verify).
 - Rule edge labels: initial (first move off the root), correct (new version after a failing run on the current
@@ -24,7 +24,7 @@ import shlex
 from .parse import shell
 
 ROOT = 0
-_FULL_REVERT = re.compile(r"^git\s+(reset\s+--hard\b|checkout\s+(--\s+)?\.$|restore\s+(--staged\s+--worktree\s+)?\.$|stash(\s+(push|save)\b.*)?$)")
+_FULL_REVERT = re.compile(r"^git\s+(reset\s+--hard(?:\s+HEAD)?$|checkout\s+(--\s+)?\.$|restore\s+(--staged\s+--worktree\s+)?\.$|stash(\s+(push|save)\b.*)?$)")
 _STASH_POP = re.compile(r"^git\s+stash\s+(pop|apply)\b")
 _CLEAN = "nothing to commit, working tree clean"
 
@@ -132,6 +132,8 @@ def _revert_target(parts: list[str]):
     for p in parts:
         toks = p.split()
         if len(toks) >= 3 and toks[0] == "git" and toks[1] in ("checkout", "restore"):
+            if toks[1] == "checkout" and "--" not in toks:
+                continue  # path-like branch names are still ambiguous
             paths = [shell.norm_path(t) for t in toks[2:] if not t.startswith("-") and t not in ("HEAD",)]
             if paths:
                 return ("paths", paths)
@@ -191,7 +193,7 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
     as evidence (kind 'support') on the current version."""
     cur, nxt = ROOT, 1
     dirty: set[str] = set()          # repo files written since the last return to the root
-    stash: list[int] = []
+    stash: list[tuple[int, set[str]]] = []
     uncertain: set[int] = set()
     seq = []
     for op in ops:
@@ -201,22 +203,31 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
         if w == "unknown" and not unknown_creates_version:
             w = False
         kind = op["kind"]
-        if support_paths and w:
+        if support_paths and w is True:
             wp = write_paths(op)
             if wp and all(p in support_paths for p in wp):
                 w, kind = False, "support"
         move = None
         rv = _revert_target(parts) if op["kind"] == "revert" or any(k == "revert" for k in op.get("part_kinds", [])) else None
+        # Whole-call success does not establish the outcome of an interior
+        # restore in a compound command. A failed restore may mutate partially.
+        if rv and (op.get("exit_code") != 0 or len(parts) != 1):
+            rv, w = None, "unknown"
         if rv and rv[0] == "root":
             if " ".join(parts[0].split()).startswith("git stash") and not dirty:
                 rv = None  # stash of a clean tree: nothing happens
             else:
                 if parts and " ".join(parts[0].split()).startswith("git stash"):
-                    stash.append(cur)
-                cur, move, dirty = ROOT, "restore", set()
+                    stash.append((cur, set(dirty)))
+                if any(p.startswith("<unknown:") for p in dirty):
+                    # A tracked-tree restore does not clear unknown side effects
+                    # or untracked files. Keep their uncertainty alive.
+                    rv, w = None, "unknown"
+                else:
+                    cur, move, dirty = ROOT, "restore", set()
         elif rv and rv[0] == "pop":
             if stash:
-                cur, move = stash.pop(), "restore"
+                (cur, dirty), move = stash.pop(), "restore"
             else:
                 cur, nxt, move = nxt, nxt + 1, "write"
                 uncertain.add(cur)
@@ -226,19 +237,18 @@ def version_sequence(ops: list[dict], unknown_creates_version: bool = True, supp
                 cur, move = ROOT, "restore"
             else:
                 cur, nxt, move = nxt, nxt + 1, "write"
-        elif w:
+        if move is None and w:
             cur, nxt, move = nxt, nxt + 1, "write"
             if w == "unknown":
                 uncertain.add(cur)
+                dirty.add(f"<unknown:{op['op_index']}>")
             else:
                 wp = op.get("written_paths") or (refine_unknown(op)[1] if op["write"] == "unknown" else [])
                 dirty |= {p for p in wp if not p.startswith("/")} or {f"<op{op['op_index']}>"}
-        probe = _content_probe(parts)
         h = None
-        if probe == "diff" and (op.get("output") or "").strip() and op.get("exit_code") in (0, None):
-            h = "diff:" + _h(op["output"])
-        elif probe == "status" and _CLEAN in (op.get("output") or ""):
-            h = "root"
+        # Neither status nor plain git diff establishes complete content
+        # identity. In particular, do not collapse versions on truncated diffs,
+        # staged-content omissions, or absent untracked files.
         seq.append({"op_index": op["op_index"], "op_id": op["op_id"], "kind": kind, "before": before, "after": cur,
                     "move": move, "hash": h, "exit_code": op.get("exit_code"), "write": w,
                     "inspection": op["kind"] == "run" and is_inspection(op)})

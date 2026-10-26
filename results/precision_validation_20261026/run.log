@@ -1,0 +1,10 @@
+Started 2026-10-26T20:37:49+08:00
+prepare.py: syntax-only decomposition and blinded evidence
+review_requirements.py: recorded requirement review
+compare_states.py: pilot facts and graphs
+audit/reproduce_reliability.py: audit_checks.txt
+pytest: test_results.txt
+analyze.py: complete-review validation, scores, comparisons, figures and manifest
+compare_reviewers.py: independent component agreement and conservative uncertainty sensitivity
+Completed 2026-10-26T20:39:27+08:00
+2026-10-26T20:43:30.430631 Final report, role/provenance metadata, score identities and figures checked; manifest refreshed.

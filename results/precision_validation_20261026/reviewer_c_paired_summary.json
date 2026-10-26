@@ -1,0 +1,62 @@
+[
+  {
+    "unit": "components",
+    "pairs": 8,
+    "mean_difference_min": -0.09075146456390028,
+    "mean_difference_max": 0.1495549326939196,
+    "median_difference_min": -0.07908514013749338,
+    "median_difference_max": 0.13427522215681326,
+    "task_bootstrap_envelope95": [
+      -0.14207664551810273,
+      0.22675096793041707
+    ],
+    "luna_higher_every_uncertain_resolution_pairs": 0,
+    "gemini_higher_every_uncertain_resolution_pairs": 1,
+    "note": "Exploratory 8-task bootstrap; envelope combines endpoint sampling and unresolved label bounds, not annotation accuracy."
+  },
+  {
+    "unit": "components_excluding_submission_calls",
+    "pairs": 8,
+    "mean_difference_min": -0.03660290774161534,
+    "mean_difference_max": 0.0976747894944861,
+    "median_difference_min": -0.04271104585457475,
+    "median_difference_max": 0.0932997932997933,
+    "task_bootstrap_envelope95": [
+      -0.0791934068843334,
+      0.18962880308821997
+    ],
+    "luna_higher_every_uncertain_resolution_pairs": 2,
+    "gemini_higher_every_uncertain_resolution_pairs": 2,
+    "note": "Exploratory 8-task bootstrap; envelope combines endpoint sampling and unresolved label bounds, not annotation accuracy."
+  },
+  {
+    "unit": "native_strongest_component_sensitivity",
+    "pairs": 8,
+    "mean_difference_min": -0.30049998319412496,
+    "mean_difference_max": -0.06333292793460099,
+    "median_difference_min": -0.24780701754385964,
+    "median_difference_max": -0.03672969187675068,
+    "task_bootstrap_envelope95": [
+      -0.4076744744070813,
+      0.025771158548816564
+    ],
+    "luna_higher_every_uncertain_resolution_pairs": 4,
+    "gemini_higher_every_uncertain_resolution_pairs": 0,
+    "note": "Exploratory 8-task bootstrap; envelope combines endpoint sampling and unresolved label bounds, not annotation accuracy."
+  },
+  {
+    "unit": "single_component_calls",
+    "pairs": 6,
+    "mean_difference_min": -0.030958345613518012,
+    "mean_difference_max": 0.07234174935324363,
+    "median_difference_min": -0.08333333333333331,
+    "median_difference_max": 0.10512820512820514,
+    "task_bootstrap_envelope95": [
+      -0.39031339031339024,
+      0.40971117005599766
+    ],
+    "luna_higher_every_uncertain_resolution_pairs": 3,
+    "gemini_higher_every_uncertain_resolution_pairs": 2,
+    "note": "Exploratory 6-task bootstrap; envelope combines endpoint sampling and unresolved label bounds, not annotation accuracy."
+  }
+]

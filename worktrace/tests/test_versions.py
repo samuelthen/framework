@@ -41,12 +41,12 @@ def test_partial_revert_of_all_written_files_is_root():
     assert labels(g) == ["initial", "backtrack"] and g["final"] == 0
 
 
-def test_identical_git_diff_merges_versions():
+def test_identical_plain_diff_is_not_complete_content_identity():
     d = "diff --git a/a.py b/a.py\n-x\n+y\n"
     g = _run([("sed -i 's/x/y/' a.py", "", 0), ("git diff", d, 0), ("sed -i 's/y/z/' a.py", "", 0),
               ("sed -i 's/z/y/' a.py", "", 0), ("git diff", d, 0)])
-    assert g["n_versions"] == 2
-    assert labels(g) == ["initial", "revise", "backtrack"]
+    assert g["n_versions"] == 3
+    assert labels(g) == ["initial", "revise", "revise"]
 
 
 def test_stash_pop_returns_to_stashed_version():

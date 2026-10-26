@@ -1,0 +1,9 @@
+{
+  "n": 449,
+  "agreement": 0.6792873051224945,
+  "kappa": 0.4455696853803477,
+  "unit": "native calls; reviewer B projected by legacy strongest-component rule",
+  "component_agreement": "not identifiable: no independently annotated reviewer A components",
+  "human_validation": "none",
+  "note": "Blinded model second pass, with revised guide and units. Native-call disagreement mixes attribution, requirement, guide and unit changes; not a clean inter-rater accuracy estimate."
+}

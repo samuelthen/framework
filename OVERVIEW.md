@@ -1,5 +1,10 @@
 # WorkTrace: all results so far, and is it promising? (interim, 2026-10-25)
 
+**Later evidence:** see the [26 October eight-pair contribution validation](results/precision_validation_20261026/RESULTS.md)
+for corrected units, two blinded component passes and repaired audit regressions.
+The historical interpretations below do not establish a validated waste measure
+or a robust contribution-precision ranking.
+
 Scope:
 - **Data:**
   - 6,300 JetBrains SWE-bench Pro runs (3 models × 700 tasks × 3 runs), facts only.

@@ -1,0 +1,12 @@
+test_branch_switch_invalidates_code_state (__main__.ReliabilityChecks.test_branch_switch_invalidates_code_state) ... ok
+test_failed_revert_does_not_restore_root (__main__.ReliabilityChecks.test_failed_revert_does_not_restore_root) ... ok
+test_identical_truncated_diff_cannot_merge_versions (__main__.ReliabilityChecks.test_identical_truncated_diff_cannot_merge_versions) ... ok
+test_known_write_does_not_hide_unknown_write (__main__.ReliabilityChecks.test_known_write_does_not_hide_unknown_write) ... ok
+test_multi_file_edit_tracks_every_path (__main__.ReliabilityChecks.test_multi_file_edit_tracks_every_path) ... ok
+test_partial_revert_preserves_unknown_dirty_state (__main__.ReliabilityChecks.test_partial_revert_preserves_unknown_dirty_state) ... ok
+test_status_listing_cannot_prove_equal_contents (__main__.ReliabilityChecks.test_status_listing_cannot_prove_equal_contents) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.010s
+
+OK

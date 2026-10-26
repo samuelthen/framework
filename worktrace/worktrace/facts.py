@@ -30,9 +30,11 @@ def extract_facts(ops: list[dict], min_out_chars: int = MIN_OUT_CHARS) -> list[d
     scripts: dict[str, str] = {}  # path -> source of scripts written by a heredoc earlier in the run
 
     def written_since(path, since_idx):
+        if last_write.get(path, -1) > since_idx:
+            return True
         if any(u > since_idx for u in unknown_writes):
             return "unknown"
-        return last_write.get(path, -1) > since_idx
+        return False
 
     def same_state(a_state, b_state):
         if a_state is None or b_state is None:
@@ -72,7 +74,7 @@ def extract_facts(ops: list[dict], min_out_chars: int = MIN_OUT_CHARS) -> list[d
 
         w, wpaths = shell.write_info(parts, scripts)
         op["write"] = {True: "true", False: "false"}.get(w, "unknown")
-        op["written_paths"] = wpaths if w is True else []
+        op["written_paths"] = wpaths
         scripts.update(shell.heredoc_script_writes(parts))
         if w is True:
             for p in op["written_paths"]:
@@ -81,10 +83,13 @@ def extract_facts(ops: list[dict], min_out_chars: int = MIN_OUT_CHARS) -> list[d
             if not op["written_paths"] or any(not p.startswith("/") for p in op["written_paths"]):
                 state = None if state is None else f"{state}+w{idx}"
         elif w == "unknown":
+            for p in wpaths:
+                last_write[p] = idx
             unknown_writes.append(idx)
             state = None
-        if shell.is_state_probe(parts):
-            state = "git:" + _sha1(out)
+        # Status/path summaries and plain diffs are observations, not complete
+        # snapshots (staged, untracked and truncated content can be absent).
+        # Never recover repository identity by hashing their text.
 
         last_by_object[obj] = op
         if usable:

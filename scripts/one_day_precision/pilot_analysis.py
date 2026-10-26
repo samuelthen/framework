@@ -127,15 +127,17 @@ def select_examples(P):
 
 def bundling(R):
     """Commands per action (after a leading `cd X &&`; heredoc bodies ignored) in the evaluation runs."""
-    import re
+    # Shared with the corrected component study: quote/heredoc aware, pipelines
+    # and control flow grouped, malformed shell attempts opaque.
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'precision_validation'))
+    from prepare import components
     from packets import load_runs
     ev = R[R.split == "evaluation"]
     runs = load_runs(ev.run_id)
     rows = []
     for r in ev.itertuples():
         for o in runs[r.run_id][1]:
-            c = re.sub(r"^\s*cd\s+\S+\s*&&\s*", "", (o["command"] or "").split("<<")[0]).strip()
-            rows.append({"model": r.model, "segments": 1 + len(re.findall(r"&&|;|\|\||\n(?=\S)", c))})
+            rows.append({"model": r.model, "segments": len(components(o["command"] or ""))})
     B = pd.DataFrame(rows).groupby("model").segments.agg(
         mean="mean", median="median", share_multi=lambda x: (x > 1).mean(), actions="size")
     return B

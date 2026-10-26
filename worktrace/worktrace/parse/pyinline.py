@@ -184,6 +184,7 @@ class _Analyzer(ast.NodeVisitor):
             self.writes.extend(paths)
         elif w == "unknown":
             self.unknown = True
+            self.writes.extend(paths)
 
 
 _REGEX_WRITES = [

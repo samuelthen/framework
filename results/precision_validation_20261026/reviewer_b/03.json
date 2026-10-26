@@ -1,0 +1,1830 @@
+{
+  "order": 3,
+  "reviewer": "reviewer_b",
+  "provenance": "Independent model-coded second pass; not human validation. No prior reviewer labels, model key, conclusions or requirements_raw were consulted.",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "Map context.Canceled and wrapped causes to gRPC Canceled.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 1; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R2",
+      "description": "Map context.DeadlineExceeded and wrapped causes to gRPC DeadlineExceeded.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 2; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R3",
+      "description": "Authentication must propagate context-derived status instead of Unauthenticated.",
+      "kind": "repair",
+      "source": "packet 03: Requirements text bullet 3; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Use errors.Is branches or status.FromContextError with fallback; auth may return status directly or propagate a raw cause through the enclosing error mapper."
+      ],
+      "conflicts": [
+        "ctx.Err fallback can classify an unrelated error based only on a canceled request; inspect preservation separately."
+      ],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R4",
+      "description": "Preserve existing context-unrelated error handling and success flows.",
+      "kind": "preserve",
+      "source": "packet 03: Requirements text bullet 4; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "03:X000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X000.c0 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "03:X001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X001.c0 `grep -rn \"codes.Internal\" . | head -50`. Search identifies codes.Internal default in grpc/middleware.go and errUnauthenticated conversion in auth/middleware.go; these are the two paths changed in the final patch.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[1]",
+        "final_patch:internal/server/{auth,middleware/grpc}/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "03:X002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X002.c0 `grep -rn \"codes.Unauthenticated\" .`. Search identifies codes.Internal default in grpc/middleware.go and errUnauthenticated conversion in auth/middleware.go; these are the two paths changed in the final patch.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[2]",
+        "final_patch:internal/server/{auth,middleware/grpc}/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "03:X003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:X003.c0 `cat internal/server/middleware/grpc/middleware.go`. ErrorUnaryInterceptor calls handler, returns nil unchanged, and maps typed application errors after status forwarding; context errors lack branches. Final patch adds errors.Is classification at this switch. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[3]",
+        "final_patch:internal/server/middleware/grpc/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "03:X004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X004.c0 `cat internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[4]",
+        "final_patch:internal/server/auth/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "03:X005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X005.c0 `grep -rn \"UnaryInterceptor\" .`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[5]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "03:X006.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X006.c0 `sed -n '240,320p' internal/cmd/grpc.go`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[6]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "03:X007.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X007.c0 `cat internal/cmd/auth.go`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[7]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "03:X008.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X008.c0 `grep -rn \"Canceled\" .`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[8]",
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "03:X009.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X009.c0 `cat errors/errors.go`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[9]",
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "03:X010.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X010.c0 `cat internal/storage/sql/errors.go`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[10]",
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "03:X011.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X011.c0 `grep -rn \"context.Canceled\\|context.DeadlineExceeded\" .`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[11]",
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "03:X012.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X012.c0 `grep -rn \"status\\.Code\\|status\\.FromError\\|status\\.Error\" .`. Visible status references include the existing status forwarding path and auth error sites; this constrains preservation while adding context classification. Only visible clipped output is credited. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[12]",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "03:X013.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X013.c0 `sed -n '80,146p' internal/server/middleware/grpc/middleware_test.go`. Existing test tables assert NotFound/InvalidArgument/Unauthenticated/Internal/no-error and auth success, skip, expired/missing token behavior; they define preservation coverage for later focused package tests.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[13]",
+        "03:X034.c0",
+        "03:Y005.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "03:X014.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X014.c0 `cat internal/server/auth/middleware_test.go`. Existing test tables assert NotFound/InvalidArgument/Unauthenticated/Internal/no-error and auth success, skip, expired/missing token behavior; they define preservation coverage for later focused package tests.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[14]",
+        "03:X034.c0",
+        "03:Y005.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "03:X015.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X015.c0 `go test ./internal/server/middleware/grpc/... ./internal/server/auth/...`. Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "support_links": [
+        "evidence_03.json:X:action[15]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "03:X016.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X016.c0 `go test -v ./internal/server/middleware/grpc`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. Agent-visible output was truncated; no hidden/elided output is credited. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.",
+      "reason": "baseline_no_solution_link",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "03:X017.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X017.c0 `go test -v ./internal/server/auth`. Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.",
+      "reason": "baseline_no_solution_link",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Baseline package tests pass existing error/auth cases, but do not expose cancellation/deadline defect or change implementation decisions; new context cases are absent.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "03:X018.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X018.c0 `go list ./...`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "03:X019.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X019.c0 `go test -short ./...`. Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "support_links": [
+        "evidence_03.json:X:action[19]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Test invocation has empty output and interrupted/negative result; neither completion nor checked cases can be established.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "03:X020.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X020.c0 `go test ./internal/server ./internal/server/audit/... ./internal/server/cache/... ./internal/server/metadata/... ./internal/server/metrics/... ./internal/server/otel/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.",
+      "reason": "baseline_no_solution_link",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[20]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "03:X021.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X021.c0 `go test ./internal/server/auth/method/token ./internal/server/auth/public ./internal/storage/auth/memory ./internal/storage/fs/...`. Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping. This is baseline context without a demonstrated regression comparison used by the repair; non-direct is not a claim that an earlier completed check was repeated.",
+      "reason": "baseline_no_solution_link",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[21]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Broad baseline server/storage/cache testing provides no actionable context defect; Redis container failures are environmental and filesystem/auth store passes do not test the new mapping.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "03:X022.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:X022.c0 `cat internal/server/auth/http.go`. HTTP cookie/error handling and auth service/status search do not establish a missing context mapping beyond the already identified unary paths; no corresponding final change follows.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[22]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "03:X023.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:X023.c0 `grep -rn \"status\\.\" internal/server/*.go`. HTTP cookie/error handling and auth service/status search do not establish a missing context mapping beyond the already identified unary paths; no corresponding final change follows.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[23]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "03:X024.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:X024.c0 `go doc google.golang.org/grpc/status FromContextError`. The FromContextError API/module dependency information is inspected, but the final patch uses explicit errors.Is branches; no distinct requirement-relevant decision from this component is established.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[24]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "03:X025.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X025.c0 `grep -rn \"UnaryServerInterceptor\" internal/server/auth/`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[25]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "03:X026.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X026.c0 `grep -rn \"UnaryServerInterceptor\" internal/`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[26]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "03:X027.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:X027.c0 `cat internal/server/auth/server.go`. HTTP cookie/error handling and auth service/status search do not establish a missing context mapping beyond the already identified unary paths; no corresponding final change follows.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[27]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "03:X028.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:X028.c0 `grep -n -A 30 \"func.*GetAuthenticationByClientToken\" internal/storage/auth/sql/store.go`. Error definitions/storage paths show ErrCanceled and wrapped storage errors (including fmt.Errorf with %w on GetAuthenticationByClientToken). This supports errors.Is for context causes and X inclusion of the typed cancellation alternative.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[28]",
+        "03:X033.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "03:X029.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:X029.c0 `sed -n '1,75p' internal/server/middleware/grpc/middleware.go`. ErrorUnaryInterceptor calls handler, returns nil unchanged, and maps typed application errors after status forwarding; context errors lack branches. Final patch adds errors.Is classification at this switch.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[29]",
+        "final_patch:internal/server/middleware/grpc/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "03:X030.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X030.c0 `sed -n '1,125p' internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[30]",
+        "final_patch:internal/server/auth/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "03:X031.c0",
+      "contribution_label": "uncertain",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:X031.c0 `cat << 'EOF' > internal/server/middleware/grpc/middleware.go`. Whole-file rewrite adds context mapping but also unrelated cache/logging changes later removed by checkout. This indivisible edit has mixed retained and discarded effects; cannot credit the entire component.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Whole-file rewrite adds context mapping but also unrelated cache/logging changes later removed by checkout. This indivisible edit has mixed retained and discarded effects; cannot credit the entire component.",
+      "support_links": [
+        "evidence_03.json:X:action[31]"
+      ],
+      "invalidation_links": [
+        "03:X043.c0",
+        "03:X045.c0"
+      ],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "03:X032.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X032.c0 `cat internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[32]",
+        "final_patch:internal/server/auth/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "03:X033.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X033.c0 `cat << 'EOF' > internal/server/auth/middleware.go`. Auth rewrite adds ctx.Err and errors.Is/typed-cancellation exceptions before errUnauthenticated. Final auth patch retains these specific branches.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[33]",
+        "final_patch:internal/server/auth/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 34,
+      "component_index": 0,
+      "component_id": "03:X034.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X034.c0 `go test -v ./internal/server/middleware/grpc ./internal/server/auth`. Existing TestErrorUnaryInterceptor and TestUnaryInterceptor package tests pass after mapper/auth changes; their read tables cover ordinary error codes and successful/skipped authentication on the changed paths. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[34]",
+        "03:X013.c0",
+        "03:X014.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Existing TestErrorUnaryInterceptor and TestUnaryInterceptor package tests pass after mapper/auth changes; their read tables cover ordinary error codes and successful/skipped authentication on the changed paths.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 35,
+      "component_index": 0,
+      "component_id": "03:X035.c0",
+      "contribution_label": "uncertain",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:X035.c0 `cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go`. Temporary context test table has direct/wrapped/deep cancellation and deadline cases plus ordinary error/status checks, but unused imports prevent execution; repaired fixture follows.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Temporary context test table has direct/wrapped/deep cancellation and deadline cases plus ordinary error/status checks, but unused imports prevent execution; repaired fixture follows.",
+      "support_links": [
+        "evidence_03.json:X:action[35]",
+        "03:X036.c0",
+        "03:X037.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 36,
+      "component_index": 0,
+      "component_id": "03:X036.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X036.c0 `go test -v -run TestErrorUnaryInterceptor_ContextErrors ./internal/server/middleware/grpc`. Compiler reports unused zaptest and metadata imports in reproduce_test.go; next rewrite removes those blockers and expands auth checks, enabling targeted validation.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[36]",
+        "03:X037.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Compiler reports unused zaptest and metadata imports in reproduce_test.go; next rewrite removes those blockers and expands auth checks, enabling targeted validation.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 37,
+      "component_index": 0,
+      "component_id": "03:X037.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X037.c0 `cat << 'EOF' > internal/server/middleware/grpc/reproduce_test.go`. Repaired temporary tests assert status codes for direct/wrapped context causes and auth propagation, plus existing status/error/success cases. X38 executes them successfully.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[37]",
+        "03:X038.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 38,
+      "component_index": 0,
+      "component_id": "03:X038.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X038.c0 `go test -v -run \"TestErrorUnaryInterceptor_ContextErrors|TestAuthUnaryInterceptor_ContextErrors\" ./internal/server/middleware/grpc`. Visible passing named subtests cover direct/wrapped/deep context cancellation/deadline and authenticator context errors, canceled context, ordinary not-found and successful auth. This adds coverage absent from original test tables.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[38]",
+        "03:X037.c0"
+      ],
+      "invalidation_links": [
+        "03:X045.c0",
+        "03:X047.c0"
+      ],
+      "property_checked": "Visible passing named subtests cover direct/wrapped/deep context cancellation/deadline and authenticator context errors, canceled context, ordinary not-found and successful auth. This adds coverage absent from original test tables.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 39,
+      "component_index": 0,
+      "component_id": "03:X039.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X039.c0 `rm internal/server/middleware/grpc/reproduce_test.go`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[39]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 40,
+      "component_index": 0,
+      "component_id": "03:X040.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X040.c0 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[40]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 41,
+      "component_index": 0,
+      "component_id": "03:X041.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X041.c0 `go test ./internal/server/middleware/grpc ./internal/server/auth ./internal/server/auth/method/token ./internal/server/auth/public ./internal/server ./internal/server/audit ./internal/server/cache/memory ./internal/storage/auth/memory ./internal/storage/fs/...`. Expanded package passes include cached previously exercised middleware/auth and peripheral server/storage packages; no new context-specific assertion or actionable defect is shown.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[41]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Expanded package passes include cached previously exercised middleware/auth and peripheral server/storage packages; no new context-specific assertion or actionable defect is shown.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:X034.c0",
+        "03:X038.c0"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 42,
+      "component_index": 0,
+      "component_id": "03:X042.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X042.c0 `git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[42]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 43,
+      "component_index": 0,
+      "component_id": "03:X043.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X043.c0 `cat patch.txt`. Diff exposes unrelated cache/log/comment changes from whole-file rewrite; X44 reads original and X45 restores before focused reapplication. Review supplies actionable scope correction.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[43]",
+        "03:X045.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Diff exposes unrelated cache/log/comment changes from whole-file rewrite; X44 reads original and X45 restores before focused reapplication. Review supplies actionable scope correction.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 44,
+      "component_index": 0,
+      "component_id": "03:X044.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X044.c0 `git show HEAD:internal/server/middleware/grpc/middleware.go`. Original middleware content is read to restore the established cache implementation and reapply only context mapping; final diff omits earlier unrelated cache edits. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[44]",
+        "03:X045.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 45,
+      "component_index": 0,
+      "component_id": "03:X045.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X045.c0 `git checkout internal/server/middleware/grpc/middleware.go`. Restores middleware whole-file rewrite, removing unrelated cache/log changes identified in patch review; X47 reapplies narrow mapping and final diff preserves cache behavior.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[45]",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 46,
+      "component_index": 0,
+      "component_id": "03:X046.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X046.c0 `sed -n '1,75p' internal/server/middleware/grpc/middleware.go`. Original middleware content is read to restore the established cache implementation and reapply only context mapping; final diff omits earlier unrelated cache edits.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[46]",
+        "03:X045.c0",
+        "03:X047.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 47,
+      "component_index": 0,
+      "component_id": "03:X047.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:X047.c0 `python3 -c '`. Focused replacement adds errors.Is(ctx/err) cancellation/deadline switch cases while preserving existing application error mappings. These hunks appear in final middleware patch.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[47]",
+        "final_patch:internal/server/middleware/grpc/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 48,
+      "component_index": 0,
+      "component_id": "03:X048.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X048.c0 `git diff`. Diff confirms narrowed middleware mapping and retained auth branches after restoration, without prior cache rewrites; this validates the actionable scope correction.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[48]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Diff confirms narrowed middleware mapping and retained auth branches after restoration, without prior cache rewrites; this validates the actionable scope correction.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X043.c0"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 49,
+      "component_index": 0,
+      "component_id": "03:X049.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:X049.c0 `go test ./internal/server/middleware/grpc ./internal/server/auth`. Focused middleware/auth packages pass after restore and narrow reapplication. Existing ordinary mapping and authentication tables are relevant preservation checks on changed state; deleted custom tests are not credited here.",
+      "reason": "justified_confidence",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[49]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Focused middleware/auth packages pass after restore and narrow reapplication. Existing ordinary mapping and authentication tables are relevant preservation checks on changed state; deleted custom tests are not credited here.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "03:X034.c0",
+        "03:X038.c0"
+      ],
+      "verification_gain": "justified_confidence",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 50,
+      "component_index": 0,
+      "component_id": "03:X050.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X050.c0 `git diff -- internal/server/auth/middleware.go internal/server/middleware/grpc/middleware.go > patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[50]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 51,
+      "component_index": 0,
+      "component_id": "03:X051.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:X051.c0 `cat patch.txt`. Serialized patch repeats the already reviewed final diff, with no intervening code change or new defect.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[51]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Serialized patch repeats the already reviewed final diff, with no intervening code change or new defect.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:X048.c0"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 52,
+      "component_index": 0,
+      "component_id": "03:X052.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X052.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:X:action[52]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 52,
+      "component_index": 1,
+      "component_id": "03:X052.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:X052.c1 `cat patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:X:action[52]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "03:Y000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y000.c0 `printf '%s\\n' '--- files ---'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 1,
+      "component_id": "03:Y000.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:Y000.c1 `find . -maxdepth 3 -type f | head -80`. Broad file listing locates general repository structure; the context/status search and subsequent focused reads supply the actual error-path observations.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 2,
+      "component_id": "03:Y000.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y000.c2 `printf '%s\\n' '--- context/status references ---'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 3,
+      "component_id": "03:Y000.c3",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:Y000.c3 `grep -RInE 'Unauthenticated|DeadlineExceeded|context\\.Canceled|status\\.Code|ToStatus|FromError' --include='*.go' . | head -240`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[0]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "03:Y001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "evidence": "03:Y001.c0 `sed -n '1,180p' internal/server/middleware/grpc/middleware.go`. ErrorUnaryInterceptor calls handler, returns nil unchanged, and maps typed application errors after status forwarding; context errors lack branches. Final patch adds errors.Is classification at this switch.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[1]",
+        "final_patch:internal/server/middleware/grpc/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 1,
+      "component_id": "03:Y001.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:Y001.c1 `sed -n '1,190p' internal/server/auth/middleware.go`. Authenticator lookup errors are collapsed to errUnauthenticated; metadata and token checks and skip behavior surround that path. Final auth edit adds context exceptions while leaving ordinary failures in place.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[1]",
+        "final_patch:internal/server/auth/middleware.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "03:Y002.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "03:Y002.c0 `cat go.mod | head -40`. The FromContextError API/module dependency information is inspected, but the final patch uses explicit errors.Is branches; no distinct requirement-relevant decision from this component is established. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[2]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "03:Y002.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "evidence": "03:Y002.c1 `grep -RIn 'grpc.*middleware\\|Unary.*Interceptor\\|Auth.*Middleware' internal/server --include='*.go' | head -100`. Interceptor references and server wiring show ErrorUnaryInterceptor wraps authentication and where UnaryInterceptor participates, supporting propagation to the error mapper rather than changing token parsing. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[2]",
+        "03:Y004.c0",
+        "03:X033.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "03:Y003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y003.c0 `sed -n '1,190p' internal/server/middleware/grpc/middleware_test.go`. Existing test tables assert NotFound/InvalidArgument/Unauthenticated/Internal/no-error and auth success, skip, expired/missing token behavior; they define preservation coverage for later focused package tests.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[3]",
+        "03:X034.c0",
+        "03:Y005.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "03:Y003.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y003.c1 `sed -n '1,150p' internal/server/auth/middleware_test.go`. Existing test tables assert NotFound/InvalidArgument/Unauthenticated/Internal/no-error and auth success, skip, expired/missing token behavior; they define preservation coverage for later focused package tests.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[3]",
+        "03:X034.c0",
+        "03:Y005.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "03:Y004.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:Y004.c0 `python3 - <<'PY'`. Adds errors.Is cancellation/deadline cases and auth ctx.Err/context-cause propagation. Final patch retains them; it propagates raw auth context errors through the enclosing mapper, a valid alternative to direct auth status creation.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[4]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "03:Y004.c1",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:Y004.c1 `gofmt -w internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go`. Formats edited auth and grpc middleware, preserving parsable Go imports and the added context branches shown by following diff.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[4]",
+        "03:Y004.c2"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 2,
+      "component_id": "03:Y004.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:Y004.c2 `git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go`. Diff shows context switch branches and auth propagation only, retaining existing status forwarding and ordinary token failures; first structural confirmation of these edits.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[4]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Diff shows context switch branches and auth propagation only, retaining existing status forwarding and ordinary token failures; first structural confirmation of these edits.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "03:Y005.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y005.c0 `go test ./internal/server/middleware/grpc ./internal/server/auth`. Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "support_links": [
+        "evidence_03.json:Y:action[5]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 1,
+      "component_id": "03:Y005.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y005.c1 `git diff --check`. Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[5]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 2,
+      "component_id": "03:Y005.c2",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y005.c2 `git status --short`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[5]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "03:Y006.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y006.c0 `go test ./internal/server/middleware/grpc ./internal/server/auth`. Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "support_links": [
+        "evidence_03.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "03:Y006.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y006.c1 `rc=$?`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "03:Y006.c2",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "evidence": "03:Y006.c2 `git diff --check`. Shared call output is empty and execution ended without observable test/check result; downstream chained check execution and tested properties cannot be established.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 3,
+      "component_id": "03:Y006.c3",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y006.c3 `printf 'go_test_rc=%s\\n' \"$rc\"`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 4,
+      "component_id": "03:Y006.c4",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y006.c4 `exit \"$rc\"`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "03:Y007.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y007.c0 `git diff -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go > patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "03:Y008.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "evidence": "03:Y008.c0 `cat patch.txt`. Patch content duplicates Y4 diff with no intervening source edit; confirms serialization but adds no behavioral coverage.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch content duplicates Y4 diff with no intervening source edit; confirms serialization but adds no behavioral coverage.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "03:Y004.c2"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 1,
+      "component_id": "03:Y008.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y008.c1 `printf '\\n--- checks ---\\n'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 2,
+      "component_id": "03:Y008.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y008.c2 `grep -q '^--- a/' patch.txt`. Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 3,
+      "component_id": "03:Y008.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y008.c3 `grep -q '^+++ b/' patch.txt`. Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 4,
+      "component_id": "03:Y008.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y008.c4 `git diff --check -- internal/server/middleware/grpc/middleware.go internal/server/auth/middleware.go`. Checks patch headers or whitespace only; successful standard headers/diff check do not establish context classification or preservation behavior.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 5,
+      "component_id": "03:Y008.c5",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y008.c5 `printf '%s\\n' 'patch contains only intended source changes with standard headers'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_03.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "03:Y009.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y009.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[9]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 1,
+      "component_id": "03:Y009.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "03:Y009.c1 `cat patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_03.json:Y:action[9]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Retrospective final-patch visibility; no trajectory commands executed.",
+    "Direct test credit is limited to observable relevant properties and state changes; passing invocation alone is insufficient.",
+    "Opaque mixed edits, interrupted/missing output and unproven conditional execution retain uncertainty."
+  ]
+}

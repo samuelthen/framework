@@ -1,0 +1,1427 @@
+{
+  "order": 7,
+  "reviewer": "reviewer_b",
+  "validation_status": "independent model-coded second pass; not human validation",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "The `_glob_resources(resource_path, subdir, ext)` function must return an iterable of file paths under the given `subdir` that match the file extension `ext`, expressed as POSIX-style relative strings (e.g., `html/test1.html`). The `ext` argument must start with a dot (e.g., `.html`) and must not contain wildcards (`*`).",
+      "kind": "repair",
+      "source": "packet 07, Requirements text bullet 1; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "A filesystem/Traversable branch or equivalent compatible traversal is valid; preserve extension and relative POSIX-name contract. Avoid runtime references to unavailable zipfile.Path on supported older Python."
+      ],
+      "conflicts": [
+        "Y adds runtime zipfile.Path annotations despite pre-3.8 fallback context; reference avoids this. X filters directories via is_file, stricter than reference glob behavior; explicit requirement describes file paths."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R2",
+      "description": "The `_glob_resources` function must support both directory-based (`pathlib.Path`) and zip/importlib-resources-based (`zipfile.Path` or compatible) resource paths. For directory paths, it must discover files equivalent to matching `*{ext}` and yield paths relative to `resource_path`. For zip/importlib-resources paths, it must assert that the directory exists, iterate its entries, and yield only filenames that end with `ext`, joined as `subdir/<name>` with forward slashes.",
+      "kind": "repair",
+      "source": "packet 07, Requirements text bullet 2; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "A filesystem/Traversable branch or equivalent compatible traversal is valid; preserve extension and relative POSIX-name contract. Avoid runtime references to unavailable zipfile.Path on supported older Python."
+      ],
+      "conflicts": [
+        "Y adds runtime zipfile.Path annotations despite pre-3.8 fallback context; reference avoids this. X filters directories via is_file, stricter than reference glob behavior; explicit requirement describes file paths."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R3",
+      "description": "Paths whose names do not end with the specified extension (e.g., `README`, `unrelatedhtml`) must be excluded from the results.",
+      "kind": "repair",
+      "source": "packet 07, Requirements text bullet 3; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "A filesystem/Traversable branch or equivalent compatible traversal is valid; preserve extension and relative POSIX-name contract. Avoid runtime references to unavailable zipfile.Path on supported older Python."
+      ],
+      "conflicts": [
+        "Y adds runtime zipfile.Path annotations despite pre-3.8 fallback context; reference avoids this. X filters directories via is_file, stricter than reference glob behavior; explicit requirement describes file paths."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R4",
+      "description": "The `preload_resources` function must `use _glob_resources` to discover resources under `('html', '.html')` and `('javascript', '.js')`, and for each discovered name, it must read and cache the file using the same POSIX-style relative path as the cache key.",
+      "kind": "repair",
+      "source": "packet 07, Requirements text bullet 4; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "A filesystem/Traversable branch or equivalent compatible traversal is valid; preserve extension and relative POSIX-name contract. Avoid runtime references to unavailable zipfile.Path on supported older Python."
+      ],
+      "conflicts": [
+        "Y adds runtime zipfile.Path annotations despite pre-3.8 fallback context; reference avoids this. X filters directories via is_file, stricter than reference glob behavior; explicit requirement describes file paths."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "07:X000.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 0, component 0",
+        "command": "grep -R \"def _glob_resources\\|def preload_resources\\|_glob_resources\" -n . --exclude-dir=.git",
+        "observation": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 1,
+      "component_id": "07:X000.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Broad repository listing adds no implementation fact beyond located utils.py.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 0, component 1",
+        "command": "find . -maxdepth 3 -type f | head -80",
+        "observation": "Broad repository listing adds no implementation fact beyond located utils.py.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "07:X001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "Shows resource root factory, direct glob loop and read_file/cache semantics used by X003.",
+      "support_links": [
+        "07:X003.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 1, component 0",
+        "command": "sed -n '1,280p' qutebrowser/utils/utils.py",
+        "observation": "Shows resource root factory, direct glob loop and read_file/cache semantics used by X003.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 1,
+      "component_id": "07:X001.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Finds preload test and application startup caller, establishing the preload integration boundary.",
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 1, component 1",
+        "command": "grep -R \"preload_resources\" -n tests qutebrowser | head -30",
+        "observation": "Finds preload test and application startup caller, establishing the preload integration boundary.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 2,
+      "component_id": "07:X001.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Shows version-dependent importlib resources files() source, motivating duck-typed zip branch.",
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 1, component 2",
+        "command": "grep -R \"importlib.resources\\|resources.files\" -n qutebrowser | head -30",
+        "observation": "Shows version-dependent importlib resources files() source, motivating duck-typed zip branch.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "07:X002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Reads existing read/preload assertions and frozen-path fixture, informing retained cache behavior.",
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 2, component 0",
+        "command": "sed -n '90,170p' tests/unit/utils/test_utils.py",
+        "observation": "Reads existing read/preload assertions and frozen-path fixture, informing retained cache behavior.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "07:X002.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Repeats pathlib and resource-relative usage already visible in X001; no additional branch decision follows.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 2, component 1",
+        "command": "grep -R \"relative_to(resource_path)\\|pathlib.Path\" -n qutebrowser/utils/utils.py tests/unit/utils/test_utils.py | head -40",
+        "observation": "Repeats pathlib and resource-relative usage already visible in X001; no additional branch decision follows.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 2,
+      "component_id": "07:X002.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Reads supported Python/tox context; implementation uses Any rather than runtime zipfile.Path annotations.",
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 2, component 2",
+        "command": "grep -n \"mypy\\|python\" tox.ini | head -30",
+        "observation": "Reads supported Python/tox context; implementation uses Any rather than runtime zipfile.Path annotations.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "07:X003.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "Adds validated extension helper with pathlib glob and resource iterdir/is_dir branches; switches preload to helper. These exact changes survive final patch.",
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 3, component 0",
+        "command": "python - <<'PY'\nfrom pathlib import Path\np = Path('qutebrowser/utils/utils.py')\ns = p.read_text()\nold = '''def preload_resources() -> None:\\n    \"\"\"Load resource files into the cache.\"\"\"\\n    resource_path = _resource_path('')\\n    for subdir, pattern in [('html', '*.html'), ('javascript', '*.js')]:\\n        path = resource_path / subdir\\n        for full_path in path.glob(pattern):\\n            sub_path = full_path.relative_to(resource_path).as_posix()\\n            _resource_cache[sub_path] = read_file(sub_path)\\n'''\nnew = '''def _glob_resources(resource_path: Any, subdir: str, ext: str) -> Iterator[str]:\\n    \"\"\"Return resource files in *subdir* which have the given extension.\"\"\"\\n    assert ext.startswith('.') and '*' not in ext, ext\\n\\n    path = resource_path / subdir\\n    if isinstance(resource_path, pathlib.Path):\\n        for full_path in path.glob(f'*{ext}'):\\n            if full_path.is_file():\\n                yield full_path.relative_to(resource_path).as_posix()\\n    else:\\n        assert path.is_dir(), path\\n        for entry in path.iterdir():\\n            if entry.is_file() and entry.name.endswith(ext):\\n                yield posixpath.join(subdir, entry.name)\\n\\n\\ndef preload_resources() -> None:\\n    \"\"\"Load resource files into the cache.\"\"\"\\n    resource_path = _resource_path('')\\n    for subdir, ext in [('html', '.html'), ('javascript', '.js')]:\\n        for sub_path in _glob_resources(resource_path, subdir, ext):\\n            _resource_cache[sub_path] = read_file(sub_path)\\n'''\nif old not in s:\n    raise SystemExit('target block not found')\np.write_text(s.replace(old, new))\nPY",
+        "observation": "Adds validated extension helper with pathlib glob and resource iterdir/is_dir branches; switches preload to helper. These exact changes survive final patch.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "07:X003.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "reason": "compileall checks changed utils.py parses; does not exercise resource discovery.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Python syntax compilation of changed module",
+      "evidence": {
+        "trace": "evidence_07.json run X action 3, component 1",
+        "command": "python -m compileall -q qutebrowser/utils/utils.py",
+        "observation": "compileall checks changed utils.py parses; does not exercise resource discovery.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 2,
+      "component_id": "07:X003.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "First diff shows helper assertions, suffix selection and cache delegation retained in final patch.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Source diff conforms to intended helper and preload changes",
+      "evidence": {
+        "trace": "evidence_07.json run X action 3, component 2",
+        "command": "git diff -- qutebrowser/utils/utils.py",
+        "observation": "First diff shows helper assertions, suffix selection and cache delegation retained in final patch.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "07:X004.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "197 existing utils tests pass after edit, covering existing resource reads/preload behavior.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Existing TestReadFile and utils regressions",
+      "evidence": {
+        "trace": "evidence_07.json run X action 4, component 0",
+        "command": "pytest -q tests/unit/utils/test_utils.py --disable-warnings --maxfail=1",
+        "observation": "197 existing utils tests pass after edit, covering existing resource reads/preload behavior.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "07:X004.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "reason": "Focused assertions compare pathlib and ZipPath results, reject README/unrelatedhtml and matching directories, and reject malformed extensions; output confirms focused checks passed.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Filesystem/zip matching, POSIX names and extension validation",
+      "evidence": {
+        "trace": "evidence_07.json run X action 4, component 1",
+        "command": "PYTHONDONTWRITEBYTECODE=1 python - <<'PY'\nimport tempfile\nfrom pathlib import Path\nfrom zipfile import ZipFile, Path as ZipPath\nfrom qutebrowser.utils.utils import _glob_resources\n\nwith tempfile.TemporaryDirectory() as tmp:\n    root = Path(tmp)\n    (root / 'html').mkdir()\n    (root / 'html' / 'test.html').write_text('x')\n    (root / 'html' / 'README').write_text('x')\n    (root / 'html' / 'unrelatedhtml').write_text('x')\n    (root / 'html' / 'fake.html').mkdir()\n    assert list(_glob_resources(root, 'html', '.html')) == ['html/test.html']\n    archive = root / 'resources.zip'\n    with ZipFile(archive, 'w') as zf:\n        zf.writestr('html/test.html', 'x')\n        zf.writestr('html/README', 'x')\n        zf.writestr('html/unrelatedhtml', 'x')\n        zf.writestr('html/fake.html/', '')\n    with ZipFile(archive) as zf:\n        assert list(_glob_resources(ZipPath(zf), 'html', '.html')) == ['html/test.html']\n    for ext in ('html', '*.html'):\n        try:\n            list(_glob_resources(root, 'html', ext))\n        except AssertionError:\n            pass\n        else:\n            raise AssertionError(ext)\nprint('focused resource checks passed')\nPY",
+        "observation": "Focused assertions compare pathlib and ZipPath results, reject README/unrelatedhtml and matching directories, and reject malformed extensions; output confirms focused checks passed.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "07:X005.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 5, component 0",
+        "command": "git diff -- qutebrowser/utils/utils.py > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "07:X006.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 6, component 0",
+        "command": "test -s patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "07:X006.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 6, component 1",
+        "command": "grep -q '^--- a/qutebrowser/utils/utils.py$' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "07:X006.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 6, component 2",
+        "command": "grep -q '^+++ b/qutebrowser/utils/utils.py$' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 3,
+      "component_id": "07:X006.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 6, component 3",
+        "command": "! grep -E '^diff --git a/(tests|.*\\.toml|.*\\.ini|.*\\.yml|.*\\.yaml)' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 4,
+      "component_id": "07:X006.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run X action 6, component 4",
+        "command": "sed -n '1,220p' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "07:X007.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_07.json run X action 7, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 1,
+      "component_id": "07:X007.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_07.json run X action 7, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "07:Y000.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 0, component 0",
+        "command": "git grep -n \"preload_resources\"",
+        "observation": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "07:Y001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4"
+      ],
+      "reason": "Reads incompatible path.glob loop and read_file path.read_text contract used in Y019.",
+      "support_links": [
+        "07:Y019.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 1, component 0",
+        "command": "sed -n '180,260p' qutebrowser/utils/utils.py",
+        "observation": "Reads incompatible path.glob loop and read_file path.read_text contract used in Y019.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "07:Y002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Reads frozen/path factory and cache expectations preserved by helper integration.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 2, component 0",
+        "command": "sed -n '110,170p' tests/unit/utils/test_utils.py",
+        "observation": "Reads frozen/path factory and cache expectations preserved by helper integration.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "07:Y003.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "197 utils tests pass before any edit, establishing existing preload/read regression baseline.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Baseline existing utils tests",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 3, component 0",
+        "command": "pytest tests/unit/utils/test_utils.py",
+        "observation": "197 utils tests pass before any edit, establishing existing preload/read regression baseline.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "07:Y004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Reads imports and supported-version resource fallback before adding zipfile type annotation.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 4, component 0",
+        "command": "sed -n '1,60p' qutebrowser/utils/utils.py",
+        "observation": "Reads imports and supported-version resource fallback before adding zipfile type annotation.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "07:Y005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "Identifies every _resource_path caller so path-type changes can preserve readers.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 5, component 0",
+        "command": "git grep \"_resource_path\"",
+        "observation": "Identifies every _resource_path caller so path-type changes can preserve readers.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "07:Y006.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Shows importlib_resources fallback and files() usage relevant to zip traversal.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 6, component 0",
+        "command": "git grep -E \"importlib_resources|importlib\\.resources\"",
+        "observation": "Shows importlib_resources fallback and files() usage relevant to zip traversal.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "07:Y007.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "mypy executable is missing; no type property checked.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Attempted static type checking; not performed",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 7, component 0",
+        "command": "mypy qutebrowser/utils/utils.py",
+        "observation": "mypy executable is missing; no type property checked.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 127,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "07:Y008.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "flake8 executable is missing; no style or syntax result obtained.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Attempted style checking; not performed",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 8, component 0",
+        "command": "flake8 qutebrowser/utils/utils.py",
+        "observation": "flake8 executable is missing; no style or syntax result obtained.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 127,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "07:Y009.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Script inventory does not identify a resource compatibility fix or usable missing checker.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 9, component 0",
+        "command": "find scripts",
+        "observation": "Script inventory does not identify a resource compatibility fix or usable missing checker.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "07:Y010.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Runtime introspection confirms zipfile.Path is not a pathlib.Path and lacks glob, supporting type-dispatched branch.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 10, component 0",
+        "command": "python3 -c \"import zipfile, pathlib, inspect\nprint('zipfile.Path attributes:', dir(zipfile.Path))\nprint('isinstance pathlib.Path:', issubclass(zipfile.Path, pathlib.Path))\n\"",
+        "observation": "Runtime introspection confirms zipfile.Path is not a pathlib.Path and lacks glob, supporting type-dispatched branch.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "07:Y011.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R3"
+      ],
+      "reason": "Constructed zip demonstrates directory exists/is_dir, iterdir names and nonmatching files; these APIs are used in final helper.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 11, component 0",
+        "command": "python3 -c \"import io, zipfile\nbio = io.BytesIO()\nwith zipfile.ZipFile(bio, 'w') as zf:\n    zf.writestr('html/test1.html', 'content1')\n    zf.writestr('html/test2.html', 'content2')\n    zf.writestr('html/README', 'readme')\n    zf.writestr('html/other.txt', 'txt')\n\nzf_path = zipfile.Path(bio)\nhtml_path = zf_path / 'html'\nprint('html_path exists:', html_path.exists())\nprint('html_path is_dir:', html_path.is_dir())\nfor item in html_path.iterdir():\n    print('item:', repr(item), 'item.name:', repr(item.name), 'item.is_file():', item.is_file())\n\"",
+        "observation": "Constructed zip demonstrates directory exists/is_dir, iterdir names and nonmatching files; these APIs are used in final helper.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "07:Y012.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Finds unrelated hostblock zipfile handling; no reused behavior in final patch.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 12, component 0",
+        "command": "git grep \"zipfile\" qutebrowser/",
+        "observation": "Finds unrelated hostblock zipfile handling; no reused behavior in final patch.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "07:Y013.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "Reads complete factory/read_text boundary while deciding whether zip reads need changes.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 13, component 0",
+        "command": "sed -n '175,225p' qutebrowser/utils/utils.py",
+        "observation": "Reads complete factory/read_text boundary while deciding whether zip reads need changes.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "07:Y014.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "Zip read_text UTF-8 and read_bytes probe succeeds, supporting leaving resource readers intact.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 14, component 0",
+        "command": "python3 -c \"import io, zipfile\nbio = io.BytesIO()\nwith zipfile.ZipFile(bio, 'w') as zf:\n    zf.writestr('html/test.html', 'hello world \u26a1')\n\np = zipfile.Path(bio) / 'html/test.html'\nprint('read_text:', repr(p.read_text(encoding='utf-8')))\nprint('read_bytes:', repr(p.read_bytes()))\n\"",
+        "observation": "Zip read_text UTF-8 and read_bytes probe succeeds, supporting leaving resource readers intact.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "07:Y015.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Absent __all__ does not constrain private helper import or cause a change.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 15, component 0",
+        "command": "git grep \"__all__\" qutebrowser/utils/utils.py",
+        "observation": "Absent __all__ does not constrain private helper import or cause a change.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "07:Y016.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Repeats same frozen and read/cache tests as Y002 with no changed state.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 16, component 0",
+        "command": "sed -n '105,150p' tests/unit/utils/test_utils.py",
+        "observation": "Repeats same frozen and read/cache tests as Y002 with no changed state.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "07:Y017.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "Repeats resource factory and readers already inspected in Y001/Y013.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 17, component 0",
+        "command": "sed -n '180,230p' qutebrowser/utils/utils.py",
+        "observation": "Repeats resource factory and readers already inspected in Y001/Y013.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "07:Y018.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Repeats imports already inspected in Y004; no new compatibility evidence.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 18, component 0",
+        "command": "sed -n '1,65p' qutebrowser/utils/utils.py",
+        "observation": "Repeats imports already inspected in Y004; no new compatibility evidence.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "07:Y019.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "Adds helper, suffix filtering, POSIX names and preload delegation retained in final patch. Runtime Union[..., zipfile.Path] is an extra compatibility risk on pre-3.8 Python; this does not erase implemented helper contribution.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 19, component 0",
+        "command": "python3 -c \"\nwith open('qutebrowser/utils/utils.py', 'r') as f:\n    content = f.read()\n\n# Add zipfile import after pathlib import\nold_import = 'import pathlib\\nimport ctypes'\nnew_import = 'import pathlib\\nimport zipfile\\nimport ctypes'\nassert old_import in content\ncontent = content.replace(old_import, new_import, 1)\n\n# Update _resource_path and preload_resources\nold_section = '''def _resource_path(filename: str) -> pathlib.Path:\n    \\\"\\\"\\\"Get a pathlib.Path object for a resource.\\\"\\\"\\\"\n    assert not posixpath.isabs(filename), filename\n    assert os.path.pardir not in filename.split(posixpath.sep), filename\n\n    if hasattr(sys, 'frozen'):\n        # For PyInstaller, where we can't store resource files in a qutebrowser/ folder\n        # because the executable is already named \\\"qutebrowser\\\" (at least on macOS).\n        return pathlib.Path(sys.executable).parent / filename\n\n    return importlib_resources.files(qutebrowser) / filename\n\n\ndef preload_resources() -> None:\n    \\\"\\\"\\\"Load resource files into the cache.\\\"\\\"\\\"\n    resource_path = _resource_path('')\n    for subdir, pattern in [('html', '*.html'), ('javascript', '*.js')]:\n        path = resource_path / subdir\n        for full_path in path.glob(pattern):\n            sub_path = full_path.relative_to(resource_path).as_posix()\n            _resource_cache[sub_path] = read_file(sub_path)'''\n\nnew_section = '''def _resource_path(filename: str) -> Union[pathlib.Path, zipfile.Path]:\n    \\\"\\\"\\\"Get a pathlib.Path or zipfile.Path object for a resource.\\\"\\\"\\\"\n    assert not posixpath.isabs(filename), filename\n    assert os.path.pardir not in filename.split(posixpath.sep), filename\n\n    if hasattr(sys, 'frozen'):\n        # For PyInstaller, where we can't store resource files in a qutebrowser/ folder\n        # because the executable is already named \\\"qutebrowser\\\" (at least on macOS).\n        return pathlib.Path(sys.executable).parent / filename\n\n    return importlib_resources.files(qutebrowser) / filename\n\n\ndef _glob_resources(\n    resource_path: Union[pathlib.Path, zipfile.Path],\n    subdir: str,\n    ext: str,\n) -> Iterator[str]:\n    \\\"\\\"\\\"Find resource files matching the given extension in a subdirectory.\n\n    Args:\n        resource_path: The base resource path.\n        subdir: The subdirectory to look into.\n        ext: The file extension (including dot, e.g. '.html').\n\n    Yields:\n        Resource names relative to the base resource path, as POSIX strings.\n    \\\"\\\"\\\"\n    assert ext.startswith('.'), ext\n    assert '*' not in ext, ext\n\n    if isinstance(resource_path, pathlib.Path):\n        path = resource_path / subdir\n        for full_path in path.glob(f'*{ext}'):\n            yield full_path.relative_to(resource_path).as_posix()\n    else:\n        path = resource_path / subdir\n        assert path.exists(), f\\\"{path} does not exist\\\"\n        for entry in path.iterdir():\n            if entry.name.endswith(ext):\n                yield f\\\"{subdir}/{entry.name}\\\"\n\n\ndef preload_resources() -> None:\n    \\\"\\\"\\\"Load resource files into the cache.\\\"\\\"\\\"\n    resource_path = _resource_path('')\n    for subdir, ext in [('html', '.html'), ('javascript', '.js')]:\n        for sub_path in _glob_resources(resource_path, subdir, ext):\n            _resource_cache[sub_path] = read_file(sub_path)'''\n\nassert old_section in content\ncontent = content.replace(old_section, new_section, 1)\n\nwith open('qutebrowser/utils/utils.py', 'w') as f:\n    f.write(content)\n\nprint('Updated successfully')\n\"",
+        "observation": "Adds helper, suffix filtering, POSIX names and preload delegation retained in final patch. Runtime Union[..., zipfile.Path] is an extra compatibility risk on pre-3.8 Python; this does not erase implemented helper contribution.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "07:Y020.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "197 tests pass after helper edit; baseline Y003 checked old code, so this supplies changed-state regression coverage.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "07:Y003.c0"
+      ],
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Existing utils/read/preload tests on helper implementation",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 20, component 0",
+        "command": "pytest tests/unit/utils/test_utils.py",
+        "observation": "197 tests pass after helper edit; baseline Y003 checked old code, so this supplies changed-state regression coverage.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "07:Y021.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "reason": "Custom zip missing-directory case reaches assertion-message formatting and raises TypeError instead of AssertionError; directly motivates Y022 removing message. Later preload assertions were not reached.",
+      "verification_gain": "actionable_defect",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "07:Y022.c0",
+        "07:Y023.c0"
+      ],
+      "invalidation_links": [
+        "07:Y019.c0"
+      ],
+      "uncertainty_reason": null,
+      "property_checked": "Zip/path suffix checks and missing zip-directory assertion",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 21, component 0",
+        "command": "python3 -c \"\nimport io\nimport zipfile\nimport pathlib\nimport tempfile\nimport pytest\nfrom qutebrowser.utils import utils\n\n# Test 1: pathlib.Path\nwith tempfile.TemporaryDirectory() as tmpdir:\n    base = pathlib.Path(tmpdir)\n    html_dir = base / 'html'\n    html_dir.mkdir()\n    (html_dir / 'test1.html').write_text('h1')\n    (html_dir / 'test2.html').write_text('h2')\n    (html_dir / 'README').write_text('readme')\n    (html_dir / 'unrelatedhtml').write_text('unrelated')\n    (html_dir / 'test.htm').write_text('htm')\n\n    res = list(utils._glob_resources(base, 'html', '.html'))\n    assert sorted(res) == ['html/test1.html', 'html/test2.html'], f'Got: {res}'\n\n    # Test invalid ext\n    try:\n        list(utils._glob_resources(base, 'html', 'html'))\n        assert False, 'Should have raised AssertionError for no dot'\n    except AssertionError:\n        pass\n\n    try:\n        list(utils._glob_resources(base, 'html', '*.html'))\n        assert False, 'Should have raised AssertionError for wildcard'\n    except AssertionError:\n        pass\n\n# Test 2: zipfile.Path\nbio = io.BytesIO()\nwith zipfile.ZipFile(bio, 'w') as zf:\n    zf.writestr('html/test1.html', 'h1')\n    zf.writestr('html/test2.html', 'h2')\n    zf.writestr('html/README', 'readme')\n    zf.writestr('html/unrelatedhtml', 'unrelated')\n    zf.writestr('html/test.htm', 'htm')\n    zf.writestr('javascript/script1.js', 's1')\n    zf.writestr('javascript/script2.js', 's2')\n    zf.writestr('javascript/unrelatedjs', 'unrelated')\n\nzip_base = zipfile.Path(bio)\nres_zip_html = list(utils._glob_resources(zip_base, 'html', '.html'))\nassert sorted(res_zip_html) == ['html/test1.html', 'html/test2.html'], f'Got: {res_zip_html}'\n\nres_zip_js = list(utils._glob_resources(zip_base, 'javascript', '.js'))\nassert sorted(res_zip_js) == ['javascript/script1.js', 'javascript/script2.js'], f'Got: {res_zip_js}'\n\n# Test non-existing directory in zip\ntry:\n    list(utils._glob_resources(zip_base, 'nonexistent', '.html'))\n    assert False, 'Should have raised AssertionError for non-existing directory'\nexcept AssertionError:\n    pass\n\n# Test preload_resources with zip\nutils._resource_cache.clear()\nold_resource_path = utils._resource_path\ntry:\n    utils._resource_path = lambda filename: zip_base / filename if filename else zip_base\n    utils.preload_resources()\n    assert 'html/test1.html' in utils._resource_cache\n    assert 'html/test2.html' in utils._resource_cache\n    assert 'javascript/script1.js' in utils._resource_cache\n    assert 'javascript/script2.js' in utils._resource_cache\n    assert 'html/README' not in utils._resource_cache\n    assert 'html/unrelatedhtml' not in utils._resource_cache\n    assert utils.read_file('html/test1.html') == 'h1'\n    assert utils.read_file('javascript/script1.js') == 's1'\nfinally:\n    utils._resource_path = old_resource_path\n\nprint('All custom checks passed successfully!')\n\"",
+        "observation": "Custom zip missing-directory case reaches assertion-message formatting and raises TypeError instead of AssertionError; directly motivates Y022 removing message. Later preload assertions were not reached.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "07:Y022.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R2"
+      ],
+      "reason": "Removes f-string path assertion message which crashed for an in-memory zip; Y023 passes and final patch retains message-free assert.",
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 22, component 0",
+        "command": "python3 -c \"\nwith open('qutebrowser/utils/utils.py', 'r') as f:\n    content = f.read()\n\ncontent = content.replace('assert path.exists(), f\\\"{path} does not exist\\\"', 'assert path.exists()')\n\nwith open('qutebrowser/utils/utils.py', 'w') as f:\n    f.write(content)\n\nprint('Updated utils.py')\n\"",
+        "observation": "Removes f-string path assertion message which crashed for an in-memory zip; Y023 passes and final patch retains message-free assert.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "07:Y023.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "Custom test completes with All custom checks passed: filesystem/zip suffixes, missing directory, both preload folders and cache content exercised. Invalid-extension try/except catches its own assert False, so those negative checks are weak.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "07:Y021.c0"
+      ],
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Zip directory assertion and full zip preload/cache integration",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 23, component 0",
+        "command": "python3 -c \"\nimport io\nimport zipfile\nimport pathlib\nimport tempfile\nfrom qutebrowser.utils import utils\n\n# Test 1: pathlib.Path\nwith tempfile.TemporaryDirectory() as tmpdir:\n    base = pathlib.Path(tmpdir)\n    html_dir = base / 'html'\n    html_dir.mkdir()\n    (html_dir / 'test1.html').write_text('h1')\n    (html_dir / 'test2.html').write_text('h2')\n    (html_dir / 'README').write_text('readme')\n    (html_dir / 'unrelatedhtml').write_text('unrelated')\n    (html_dir / 'test.htm').write_text('htm')\n\n    res = list(utils._glob_resources(base, 'html', '.html'))\n    assert sorted(res) == ['html/test1.html', 'html/test2.html'], f'Got: {res}'\n\n    # Test invalid ext\n    try:\n        list(utils._glob_resources(base, 'html', 'html'))\n        assert False, 'Should have raised AssertionError for no dot'\n    except AssertionError:\n        pass\n\n    try:\n        list(utils._glob_resources(base, 'html', '*.html'))\n        assert False, 'Should have raised AssertionError for wildcard'\n    except AssertionError:\n        pass\n\n# Test 2: zipfile.Path\nbio = io.BytesIO()\nwith zipfile.ZipFile(bio, 'w') as zf:\n    zf.writestr('html/test1.html', 'h1')\n    zf.writestr('html/test2.html', 'h2')\n    zf.writestr('html/README', 'readme')\n    zf.writestr('html/unrelatedhtml', 'unrelated')\n    zf.writestr('html/test.htm', 'htm')\n    zf.writestr('javascript/script1.js', 's1')\n    zf.writestr('javascript/script2.js', 's2')\n    zf.writestr('javascript/unrelatedjs', 'unrelated')\n\nzip_base = zipfile.Path(bio)\nres_zip_html = list(utils._glob_resources(zip_base, 'html', '.html'))\nassert sorted(res_zip_html) == ['html/test1.html', 'html/test2.html'], f'Got: {res_zip_html}'\n\nres_zip_js = list(utils._glob_resources(zip_base, 'javascript', '.js'))\nassert sorted(res_zip_js) == ['javascript/script1.js', 'javascript/script2.js'], f'Got: {res_zip_js}'\n\n# Test non-existing directory in zip\ntry:\n    list(utils._glob_resources(zip_base, 'nonexistent', '.html'))\n    assert False, 'Should have raised AssertionError for non-existing directory'\nexcept AssertionError:\n    pass\n\n# Test preload_resources with zip\nutils._resource_cache.clear()\nold_resource_path = utils._resource_path\ntry:\n    utils._resource_path = lambda filename: zip_base / filename if filename else zip_base\n    utils.preload_resources()\n    assert 'html/test1.html' in utils._resource_cache\n    assert 'html/test2.html' in utils._resource_cache\n    assert 'javascript/script1.js' in utils._resource_cache\n    assert 'javascript/script2.js' in utils._resource_cache\n    assert 'html/README' not in utils._resource_cache\n    assert 'html/unrelatedhtml' not in utils._resource_cache\n    assert utils.read_file('html/test1.html') == 'h1'\n    assert utils.read_file('javascript/script1.js') == 's1'\nfinally:\n    utils._resource_path = old_resource_path\n\nprint('All custom checks passed successfully!')\n\"",
+        "observation": "Custom test completes with All custom checks passed: filesystem/zip suffixes, missing directory, both preload folders and cache content exercised. Invalid-extension try/except catches its own assert False, so those negative checks are weak.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "07:Y024.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R4"
+      ],
+      "reason": "197 existing tests pass after assertion-message repair; small change is in zip error path absent from existing suite, so this repeats prior regression support.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "07:Y020.c0"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Same existing utils suite; no new coverage of repaired zip failure",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 24, component 0",
+        "command": "pytest tests/unit/utils/test_utils.py",
+        "observation": "197 existing tests pass after assertion-message repair; small change is in zip error path absent from existing suite, so this repeats prior regression support.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "07:Y025.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 25, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "07:Y026.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "First complete final diff exposes zipfile type annotations, helper suffix branches and cache delegation after Y022.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_07.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Final source changes after assertion fix",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 26, component 0",
+        "command": "git diff qutebrowser/utils/utils.py",
+        "observation": "First complete final diff exposes zipfile type annotations, helper suffix branches and cache delegation after Y022.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "07:Y027.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 27, component 0",
+        "command": "git diff -- qutebrowser/utils/utils.py > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "07:Y028.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_07.json run Y action 28, component 0",
+        "command": "cat patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "07:Y029.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 29, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 29,
+      "component_index": 1,
+      "component_id": "07:Y029.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_07.json run Y action 29, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_07.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Independent model-coded annotation only; no human validation or new execution of trajectory commands.",
+    "Requirements follow explicit dataset bullets; accepted reference patch is one route, not exact required scope.",
+    "Run outcome headings were not used as evidence of component contribution.",
+    "Recorded call-level outputs were attributed by command/output content; interrupted and missing outputs remain uncertain."
+  ]
+}

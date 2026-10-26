@@ -1,0 +1,68 @@
+model,contribution_label,reason,components
+gemini-3.7-flash,direct,"197 tests pass after helper edit; baseline Y003 checked old code, so this supplies changed-state regression coverage.",1
+gemini-3.7-flash,direct,"197 utils tests pass before any edit, establishing existing preload/read regression baseline.",1
+gemini-3.7-flash,direct,"73 completion model tests pass on baseline before edits, then X11 teardown fails; passing test body establishes limited baseline only.",1
+gemini-3.7-flash,direct,"Baseline TestRemoveInactive and TestSearchCache pass, confirming existing status selection and exists boolean behavior before map API change.",1
+gemini-3.7-flash,direct,"Combined diff repeats report/config/model changes and exposes final direct map and scan gating, but adds first full post-edit WordPress diff review.",1
+gemini-3.7-flash,direct,"Custom test completes with All custom checks passed: filesystem/zip suffixes, missing directory, both preload folders and cache content exercised. Invalid-extension try/except catches its own assert False, so those negative checks are weak.",1
+gemini-3.7-flash,direct,Custom zip missing-directory case reaches assertion-message formatting and raises TypeError instead of AssertionError; directly motivates Y022 removing message. Later preload assertions were not reached.,1
+gemini-3.7-flash,direct,Diff confirms coordinated dispatcher/provider/config change before documentation generation.,1
+gemini-3.7-flash,direct,Diff confirms report map field and constructor are coherent with changed FillWordPress signature.,1
+gemini-3.7-flash,direct,Diff verifies helper is the only behavior addition and external request functions remain intact.,1
+gemini-3.7-flash,direct,"Directly imports helper and asserts exact specified order, unknown-ID skip, excluded values, empties and repeated order IDs; ALL TESTS PASSED. Purity is also supported by local-only implementation, not by output alone.",1
+gemini-3.7-flash,direct,Doc diff confirms generator removed old buffer section and generated tab-select section with syntax/count/window semantics and updated gt help.,1
+gemini-3.7-flash,direct,"First complete final diff exposes zipfile type annotations, helper suffix branches and cache delegation after Y022.",1
+gemini-3.7-flash,direct,"Harness executes and reports all three settings cases pass, preserving active/non-WP CVEs and filtering inactive CVEs. Checks model FilterInactiveWordPressLibs, not FillWordPress API scan.",1
+gemini-3.7-flash,direct,No miscmodels.buffer references; targeted negative check complements positive wiring and rules out dangling old provider calls.,1
+gemini-3.7-flash,direct,No miscmodels.other_buffer references; targeted negative check rules out dangling old other-window provider calls.,1
+gemini-3.7-flash,direct,"Remaining :buffer hits are historical changelog lines, distinguishing them from current generated help; no new repair needed.",1
+gemini-3.7-flash,direct,actionable_defect,2
+gemini-3.7-flash,direct,justified_confidence,1
+gemini-3.7-flash,direct,new_relevant_coverage,15
+gemini-3.7-flash,non_direct,"197 existing tests pass after assertion-message repair; small change is in zip error path absent from existing suite, so this repeats prior regression support.",1
+gemini-3.7-flash,non_direct,"Confirms other_tabs decorator reference, already visible in Y042.",1
+gemini-3.7-flash,non_direct,Confirms tabs model used in resolver and decorator; already in Y042 diff.,1
+gemini-3.7-flash,non_direct,"Core suite reports 78 passed/3 xfailed/1 xpassed; it has no observation-specific new test, so validates surrounding core regressions only.",1
+gemini-3.7-flash,non_direct,Final diff repeats source/config diff and generated-doc diff without intervening edits.,1
+gemini-3.7-flash,non_direct,Focused baseline tab completion tests pass before X11 teardown error; subset adds no coverage beyond Y027.,1
+gemini-3.7-flash,non_direct,Offscreen attempt produces 73 fixture errors; no relevant completion property is exercised or source defect isolated.,1
+gemini-3.7-flash,non_direct,One ratings test passes before helper exists; unrelated ratings property supplies no evidence of required ordering behavior.,1
+gemini-3.7-flash,non_direct,Qt aborts with display connection failure; no requested behavior check completes.,1
+gemini-3.7-flash,non_direct,"Repeats tab-select anchors/settings already in Y045 diff, unchanged state.",1
+gemini-3.7-flash,non_direct,Same 73 baseline tests pass then same X11 teardown failure; xvfb wrapper changes no relevant source or property coverage.,1
+gemini-3.7-flash,non_direct,baseline_no_solution_link,3
+gemini-3.7-flash,non_direct,flake8 executable is missing; no style or syntax result obtained.,1
+gemini-3.7-flash,non_direct,mypy executable is missing; no type property checked.,1
+gemini-3.7-flash,non_direct,repeated_support,5
+gemini-3.7-flash,non_direct,unrelated_or_nonbehavioral_check,5
+gemini-3.7-flash,uncertain,"Output confirms models and config package tests pass, but command is interrupted before report result; aggregate integration coverage cannot be established.",1
+gemini-3.7-flash,uncertain,attribution_or_property_unestablished,10
+gemini-3.7-flash,uncertain,contribution_disagreement,13
+gemini-3.7-flash,uncertain,execution_disagreement,2
+gemini-3.7-flash,uncertain,verification_role_disagreement,4
+gpt-5.6-luna,direct,"197 existing utils tests pass after edit, covering existing resource reads/preload behavior.",1
+gpt-5.6-luna,direct,"Diff confirms actual map API propagation, server-config gate and compatibility-switch lookup, unlike failed Y009.",1
+gpt-5.6-luna,direct,"Diff exposes full coordinated rename and retained resolver/count/activation logic; helps review preservation, not runtime proof.",1
+gpt-5.6-luna,direct,"Diff shows only build-tag/comment churn, exposing failed edit; next action resets files and reapplies functional changes.",1
+gpt-5.6-luna,direct,"Displays inserted pure helper and unchanged request functions, establishing actual source edit before test.",1
+gpt-5.6-luna,direct,"Displays new tabs/other_tabs wrappers and current-window helper call, confirming renamed provider wiring.",1
+gpt-5.6-luna,direct,Displays tab_select decorator and retained count/focus body after rename.,1
+gpt-5.6-luna,direct,"First diff shows helper assertions, suffix selection and cache delegation retained in final patch.",1
+gpt-5.6-luna,direct,"Focused assertions compare pathlib and ZipPath results, reject README/unrelatedhtml and matching directories, and reject malformed extensions; output confirms focused checks passed.",1
+gpt-5.6-luna,direct,"Imports helper, asserts names for [3,4,99,2], omission of unknown 99/unrequested 1 and 8, empty order and partial input preservation; focused behavior check passed.",1
+gpt-5.6-luna,direct,Scoped grep yields no old command/provider references in selected edited files; explicitly omits configdata.yml where stale binding remains.,1
+gpt-5.6-luna,direct,actionable_defect,6
+gpt-5.6-luna,direct,compileall checks changed utils.py parses; does not exercise resource discovery.,1
+gpt-5.6-luna,direct,"compileall validates syntax of both edited Python modules, no runtime command execution.",1
+gpt-5.6-luna,direct,"go test ./wordpress reports cached success. Existing tests check pointer cache hit/miss and inactive Status filtering, confirming compatibility survives; does not exercise normal map branch or server-config gate.",1
+gpt-5.6-luna,direct,new_relevant_coverage,14
+gpt-5.6-luna,non_direct,Pytest reports collected 0 items/no tests ran; suppressed stderr and || true do not supply behavior validation.,1
+gpt-5.6-luna,non_direct,repeated_support,4
+gpt-5.6-luna,uncertain,"Conditional tail has no recorded output and preceding go test is interrupted, so execution/results are unknown.",1
+gpt-5.6-luna,uncertain,attribution_or_property_unestablished,5
+gpt-5.6-luna,uncertain,contribution_disagreement,9
+gpt-5.6-luna,uncertain,contribution_disagreement;verification_role_disagreement,3
+gpt-5.6-luna,uncertain,execution_disagreement,3
+gpt-5.6-luna,uncertain,execution_or_result_unestablished,1
+gpt-5.6-luna,uncertain,tail is conditional on test success and no tail output is recorded; cannot establish execution.,1
+gpt-5.6-luna,uncertain,verification_role_disagreement,4

@@ -136,10 +136,10 @@ def test_case8_empty_outputs():
     assert all(o["cand_output"] is None for o in ops)
 
 
-def test_case9_reanchor():
+def test_plain_diff_does_not_recover_unknown_complete_state():
     ops = mk(("python fix.py", "done"), ("git diff", "diff --git a/x b/x\n+1\n"), ("git diff", "diff --git a/x b/x\n+1\n"), ("ls", "a\nb"))
     assert ops[1]["state"] is None
-    assert ops[2]["state"] is not None and ops[2]["state"] == ops[3]["state"]
+    assert ops[2]["state"] is None and ops[3]["state"] is None
 
 
 def test_aba_output_candidate():

@@ -1,0 +1,7 @@
+scope,baseline,covered_calls,uncertain_reference_calls,assessable_calls,tp,fp,fn,tn,precision_vs_second_review,recall_vs_second_review,interpretation
+available_per_baseline,predict_exact_repeat,449,42,407,6,4,164,233,0.6,0.03529411764705882,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."
+available_per_baseline,predict_target_revisit,449,42,407,35,47,135,190,0.4268292682926829,0.20588235294117646,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."
+available_per_baseline,predict_novelty_non_distinct,333,27,306,13,7,127,159,0.65,0.09285714285714286,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."
+common_novelty_coverage,predict_exact_repeat,333,27,306,6,4,134,162,0.6,0.04285714285714286,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."
+common_novelty_coverage,predict_target_revisit,333,27,306,33,34,107,132,0.4925373134328358,0.2357142857142857,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."
+common_novelty_coverage,predict_novelty_non_distinct,333,27,306,13,7,127,159,0.65,0.09285714285714286,"Descriptive disagreement with model-coded contribution; different constructs, not ground-truth accuracy."

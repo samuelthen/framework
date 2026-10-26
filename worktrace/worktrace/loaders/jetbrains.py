@@ -50,6 +50,7 @@ def load_row(row) -> tuple[dict, list[dict]]:
             raw = ex.get("raw_output")
             results[m["call_id"]] = {
                 "output": raw if raw is not None else (m.get("output") or ""),
+                "agent_output": m.get("output") or "",
                 "exit_code": ex.get("returncode"),
                 "agent_saw_truncated": raw is not None and "<warning>" in (m.get("output") or "") and len(m.get("output") or "") < len(raw),
             }
@@ -82,6 +83,7 @@ def load_row(row) -> tuple[dict, list[dict]]:
                 "agent_message": msg if k == 0 else "(same turn as previous operation)",
                 "tool": o.get("name") or "bash", "command": cmd, "exit_code": res["exit_code"], "output": res["output"],
                 "agent_saw_truncated": res["agent_saw_truncated"], "missing_result": o["call_id"] not in results,
+                "agent_output": res.get("agent_output", res["output"]),
             })
             k += 1
         turn_idx += 1

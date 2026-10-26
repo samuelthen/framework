@@ -1,0 +1,4706 @@
+{
+  "order": 6,
+  "reviewer": "reviewer_b",
+  "provenance": "Independent model-coded second pass; not human validation. No prior reviewer labels, model key, conclusions or requirements_raw were consulted.",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "EvaluationResponse includes new reason field.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 1; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R2",
+      "description": "reason uses five-value EvaluationReason enumeration.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 2; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R3",
+      "description": "Missing requested flag produces FLAG_NOT_FOUND reason.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 3; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R4",
+      "description": "Disabled flag produces FLAG_DISABLED reason.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 4; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R5",
+      "description": "Successful rule/distribution match produces MATCH reason.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 5; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R6",
+      "description": "No-match/no-error produces UNKNOWN reason.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 6; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R7",
+      "description": "Evaluation errors including rule/store/order/distribution failures produce ERROR reason.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 7; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Assign reason at each error site or use deferred classification scoped to missing-flag cause."
+      ],
+      "conflicts": [
+        "X defer classifies any ErrNotFound as FLAG_NOT_FOUND, including later store failures; requirement reserves that reason for missing flag and calls other evaluation failures ERROR."
+      ],
+      "resolution": "Do not assume all ErrNotFound causes mean requested flag absent; preserve this final-patch limitation."
+    },
+    {
+      "id": "R8",
+      "description": "Expose reason in protobuf/gRPC and Swagger/REST response schema.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 8; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    },
+    {
+      "id": "R9",
+      "description": "Swagger fliptEvaluationReason is string enum listing five values.",
+      "kind": "repair",
+      "source": "packet 06: Requirements text bullet 9; problem statement and visible source/final patch as context",
+      "alternatives": [
+        "Equivalent implementation preserving stated observable behavior is valid."
+      ],
+      "conflicts": [],
+      "resolution": "Use explicit dataset requirement; reference patch is one valid implementation route, not exclusive evidence."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "06:X000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X000.c0 `printf '%s\\n' '--- files ---'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 1,
+      "component_id": "06:X000.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "06:X000.c1 `find . -maxdepth 3 -type f | sort | head -200`. Broad file listing provides navigation; focused evaluation references supply the source/schema locations. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 2,
+      "component_id": "06:X000.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X000.c2 `printf '%s\\n' '--- evaluation references ---'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 3,
+      "component_id": "06:X000.c3",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X000.c3 `grep -R \"EvaluationResponse\\|EvaluationReason\\|FLAG_NOT_FOUND\" -n --exclude-dir=.git . | head -200`. EvaluationResponse search identifies evaluator construction plus protobuf and Swagger response definitions. Final patch changes these three layers to carry reason. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[0]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "06:X001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X001.c0 `sed -n '1,180p' rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[1]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 1,
+      "component_id": "06:X001.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X001.c1 `sed -n '1,240p' internal/server/evaluator.go`. Evaluator reads show GetFlag failure, disabled branch, no-rules/no-match paths, rule/distribution successes and store/order errors. Final patches assign reasons at these outcomes or via deferred classification.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[1]",
+        "final_patch:internal/server/evaluator.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "06:X002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X002.c0 `sed -n '1390,1465p' swagger/flipt.swagger.json`. Swagger response schema has existing properties without reason and enum definitions using strings. Final generated schema adds reference and string enum with five values.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[2]",
+        "final_patch:swagger/flipt.swagger.json"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "06:X002.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X002.c1 `grep -R \"EvaluationResponse{\" -n --include='*.go' --exclude='*_test.go' .`. Only evaluator builds normal EvaluationResponse (apart from generated reset/cache deserialization), supporting central runtime reason assignment there.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[2]",
+        "06:X024.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "06:X003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X003.c0 `grep -n \"buf\\|swagger\\|generate\" Taskfile.yml rpc/flipt/flipt.yaml buf.gen.yaml buf.public.gen.yaml | head -100`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[3]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "06:X003.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "06:X003.c1 `grep -R \"fliptEvaluationResponse\" -n --exclude='flipt.swagger.json' .`. No additional response reference/tool file or middleware cache behavior supplies a distinct reason assignment decision beyond already located evaluator/proto/schema.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[3]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "06:X004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X004.c0 `sed -n '60,110p' Taskfile.yml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "06:X004.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X004.c1 `cat buf.gen.yaml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 2,
+      "component_id": "06:X004.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X004.c2 `command -v buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 3,
+      "component_id": "06:X004.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X004.c3 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 4,
+      "component_id": "06:X004.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X004.c4 `command -v protoc`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 5,
+      "component_id": "06:X004.c5",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X004.c5 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 6,
+      "component_id": "06:X004.c6",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X004.c6 `head -40 rpc/flipt/flipt.pb.go`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[4]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "06:X005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X005.c0 `grep -n '^enum\\|type .* int32\\|EvaluationResponse struct' rpc/flipt/flipt.proto rpc/flipt/flipt.pb.go | head -40`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[5]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 1,
+      "component_id": "06:X005.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X005.c1 `sed -n '210,330p' rpc/flipt/flipt.pb.go`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[5]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "06:X006.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X006.c0 `git status --short`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "06:X006.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X006.c1 `grep -n 'flipt.*Type\\|definitions.*flipt' swagger/flipt.swagger.json | head -30`. Swagger response schema has existing properties without reason and enum definitions using strings. Final generated schema adds reference and string enum with five values.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[6]",
+        "final_patch:swagger/flipt.swagger.json"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "06:X007.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c0 `command -v buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 1,
+      "component_id": "06:X007.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c1 `echo no-buf`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 2,
+      "component_id": "06:X007.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c2 `command -v protoc`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 3,
+      "component_id": "06:X007.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c3 `echo no-protoc`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 4,
+      "component_id": "06:X007.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c4 `command -v protoc-gen-go`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 5,
+      "component_id": "06:X007.c5",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X007.c5 `echo no-protoc-gen-go`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 6,
+      "component_id": "06:X007.c6",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X007.c6 `grep -n 'protoc-gen-go\\|buf' go.mod _tools/go.mod script/bootstrap | head -30`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 7,
+      "component_id": "06:X007.c7",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X007.c7 `sed -n '190,220p' rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 8,
+      "component_id": "06:X007.c8",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X007.c8 `sed -n '1,120p' swagger/flipt.swagger.json`. Swagger response schema has existing properties without reason and enum definitions using strings. Final generated schema adds reference and string enum with five values.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]",
+        "final_patch:swagger/flipt.swagger.json"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 9,
+      "component_id": "06:X007.c9",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X007.c9 `grep -n 'func (x \\*EvaluationResponse) Get' rpc/flipt/flipt.pb.go`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[7]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "06:X008.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X008.c0 `sed -n '1,45p' script/bootstrap`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[8]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 1,
+      "component_id": "06:X008.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "06:X008.c1 `find . -maxdepth 2 -type f -name 'buf' -o -name 'protoc*'`. No additional response reference/tool file or middleware cache behavior supplies a distinct reason assignment decision beyond already located evaluator/proto/schema.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 2,
+      "component_id": "06:X008.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X008.c2 `sed -n '1,100p' _tools/tools.go`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[8]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "06:X009.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X009.c0 `python3 - <<'PY'`. Adds EvaluationReason enum with five values and EvaluationResponse reason field 11 in proto; final proto patch retains these declarations.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[9]",
+        "final_patch:rpc/flipt/flipt.proto"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 1,
+      "component_id": "06:X009.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X009.c1 `GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0 github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2 github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2 google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1`. Multi-module go install fails requiring same module/version; generates no bindings and final successful install uses separate invocations.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[9]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 2,
+      "component_id": "06:X009.c2",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X009.c2 `PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=../buf.gen.yaml ../rpc/flipt/flipt.proto --path flipt.proto 2>&1 | head -80`. Generation is behind failed go install in && chain; install error prevents establishing execution or effects from this component. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[9]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "06:X010.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c0 `rm -rf /tmp/flipt-tools`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 1,
+      "component_id": "06:X010.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c1 `mkdir -p /tmp/flipt-tools`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 2,
+      "component_id": "06:X010.c2",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c2 `GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 3,
+      "component_id": "06:X010.c3",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c3 `GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 4,
+      "component_id": "06:X010.c4",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c4 `GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 5,
+      "component_id": "06:X010.c5",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c5 `GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 6,
+      "component_id": "06:X010.c6",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c6 `GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 7,
+      "component_id": "06:X010.c7",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X010.c7 `PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=../buf.gen.yaml ../rpc/flipt/flipt.proto --path flipt.proto 2>&1 | head -100`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "06:X011.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c0 `GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Install attempts time out and next inventory shows empty tool directory; no completed executable or attributable generation support established.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 1,
+      "component_id": "06:X011.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c1 `echo buf-ready`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 2,
+      "component_id": "06:X011.c2",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c2 `GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 3,
+      "component_id": "06:X011.c3",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c3 `GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 4,
+      "component_id": "06:X011.c4",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c4 `GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 5,
+      "component_id": "06:X011.c5",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c5 `GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 6,
+      "component_id": "06:X011.c6",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c6 `echo all-ready`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 7,
+      "component_id": "06:X011.c7",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c7 `PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=buf.gen.yaml rpc/flipt/flipt.proto --path flipt.proto`. Later && components follow timed-out initial buf install without ready markers; execution and side effects cannot be established from shared output.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 8,
+      "component_id": "06:X011.c8",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X011.c8 `echo generated`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[11]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "06:X012.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X012.c0 `ls -l /tmp/flipt-tools 2>/dev/null`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[12]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 1,
+      "component_id": "06:X012.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X012.c1 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[12]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 2,
+      "component_id": "06:X012.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X012.c2 `git status --short`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[12]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 3,
+      "component_id": "06:X012.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X012.c3 `find /root/go/bin -maxdepth 1 -type f 2>/dev/null | head`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[12]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "06:X013.c0",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X013.c0 `(GOBIN=/tmp/flipt-tools go install github.com/bufbuild/buf/cmd/buf@v1.9.0 >/tmp/install.log 2>&1; echo $? >/tmp/install.status)`. Background buf installation is confirmed by following install.status 0 and visible buf executable; this executable later runs X21 generation of required schema/bindings.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[13]",
+        "06:X014.c1",
+        "06:X014.c4",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 1,
+      "component_id": "06:X013.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X013.c1 `echo started`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[13]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "06:X014.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X014.c0 `sleep 2`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[14]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 1,
+      "component_id": "06:X014.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X014.c1 `cat /tmp/install.status 2>/dev/null`. Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[14]",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 2,
+      "component_id": "06:X014.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X014.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[14]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 3,
+      "component_id": "06:X014.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X014.c3 `tail -5 /tmp/install.log`. Install log tail is empty; the separately printed status and executable listing establish completion, not this log-read component.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[14]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install log tail is empty; the separately printed status and executable listing establish completion, not this log-read component.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c1"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 4,
+      "component_id": "06:X014.c4",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X014.c4 `ls -l /tmp/flipt-tools 2>/dev/null`. Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[14]",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install status 0 and executable listing establish buf installation completed, enabling final required generation rather than merely a started process.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "06:X015.c0",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X015.c0 `(GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.15.2 && GOBIN=/tmp/flipt-tools go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.15.2 && GOBIN=/tmp/flipt-tools go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0 && GOBIN=/tmp/flipt-tools go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1; echo $? >/tmp/install2.status) >/tmp/install2.log 2>&1`. Background plugin installation eventually completes with all four executables in X20; X21 uses that tool directory to generate bindings and schema.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[15]",
+        "06:X020.c1",
+        "06:X020.c4",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 1,
+      "component_id": "06:X015.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X015.c1 `echo started`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[15]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "06:X016.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X016.c0 `sleep 3`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 1,
+      "component_id": "06:X016.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X016.c1 `cat /tmp/install2.status 2>/dev/null`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 2,
+      "component_id": "06:X016.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X016.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 3,
+      "component_id": "06:X016.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X016.c3 `tail -10 /tmp/install2.log`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 4,
+      "component_id": "06:X016.c4",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X016.c4 `ls -l /tmp/flipt-tools`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[16]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "06:X017.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X017.c0 `sleep 5`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 1,
+      "component_id": "06:X017.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X017.c1 `cat /tmp/install2.status 2>/dev/null`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 2,
+      "component_id": "06:X017.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X017.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 3,
+      "component_id": "06:X017.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X017.c3 `tail -10 /tmp/install2.log`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 4,
+      "component_id": "06:X017.c4",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X017.c4 `ls -l /tmp/flipt-tools`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[17]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "06:X018.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X018.c0 `sleep 10`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 1,
+      "component_id": "06:X018.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X018.c1 `cat /tmp/install2.status 2>/dev/null`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 2,
+      "component_id": "06:X018.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X018.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 3,
+      "component_id": "06:X018.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X018.c3 `tail -20 /tmp/install2.log`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 4,
+      "component_id": "06:X018.c4",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X018.c4 `ls -l /tmp/flipt-tools`. Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[18]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install polling still says running and repeats download log/only buf executable; no new completed plugin or reason-property evidence.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X014.c4"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "06:X019.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X019.c0 `sleep 20`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[19]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 1,
+      "component_id": "06:X019.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X019.c1 `cat /tmp/install2.status 2>/dev/null`. Install still running; no completion state or reason-field coverage established.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[19]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Install still running; no completion state or reason-field coverage established.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X018.c1"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 2,
+      "component_id": "06:X019.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X019.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[19]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 3,
+      "component_id": "06:X019.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X019.c3 `tail -30 /tmp/install2.log`. Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[19]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X018.c3"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 4,
+      "component_id": "06:X019.c4",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X019.c4 `ls -l /tmp/flipt-tools`. Visible log/listing newly shows grpc-gateway and openapiv2 executables; these are required plugins subsequently used to generate the REST schema.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[19]",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Visible log/listing newly shows grpc-gateway and openapiv2 executables; these are required plugins subsequently used to generate the REST schema.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "06:X020.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X020.c0 `sleep 15`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[20]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 1,
+      "component_id": "06:X020.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X020.c1 `cat /tmp/install2.status 2>/dev/null`. Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[20]",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X019.c4"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 2,
+      "component_id": "06:X020.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X020.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[20]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 3,
+      "component_id": "06:X020.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X020.c3 `tail -20 /tmp/install2.log`. Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[20]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Tail prints dependency-download messages already encountered; it does not establish successful plugin completion. New executable/status evidence belongs to the separate listing/status components.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X018.c3"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 4,
+      "component_id": "06:X020.c4",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X020.c4 `ls -l /tmp/flipt-tools`. Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[20]",
+        "06:X021.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Status 0 and listing newly confirm protoc-gen-go and protoc-gen-go-grpc alongside schema plugins; X21 then generates Go/proto artifacts.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X019.c4"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "06:X021.c0",
+      "contribution_label": "uncertain",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X021.c0 `PATH=/tmp/flipt-tools:$PATH /tmp/flipt-tools/buf generate --template=buf.gen.yaml`. buf generate succeeds; status and subsequent reads show protobuf reason enum/field/getter and Swagger enum/reference. Final patch retains generated pb.go and schema but later discards unrelated gateway churn.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "buf generate succeeds; status and subsequent reads show protobuf reason enum/field/getter and Swagger enum/reference. Final patch retains generated pb.go and schema but later discards unrelated gateway churn.",
+      "support_links": [
+        "evidence_06.json:X:action[21]",
+        "06:X022.c0",
+        "06:X023.c0",
+        "final_patch"
+      ],
+      "invalidation_links": [
+        "06:X028.c0"
+      ],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 1,
+      "component_id": "06:X021.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X021.c1 `echo generated`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[21]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 2,
+      "component_id": "06:X021.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X021.c2 `git status --short`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[21]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "06:X022.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X022.c0 `sed -n '20,100p' rpc/flipt/flipt.pb.go`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[22]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 1,
+      "component_id": "06:X022.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X022.c1 `sed -n '255,390p' rpc/flipt/flipt.pb.go`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[22]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 2,
+      "component_id": "06:X022.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X022.c2 `sed -n '1270,1325p' swagger/flipt.swagger.json`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[22]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "06:X023.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X023.c0 `sed -n '1420,1475p' swagger/flipt.swagger.json`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[23]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 1,
+      "component_id": "06:X023.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X023.c1 `grep -n 'fliptEvaluationReason' swagger/flipt.swagger.json`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[23]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 2,
+      "component_id": "06:X023.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X023.c2 `grep -n 'GetReason' rpc/flipt/flipt.pb.go`. Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[23]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated reads show EvaluationReason constants, response Reason/GetReason and schema reason reference/string enum. First inspection ties generation output to required public surfaces.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "06:X024.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X024.c0 `python3 - <<'PY'`. Introduces named returns/deferred reason classification, disabled and match assignments. Initial script leaves resp redeclaration build error fixed in X27; deferred global ErrNotFound classification also has a requirement ambiguity for non-flag store errors.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[24]",
+        "06:X026.c3",
+        "06:X027.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 1,
+      "component_id": "06:X024.c1",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X024.c1 `gofmt -w internal/server/evaluator.go`. Formats evaluator edits; next grep confirms added assignments, but does not detect resp redeclaration.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[24]",
+        "06:X024.c2"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 2,
+      "component_id": "06:X024.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "evidence": "06:X024.c2 `grep -n 'func (s \\*Server) evaluate\\|Reason' internal/server/evaluator.go | head -20`. Reason grep shows named evaluate/defer and FLAG_NOT_FOUND/ERROR/FLAG_DISABLED/MATCH assignments at both success exits. It establishes assignment placement, not compilation or full semantics.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[24]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Reason grep shows named evaluate/defer and FLAG_NOT_FOUND/ERROR/FLAG_DISABLED/MATCH assignments at both success exits. It establishes assignment placement, not compilation or full semantics.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 3,
+      "component_id": "06:X024.c3",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X024.c3 `go test ./internal/server ./rpc/flipt 2>&1 | tail -40`. Test pipeline times out with no result; compilation/outcome assertions cannot be inferred.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Test pipeline times out with no result; compilation/outcome assertions cannot be inferred.",
+      "support_links": [
+        "evidence_06.json:X:action[24]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Test pipeline times out with no result; compilation/outcome assertions cannot be inferred.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "06:X025.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X025.c0 `git diff --stat`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[25]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 1,
+      "component_id": "06:X025.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "evidence": "06:X025.c1 `git diff -- internal/server/evaluator.go | sed -n '1,180p'`. Diff reveals named-return edit still declares local resp, then X26 compiler log diagnoses redeclaration; X27 repairs. Diff inspection is relevant changed-code review, not passing proof.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[25]",
+        "06:X026.c3",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Diff reveals named-return edit still declares local resp, then X26 compiler log diagnoses redeclaration; X27 repairs. Diff inspection is relevant changed-code review, not passing proof.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 2,
+      "component_id": "06:X025.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R8"
+      ],
+      "evidence": "06:X025.c2 `git diff -- rpc/flipt/flipt.pb.gw.go | head -80`. Gateway diff reveals unrelated generated query-filter/DialContext changes; X28 explicitly restores this file, narrowing final patch while retaining response schema/bindings.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[25]",
+        "06:X028.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Gateway diff reveals unrelated generated query-filter/DialContext changes; X28 explicitly restores this file, narrowing final patch while retaining response schema/bindings.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 3,
+      "component_id": "06:X025.c3",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X025.c3 `(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)`. Background test launches but call only prints tests-started; attributable completion/result is read in X26, not established by launch.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Background test launches but call only prints tests-started; attributable completion/result is read in X26, not established by launch.",
+      "support_links": [
+        "evidence_06.json:X:action[25]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Background test launches but call only prints tests-started; attributable completion/result is read in X26, not established by launch.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 4,
+      "component_id": "06:X025.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X025.c4 `echo tests-started`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[25]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "06:X026.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:X026.c0 `git diff -- rpc/flipt/flipt.pb.go | head -100`. Generated pb.go diff exposes reason enum/map and index shifts; confirms Go declaration output matches proto, distinct from test compilation.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[26]",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Generated pb.go diff exposes reason enum/map and index shifts; confirms Go declaration output matches proto, distinct from test compilation.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 1,
+      "component_id": "06:X026.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X026.c1 `cat /tmp/test.status 2>/dev/null`. Test status 1 and log specifically show evaluator.go resp redeclared against named return; X27 removes local var declaration. This supplies actionable compiler defect rather than a semantic pass.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[26]",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Test status 1 and log specifically show evaluator.go resp redeclared against named return; X27 removes local var declaration. This supplies actionable compiler defect rather than a semantic pass.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 2,
+      "component_id": "06:X026.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X026.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[26]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 3,
+      "component_id": "06:X026.c3",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X026.c3 `tail -20 /tmp/test.log 2>/dev/null`. Test status 1 and log specifically show evaluator.go resp redeclared against named return; X27 removes local var declaration. This supplies actionable compiler defect rather than a semantic pass.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[26]",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Test status 1 and log specifically show evaluator.go resp redeclared against named return; X27 removes local var declaration. This supplies actionable compiler defect rather than a semantic pass.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "06:X027.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "evidence": "06:X027.c0 `sed -n '75,90p' internal/server/evaluator.go`. Read shows local var(resp=...) still present beneath named return/defer; script replaces it with assignment, resolving compiler redeclaration.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[27]",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 1,
+      "component_id": "06:X027.c1",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X027.c1 `python3 - <<'PY'`. Changes local var resp declaration to assignment and formats evaluator, fixing named-return compilation needed by deferred reason mapping. Final evaluator diff reflects this correction.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[27]",
+        "06:X029.c3",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 2,
+      "component_id": "06:X027.c2",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X027.c2 `gofmt -w internal/server/evaluator.go`. Changes local var resp declaration to assignment and formats evaluator, fixing named-return compilation needed by deferred reason mapping. Final evaluator diff reflects this correction.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[27]",
+        "06:X029.c3",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 3,
+      "component_id": "06:X027.c3",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R7"
+      ],
+      "evidence": "06:X027.c3 `sed -n '75,90p' internal/server/evaluator.go`. Post-edit snippet shows resp assignment without var block, confirming exact compiler defect repair before rerunning tests.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[27]",
+        "06:X029.c3"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Post-edit snippet shows resp assignment without var block, confirming exact compiler defect repair before rerunning tests.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X026.c3"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "06:X028.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R8"
+      ],
+      "evidence": "06:X028.c0 `git checkout -- rpc/flipt/flipt.pb.gw.go`. Restores unrelated generated gateway query/DialContext churn identified in X25; final patch retains proto, pb.go and Swagger reason exposure without those unrelated changes.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[28]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 1,
+      "component_id": "06:X028.c1",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X028.c1 `(go test ./internal/server ./rpc/flipt >/tmp/test.log 2>&1; echo $? >/tmp/test.status)`. Background test launch has only tests-started in this call; completion supported separately by X29 log.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Background test launch has only tests-started in this call; completion supported separately by X29 log.",
+      "support_links": [
+        "evidence_06.json:X:action[28]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Background test launch has only tests-started in this call; completion supported separately by X29 log.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 2,
+      "component_id": "06:X028.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X028.c2 `echo tests-started`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[28]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "06:X029.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X029.c0 `sleep 5`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 1,
+      "component_id": "06:X029.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4",
+        "R5",
+        "R6",
+        "R8"
+      ],
+      "evidence": "06:X029.c1 `cat /tmp/test.status 2>/dev/null`. Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.",
+      "reason": "justified_confidence",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X026.c3"
+      ],
+      "verification_gain": "justified_confidence",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 2,
+      "component_id": "06:X029.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X029.c2 `echo running`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 3,
+      "component_id": "06:X029.c3",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R4",
+        "R5",
+        "R6",
+        "R8"
+      ],
+      "evidence": "06:X029.c3 `tail -30 /tmp/test.log 2>/dev/null`. Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.",
+      "reason": "justified_confidence",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]",
+        "06:X027.c1"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Status 0 and logs show internal/server and rpc/flipt pass after resp declaration fix and gateway cleanup. Existing evaluator cases plus generated package compilation validate changed-state integration; no new reason assertions are claimed.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X026.c3"
+      ],
+      "verification_gain": "justified_confidence",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 4,
+      "component_id": "06:X029.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X029.c4 `git diff --stat`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 5,
+      "component_id": "06:X029.c5",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:X029.c5 `grep -n 'fliptEvaluationReason' swagger/flipt.swagger.json`. Schema reason definition/reference search repeats X23 with unchanged schema.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[29]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Schema reason definition/reference search repeats X23 with unchanged schema.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X023.c1"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "06:X030.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:X030.c0 `git diff -- internal/server/evaluator.go`. Final evaluator diff confirms fixed named-return assignment and disabled/match/deferred error branches; first complete post-repair diff, with global ErrNotFound caveat retained.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[30]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Final evaluator diff confirms fixed named-return assignment and disabled/match/deferred error branches; first complete post-repair diff, with global ErrNotFound caveat retained.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:X025.c1"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 1,
+      "component_id": "06:X030.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R9"
+      ],
+      "evidence": "06:X030.c1 `sed -n '1380,1405p' swagger/flipt.swagger.json`. Swagger enum read repeats generated string enum confirmation with no schema change.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[30]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Swagger enum read repeats generated string enum confirmation with no schema change.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:X022.c2"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 2,
+      "component_id": "06:X030.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X030.c2 `git status --short`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[30]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "06:X031.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X031.c0 `git diff -- internal/server/evaluator.go rpc/flipt/flipt.proto rpc/flipt/flipt.pb.go swagger/flipt.swagger.json > patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[31]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 1,
+      "component_id": "06:X031.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X031.c1 `wc -l patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[31]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 2,
+      "component_id": "06:X031.c2",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X031.c2 `grep -E '^diff --git|^--- a/|^\\+\\+\\+ b/' patch.txt | head -20`. Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[31]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 3,
+      "component_id": "06:X031.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X031.c3 `git diff --check -- internal/server/evaluator.go rpc/flipt/flipt.proto rpc/flipt/flipt.pb.go swagger/flipt.swagger.json`. Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[31]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "06:X032.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X032.c0 `printf '%s\\n' 'Patch files:'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 1,
+      "component_id": "06:X032.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X032.c1 `grep '^diff --git' patch.txt`. Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 2,
+      "component_id": "06:X032.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X032.c2 `printf '%s\\n' 'Headers:'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 3,
+      "component_id": "06:X032.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X032.c3 `grep -E '^--- a/|^\\+\\+\\+ b/' patch.txt`. Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 4,
+      "component_id": "06:X032.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X032.c4 `printf '%s\\n' 'Unexpected paths:'`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 5,
+      "component_id": "06:X032.c5",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:X032.c5 `if grep '^diff --git' patch.txt | grep -Ev 'internal/server/evaluator.go|rpc/flipt/flipt.proto|rpc/flipt/flipt.pb.go|swagger/flipt.swagger.json'; then exit 1; else echo none; fi`. Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:X:action[32]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch headers, allowed paths and whitespace are delivery checks; they do not establish reason semantics or API serialization.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "06:X033.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X033.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[33]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 33,
+      "component_index": 1,
+      "component_id": "06:X033.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:X033.c1 `cat patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:X:action[33]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "06:Y000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y000.c0 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[0]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "06:Y001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y001.c0 `git grep \"EvaluationResponse\"`. EvaluationResponse search identifies evaluator construction plus protobuf and Swagger response definitions. Final patch changes these three layers to carry reason.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[1]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "06:Y002.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y002.c0 `ls -la`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[2]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "06:Y003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y003.c0 `cat Taskfile.yml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[3]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "06:Y004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y004.c0 `cat buf.gen.yaml`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[4]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "06:Y004.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y004.c1 `echo \"--- bootstrap ---\"`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[4]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 2,
+      "component_id": "06:Y004.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y004.c2 `cat script/bootstrap`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[4]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "06:Y005.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y005.c0 `which buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[5]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 1,
+      "component_id": "06:Y005.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y005.c1 `echo \"buf not in PATH\"`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[5]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "06:Y006.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y006.c0 `export PATH=$PATH:$(go env GOPATH)/bin:/root/go/bin`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "06:Y006.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y006.c1 `which buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "06:Y006.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y006.c2 `echo \"not found\"`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[6]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "06:Y007.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y007.c0 `ls -la _tools`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 1,
+      "component_id": "06:Y007.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y007.c1 `./script/bootstrap`. Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.",
+      "support_links": [
+        "evidence_06.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 2,
+      "component_id": "06:Y007.c2",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y007.c2 `export PATH=$PATH:$(go env GOPATH)/bin`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 3,
+      "component_id": "06:Y007.c3",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y007.c3 `which buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 4,
+      "component_id": "06:Y007.c4",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y007.c4 `buf --version`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:Y:action[7]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "06:Y008.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y008.c0 `go install \\`. Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Bootstrap/install times out without executable completion evidence; subsequent bin listing is empty, so these attempts cannot be credited as successful prerequisites.",
+      "support_links": [
+        "evidence_06.json:Y:action[8]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "06:Y009.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y009.c0 `ls -la $(go env GOPATH)/bin`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[9]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "06:Y010.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c0 `echo $PATH`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 1,
+      "component_id": "06:Y010.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c1 `which protoc`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 2,
+      "component_id": "06:Y010.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c2 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 3,
+      "component_id": "06:Y010.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c3 `which buf`. Tool availability/path probes locate missing generation executables; they do not themselves implement or verify reason fields.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 4,
+      "component_id": "06:Y010.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c4 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 5,
+      "component_id": "06:Y010.c5",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c5 `ls -la /usr/local/bin`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 6,
+      "component_id": "06:Y010.c6",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y010.c6 `true`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed. This branch is skipped by the visible preceding result/shell failure and must be excluded from performed-component scoring.",
+      "reason": "short_circuit_not_executed",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[10]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "not_executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "06:Y011.c0",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y011.c0 `go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[11]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "06:Y012.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y012.c0 `cat _tools/go.mod`. Generation task/templates/bootstrap pin proto plugins and Swagger output; generated code header identifies generator version. Subsequent successful generation produces required bindings/schema. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[12]",
+        "06:X021.c0",
+        "06:Y025.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "06:Y013.c0",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y013.c0 `go install github.com/bufbuild/buf/cmd/buf@v1.9.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[13]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 1,
+      "component_id": "06:Y013.c1",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y013.c1 `go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.12.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[13]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 2,
+      "component_id": "06:Y013.c2",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y013.c2 `go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.12.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[13]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 3,
+      "component_id": "06:Y013.c3",
+      "contribution_label": "direct",
+      "role": "administration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y013.c3 `go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0`. Pinned generator installs complete successfully; subsequent buf generation and retained pb.go/Swagger output establish these prerequisites were used.",
+      "reason": "supported_prerequisite",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[13]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "06:Y014.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [],
+      "evidence": "06:Y014.c0 `buf generate`. Initial buf generation changes only generator version comment before proto edit; no reason field or enum is generated yet.",
+      "reason": "discarded_or_failed_edit",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[14]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 1,
+      "component_id": "06:Y014.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y014.c1 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[14]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "06:Y015.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:Y015.c0 `git diff rpc/flipt/flipt.pb.go`. Diff shows only protoc-gen-go version comment; no requested schema/binding feature is checked or added.",
+      "reason": "unrelated_or_nonbehavioral_check",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[15]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Diff shows only protoc-gen-go version comment; no requested schema/binding feature is checked or added.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "06:Y016.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y016.c0 `grep -n -C 20 \"message EvaluationResponse\" rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[16]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "06:Y017.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y017.c0 `grep -n -C 10 \"enum \" rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[17]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "06:Y018.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y018.c0 `cat internal/server/evaluator.go`. Evaluator reads show GetFlag failure, disabled branch, no-rules/no-match paths, rule/distribution successes and store/order errors. Final patches assign reasons at these outcomes or via deferred classification.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[18]",
+        "final_patch:internal/server/evaluator.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "06:Y019.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R7"
+      ],
+      "evidence": "06:Y019.c0 `git grep \"ErrNotFound\"`. ErrNotFound references show typed storage not-found causes, supporting errors.As only on GetFlag failure in final evaluator branch.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[19]",
+        "06:Y029.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "06:Y020.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "evidence": "06:Y020.c0 `cat internal/server/middleware.go`. No additional response reference/tool file or middleware cache behavior supplies a distinct reason assignment decision beyond already located evaluator/proto/schema.",
+      "reason": "unused_or_repeated_context",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[20]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "06:Y021.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y021.c0 `git grep -n \"EvaluationResponse\"`. EvaluationResponse search identifies evaluator construction plus protobuf and Swagger response definitions. Final patch changes these three layers to carry reason.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[21]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "06:Y022.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y022.c0 `sed -n '55,90p' rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[22]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "06:Y023.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y023.c0 `grep -n -A 10 \"enum \" rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[23]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "06:Y024.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y024.c0 `sed -n '1,100p' rpc/flipt/flipt.proto`. Proto/generated reads show EvaluationResponse has fields 1\u201310 but no reason and existing enum/getter conventions. These support adding field 11 and EvaluationReason plus generated bindings.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[24]",
+        "final_patch:rpc/flipt/flipt.proto",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "06:Y025.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y025.c0 `python3 -c '`. Adds five-value EvaluationReason and reason field 11 to proto; final patch retains declarations and subsequent generation creates Go/Swagger surfaces.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[25]",
+        "06:Y025.c1",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 25,
+      "component_index": 1,
+      "component_id": "06:Y025.c1",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y025.c1 `buf generate`. Generates bindings/schema from modified proto; subsequent diffs show response Reason, GetReason, enum descriptors and Swagger string enum/reference. Retained generated files directly implement API surfaces.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[25]",
+        "06:Y026.c0",
+        "06:Y027.c0",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 25,
+      "component_index": 2,
+      "component_id": "06:Y025.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y025.c2 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[25]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "06:Y026.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R8",
+        "R9"
+      ],
+      "evidence": "06:Y026.c0 `git diff swagger/flipt.swagger.json`. Swagger diff explicitly adds fliptEvaluationReason string enum of all five values and response reason reference, validating REST schema surface.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[26]",
+        "final_patch:swagger/flipt.swagger.json"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Swagger diff explicitly adds fliptEvaluationReason string enum of all five values and response reason reference, validating REST schema surface.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "06:Y027.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y027.c0 `git diff rpc/flipt/flipt.pb.go`. Visible generated diff adds EvaluationReason enum and Reason field/accessor/descriptor updates; only agent-visible head/tail is credited where truncated. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[27]",
+        "final_patch:rpc/flipt/flipt.pb.go"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Visible generated diff adds EvaluationReason enum and Reason field/accessor/descriptor updates; only agent-visible head/tail is credited where truncated.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "06:Y028.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [],
+      "evidence": "06:Y028.c0 `python3 -c '`. Python command fails SyntaxError unterminated triple-quoted string before updating evaluator; no implementation progress. Correct heredoc replacement follows.",
+      "reason": "discarded_or_failed_edit",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[28]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "06:Y029.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y029.c0 `python3 << 'EOF'`. Rewrites evaluate with UNKNOWN initial reason, GetFlag errors.As-specific not-found/error branch, disabled/match and all later error assignments. Final evaluator patch retains those outcome branches.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[29]",
+        "final_patch:internal/server/evaluator.go"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "06:Y030.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "evidence": "06:Y030.c0 `go test ./...`. Broad test times out -1 with empty output; no completion or tested property is established.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Broad test times out -1 with empty output; no completion or tested property is established.",
+      "support_links": [
+        "evidence_06.json:Y:action[30]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Broad test times out -1 with empty output; no completion or tested property is established.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "06:Y031.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y031.c0 `go test -v ./internal/server/...`. Server test run ends with Redis Docker setup failures and clipped output; cannot infer new reason assertions or all relevant evaluator passes from the environmental failure tail. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Server test run ends with Redis Docker setup failures and clipped output; cannot infer new reason assertions or all relevant evaluator passes from the environmental failure tail.",
+      "support_links": [
+        "evidence_06.json:Y:action[31]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Server test run ends with Redis Docker setup failures and clipped output; cannot infer new reason assertions or all relevant evaluator passes from the environmental failure tail.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "06:Y032.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y032.c0 `cat internal/server/evaluator_test.go`. Evaluator tests and storeMock reveal concrete mock rule/distribution slice return conventions; temporary reason tests are revised to typed slices after panic, enabling final focused run. Agent-visible output was truncated; no hidden/elided output is credited.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[32]",
+        "06:Y035.c0",
+        "06:Y036.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "06:Y033.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y033.c0 `cat << 'EOF' > internal/server/reason_test.go`. Temporary reason tests assert missing/disabled/no-rule/match/rollout/error outcomes. First fixture uses nil slice mock returns and panics later; passing early cases are visible but full fixture needs correction.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[33]",
+        "06:Y033.c1",
+        "06:Y035.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 33,
+      "component_index": 1,
+      "component_id": "06:Y033.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y033.c1 `go test -v -run TestEvaluationReason_AllScenarios ./internal/server`. Focused run executes missing/disabled/no-rule/match cases before panic at GetEvaluationRules nil interface-to-slice assertion. Y34/Y35 correct mock fixture; credits partial named coverage and actionable fixture failure, not suite pass.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[33]",
+        "06:Y034.c0",
+        "06:Y035.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Focused run executes missing/disabled/no-rule/match cases before panic at GetEvaluationRules nil interface-to-slice assertion. Y34/Y35 correct mock fixture; credits partial named coverage and actionable fixture failure, not suite pass.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 33,
+      "component_index": 2,
+      "component_id": "06:Y033.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y033.c2 `rm internal/server/reason_test.go`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[33]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 34,
+      "component_index": 0,
+      "component_id": "06:Y034.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y034.c0 `grep -n -C 10 \"GetEvaluationRules\" internal/server/support_test.go`. Evaluator tests and storeMock reveal concrete mock rule/distribution slice return conventions; temporary reason tests are revised to typed slices after panic, enabling final focused run.",
+      "reason": "used_specific_observation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[34]",
+        "06:Y035.c0",
+        "06:Y036.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 35,
+      "component_index": 0,
+      "component_id": "06:Y035.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y035.c0 `cat << 'EOF' > internal/server/reason_test.go`. Revises temporary reason tests to typed nil rule/distribution slices, advancing focused validation. A remaining unmatched-rule fixture reaches distribution mock unexpectedly; Y36 repairs.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[35]",
+        "06:Y035.c1",
+        "06:Y036.c0"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 35,
+      "component_index": 1,
+      "component_id": "06:Y035.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y035.c1 `go test -v -run TestEvaluationReason_AllScenarios ./internal/server`. Second focused run progresses farther then panics in GetEvaluationDistributions mock during fixture scenario; next test revision corrects setup. Does not prove all error paths passed.",
+      "reason": "actionable_defect",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[35]",
+        "06:Y036.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Second focused run progresses farther then panics in GetEvaluationDistributions mock during fixture scenario; next test revision corrects setup. Does not prove all error paths passed.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:Y033.c1"
+      ],
+      "verification_gain": "actionable_defect",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 35,
+      "component_index": 2,
+      "component_id": "06:Y035.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y035.c2 `rm internal/server/reason_test.go`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[35]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 36,
+      "component_index": 0,
+      "component_id": "06:Y036.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y036.c0 `cat << 'EOF' > internal/server/reason_test.go`. Final temporary test fixture covers flag missing/disabled, no rules, distribution/rule match, outside rollout, store/rule ordering/constraint/distribution errors; next component passes each visible named case.",
+      "reason": "requirement_implementation",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[36]",
+        "06:Y036.c1"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 36,
+      "component_index": 1,
+      "component_id": "06:Y036.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y036.c1 `go test -v -run TestEvaluationReason_AllScenarios ./internal/server`. All eleven named TestEvaluationReason_AllScenarios subtests pass, with assertions in visible fixture for each reason outcome. This adds explicit reason assertions absent from existing evaluator suite.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[36]",
+        "06:Y036.c0"
+      ],
+      "invalidation_links": [],
+      "property_checked": "All eleven named TestEvaluationReason_AllScenarios subtests pass, with assertions in visible fixture for each reason outcome. This adds explicit reason assertions absent from existing evaluator suite.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:Y033.c1",
+        "06:Y035.c1"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 36,
+      "component_index": 2,
+      "component_id": "06:Y036.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y036.c2 `rm internal/server/reason_test.go`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[36]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 37,
+      "component_index": 0,
+      "component_id": "06:Y037.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y037.c0 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[37]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 38,
+      "component_index": 0,
+      "component_id": "06:Y038.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7"
+      ],
+      "evidence": "06:Y038.c0 `go test $(go list ./internal/... | grep -v /redis)`. Non-Redis internal test run prints several package passes but exits -1; no complete suite result is established, and no new explicit reason coverage beyond Y36 is visible.",
+      "reason": "attribution_or_property_unestablished",
+      "uncertainty_reason": "Non-Redis internal test run prints several package passes but exits -1; no complete suite result is established, and no new explicit reason coverage beyond Y36 is visible.",
+      "support_links": [
+        "evidence_06.json:Y:action[38]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Non-Redis internal test run prints several package passes but exits -1; no complete suite result is established, and no new explicit reason coverage beyond Y36 is visible.",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 39,
+      "component_index": 0,
+      "component_id": "06:Y039.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:Y039.c0 `go test -v ./internal/storage/sql/sqlite`. sqlite package reports no test files; supplies no outcome/reason assertion or new relevant coverage.",
+      "reason": "unrelated_or_nonbehavioral_check",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[39]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "sqlite package reports no test files; supplies no outcome/reason assertion or new relevant coverage.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "verification_gain": "uncertain",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 40,
+      "component_index": 0,
+      "component_id": "06:Y040.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R8"
+      ],
+      "evidence": "06:Y040.c0 `go build ./...`. go build ./... exits 0 after evaluator and generated API changes; establishes repository compilation, a different property from targeted reason assertions.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[40]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "go build ./... exits 0 after evaluator and generated API changes; establishes repository compilation, a different property from targeted reason assertions.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "06:Y036.c1"
+      ],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 41,
+      "component_index": 0,
+      "component_id": "06:Y041.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y041.c0 `git status`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[41]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 42,
+      "component_index": 0,
+      "component_id": "06:Y042.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "evidence": "06:Y042.c0 `git diff internal/server/evaluator.go`. Final evaluator/proto diffs confirm explicit assignments on GetFlag/later error and success branches plus reason field/enum, with no temporary tests retained. First final source-scope review of runtime/proto edits.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[42]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Final evaluator/proto diffs confirm explicit assignments on GetFlag/later error and success branches plus reason field/enum, with no temporary tests retained. First final source-scope review of runtime/proto edits.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 43,
+      "component_index": 0,
+      "component_id": "06:Y043.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "evidence": "06:Y043.c0 `git diff rpc/flipt/flipt.proto`. Final evaluator/proto diffs confirm explicit assignments on GetFlag/later error and success branches plus reason field/enum, with no temporary tests retained. First final source-scope review of runtime/proto edits.",
+      "reason": "new_relevant_coverage",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[43]",
+        "final_patch"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Final evaluator/proto diffs confirm explicit assignments on GetFlag/later error and success branches plus reason field/enum, with no temporary tests retained. First final source-scope review of runtime/proto edits.",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "verification_gain": "new_relevant_coverage",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 44,
+      "component_index": 0,
+      "component_id": "06:Y044.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y044.c0 `git diff -- internal/server/evaluator.go rpc/flipt/flipt.pb.go rpc/flipt/flipt.proto swagger/flipt.swagger.json > patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[44]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 45,
+      "component_index": 0,
+      "component_id": "06:Y045.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:Y045.c0 `git apply --stat patch.txt`. Patch stat/header excerpt repeats retained file scope and earlier evaluator diff; no source edit or new behavioral check.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[45]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch stat/header excerpt repeats retained file scope and earlier evaluator diff; no source edit or new behavioral check.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:Y042.c0",
+        "06:Y043.c0"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 45,
+      "component_index": 1,
+      "component_id": "06:Y045.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "evidence": "06:Y045.c1 `head -n 25 patch.txt`. Patch stat/header excerpt repeats retained file scope and earlier evaluator diff; no source edit or new behavioral check.",
+      "reason": "repeated_support",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[45]"
+      ],
+      "invalidation_links": [],
+      "property_checked": "Patch stat/header excerpt repeats retained file scope and earlier evaluator diff; no source edit or new behavioral check.",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [
+        "06:Y042.c0",
+        "06:Y043.c0"
+      ],
+      "verification_gain": "repeated_support",
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 46,
+      "component_index": 0,
+      "component_id": "06:Y046.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y046.c0 `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "administration",
+      "uncertainty_reason": null,
+      "support_links": [
+        "evidence_06.json:Y:action[46]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 46,
+      "component_index": 1,
+      "component_id": "06:Y046.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "evidence": "06:Y046.c1 `cat patch.txt`. Administrative bookkeeping or delivery formatting; no requirement behavior is established or changed.",
+      "reason": "execution_or_result_unestablished",
+      "uncertainty_reason": "Interrupted/missing shared result does not establish whether this component ran to an observable result.",
+      "support_links": [
+        "evidence_06.json:Y:action[46]"
+      ],
+      "invalidation_links": [],
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Retrospective final-patch visibility; no trajectory commands executed.",
+    "Direct test credit is limited to observable relevant properties and state changes; passing invocation alone is insufficient.",
+    "Opaque mixed edits, interrupted/missing output and unproven conditional execution retain uncertainty."
+  ]
+}

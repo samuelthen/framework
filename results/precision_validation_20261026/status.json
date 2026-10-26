@@ -1,0 +1,52 @@
+{
+  "inventory_components": 769,
+  "native_calls": 449,
+  "evaluation_pairs": 8,
+  "missing_second_review_tasks": [],
+  "human_validation": "not_performed",
+  "failed_run_recall": "deferred: independent accepted requirements and final states not established",
+  "historical_graphs": "16 pilot default graphs rebuilt separately; historical graphs/labels retain pre-repair facts",
+  "state_repairs": "seven audit regressions repaired; general state identity remains conservative heuristic",
+  "precision": "computed: two blinded component passes and conservative cross-review bounds; model-coded",
+  "native_call_second_review_comparison": {
+    "n": 449,
+    "agreement": 0.6792873051224945,
+    "kappa": 0.4455696853803477,
+    "unit": "native calls; reviewer B projected by legacy strongest-component rule",
+    "component_agreement": "not identifiable: no independently annotated reviewer A components",
+    "human_validation": "none",
+    "note": "Blinded model second pass, with revised guide and units. Native-call disagreement mixes attribution, requirement, guide and unit changes; not a clean inter-rater accuracy estimate."
+  },
+  "component_independent_agreement": {
+    "all_candidates": {
+      "n": 769,
+      "agreement": 0.8582574772431729,
+      "kappa": 0.7587357234963616,
+      "role_agreement": 0.9492847854356307,
+      "execution_agreement": 0.9830949284785435
+    },
+    "executed_by_both": {
+      "n": 688,
+      "agreement": 0.8488372093023255,
+      "kappa": 0.7148641109428548,
+      "role_agreement": 0.9476744186046512,
+      "execution_agreement": 1.0
+    },
+    "both_assessable_executed": {
+      "n": 655,
+      "agreement": 0.8625954198473282,
+      "kappa": 0.7217108058348676,
+      "role_agreement": 0.9450381679389313,
+      "execution_agreement": 1.0
+    },
+    "limits": [
+      "Two blinded Codex model-coded passes, not independent human or independent model-family validation.",
+      "Common units and frozen requirement sheets; unresolved reference conflicts remain.",
+      "Worker groups cover disjoint tasks within each pass. Run style/length can weaken model blinding.",
+      "Five first-pass role-only adjudications are explicit and do not change its contribution labels."
+    ]
+  },
+  "requirement_adjudication": "conflicts documented, no independent executable acceptance check",
+  "component_precision_validation": "two model-coded passes completed; accuracy not established",
+  "conservative_reconciliation": "reconciled_* files; disagreement-as-uncertainty sensitivity"
+}

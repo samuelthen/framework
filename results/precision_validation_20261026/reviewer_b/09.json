@@ -1,0 +1,943 @@
+{
+  "order": 9,
+  "reviewer": "reviewer_b",
+  "validation_status": "independent model-coded second pass; not human validation",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "The module `openlibrary/core/observations.py` should expose an importable function `_sort_values(order_list, values_list)` so tests can `from openlibrary.core.observations import _sort_values`.",
+      "kind": "repair",
+      "source": "packet 09, Requirements text bullet 1; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "An ID-to-name lookup or ordered search is valid. No requirement to implement the reference patch\u2019s unrelated observations database/API/UI overhaul."
+      ],
+      "conflicts": [
+        "Reference patch has much broader unrelated persistence/UI work and drops falsy names; explicit dataset requires names by IDs and does not require that broader route. Duplicate IDs in values_list are unspecified (lookup chooses last, ordered search can choose first)."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R2",
+      "description": "`_sort_values(order_list, values_list)` should return a list of **names** ordered exactly by the integer IDs in `order_list`, where each element of `values_list` is a dict with keys `id` and `name`.",
+      "kind": "repair",
+      "source": "packet 09, Requirements text bullet 2; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "An ID-to-name lookup or ordered search is valid. No requirement to implement the reference patch\u2019s unrelated observations database/API/UI overhaul."
+      ],
+      "conflicts": [
+        "Reference patch has much broader unrelated persistence/UI work and drops falsy names; explicit dataset requires names by IDs and does not require that broader route. Duplicate IDs in values_list are unspecified (lookup chooses last, ordered search can choose first)."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R3",
+      "description": "`_sort_values` should ignore any IDs present in `order_list` that do not appear in `values_list` without raising an error.",
+      "kind": "repair",
+      "source": "packet 09, Requirements text bullet 3; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "An ID-to-name lookup or ordered search is valid. No requirement to implement the reference patch\u2019s unrelated observations database/API/UI overhaul."
+      ],
+      "conflicts": [
+        "Reference patch has much broader unrelated persistence/UI work and drops falsy names; explicit dataset requires names by IDs and does not require that broader route. Duplicate IDs in values_list are unspecified (lookup chooses last, ordered search can choose first)."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R4",
+      "description": "`_sort_values` should exclude any entries in `values_list` whose `id` does not appear in `order_list` so they do not appear in the result.",
+      "kind": "repair",
+      "source": "packet 09, Requirements text bullet 4; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "An ID-to-name lookup or ordered search is valid. No requirement to implement the reference patch\u2019s unrelated observations database/API/UI overhaul."
+      ],
+      "conflicts": [
+        "Reference patch has much broader unrelated persistence/UI work and drops falsy names; explicit dataset requires names by IDs and does not require that broader route. Duplicate IDs in values_list are unspecified (lookup chooses last, ordered search can choose first)."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R5",
+      "description": "`_sort_values` should be a pure function that does not perform I/O or rely on external state, ensuring deterministic behavior for the unit test.",
+      "kind": "repair",
+      "source": "packet 09, Requirements text bullet 5; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "An ID-to-name lookup or ordered search is valid. No requirement to implement the reference patch\u2019s unrelated observations database/API/UI overhaul."
+      ],
+      "conflicts": [
+        "Reference patch has much broader unrelated persistence/UI work and drops falsy names; explicit dataset requires names by IDs and does not require that broader route. Duplicate IDs in values_list are unspecified (lookup chooses last, ordered search can choose first)."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "09:X000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 0, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "09:X001.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R5"
+      ],
+      "reason": "Reads target module and its I/O functions, establishing insertion point for independent pure helper.",
+      "support_links": [
+        "09:X011.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 1, component 0",
+        "command": "cat openlibrary/core/observations.py",
+        "observation": "Reads target module and its I/O functions, establishing insertion point for independent pure helper.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "09:X002.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 2, component 0",
+        "command": "find . -name \"*observation*\"",
+        "observation": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "09:X003.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Broad test inventory not used to find or run a helper-specific existing test.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 3, component 0",
+        "command": "find openlibrary -name \"*test*\" -o -name \"test_*.py\"",
+        "observation": "Broad test inventory not used to find or run a helper-specific existing test.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "09:X004.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "TBBO integration search is outside pure ordering helper and leads to no integration change.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 4, component 0",
+        "command": "git grep -i \"tbbo\"",
+        "observation": "TBBO integration search is outside pure ordering helper and leads to no integration change.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "09:X005.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "UI/API observations call search supplies no sorting behavior used by final isolated helper.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 5, component 0",
+        "command": "git grep -i \"observations\"",
+        "observation": "UI/API observations call search supplies no sorting behavior used by final isolated helper.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "09:X006.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Reads unrelated API range without observations handler or ordering implementation.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 6, component 0",
+        "command": "sed -n '120,180p' openlibrary/plugins/openlibrary/api.py",
+        "observation": "Reads unrelated API range without observations handler or ordering implementation.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "09:X007.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Locates API handler; final helper requires no API change.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 7, component 0",
+        "command": "git grep -n \"class observations\" openlibrary/plugins/openlibrary/api.py",
+        "observation": "Locates API handler; final helper requires no API change.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "09:X008.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Reads external POST/aspects handlers; no changes or helper dependency follows.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 8, component 0",
+        "command": "sed -n '420,460p' openlibrary/plugins/openlibrary/api.py",
+        "observation": "Reads external POST/aspects handlers; no changes or helper dependency follows.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "09:X009.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "One ratings test passes before helper exists; unrelated ratings property supplies no evidence of required ordering behavior.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Unrelated ratings baseline test",
+      "evidence": {
+        "trace": "evidence_09.json run X action 9, component 0",
+        "command": "pytest openlibrary/tests/core/test_ratings.py",
+        "observation": "One ratings test passes before helper exists; unrelated ratings property supplies no evidence of required ordering behavior.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "09:X010.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repeats target module already fully read at X001 without changed state.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 10, component 0",
+        "command": "cat openlibrary/core/observations.py",
+        "observation": "Repeats target module already fully read at X001 without changed state.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "09:X011.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Adds importable _sort_values using local id-to-name mapping and ordered membership-filtered comprehension. Exact function retained in final patch; added malformed-dict guard is beyond required valid-dict contract.",
+      "support_links": [
+        "evidence_09.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 11, component 0",
+        "command": "python3 -c \"\ncontent = '''\\\"\\\"\\\"Module for handling patron observation functionality\\\"\\\"\\\"\n\nimport requests\n\nfrom infogami import config\nfrom openlibrary import accounts\nfrom . import cache\n\n# URL for TheBestBookOn\nTBBO_URL = config.get('tbbo_url')\n\n\ndef _sort_values(order_list, values_list):\n    \\\"\\\"\\\"\n    Given an ordered list of value IDs and a list of value dictionaries,\n    returns the value names in the exact specified order.\n    \\\"\\\"\\\"\n    id_map = {item['id']: item['name'] for item in values_list if 'id' in item and 'name' in item}\n    return [id_map[val_id] for val_id in order_list if val_id in id_map]\n\n\ndef post_observation(data, s3_keys):\n    headers = {\n        'x-s3-access': s3_keys['access'],\n        'x-s3-secret': s3_keys['secret']\n    }\n\n    response = requests.post(TBBO_URL + '/api/observations', data=data, headers=headers)\n\n    return response.text\n\n\n@cache.memoize(engine=\\\"memcache\\\", key=\\\"tbbo_aspects\\\", expires=config.get('tbbo_aspect_cache_duration'))\ndef get_aspects():\n    response = requests.get(TBBO_URL + '/api/aspects')\n\n    return response.text\n'''\n\nwith open('openlibrary/core/observations.py', 'w') as f:\n    f.write(content)\n\"",
+        "observation": "Adds importable _sort_values using local id-to-name mapping and ordered membership-filtered comprehension. Exact function retained in final patch; added malformed-dict guard is beyond required valid-dict contract.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "09:X012.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Directly imports helper and asserts exact specified order, unknown-ID skip, excluded values, empties and repeated order IDs; ALL TESTS PASSED. Purity is also supported by local-only implementation, not by output alone.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_09.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Helper import, deterministic ordered names, inclusion/exclusion and empty/repeated order cases",
+      "evidence": {
+        "trace": "evidence_09.json run X action 12, component 0",
+        "command": "python3 -c \"\nfrom openlibrary.core.observations import _sort_values\n\n# Test 1: standard\norder = [3, 4, 2, 1]\nvals = [{'id': 1, 'name': 'order'}, {'id': 2, 'name': 'in'}, {'id': 3, 'name': 'this'}, {'id': 4, 'name': 'is'}]\nassert _sort_values(order, vals) == ['this', 'is', 'in', 'order'], _sort_values(order, vals)\n\n# Test 2: missing IDs in values_list\norder = [3, 99, 4, 2, 1]\nassert _sort_values(order, vals) == ['this', 'is', 'in', 'order'], _sort_values(order, vals)\n\n# Test 3: excluded values not in order_list\norder = [3, 1]\nassert _sort_values(order, vals) == ['this', 'order'], _sort_values(order, vals)\n\n# Test 4: empty order_list\nassert _sort_values([], vals) == []\n\n# Test 5: empty values_list\nassert _sort_values([1, 2], []) == []\n\n# Test 6: duplicate IDs\nassert _sort_values([2, 1, 2], [{'id': 1, 'name': 'a'}, {'id': 2, 'name': 'b'}]) == ['b', 'a', 'b']\n\nprint('ALL TESTS PASSED!')\n\"",
+        "observation": "Directly imports helper and asserts exact specified order, unknown-ID skip, excluded values, empties and repeated order IDs; ALL TESTS PASSED. Purity is also supported by local-only implementation, not by output alone.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "09:X013.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R5"
+      ],
+      "reason": "Core suite reports 78 passed/3 xfailed/1 xpassed; it has no observation-specific new test, so validates surrounding core regressions only.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Existing core suite; no new helper-specific coverage beyond X012",
+      "evidence": {
+        "trace": "evidence_09.json run X action 13, component 0",
+        "command": "pytest openlibrary/tests/core",
+        "observation": "Core suite reports 78 passed/3 xfailed/1 xpassed; it has no observation-specific new test, so validates surrounding core regressions only.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "09:X014.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Diff verifies helper is the only behavior addition and external request functions remain intact.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_09.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Source-only helper insertion and no unrelated behavior replacement",
+      "evidence": {
+        "trace": "evidence_09.json run X action 14, component 0",
+        "command": "git diff openlibrary/core/observations.py",
+        "observation": "Diff verifies helper is the only behavior addition and external request functions remain intact.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "09:X015.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 15, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "09:X016.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 16, component 0",
+        "command": "git diff -- openlibrary/core/observations.py > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "09:X017.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run X action 17, component 0",
+        "command": "cat patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "09:X018.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_09.json run X action 18, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 1,
+      "component_id": "09:X018.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_09.json run X action 18, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "09:Y000.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R5"
+      ],
+      "reason": "Reads complete target module to insert pure helper adjacent to existing API functions.",
+      "support_links": [
+        "09:Y001.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 0, component 0",
+        "command": "sed -n '1,240p' openlibrary/core/observations.py",
+        "observation": "Reads complete target module to insert pure helper adjacent to existing API functions.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 1,
+      "component_id": "09:Y000.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 0, component 1",
+        "command": "printf '\\n--- status ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 2,
+      "component_id": "09:Y000.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 0, component 2",
+        "command": "git status --short",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "09:Y001.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Inserts importable helper with local ID/name lookup and comprehension ordered by order_list, filtering missing IDs; exact implementation is final patch.",
+      "support_links": [
+        "evidence_09.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 1, component 0",
+        "command": "python - <<'PY'\nfrom pathlib import Path\npath = Path('openlibrary/core/observations.py')\ntext = path.read_text()\nneedle = \"TBBO_URL = config.get('tbbo_url')\\n\\n\"\ninsert = \"\"\"TBBO_URL = config.get('tbbo_url')\n\n\ndef _sort_values(order_list, values_list):\n    values_by_id = {value['id']: value['name'] for value in values_list}\n    return [values_by_id[value_id] for value_id in order_list if value_id in values_by_id]\n\n\"\"\"\nif needle not in text:\n    raise SystemExit('expected insertion point not found')\npath.write_text(text.replace(needle, insert, 1))\nPY",
+        "observation": "Inserts importable helper with local ID/name lookup and comprehension ordered by order_list, filtering missing IDs; exact implementation is final patch.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 1,
+      "component_id": "09:Y001.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Displays inserted pure helper and unchanged request functions, establishing actual source edit before test.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_09.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Helper definition and local mapping implementation",
+      "evidence": {
+        "trace": "evidence_09.json run Y action 1, component 1",
+        "command": "sed -n '1,100p' openlibrary/core/observations.py",
+        "observation": "Displays inserted pure helper and unchanged request functions, establishing actual source edit before test.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "09:Y002.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Imports helper, asserts names for [3,4,99,2], omission of unknown 99/unrequested 1 and 8, empty order and partial input preservation; focused behavior check passed.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_09.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Import, ordered names, unknown/excluded IDs, empty order and checked input preservation",
+      "evidence": {
+        "trace": "evidence_09.json run Y action 2, component 0",
+        "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python - <<'PY'\nfrom openlibrary.core.observations import _sort_values\norder = [3, 4, 99, 2]\nvalues = [\n    {'id': 1, 'name': 'order'},\n    {'id': 2, 'name': 'in'},\n    {'id': 3, 'name': 'this'},\n    {'id': 4, 'name': 'is'},\n    {'id': 8, 'name': 'extra'},\n]\nassert _sort_values(order, values) == ['this', 'is', 'in']\nassert order == [3, 4, 99, 2]\nassert values[-1] == {'id': 8, 'name': 'extra'}\nassert _sort_values([], values) == []\nprint('focused behavior check passed')\nPY",
+        "observation": "Imports helper, asserts names for [3,4,99,2], omission of unknown 99/unrequested 1 and 8, empty order and partial input preservation; focused behavior check passed.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 1,
+      "component_id": "09:Y002.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "Whitespace diff check does not establish deterministic behavior or purity.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Patch whitespace cleanliness",
+      "evidence": {
+        "trace": "evidence_09.json run Y action 2, component 1",
+        "command": "git diff --check",
+        "observation": "Whitespace diff check does not establish deterministic behavior or purity.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 2,
+      "component_id": "09:Y002.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 2, component 2",
+        "command": "git diff -- openlibrary/core/observations.py > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "09:Y003.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 3, component 0",
+        "command": "cat patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "09:Y003.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 3, component 1",
+        "command": "printf '\\n--- patch headers ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 2,
+      "component_id": "09:Y003.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 3, component 2",
+        "command": "grep -E '^--- a/|^\\+\\+\\+ b/' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 3,
+      "component_id": "09:Y003.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 3, component 3",
+        "command": "printf '\\n--- changed paths ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 4,
+      "component_id": "09:Y003.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_09.json run Y action 3, component 4",
+        "command": "git diff --name-only -- openlibrary/core/observations.py",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "09:Y004.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_09.json run Y action 4, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "09:Y004.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_09.json run Y action 4, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_09.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Independent model-coded annotation only; no human validation or new execution of trajectory commands.",
+    "Requirements follow explicit dataset bullets; accepted reference patch is one route, not exact required scope.",
+    "Run outcome headings were not used as evidence of component contribution.",
+    "Recorded call-level outputs were attributed by command/output content; interrupted and missing outputs remain uncertain."
+  ]
+}

@@ -1,0 +1,2787 @@
+{
+  "order": 10,
+  "reviewer": "reviewer_b",
+  "validation_status": "independent model-coded second pass; not human validation",
+  "requirements": [
+    {
+      "id": "R1",
+      "description": "The WordPress cache lookup should operate directly on the cache map, without pointer indirection.",
+      "kind": "repair",
+      "source": "packet 10, Requirements text bullet 1; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Direct map lookup with explicit bool is valid. Propagate caller types coherently; preserve already-correct Status filtering. A compatibility adapter can preserve old pointer test callers but retains pointer dereference in that exceptional route."
+      ],
+      "conflicts": [
+        "Existing cache test passes pointer; strict map-only signature conflicts with source-test compatibility. Y adapter retains exceptional pointer indirection; X breaks old test compilation. Global WpIgnoreInactive versus per-server setting precedence is unspecified; X ORs them, Y uses server flag alone. Reference contains unrelated config/report refactoring beyond task scope."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R2",
+      "description": "The cache lookup should clearly signal when a key exists versus when it doesn\u2019t.",
+      "kind": "already_present",
+      "source": "packet 10, Requirements text bullet 2; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Direct map lookup with explicit bool is valid. Propagate caller types coherently; preserve already-correct Status filtering. A compatibility adapter can preserve old pointer test callers but retains pointer dereference in that exceptional route."
+      ],
+      "conflicts": [
+        "Existing cache test passes pointer; strict map-only signature conflicts with source-test compatibility. Y adapter retains exceptional pointer indirection; X breaks old test compilation. Global WpIgnoreInactive versus per-server setting precedence is unspecified; X ORs them, Y uses server flag alone. Reference contains unrelated config/report refactoring beyond task scope."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R3",
+      "description": "The WordPress scan should read its settings from the provided per-server configuration.",
+      "kind": "repair",
+      "source": "packet 10, Requirements text bullet 3; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Direct map lookup with explicit bool is valid. Propagate caller types coherently; preserve already-correct Status filtering. A compatibility adapter can preserve old pointer test callers but retains pointer dereference in that exceptional route."
+      ],
+      "conflicts": [
+        "Existing cache test passes pointer; strict map-only signature conflicts with source-test compatibility. Y adapter retains exceptional pointer indirection; X breaks old test compilation. Global WpIgnoreInactive versus per-server setting precedence is unspecified; X ORs them, Y uses server flag alone. Reference contains unrelated config/report refactoring beyond task scope."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R4",
+      "description": "The package filtering should honor the `ignore inactive` setting from the configuration.",
+      "kind": "repair",
+      "source": "packet 10, Requirements text bullet 4; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Direct map lookup with explicit bool is valid. Propagate caller types coherently; preserve already-correct Status filtering. A compatibility adapter can preserve old pointer test callers but retains pointer dereference in that exceptional route."
+      ],
+      "conflicts": [
+        "Existing cache test passes pointer; strict map-only signature conflicts with source-test compatibility. Y adapter retains exceptional pointer indirection; X breaks old test compilation. Global WpIgnoreInactive versus per-server setting precedence is unspecified; X ORs them, Y uses server flag alone. Reference contains unrelated config/report refactoring beyond task scope."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    },
+    {
+      "id": "R5",
+      "description": "Package filtering should examine the `Status` field and exclude packages where `Status` equals `\"inactive\"`, while keeping those where `Status` equals `\"active\"`.",
+      "kind": "already_present",
+      "source": "packet 10, Requirements text bullet 5; problem statement/interface and inspected baseline supplement interpretation",
+      "alternatives": [
+        "Direct map lookup with explicit bool is valid. Propagate caller types coherently; preserve already-correct Status filtering. A compatibility adapter can preserve old pointer test callers but retains pointer dereference in that exceptional route."
+      ],
+      "conflicts": [
+        "Existing cache test passes pointer; strict map-only signature conflicts with source-test compatibility. Y adapter retains exceptional pointer indirection; X breaks old test compilation. Global WpIgnoreInactive versus per-server setting precedence is unspecified; X ORs them, Y uses server flag alone. Reference contains unrelated config/report refactoring beyond task scope."
+      ],
+      "resolution": "Use explicit dataset behavior as acceptance contract; preservation and already-present behavior do not require gratuitous rewrites. Credit concrete contribution independently of whole-run result and retain stated ambiguity."
+    }
+  ],
+  "components": [
+    {
+      "blinded_label": "X",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "10:X000.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 0, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "10:X001.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Repository-wide Go file inventory precedes targeted search but supplies no fix-specific content.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 1, component 0",
+        "command": "find . -type f -name \"*.go\"",
+        "observation": "Repository-wide Go file inventory precedes targeted search but supplies no fix-specific content.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "10:X002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "reason": "Finds pointer helper and pointer-call test as well as production callers; direct-map edit later exposes compatibility conflict.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 2, component 0",
+        "command": "grep -rn \"searchCache\" .",
+        "observation": "Finds pointer helper and pointer-call test as well as production callers; direct-map edit later exposes compatibility conflict.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "10:X003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads all WordPress scan logic: pointer map writes, global-only ignore gate, and already-correct inactive Status skip.",
+      "support_links": [
+        "10:X034.c0"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 3, component 0",
+        "command": "cat wordpress/wordpress.go",
+        "observation": "Reads all WordPress scan logic: pointer map writes, global-only ignore gate, and already-correct inactive Status skip.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "10:X004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Locates FillWordPress integration caller whose cache field must change with map signature.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 4, component 0",
+        "command": "grep -rn \"FillWordPress\" .",
+        "observation": "Locates FillWordPress integration caller whose cache field must change with map signature.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "10:X005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Reads WordPressOption pointer field/apply call updated in X037.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 5, component 0",
+        "command": "sed -n '500,540p' report/report.go",
+        "observation": "Reads WordPressOption pointer field/apply call updated in X037.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "10:X006.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Finds all cache reads/writes and constructor so pointer removal can be propagated.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 6, component 0",
+        "command": "grep -rn \"wpVulnCaches\" .",
+        "observation": "Finds all cache reads/writes and constructor so pointer removal can be propagated.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "10:X007.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Finds per-server configuration and existing model filtering path used to design config changes.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 7, component 0",
+        "command": "grep -rn -i \"wordpress\" config/ scan/ models/",
+        "observation": "Finds per-server configuration and existing model filtering path used to design config changes.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "10:X008.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads model filter already gated by per-server setting and checking inactive status; later X043 extends global flag behavior.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 8, component 0",
+        "command": "sed -n '245,285p' models/scanresults.go",
+        "observation": "Reads model filter already gated by per-server setting and checking inactive status; later X043 extends global flag behavior.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "10:X009.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R5"
+      ],
+      "reason": "Reads package Status/Type and theme/plugin filtering definitions, confirming actual status representation.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 9, component 0",
+        "command": "cat models/wordpress.go",
+        "observation": "Reads package Status/Type and theme/plugin filtering definitions, confirming actual status representation.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "10:X010.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Reads WordPressConf fields, including existing IgnoreInactive setting later referenced.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 10, component 0",
+        "command": "grep -n -C 15 \"WordPressConf\" config/config.go",
+        "observation": "Reads WordPressConf fields, including existing IgnoreInactive setting later referenced.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "10:X011.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Finds global-only wordpress gate and CLI flag; motivates reading per-server flag too.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 11, component 0",
+        "command": "grep -rn \"WpIgnoreInactive\" .",
+        "observation": "Finds global-only wordpress gate and CLI flag; motivates reading per-server flag too.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "10:X012.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R5"
+      ],
+      "reason": "Reads cache present/absent/nil test cases and active/inactive filtering expectations; exposes pointer-call compatibility constraint.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 12, component 0",
+        "command": "cat wordpress/wordpress_test.go",
+        "observation": "Reads cache present/absent/nil test cases and active/inactive filtering expectations; exposes pointer-call compatibility constraint.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "10:X013.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Broad go test has exit -1 and empty output; cannot establish completion, coverage or failure cause.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Recorded execution/output is interrupted or insufficient to establish checked result.",
+      "property_checked": "Attempted repository test suite",
+      "evidence": {
+        "trace": "evidence_10.json run X action 13, component 0",
+        "command": "go test ./...",
+        "observation": "Broad go test has exit -1 and empty output; cannot establish completion, coverage or failure cause.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "10:X014.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R5"
+      ],
+      "reason": "Baseline TestRemoveInactive and TestSearchCache pass, confirming existing status selection and exists boolean behavior before map API change.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Baseline inactive filter and pointer cache hit/miss tests",
+      "evidence": {
+        "trace": "evidence_10.json run X action 14, component 0",
+        "command": "go test -v ./wordpress/...",
+        "observation": "Baseline TestRemoveInactive and TestSearchCache pass, confirming existing status selection and exists boolean behavior before map API change.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 15,
+      "component_index": 0,
+      "component_id": "10:X015.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Output confirms models and config package tests pass, but command is interrupted before report result; aggregate integration coverage cannot be established.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Recorded execution/output is interrupted or insufficient to establish checked result.",
+      "property_checked": "Attempted models/config/report baseline tests",
+      "evidence": {
+        "trace": "evidence_10.json run X action 15, component 0",
+        "command": "go test ./models/... ./config/... ./report/...",
+        "observation": "Output confirms models and config package tests pass, but command is interrupted before report result; aggregate integration coverage cannot be established.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 16,
+      "component_index": 0,
+      "component_id": "10:X016.c0",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R3"
+      ],
+      "reason": "Short report tests have exit -1 and no output; no compilation or regression property can be attributed.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Recorded execution/output is interrupted or insufficient to establish checked result.",
+      "property_checked": "Attempted report integration tests",
+      "evidence": {
+        "trace": "evidence_10.json run X action 16, component 0",
+        "command": "go test -short ./report/...",
+        "observation": "Short report tests have exit -1 and no output; no compilation or regression property can be attributed.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 17,
+      "component_index": 0,
+      "component_id": "10:X017.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R3"
+      ],
+      "reason": "Reads per-server token and pointer cache construction to propagate map API without changing token source.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 17, component 0",
+        "command": "sed -n '220,250p' report/report.go",
+        "observation": "Reads per-server token and pointer cache construction to propagate map API without changing token source.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 18,
+      "component_index": 0,
+      "component_id": "10:X018.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3"
+      ],
+      "reason": "Finds established server-name configuration access pattern used in scan change.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 18, component 0",
+        "command": "grep -rn \"Conf.Servers\\[\" .",
+        "observation": "Finds established server-name configuration access pattern used in scan change.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 19,
+      "component_index": 0,
+      "component_id": "10:X019.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Finds tomlloader propagation of WordPress.IgnoreInactive and divergent global gate.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 19, component 0",
+        "command": "grep -rn \"IgnoreInactive\" .",
+        "observation": "Finds tomlloader propagation of WordPress.IgnoreInactive and divergent global gate.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 20,
+      "component_index": 0,
+      "component_id": "10:X020.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Finds final model-filter application in report pipeline, relevant to keeping package and CVE filtering consistent.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 20, component 0",
+        "command": "grep -rn \"FilterInactiveWordPressLibs\" .",
+        "observation": "Finds final model-filter application in report pipeline, relevant to keeping package and CVE filtering consistent.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 21,
+      "component_index": 0,
+      "component_id": "10:X021.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R5"
+      ],
+      "reason": "Reads scan JSON package creation showing Status comes from wp CLI and must be used unchanged.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 21, component 0",
+        "command": "sed -n '660,740p' scan/base.go",
+        "observation": "Reads scan JSON package creation showing Status comes from wp CLI and must be used unchanged.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 22,
+      "component_index": 0,
+      "component_id": "10:X022.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repeats complete cache usage search from X006, no state change.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 22, component 0",
+        "command": "grep -rn \"wpVulnCache\" .",
+        "observation": "Repeats complete cache usage search from X006, no state change.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 23,
+      "component_index": 0,
+      "component_id": "10:X023.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Reads config loader assignment v.WordPress.IgnoreInactive, establishing setting already loaded.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 23, component 0",
+        "command": "sed -n '250,280p' config/tomlloader.go",
+        "observation": "Reads config loader assignment v.WordPress.IgnoreInactive, establishing setting already loaded.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 24,
+      "component_index": 0,
+      "component_id": "10:X024.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Repeats WordPress loader assignment already read at X023.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 24, component 0",
+        "command": "grep -n -C 10 \"WordPress\" config/tomlloader.go",
+        "observation": "Repeats WordPress loader assignment already read at X023.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 25,
+      "component_index": 0,
+      "component_id": "10:X025.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3"
+      ],
+      "reason": "Loader header adds no new fact beyond already confirmed loaded server settings.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 25, component 0",
+        "command": "head -n 60 config/tomlloader.go",
+        "observation": "Loader header adds no new fact beyond already confirmed loaded server settings.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 26,
+      "component_index": 0,
+      "component_id": "10:X026.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Repeats WordPressConf fields from X010; no missing config parsing demonstrated.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 26, component 0",
+        "command": "grep -n -C 5 \"WordPressConf\" config/config.go",
+        "observation": "Repeats WordPressConf fields from X010; no missing config parsing demonstrated.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 27,
+      "component_index": 0,
+      "component_id": "10:X027.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "History shows only base commit and no alternative fix information.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 27, component 0",
+        "command": "git log -n 5 --stat -- wordpress/",
+        "observation": "History shows only base commit and no alternative fix information.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 28,
+      "component_index": 0,
+      "component_id": "10:X028.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads report pipeline ordering and final FilterInactiveWordPressLibs call used by later model change.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 28, component 0",
+        "command": "sed -n '40,160p' report/report.go",
+        "observation": "Reads report pipeline ordering and final FilterInactiveWordPressLibs call used by later model change.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 29,
+      "component_index": 0,
+      "component_id": "10:X029.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "No FilterInactive tests found; absence alone does not implement or validate requested behavior.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 29, component 0",
+        "command": "grep -n -C 5 \"FilterInactive\" models/scanresults_test.go",
+        "observation": "No FilterInactive tests found; absence alone does not implement or validate requested behavior.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 30,
+      "component_index": 0,
+      "component_id": "10:X030.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Lists unrelated model tests; no helper-specific test selected from listing.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 30, component 0",
+        "command": "grep -n \"func Test\" models/scanresults_test.go",
+        "observation": "Lists unrelated model tests; no helper-specific test selected from listing.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 31,
+      "component_index": 0,
+      "component_id": "10:X031.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R5"
+      ],
+      "reason": "Finds theme/plugin removeInactives use and its existing test, showing helper is already correct.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 31, component 0",
+        "command": "grep -rn \"removeInactives\" .",
+        "observation": "Finds theme/plugin removeInactives use and its existing test, showing helper is already correct.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 32,
+      "component_index": 0,
+      "component_id": "10:X032.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Repeats global flag sites already found at X011.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 32, component 0",
+        "command": "grep -rn -i \"wpignore\" .",
+        "observation": "Repeats global flag sites already found at X011.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 33,
+      "component_index": 0,
+      "component_id": "10:X033.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Reads CLI/discovery template WordPress options informing intent to retain global flag alongside server setting.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 33, component 0",
+        "command": "grep -rn -i \"wordpress\" subcmds/",
+        "observation": "Reads CLI/discovery template WordPress options informing intent to retain global flag alongside server setting.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 34,
+      "component_index": 0,
+      "component_id": "10:X034.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Rewrites WordPress file with direct map parameter/lookups/writes and OR of global/per-server ignore flag. Status==inactive skip is preserved, not newly repaired. Final patch retains relevant changes.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 34, component 0",
+        "command": "cat << 'EOF' > wordpress/wordpress.go\npackage wordpress\n\nimport (\n\t\"encoding/json\"\n\t\"fmt\"\n\t\"io/ioutil\"\n\t\"net/http\"\n\t\"strings\"\n\t\"time\"\n\n\tc \"github.com/future-architect/vuls/config\"\n\t\"github.com/future-architect/vuls/models\"\n\t\"github.com/future-architect/vuls/util\"\n\tversion \"github.com/hashicorp/go-version\"\n\t\"golang.org/x/xerrors\"\n)\n\n//WpCveInfos is for wpvulndb's json\ntype WpCveInfos struct {\n\tReleaseDate  string `json:\"release_date\"`\n\tChangelogURL string `json:\"changelog_url\"`\n\t// Status        string `json:\"status\"`\n\tLatestVersion string `json:\"latest_version\"`\n\tLastUpdated   string `json:\"last_updated\"`\n\t// Popular         bool        `json:\"popular\"`\n\tVulnerabilities []WpCveInfo `json:\"vulnerabilities\"`\n\tError           string      `json:\"error\"`\n}\n\n//WpCveInfo is for wpvulndb's json\ntype WpCveInfo struct {\n\tID        int    `json:\"id\"`\n\tTitle     string `json:\"title\"`\n\tCreatedAt string `json:\"created_at\"`\n\tUpdatedAt string `json:\"updated_at\"`\n\t// PublishedDate string     `json:\"published_date\"`\n\tVulnType   string     `json:\"vuln_type\"`\n\tReferences References `json:\"references\"`\n\tFixedIn    string     `json:\"fixed_in\"`\n}\n\n//References is for wpvulndb's json\ntype References struct {\n\tURL     []string `json:\"url\"`\n\tCve     []string `json:\"cve\"`\n\tSecunia []string `json:\"secunia\"`\n}\n\n// FillWordPress access to wpvulndb and fetch scurity alerts and then set to the given ScanResult.\n// https://wpscan.com/\nfunc FillWordPress(r *models.ScanResult, token string, wpVulnCaches map[string]string) (int, error) {\n\t// Core\n\tver := strings.Replace(r.WordPressPackages.CoreVersion(), \".\", \"\", -1)\n\tif ver == \"\" {\n\t\treturn 0, xerrors.New(\"Failed to get WordPress core version\")\n\t}\n\n\tbody, ok := searchCache(ver, wpVulnCaches)\n\tif !ok {\n\t\turl := fmt.Sprintf(\"https://wpscan.com/api/v3/wordpresses/%s\", ver)\n\t\tvar err error\n\t\tbody, err = httpRequest(url, token)\n\t\tif err != nil {\n\t\t\treturn 0, err\n\t\t}\n\t\tif body == \"\" {\n\t\t\tutil.Log.Warnf(\"A result of REST access is empty: %s\", url)\n\t\t}\n\n\t\twpVulnCaches[ver] = body\n\t}\n\n\twpVinfos, err := convertToVinfos(models.WPCore, body)\n\tif err != nil {\n\t\treturn 0, err\n\t}\n\n\tthemes := r.WordPressPackages.Themes()\n\tplugins := r.WordPressPackages.Plugins()\n\n\tignoreInactive := c.Conf.WpIgnoreInactive\n\tif s, ok := c.Conf.Servers[r.ServerName]; ok {\n\t\tignoreInactive = ignoreInactive || s.WordPress.IgnoreInactive\n\t}\n\n\tif ignoreInactive {\n\t\tthemes = removeInactives(themes)\n\t\tplugins = removeInactives(plugins)\n\t}\n\n\t// Themes\n\tfor _, p := range themes {\n\t\tbody, ok := searchCache(p.Name, wpVulnCaches)\n\t\tif !ok {\n\t\t\turl := fmt.Sprintf(\"https://wpscan.com/api/v3/themes/%s\", p.Name)\n\t\t\tvar err error\n\t\t\tbody, err = httpRequest(url, token)\n\t\t\tif err != nil {\n\t\t\t\treturn 0, err\n\t\t\t}\n\t\t\twpVulnCaches[p.Name] = body\n\t\t}\n\n\t\tif body == \"\" {\n\t\t\tcontinue\n\t\t}\n\n\t\ttemplateVinfos, err := convertToVinfos(p.Name, body)\n\t\tif err != nil {\n\t\t\treturn 0, err\n\t\t}\n\n\t\tfor _, v := range templateVinfos {\n\t\t\tfor _, fixstat := range v.WpPackageFixStats {\n\t\t\t\tpkg, ok := r.WordPressPackages.Find(fixstat.Name)\n\t\t\t\tif !ok {\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\t\t\t\tok, err := match(pkg.Version, fixstat.FixedIn)\n\t\t\t\tif err != nil {\n\t\t\t\t\tutil.Log.Infof(\"[poor] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\t\t\t\tif ok {\n\t\t\t\t\twpVinfos = append(wpVinfos, v)\n\t\t\t\t\tutil.Log.Infof(\"[match] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t} else {\n\t\t\t\t\tutil.Log.Debugf(\"[miss] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\t// Plugins\n\tfor _, p := range plugins {\n\t\tbody, ok := searchCache(p.Name, wpVulnCaches)\n\t\tif !ok {\n\t\t\turl := fmt.Sprintf(\"https://wpscan.com/api/v3/plugins/%s\", p.Name)\n\t\t\tvar err error\n\t\t\tbody, err = httpRequest(url, token)\n\t\t\tif err != nil {\n\t\t\t\treturn 0, err\n\t\t\t}\n\t\t\twpVulnCaches[p.Name] = body\n\t\t}\n\n\t\tif body == \"\" {\n\t\t\tcontinue\n\t\t}\n\n\t\tpluginVinfos, err := convertToVinfos(p.Name, body)\n\t\tif err != nil {\n\t\t\treturn 0, err\n\t\t}\n\n\t\tfor _, v := range pluginVinfos {\n\t\t\tfor _, fixstat := range v.WpPackageFixStats {\n\t\t\t\tpkg, ok := r.WordPressPackages.Find(fixstat.Name)\n\t\t\t\tif !ok {\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\t\t\t\tok, err := match(pkg.Version, fixstat.FixedIn)\n\t\t\t\tif err != nil {\n\t\t\t\t\tutil.Log.Infof(\"[poor] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t\tcontinue\n\t\t\t\t}\n\t\t\t\tif ok {\n\t\t\t\t\twpVinfos = append(wpVinfos, v)\n\t\t\t\t\t//TODO Debugf\n\t\t\t\t\tutil.Log.Infof(\"[match] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t} else {\n\t\t\t\t\t//TODO Debugf\n\t\t\t\t\tutil.Log.Infof(\"[miss] %s installed: %s, fixedIn: %s\", pkg.Name, pkg.Version, fixstat.FixedIn)\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\tfor _, wpVinfo := range wpVinfos {\n\t\tif vinfo, ok := r.ScannedCves[wpVinfo.CveID]; ok {\n\t\t\tvinfo.CveContents[models.WPVulnDB] = wpVinfo.CveContents[models.WPVulnDB]\n\t\t\tvinfo.VulnType = wpVinfo.VulnType\n\t\t\tvinfo.Confidences = append(vinfo.Confidences, wpVinfo.Confidences...)\n\t\t\tvinfo.WpPackageFixStats = append(vinfo.WpPackageFixStats, wpVinfo.WpPackageFixStats...)\n\t\t\tr.ScannedCves[wpVinfo.CveID] = vinfo\n\t\t} else {\n\t\t\tr.ScannedCves[wpVinfo.CveID] = wpVinfo\n\t\t}\n\t}\n\treturn len(wpVinfos), nil\n}\n\nfunc match(installedVer, fixedIn string) (bool, error) {\n\tv1, err := version.NewVersion(installedVer)\n\tif err != nil {\n\t\treturn false, err\n\t}\n\tv2, err := version.NewVersion(fixedIn)\n\tif err != nil {\n\t\treturn false, err\n\t}\n\treturn v1.LessThan(v2), nil\n}\n\nfunc convertToVinfos(pkgName, body string) (vinfos []models.VulnInfo, err error) {\n\tif body == \"\" {\n\t\treturn\n\t}\n\t// \"pkgName\" : CVE Detailed data\n\tpkgnameCves := map[string]WpCveInfos{}\n\tif err = json.Unmarshal([]byte(body), &pkgnameCves); err != nil {\n\t\treturn nil, xerrors.Errorf(\"Failed to unmarshal %s. err: %w\", body, err)\n\t}\n\n\tfor _, v := range pkgnameCves {\n\t\tvs := extractToVulnInfos(pkgName, v.Vulnerabilities)\n\t\tvinfos = append(vinfos, vs...)\n\t}\n\treturn vinfos, nil\n}\n\nfunc extractToVulnInfos(pkgName string, cves []WpCveInfo) (vinfos []models.VulnInfo) {\n\tfor _, vulnerability := range cves {\n\t\tvar cveIDs []string\n\n\t\tif len(vulnerability.References.Cve) == 0 {\n\t\t\tcveIDs = append(cveIDs, fmt.Sprintf(\"WPVDBID-%d\", vulnerability.ID))\n\t\t}\n\t\tfor _, cveNumber := range vulnerability.References.Cve {\n\t\t\tcveIDs = append(cveIDs, \"CVE-\"+cveNumber)\n\t\t}\n\n\t\tvar refs []models.Reference\n\t\tfor _, url := range vulnerability.References.URL {\n\t\t\trefs = append(refs, models.Reference{\n\t\t\t\tLink: url,\n\t\t\t})\n\t\t}\n\n\t\tfor _, cveID := range cveIDs {\n\t\t\tvinfos = append(vinfos, models.VulnInfo{\n\t\t\t\tCveID: cveID,\n\t\t\t\tCveContents: models.NewCveContents(\n\t\t\t\t\tmodels.CveContent{\n\t\t\t\t\t\tType:       models.WPVulnDB,\n\t\t\t\t\t\tCveID:      cveID,\n\t\t\t\t\t\tTitle:      vulnerability.Title,\n\t\t\t\t\t\tReferences: refs,\n\t\t\t\t\t},\n\t\t\t\t),\n\t\t\t\tVulnType: vulnerability.VulnType,\n\t\t\t\tConfidences: []models.Confidence{\n\t\t\t\t\tmodels.WPVulnDBMatch,\n\t\t\t\t},\n\t\t\t\tWpPackageFixStats: []models.WpPackageFixStatus{{\n\t\t\t\t\tName:    pkgName,\n\t\t\t\t\tFixedIn: vulnerability.FixedIn,\n\t\t\t\t}},\n\t\t\t})\n\t\t}\n\t}\n\treturn\n}\n\nfunc httpRequest(url, token string) (string, error) {\n\tretry := 1\n\tutil.Log.Debugf(\"%s\", url)\n\treq, err := http.NewRequest(\"GET\", url, nil)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\treq.Header.Set(\"Authorization\", fmt.Sprintf(\"Token token=%s\", token))\nloop:\n\tresp, err := new(http.Client).Do(req)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\tbody, err := ioutil.ReadAll(resp.Body)\n\tif err != nil {\n\t\treturn \"\", err\n\t}\n\tdefer resp.Body.Close()\n\tif resp.StatusCode == 200 {\n\t\treturn string(body), nil\n\t} else if resp.StatusCode == 404 {\n\t\t// This package is not in WPVulnDB\n\t\treturn \"\", nil\n\t} else if resp.StatusCode == 429 && retry <= 3 {\n\t\t// 429 Too Many Requests\n\t\tutil.Log.Debugf(\"sleep %d min(s): %s\", retry, resp.Status)\n\t\ttime.Sleep(time.Duration(retry) * time.Minute)\n\t\tretry++\n\t\tgoto loop\n\t}\n\treturn \"\", err\n}\n\nfunc removeInactives(pkgs models.WordPressPackages) (removed models.WordPressPackages) {\n\tfor _, p := range pkgs {\n\t\tif p.Status == \"inactive\" {\n\t\t\tcontinue\n\t\t}\n\t\tremoved = append(removed, p)\n\t}\n\treturn removed\n}\n\nfunc searchCache(name string, wpVulnCaches map[string]string) (string, bool) {\n\tvalue, ok := wpVulnCaches[name]\n\tif ok {\n\t\treturn value, true\n\t}\n\treturn \"\", false\n}\nEOF",
+        "observation": "Rewrites WordPress file with direct map parameter/lookups/writes and OR of global/per-server ignore flag. Status==inactive skip is preserved, not newly repaired. Final patch retains relevant changes.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 35,
+      "component_index": 0,
+      "component_id": "10:X035.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R3"
+      ],
+      "reason": "Repeats cache constructor already inspected at X017 before same map propagation.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 35, component 0",
+        "command": "sed -n '225,245p' report/report.go",
+        "observation": "Repeats cache constructor already inspected at X017 before same map propagation.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 36,
+      "component_index": 0,
+      "component_id": "10:X036.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repeats WordPressOption pointer field/apply code from X005.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 36, component 0",
+        "command": "sed -n '510,530p' report/report.go",
+        "observation": "Repeats WordPressOption pointer field/apply code from X005.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 37,
+      "component_index": 0,
+      "component_id": "10:X037.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Propagates map API through WordPressOption field and constructor, retained in final report patch.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 37, component 0",
+        "command": "python3 -c '\nwith open(\"report/report.go\", \"r\") as f:\n    content = f.read()\n\ncontent = content.replace(\"\"\"\\twpOpt := WordPressOption{\n\\t\\ttoken,\n\\t\\t&wpVulnCaches,\n\\t}\"\"\", \"\"\"\\twpOpt := WordPressOption{\n\\t\\ttoken,\n\\t\\twpVulnCaches,\n\\t}\"\"\")\n\ncontent = content.replace(\"\"\"type WordPressOption struct {\n\\ttoken        string\n\\twpVulnCaches *map[string]string\n}\"\"\", \"\"\"type WordPressOption struct {\n\\ttoken        string\n\\twpVulnCaches map[string]string\n}\"\"\")\n\nwith open(\"report/report.go\", \"w\") as f:\n    f.write(content)\n'",
+        "observation": "Propagates map API through WordPressOption field and constructor, retained in final report patch.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 38,
+      "component_index": 0,
+      "component_id": "10:X038.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Diff confirms report map field and constructor are coherent with changed FillWordPress signature.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Report caller map propagation",
+      "evidence": {
+        "trace": "evidence_10.json run X action 38, component 0",
+        "command": "git diff report/report.go",
+        "observation": "Diff confirms report map field and constructor are coherent with changed FillWordPress signature.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 39,
+      "component_index": 0,
+      "component_id": "10:X039.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Repeats config struct already read; TOML tag modification is not shown necessary.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 39, component 0",
+        "command": "sed -n '1024,1034p' config/config.go",
+        "observation": "Repeats config struct already read; TOML tag modification is not shown necessary.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 40,
+      "component_index": 0,
+      "component_id": "10:X040.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Adds TOML tag toml:\"ignoreInactive,omitempty\" despite loader already copying server flag; no failing parse or test establishes necessity. Tag change survives but contribution to requested repair is unsupported.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 40, component 0",
+        "command": "python3 -c '\nwith open(\"config/config.go\", \"r\") as f:\n    content = f.read()\n\ncontent = content.replace(\"\"\"\\tIgnoreInactive bool   `json:\"ignoreInactive,omitempty\"`\"\"\", \"\"\"\\tIgnoreInactive bool   `toml:\"ignoreInactive,omitempty\" json:\"ignoreInactive,omitempty\"`\"\"\")\n\nwith open(\"config/config.go\", \"w\") as f:\n    f.write(content)\n'",
+        "observation": "Adds TOML tag toml:\"ignoreInactive,omitempty\" despite loader already copying server flag; no failing parse or test establishes necessity. Tag change survives but contribution to requested repair is unsupported.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 41,
+      "component_index": 0,
+      "component_id": "10:X041.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Diff merely confirms extra TOML tag; no demonstrated configuration parsing defect repaired.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Extra TOML tag source change",
+      "evidence": {
+        "trace": "evidence_10.json run X action 41, component 0",
+        "command": "git diff config/config.go",
+        "observation": "Diff merely confirms extra TOML tag; no demonstrated configuration parsing defect repaired.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 42,
+      "component_index": 0,
+      "component_id": "10:X042.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Repeats model filter already inspected at X008 without changed model state.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 42, component 0",
+        "command": "sed -n '250,275p' models/scanresults.go",
+        "observation": "Repeats model filter already inspected at X008 without changed model state.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 43,
+      "component_index": 0,
+      "component_id": "10:X043.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Extends already per-server model CVE filter to global OR. Requested per-server behavior already existed there; global CLI extension is a compatibility interpretation beyond explicit repair, and does not fix inactive helper.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 43, component 0",
+        "command": "python3 -c '\nwith open(\"models/scanresults.go\", \"r\") as f:\n    content = f.read()\n\nold_code = \"\"\"// FilterInactiveWordPressLibs is filter function.\nfunc (r ScanResult) FilterInactiveWordPressLibs() ScanResult {\n\\tif !config.Conf.Servers[r.ServerName].WordPress.IgnoreInactive {\n\\t\\treturn r\n\\t}\"\"\"\n\nnew_code = \"\"\"// FilterInactiveWordPressLibs is filter function.\nfunc (r ScanResult) FilterInactiveWordPressLibs() ScanResult {\n\\tignoreInactive := config.Conf.WpIgnoreInactive\n\\tif s, ok := config.Conf.Servers[r.ServerName]; ok {\n\\t\\tignoreInactive = ignoreInactive || s.WordPress.IgnoreInactive\n\\t}\n\\tif !ignoreInactive {\n\\t\\treturn r\n\\t}\"\"\"\n\ncontent = content.replace(old_code, new_code)\n\nwith open(\"models/scanresults.go\", \"w\") as f:\n    f.write(content)\n'",
+        "observation": "Extends already per-server model CVE filter to global OR. Requested per-server behavior already existed there; global CLI extension is a compatibility interpretation beyond explicit repair, and does not fix inactive helper.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 44,
+      "component_index": 0,
+      "component_id": "10:X044.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Diff confirms added global OR gate on model filter, not new Status filtering; no new requested property beyond existing server gate.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Model gate extension source diff",
+      "evidence": {
+        "trace": "evidence_10.json run X action 44, component 0",
+        "command": "git diff models/scanresults.go",
+        "observation": "Diff confirms added global OR gate on model filter, not new Status filtering; no new requested property beyond existing server gate.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 45,
+      "component_index": 0,
+      "component_id": "10:X045.c0",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Models/config package suite passes after changes, but inspected tests lack new server/global WordPress cases; broad success alone does not establish requested scan gate.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Existing models/config regression suite",
+      "evidence": {
+        "trace": "evidence_10.json run X action 45, component 0",
+        "command": "go test -v ./models/... ./config/...",
+        "observation": "Models/config package suite passes after changes, but inspected tests lack new server/global WordPress cases; broad success alone does not establish requested scan gate.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 46,
+      "component_index": 0,
+      "component_id": "10:X046.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "reason": "Changed direct-map signature fails compilation because existing cache test passes *map. Action exposes actionable compatibility defect, but no subsequent source repair resolves it.",
+      "verification_gain": "actionable_defect",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [
+        "10:X034.c0"
+      ],
+      "uncertainty_reason": null,
+      "property_checked": "WordPress package test compilation against changed cache API",
+      "evidence": {
+        "trace": "evidence_10.json run X action 46, component 0",
+        "command": "go test -v ./wordpress/...",
+        "observation": "Changed direct-map signature fails compilation because existing cache test passes *map. Action exposes actionable compatibility defect, but no subsequent source repair resolves it.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 47,
+      "component_index": 0,
+      "component_id": "10:X047.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Builds an unused Python string containing prospective Go verification program; neither writes nor runs it, so no property checked.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 47, component 0",
+        "command": "python3 -c '\nimport subprocess\n\ncode = \"\"\"\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/future-architect/vuls/config\"\n\t\"github.com/future-architect/vuls/models\"\n\t\"github.com/future-architect/vuls/wordpress\"\n)\n\nfunc main() {\n\tfmt.Println(\"Running verification...\")\n\t// We can test packages and logic here\n}\n\"\"\"\n'",
+        "observation": "Builds an unused Python string containing prospective Go verification program; neither writes nor runs it, so no property checked.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 48,
+      "component_index": 0,
+      "component_id": "10:X048.c0",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Writes temporary verification harness for server/global/disabled model CVE filtering with active/inactive packages; X048.c1 executes it. No permanent implementation credit beyond enabling concrete check.",
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 48, component 0",
+        "command": "cat << 'EOF' > test_verify.go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/future-architect/vuls/config\"\n\t\"github.com/future-architect/vuls/models\"\n)\n\nfunc main() {\n\tfmt.Println(\"Testing WordPress package filtering and config...\")\n\n\t// 1. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = true\n\tconfig.Conf = config.Config{\n\t\tServers: map[string]config.ServerInfo{\n\t\t\t\"myserver\": {\n\t\t\t\tServerName: \"myserver\",\n\t\t\t\tWordPress: config.WordPressConf{\n\t\t\t\t\tIgnoreInactive: true,\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t}\n\n\tres := models.ScanResult{\n\t\tServerName: \"myserver\",\n\t\tWordPressPackages: &models.WordPressPackages{\n\t\t\t{Name: \"core\", Version: \"5.4\", Type: models.WPCore},\n\t\t\t{Name: \"active-plugin\", Status: \"active\", Version: \"1.0\", Type: models.WPPlugin},\n\t\t\t{Name: \"inactive-plugin\", Status: \"inactive\", Version: \"1.0\", Type: models.WPPlugin},\n\t\t},\n\t\tScannedCves: models.VulnInfos{\n\t\t\t\"CVE-2020-0001\": {\n\t\t\t\tCveID: \"CVE-2020-0001\",\n\t\t\t\tWpPackageFixStats: []models.WpPackageFixStatus{\n\t\t\t\t\t{Name: \"active-plugin\", FixedIn: \"1.1\"},\n\t\t\t\t},\n\t\t\t},\n\t\t\t\"CVE-2020-0002\": {\n\t\t\t\tCveID: \"CVE-2020-0002\",\n\t\t\t\tWpPackageFixStats: []models.WpPackageFixStatus{\n\t\t\t\t\t{Name: \"inactive-plugin\", FixedIn: \"1.1\"},\n\t\t\t\t},\n\t\t\t},\n\t\t\t\"CVE-2020-0003\": {\n\t\t\t\tCveID: \"CVE-2020-0003\",\n\t\t\t\t// OS / non-wp vuln\n\t\t\t},\n\t\t},\n\t}\n\n\tfiltered := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered.ScannedCves[\"CVE-2020-0001\"]; !ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0001 for active plugin should be kept!\\n\")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered.ScannedCves[\"CVE-2020-0002\"]; ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\\n\")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered.ScannedCves[\"CVE-2020-0003\"]; !ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0003 for non-wp vuln should be kept!\\n\")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(\"PASS: FilterInactiveWordPressLibs with Server config IgnoreInactive = true\")\n\n\t// 2. Test FilterInactiveWordPressLibs with Server config IgnoreInactive = false but global WpIgnoreInactive = true\n\tconfig.Conf.Servers[\"myserver\"] = config.ServerInfo{\n\t\tServerName: \"myserver\",\n\t\tWordPress: config.WordPressConf{\n\t\t\tIgnoreInactive: false,\n\t\t},\n\t}\n\tconfig.Conf.WpIgnoreInactive = true\n\n\tfiltered2 := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered2.ScannedCves[\"CVE-2020-0001\"]; !ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0001 for active plugin should be kept!\\n\")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered2.ScannedCves[\"CVE-2020-0002\"]; ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0002 for inactive plugin should be filtered out!\\n\")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(\"PASS: FilterInactiveWordPressLibs with Global WpIgnoreInactive = true\")\n\n\t// 3. Test FilterInactiveWordPressLibs with both false\n\tconfig.Conf.WpIgnoreInactive = false\n\tfiltered3 := res.FilterInactiveWordPressLibs()\n\tif _, ok := filtered3.ScannedCves[\"CVE-2020-0001\"]; !ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0001 should be kept!\\n\")\n\t\tos.Exit(1)\n\t}\n\tif _, ok := filtered3.ScannedCves[\"CVE-2020-0002\"]; !ok {\n\t\tfmt.Printf(\"FAIL: CVE-2020-0002 should be kept when ignoreInactive = false!\\n\")\n\t\tos.Exit(1)\n\t}\n\tfmt.Println(\"PASS: FilterInactiveWordPressLibs with both false\")\n\n\tfmt.Println(\"All verification checks PASSED!\")\n}\nEOF",
+        "observation": "Writes temporary verification harness for server/global/disabled model CVE filtering with active/inactive packages; X048.c1 executes it. No permanent implementation credit beyond enabling concrete check.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 48,
+      "component_index": 1,
+      "component_id": "10:X048.c1",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Harness executes and reports all three settings cases pass, preserving active/non-WP CVEs and filtering inactive CVEs. Checks model FilterInactiveWordPressLibs, not FillWordPress API scan.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Model CVE filter with server flag true, global flag true, and both false",
+      "evidence": {
+        "trace": "evidence_10.json run X action 48, component 1",
+        "command": "go run test_verify.go",
+        "observation": "Harness executes and reports all three settings cases pass, preserving active/non-WP CVEs and filtering inactive CVEs. Checks model FilterInactiveWordPressLibs, not FillWordPress API scan.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 48,
+      "component_index": 2,
+      "component_id": "10:X048.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 48, component 2",
+        "command": "rm test_verify.go",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 49,
+      "component_index": 0,
+      "component_id": "10:X049.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 49, component 0",
+        "command": "git status",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 50,
+      "component_index": 0,
+      "component_id": "10:X050.c0",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Combined diff repeats report/config/model changes and exposes final direct map and scan gating, but adds first full post-edit WordPress diff review.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:X:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Final WordPress map lookup/write and server/global gate source diff",
+      "evidence": {
+        "trace": "evidence_10.json run X action 50, component 0",
+        "command": "git diff",
+        "observation": "Combined diff repeats report/config/model changes and exposes final direct map and scan gating, but adds first full post-edit WordPress diff review.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 51,
+      "component_index": 0,
+      "component_id": "10:X051.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 51, component 0",
+        "command": "git diff -- config/config.go models/scanresults.go report/report.go wordpress/wordpress.go > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 52,
+      "component_index": 0,
+      "component_id": "10:X052.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run X action 52, component 0",
+        "command": "cat patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 53,
+      "component_index": 0,
+      "component_id": "10:X053.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_10.json run X action 53, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "X",
+      "action_index": 53,
+      "component_index": 1,
+      "component_id": "10:X053.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_10.json run X action 53, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run X final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 0,
+      "component_index": 0,
+      "component_id": "10:Y000.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 0, component 0",
+        "command": "find . -maxdepth 3 -type f | sort | head -200",
+        "observation": "Location-only discovery: output identifies implementation/test file or function locations, but does not itself expose a solution-bearing implementation fact. Subsequent targeted reads supply the required content.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 1,
+      "component_index": 0,
+      "component_id": "10:Y001.c0",
+      "contribution_label": "uncertain",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Broad grep output is dominated by unrelated Status/package occurrences and clipped; no additional used fix fact over later targeted file read.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Agent-visible broad search output is clipped and dominated by unrelated Status hits; cannot establish any additional solution-bearing content used downstream.",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 1, component 0",
+        "command": "grep -RIn --exclude-dir=.git -E 'searchCache|ignore.?inactive|Status|WordPress|wordpress' . | head -240",
+        "observation": "Broad grep output is dominated by unrelated Status/package occurrences and clipped; no additional used fix fact over later targeted file read.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": true
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 2,
+      "component_index": 0,
+      "component_id": "10:Y002.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads pointer helper, map writes, global ignore gate and correct inactive Status skip used in Y010 replacement.",
+      "support_links": [
+        "10:Y010.c1"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 2, component 0",
+        "command": "sed -n '1,360p' wordpress/wordpress.go",
+        "observation": "Reads pointer helper, map writes, global ignore gate and correct inactive Status skip used in Y010 replacement.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 0,
+      "component_id": "10:Y003.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R3"
+      ],
+      "reason": "Finds FillWordPress caller and report integration needing map propagation.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 3, component 0",
+        "command": "grep -RIn --include='*.go' 'FillWordPress\\|WordPress' --exclude='*_test.go' . | head -100",
+        "observation": "Finds FillWordPress caller and report integration needing map propagation.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 1,
+      "component_id": "10:Y003.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R5"
+      ],
+      "reason": "Reads WordPress package model Status/type semantics used by existing removeInactives.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 3, component 1",
+        "command": "sed -n '1,180p' models/wordpress.go",
+        "observation": "Reads WordPress package model Status/type semantics used by existing removeInactives.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 3,
+      "component_index": 2,
+      "component_id": "10:Y003.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Finds per-server WordPress.IgnoreInactive and global gate mismatch fixed by Y010.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 3, component 2",
+        "command": "grep -RIn --include='*.go' -E 'IgnoreInactive|ignoreInactive|Ignore.*Inactive' config scan server subcmds . | head -100",
+        "observation": "Finds per-server WordPress.IgnoreInactive and global gate mismatch fixed by Y010.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 0,
+      "component_id": "10:Y004.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R5"
+      ],
+      "reason": "Reads cache test pointer argument and hit/miss/nil cases; motivates compatibility wrapper and preservation of correct status filter.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 4, component 0",
+        "command": "sed -n '1,180p' wordpress/wordpress_test.go",
+        "observation": "Reads cache test pointer argument and hit/miss/nil cases; motivates compatibility wrapper and preservation of correct status filter.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 4,
+      "component_index": 1,
+      "component_id": "10:Y004.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R5"
+      ],
+      "reason": "Finds package collection and downstream model filter consumers, constraining retained package representation.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 4, component 1",
+        "command": "grep -RIn --include='*.go' 'WordPressPackages' config models scan server | head -100",
+        "observation": "Finds package collection and downstream model filter consumers, constraining retained package representation.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 0,
+      "component_id": "10:Y005.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R3"
+      ],
+      "reason": "Reads token configuration and pointer constructor requiring report propagation.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 0",
+        "command": "sed -n '210,245p' report/report.go",
+        "observation": "Reads token configuration and pointer constructor requiring report propagation.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 1,
+      "component_id": "10:Y005.c1",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Reads WordPressOption pointer field and apply call changed by Y010.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 1",
+        "command": "sed -n '500,530p' report/report.go",
+        "observation": "Reads WordPressOption pointer field and apply call changed by Y010.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 2,
+      "component_id": "10:Y005.c2",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4"
+      ],
+      "reason": "Reads global WpIgnoreInactive flag while assessing migration to per-server gate.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 2",
+        "command": "sed -n '140,165p' config/config.go",
+        "observation": "Reads global WpIgnoreInactive flag while assessing migration to per-server gate.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 3,
+      "component_id": "10:Y005.c3",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3",
+        "R4"
+      ],
+      "reason": "Reads per-server WordPressConf IgnoreInactive used by final gate.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 3",
+        "command": "sed -n '1020,1035p' config/config.go",
+        "observation": "Reads per-server WordPressConf IgnoreInactive used by final gate.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 4,
+      "component_id": "10:Y005.c4",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R4",
+        "R5"
+      ],
+      "reason": "Reads existing per-server model filter and inactive Status checks, supporting leaving it untouched.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 4",
+        "command": "sed -n '240,275p' models/scanresults.go",
+        "observation": "Reads existing per-server model filter and inactive Status checks, supporting leaving it untouched.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 5,
+      "component_index": 5,
+      "component_id": "10:Y005.c5",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Finds all map pointer reads/writes and report constructor sites changed in final patch.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 5, component 5",
+        "command": "grep -RIn --include='*.go' 'wpVulnCaches' .",
+        "observation": "Finds all map pointer reads/writes and report constructor sites changed in final patch.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 0,
+      "component_id": "10:Y006.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "History only shows base commit; no alternate implementation discovered.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 6, component 0",
+        "command": "git log --oneline --all -- wordpress/wordpress.go report/report.go | head -20",
+        "observation": "History only shows base commit; no alternate implementation discovered.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 1,
+      "component_id": "10:Y006.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 6, component 1",
+        "command": "git status --short",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 6,
+      "component_index": 2,
+      "component_id": "10:Y006.c2",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Repeats FillWordPress caller and signature already found at Y003.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 6, component 2",
+        "command": "grep -RIn --include='*.go' 'FillWordPress(' .",
+        "observation": "Repeats FillWordPress caller and signature already found at Y003.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 0,
+      "component_id": "10:Y007.c0",
+      "contribution_label": "direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Reads Go 1.15 module setting, relevant to avoiding modern formatter build-tag churn later reverted.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 7, component 0",
+        "command": "head -12 go.mod",
+        "observation": "Reads Go 1.15 module setting, relevant to avoiding modern formatter build-tag churn later reverted.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 1,
+      "component_id": "10:Y007.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "reason": "Base helper is identical to current helper already read at Y002.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 7, component 1",
+        "command": "git show ed89518:wordpress/wordpress.go | tail -20",
+        "observation": "Base helper is identical to current helper already read at Y002.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 7,
+      "component_index": 2,
+      "component_id": "10:Y007.c2",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3"
+      ],
+      "reason": "Finds generic Servers map declaration; exact per-server WordPress settings already established.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 7, component 2",
+        "command": "grep -RIn --include='*.go' 'type ServerConfig\\|Servers map\\|Servers ' config/config.go | head",
+        "observation": "Finds generic Servers map declaration; exact per-server WordPress settings already established.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 0,
+      "component_id": "10:Y008.c0",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R3"
+      ],
+      "reason": "Generic config header repeats Servers layout, no new setting semantics.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 8, component 0",
+        "command": "sed -n '70,115p' config/config.go",
+        "observation": "Generic config header repeats Servers layout, no new setting semantics.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 1,
+      "component_id": "10:Y008.c1",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [
+        "R1"
+      ],
+      "reason": "Report header mainly supplies build tag/import context; no requested behavior discovered.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 8, component 1",
+        "command": "sed -n '1,45p' report/report.go",
+        "observation": "Report header mainly supplies build tag/import context; no requested behavior discovered.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 8,
+      "component_index": 2,
+      "component_id": "10:Y008.c2",
+      "contribution_label": "non_direct",
+      "role": "exploration",
+      "requirement_ids": [],
+      "reason": "Generic ServerInfo usage in report sinks is unrelated to changed WordPress cache/gating.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 8, component 2",
+        "command": "grep -RIn --include='*.go' 'ServerInfo' report | head",
+        "observation": "Generic ServerInfo usage in report sinks is unrelated to changed WordPress cache/gating.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 0,
+      "component_id": "10:Y009.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ],
+      "reason": "Script aborts helper not found before p.write_text: earlier in-memory signature replacement defeats old_actual search. No requested implementation change reaches disk; Y010 replaces approach.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 9, component 0",
+        "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('wordpress/wordpress.go')\ns=p.read_text()\ns=s.replace('wpVulnCaches *map[string]string', 'wpVulnCaches map[string]string')\ns=s.replace('(*wpVulnCaches)[ver] = body', 'wpVulnCaches[ver] = body')\ns=s.replace('(*wpVulnCaches)[p.Name] = body', 'wpVulnCaches[p.Name] = body')\ns=s.replace('if c.Conf.WpIgnoreInactive {', 'if c.Conf.Servers[r.ServerName].WordPress.IgnoreInactive {')\nold='''func searchCache(name string, wpVulnCaches map[string]string) (string, bool) {\n\\tvalue, ok := wpVulnCaches[name]\n\\tif ok {\n\\t\\treturn value, true\n\\t}\n\\treturn \"\", false\n}'''\n# Replace the existing pointer helper with a compatibility wrapper whose map path is direct.\nold_actual='''func searchCache(name string, wpVulnCaches *map[string]string) (string, bool) {\n\\tvalue, ok := (*wpVulnCaches)[name]\n\\tif ok {\n\\t\\treturn value, true\n\\t}\n\\treturn \"\", false\n}'''\nnew='''func searchCache(name string, wpVulnCaches interface{}) (string, bool) {\n\\t// Cache lookups use the map directly. The pointer case keeps source-level\n\\t// compatibility with callers from older versions of this package.\n\\tvar caches map[string]string\n\\tswitch v := wpVulnCaches.(type) {\n\\tcase map[string]string:\n\\t\\tcaches = v\n\\tcase *map[string]string:\n\\t\\tif v == nil {\n\\t\\t\\treturn \"\", false\n\\t\\t}\n\\t\\tcaches = *v\n\\tdefault:\n\\t\\treturn \"\", false\n\\t}\n\\tvalue, ok := caches[name]\n\\treturn value, ok\n}'''\nif old_actual not in s: raise SystemExit('helper not found')\ns=s.replace(old_actual,new)\np.write_text(s)\n\np=Path('report/report.go')\ns=p.read_text()\ns=s.replace('&wpVulnCaches,\\n\\t}', 'wpVulnCaches,\\n\\t}')\ns=s.replace('wpVulnCaches *map[string]string', 'wpVulnCaches map[string]string')\np.write_text(s)\nPY",
+        "observation": "Script aborts helper not found before p.write_text: earlier in-memory signature replacement defeats old_actual search. No requested implementation change reaches disk; Y010 replaces approach.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 1,
+      "component_id": "10:Y009.c1",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [],
+      "reason": "Formatter only changes comments/build tag; Y010 resets these changes. No requested behavior improvement.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 9, component 1",
+        "command": "gofmt -w wordpress/wordpress.go report/report.go",
+        "observation": "Formatter only changes comments/build tag; Y010 resets these changes. No requested behavior improvement.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 2,
+      "component_id": "10:Y009.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R3",
+        "R4"
+      ],
+      "reason": "Diff shows only build-tag/comment churn, exposing failed edit; next action resets files and reapplies functional changes.",
+      "verification_gain": "actionable_defect",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [
+        "10:Y010.c0",
+        "10:Y010.c1"
+      ],
+      "invalidation_links": [
+        "10:Y009.c0"
+      ],
+      "uncertainty_reason": null,
+      "property_checked": "Whether attempted functional map/config rewrite reached disk",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 9, component 2",
+        "command": "git diff -- wordpress/wordpress.go report/report.go",
+        "observation": "Diff shows only build-tag/comment churn, exposing failed edit; next action resets files and reapplies functional changes.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 3,
+      "component_id": "10:Y009.c3",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Redirected go test interrupted with exit -1, no output available from target file; cannot attribute completion or checked results.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "unchanged",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Recorded execution/output is interrupted or insufficient to establish checked result.",
+      "property_checked": "Attempted wordpress/report/models/config tests",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 9, component 3",
+        "command": "go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out",
+        "observation": "Redirected go test interrupted with exit -1, no output available from target file; cannot attribute completion or checked results.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 9,
+      "component_index": 4,
+      "component_id": "10:Y009.c4",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "tail is conditional on test success and no tail output is recorded; cannot establish execution.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Preceding redirected test has interrupted result; no attributed tail output.",
+      "property_checked": "Intended inspection of redirected test results",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 9, component 4",
+        "command": "tail -20 /tmp/vuls-test.out",
+        "observation": "tail is conditional on test success and no tail output is recorded; cannot establish execution.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 0,
+      "component_id": "10:Y010.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Resets formatting-only failed attempt before actual implementation; no requested behavior change itself.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 0",
+        "command": "git checkout -- report/report.go wordpress/wordpress.go",
+        "observation": "Resets formatting-only failed attempt before actual implementation; no requested behavior change itself.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 1,
+      "component_id": "10:Y010.c1",
+      "contribution_label": "direct",
+      "role": "edit",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Writes map parameters/writes and per-server IgnoreInactive gate, propagates report map field, adds interface switch with direct map lookup and pointer compatibility. Final patch retains these changes and existing inactive skip.",
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 1",
+        "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('wordpress/wordpress.go'); s=p.read_text()\ns=s.replace('wpVulnCaches *map[string]string', 'wpVulnCaches map[string]string')\ns=s.replace('(*wpVulnCaches)[ver] = body', 'wpVulnCaches[ver] = body')\ns=s.replace('(*wpVulnCaches)[p.Name] = body', 'wpVulnCaches[p.Name] = body')\ns=s.replace('if c.Conf.WpIgnoreInactive {', 'if c.Conf.Servers[r.ServerName].WordPress.IgnoreInactive {')\nstart=s.index('func searchCache(')\nnew='''func searchCache(name string, wpVulnCaches interface{}) (string, bool) {\n\t// The normal cache path accepts the map directly. The pointer case keeps\n\t// compatibility with callers compiled against the former helper signature.\n\tvar caches map[string]string\n\tswitch v := wpVulnCaches.(type) {\n\tcase map[string]string:\n\t\tcaches = v\n\tcase *map[string]string:\n\t\tif v == nil {\n\t\t\treturn \"\", false\n\t\t}\n\t\tcaches = *v\n\tdefault:\n\t\treturn \"\", false\n\t}\n\tvalue, ok := caches[name]\n\treturn value, ok\n}\n'''\ns=s[:start]+new\np.write_text(s)\n\np=Path('report/report.go'); s=p.read_text()\ns=s.replace('&wpVulnCaches,\\n\\t}', 'wpVulnCaches,\\n\\t}')\ns=s.replace('wpVulnCaches *map[string]string', 'wpVulnCaches map[string]string')\np.write_text(s)\nPY",
+        "observation": "Writes map parameters/writes and per-server IgnoreInactive gate, propagates report map field, adds interface switch with direct map lookup and pointer compatibility. Final patch retains these changes and existing inactive skip.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 2,
+      "component_id": "10:Y010.c2",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [],
+      "reason": "Formats comments in WordPress source; Y011 explicitly reverts comment churn, no requested behavior effect.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 2",
+        "command": "GOPATH=/tmp gofmt -w wordpress/wordpress.go",
+        "observation": "Formats comments in WordPress source; Y011 explicitly reverts comment churn, no requested behavior effect.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 3,
+      "component_id": "10:Y010.c3",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "Whitespace check succeeds before displayed diff; does not validate map/config/status semantics.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Patch whitespace cleanliness",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 3",
+        "command": "git diff --check",
+        "observation": "Whitespace check succeeds before displayed diff; does not validate map/config/status semantics.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 4,
+      "component_id": "10:Y010.c4",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Diff confirms actual map API propagation, server-config gate and compatibility-switch lookup, unlike failed Y009.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Actual final functional source diff",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 4",
+        "command": "git diff -- wordpress/wordpress.go report/report.go",
+        "observation": "Diff confirms actual map API propagation, server-config gate and compatibility-switch lookup, unlike failed Y009.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 5,
+      "component_id": "10:Y010.c5",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Redirected aggregate test interrupted with no result tail; cannot infer success from following commands or final outcome.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Recorded execution/output is interrupted or insufficient to establish checked result.",
+      "property_checked": "Attempted changed-state wordpress/report/models/config suite",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 5",
+        "command": "go test ./wordpress ./report ./models ./config >/tmp/vuls-test.out",
+        "observation": "Redirected aggregate test interrupted with no result tail; cannot infer success from following commands or final outcome.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 10,
+      "component_index": 6,
+      "component_id": "10:Y010.c6",
+      "contribution_label": "uncertain",
+      "role": "verification",
+      "requirement_ids": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ],
+      "reason": "Conditional tail has no recorded output and preceding go test is interrupted, so execution/results are unknown.",
+      "verification_gain": "uncertain",
+      "relevant_state_changed": "uncertain",
+      "earlier_check_ids": [],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "No attributed output from redirected test file.",
+      "property_checked": "Intended aggregate test result inspection",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 10, component 6",
+        "command": "tail -20 /tmp/vuls-test.out",
+        "observation": "Conditional tail has no recorded output and preceding go test is interrupted, so execution/results are unknown.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": -1,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 0,
+      "component_id": "10:Y011.c0",
+      "contribution_label": "non_direct",
+      "role": "edit",
+      "requirement_ids": [],
+      "reason": "Reverts comment spacing introduced by formatter to reduce unrelated diff; does not change requested behavior.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 11, component 0",
+        "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('wordpress/wordpress.go'); s=p.read_text()\ns=s.replace('// WpCveInfos is for wpvulndb\\'s json','//WpCveInfos is for wpvulndb\\'s json')\ns=s.replace('// WpCveInfo is for wpvulndb\\'s json','//WpCveInfo is for wpvulndb\\'s json')\ns=s.replace('// References is for wpvulndb\\'s json','//References is for wpvulndb\\'s json')\np.write_text(s)\nPY",
+        "observation": "Reverts comment spacing introduced by formatter to reduce unrelated diff; does not change requested behavior.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 1,
+      "component_id": "10:Y011.c1",
+      "contribution_label": "non_direct",
+      "role": "verification",
+      "requirement_ids": [],
+      "reason": "Repeated whitespace check after comment cleanup contributes no requested behavior coverage.",
+      "verification_gain": "repeated_support",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [
+        "10:Y010.c3"
+      ],
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Diff whitespace after cleanup",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 11, component 1",
+        "command": "git diff --check",
+        "observation": "Repeated whitespace check after comment cleanup contributes no requested behavior coverage.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 2,
+      "component_id": "10:Y011.c2",
+      "contribution_label": "direct",
+      "role": "verification",
+      "requirement_ids": [
+        "R2",
+        "R5"
+      ],
+      "reason": "go test ./wordpress reports cached success. Existing tests check pointer cache hit/miss and inactive Status filtering, confirming compatibility survives; does not exercise normal map branch or server-config gate.",
+      "verification_gain": "new_relevant_coverage",
+      "relevant_state_changed": "changed",
+      "earlier_check_ids": [],
+      "support_links": [
+        "evidence_10.json:Y:final_patch"
+      ],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "property_checked": "Existing cache compatibility and inactive filtering unit tests",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 11, component 2",
+        "command": "go test ./wordpress",
+        "observation": "go test ./wordpress reports cached success. Existing tests check pointer cache hit/miss and inactive Status filtering, confirming compatibility survives; does not exercise normal map branch or server-config gate.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 11,
+      "component_index": 3,
+      "component_id": "10:Y011.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 11, component 3",
+        "command": "git status --short",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 12,
+      "component_index": 0,
+      "component_id": "10:Y012.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 12, component 0",
+        "command": "git diff -- wordpress/wordpress.go report/report.go > patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 0,
+      "component_id": "10:Y013.c0",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 13, component 0",
+        "command": "sed -n '1,240p' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 1,
+      "component_id": "10:Y013.c1",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 13, component 1",
+        "command": "printf '\\n--- headers ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 2,
+      "component_id": "10:Y013.c2",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 13, component 2",
+        "command": "grep -E '^--- a/|^\\+\\+\\+ b/' patch.txt",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 3,
+      "component_id": "10:Y013.c3",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 13, component 3",
+        "command": "printf '\\n--- changed paths ---\\n'",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 13,
+      "component_index": 4,
+      "component_id": "10:Y013.c4",
+      "contribution_label": "non_direct",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": null,
+      "evidence": {
+        "trace": "evidence_10.json run Y action 13, component 4",
+        "command": "git diff --name-only -- wordpress/wordpress.go report/report.go",
+        "observation": "Artifact, repository-status, environment setup/diagnostic, formatting-output, or shell-control step: no additional evidence of a required behavior beyond the separately annotated source reads, edits and checks.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": 0,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "executed"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 0,
+      "component_id": "10:Y014.c0",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 14, component 0",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    },
+    {
+      "blinded_label": "Y",
+      "action_index": 14,
+      "component_index": 1,
+      "component_id": "10:Y014.c1",
+      "contribution_label": "uncertain",
+      "role": "administration",
+      "requirement_ids": [],
+      "reason": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+      "support_links": [],
+      "invalidation_links": [],
+      "uncertainty_reason": "Missing terminal tool result / interrupted submit call.",
+      "evidence": {
+        "trace": "evidence_10.json run Y action 14, component 1",
+        "command": "cat patch.txt",
+        "observation": "Terminal submit-marker/cat call has no returned execution output; final patch is separately available but does not prove this component executed.",
+        "downstream": "Compare run Y final_patch in evidence_10.json; credited implementation relationships are stated in reason, not inferred from outcome.",
+        "recorded_call_exit": null,
+        "agent_saw_truncated": false
+      },
+      "execution_status": "uncertain"
+    }
+  ],
+  "limits": [
+    "Independent model-coded annotation only; no human validation or new execution of trajectory commands.",
+    "Requirements follow explicit dataset bullets; accepted reference patch is one route, not exact required scope.",
+    "Run outcome headings were not used as evidence of component contribution.",
+    "Recorded call-level outputs were attributed by command/output content; interrupted and missing outputs remain uncertain."
+  ]
+}

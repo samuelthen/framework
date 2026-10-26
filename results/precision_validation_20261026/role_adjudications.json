@@ -1,0 +1,7 @@
+[
+  {"component_id":"08:X006.c1","role":"administration","reason":"artifact_whitespace_check","rationale":"git diff --check checks patch whitespace, not the command/completion behavior under assessment."},
+  {"component_id":"08:X007.c4","role":"administration","reason":"artifact_whitespace_check","rationale":"Repeated patch whitespace check is artifact administration."},
+  {"component_id":"09:Y002.c1","role":"administration","reason":"artifact_whitespace_check","rationale":"Whitespace check does not establish sort order, omissions or purity."},
+  {"component_id":"10:Y010.c3","role":"administration","reason":"artifact_whitespace_check","rationale":"Patch whitespace check does not establish map access/configuration/status behavior."},
+  {"component_id":"10:Y011.c1","role":"administration","reason":"artifact_whitespace_check","rationale":"Whitespace-only artifact check remains administrative after comment cleanup."}
+]

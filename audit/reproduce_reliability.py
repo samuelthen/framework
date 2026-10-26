@@ -1,7 +1,9 @@
 """Regression probes for the reliability audit, 2026-10-25.
 
 Run: python3 audit/reproduce_reliability.py
-These assert the desired semantics and currently fail on the audited implementation.
+These assert the desired semantics. They failed on the historical audited
+implementation; the current repairs are documented in
+results/precision_validation_20261026/RESULTS.md.
 They use synthetic trajectory records; they execute no trajectory commands or APIs.
 """
 from pathlib import Path
