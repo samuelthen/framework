@@ -1,0 +1,34 @@
+{
+  "selection": "first two existing evaluation orders; not outcome-pattern selected",
+  "orders": [
+    3,
+    4
+  ],
+  "tasks": 2,
+  "runs": 4,
+  "components": 175,
+  "native_calls": 109,
+  "native_response_ids": 104,
+  "real_response_usage_export_attempted": false,
+  "checkpoint_evaluations": 0,
+  "complete_empirical_pipeline": false,
+  "actual_new_model_calls": 0,
+  "labels_changed": false,
+  "pipeline_stages": {
+    "identity_join": "real-data checked",
+    "contribution": "archived model labels reused; human accuracy unresolved",
+    "response_accounting": "synthetic CLI tests only; empirical usage unavailable",
+    "state_progression": "inferred native-call states; not complete snapshots",
+    "checkpoint_outcomes": "not evaluated",
+    "post_pass_expenditure": "unresolved",
+    "examples": "real archived sources; no synthetic costs or PASS markers"
+  },
+  "elapsed_seconds": 0.882,
+  "source_hashes": {
+    "sample": "4e1df59ceab4b6023f8ba9576eb63e73a1b69eb8fe49f7b8b53ae81ad5f0d653",
+    "labels": "3a130366e999bdc4955b3f5d4febe8773c08f9000af7e4f2fc7d5ce98bae1937",
+    "inventory": "896934c51af6c99be798bb2e69ccf8426783a4f838c72d8fa92fac6382909f79",
+    "runs": "a5a8c94129f5ee485874016abf27652a3dd8b1747a07c58666f9f2e7df514df0",
+    "graphs": "d05ed2cdfe2ff7f7bb9b2082e1446d2f72a9132c95c66d44b86a0040d0439844"
+  }
+}

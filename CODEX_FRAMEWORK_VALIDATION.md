@@ -1,5 +1,10 @@
 # Test WorkTrace: components, code versions, contribution, and tokens
 
+> **Current priority: one hour.** Run `CODEX_FRAMEWORK_ONE_HOUR.md` first. The
+> user reduced the immediate study to two task pairs/four runs and at most six
+> 120-second checkpoint evaluations. The larger study below is follow-up scope,
+> not permission to overrun that deadline.
+
 ## Objective
 
 Execute a bounded validation study of the revised framework. Produce a report

@@ -1,0 +1,5 @@
+PASS: 2 fixed tasks, 4 runs, 175 candidates, 109 native calls, 104 response IDs.
+PASS: all 16 run-role count/bound rows equal archived cross-review scoring.
+PASS: eight evidence-linked examples retain null component usage.
+PASS: both SVG figures parse as XML.
+Empirical intermediate checkpoint evaluation: not performed.

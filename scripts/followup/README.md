@@ -1,5 +1,11 @@
 # Follow-up study tools
 
+**Current one-hour scope:** [`CODEX_FRAMEWORK_ONE_HOUR.md`](../../CODEX_FRAMEWORK_ONE_HOUR.md).
+`framework_quickcheck.py --out <fresh-directory>` creates the fixed two-task/four-run
+sample, archived role precision, two trajectory figures and component examples.
+Optional `--jetbrains-shard` flags add actual usage extraction from local files.
+The script does not execute benchmark checkpoints or create empirical PASS markers.
+
 For the component/version/token and intermediate-checkpoint study, start with
 [`CODEX_FRAMEWORK_VALIDATION.md`](../../CODEX_FRAMEWORK_VALIDATION.md). Response
 accounting is implemented in `component_resources.py`; independent checkpoint
