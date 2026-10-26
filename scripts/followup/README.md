@@ -4,6 +4,9 @@
 `framework_quickcheck.py --out <fresh-directory>` creates the fixed two-task/four-run
 sample, archived role precision, two trajectory figures and component examples.
 Optional `--jetbrains-shard` flags add actual usage extraction from local files.
+The four-label rubric is in `worktrace/CONTRIBUTION_RUBRIC_V2.md`. The script also
+prepares a fixed 20-case packet; `--contribution-review` applies a separately saved
+evidence-linked review overlay. Legacy non-direct stays unsplit until reviewed.
 The script does not execute benchmark checkpoints or create empirical PASS markers.
 
 For the component/version/token and intermediate-checkpoint study, start with

@@ -25,8 +25,8 @@ def main():
              ('Read parser tests',1,'exploration','direct','V0'),
              ('Implement the fix',2,'edit','direct','V0 -> V1'),
              ('Check repaired behavior',3,'verification','direct','V1'),
-             ('Repeat the same check',4,'verification','non_direct','V1'),
-             ('Re-read unchanged code',5,'exploration','non_direct','V1'),
+             ('Repeat the same check',4,'verification','no_demonstrated','V1'),
+             ('Re-read unchanged code',5,'exploration','no_demonstrated','V1'),
              ('Check another edge case',6,'verification','uncertain','V1')]
     components = [dict(component_id=f'C{i}',response_id=f'example:R{r}',role=role,
                        contribution_label=label,version_region=version,title=title)
@@ -94,7 +94,7 @@ def main():
         ax.scatter(x+.14,1.02,s=45,marker=ROLE_MARKERS[role],color=muted);ax.text(x+.38,.98,label,fontsize=10,color=ink);x+=1.9
     ax.text(7.25,.98,'Color:',fontsize=10,fontweight='bold',color=ink)
     x=8.05
-    for label,text in [('direct','Direct'),('non_direct','Non-direct'),('uncertain','Uncertain')]:
+    for label,text in [('direct','Direct'),('no_demonstrated','No demonstrated'),('uncertain','Uncertain')]:
         ax.plot([x,x+.22],[1.02,1.02],lw=3,color=CONTRIBUTION_COLORS[label]);ax.text(x+.32,.98,text,fontsize=10,color=ink);x+=1.65
     ax.text(.35,.52,'Whole trajectory: 2,000 output tokens / 7 components = 285.7 tokens per component.',fontsize=12,fontweight='bold',color=ink)
     ax.text(.35,.17,'Region totals include each response once. Component shares are an attribution assumption; they do not measure internal reasoning.',fontsize=10,color=muted)

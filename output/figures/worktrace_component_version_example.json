@@ -40,7 +40,7 @@
     {
       "component_id": "C5",
       "role": "verification",
-      "contribution": "non_direct",
+      "contribution": "no_demonstrated",
       "response_id": "R4",
       "input_tokens": 3100,
       "cached_input_tokens": 2500,
@@ -67,7 +67,7 @@
     {
       "component_id": "C8",
       "role": "exploration",
-      "contribution": "non_direct",
+      "contribution": "no_demonstrated",
       "response_id": "R7",
       "input_tokens": 3500,
       "cached_input_tokens": 2900,

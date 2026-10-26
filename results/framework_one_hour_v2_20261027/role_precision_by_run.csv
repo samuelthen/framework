@@ -1,0 +1,17 @@
+order,run_id,model,role,included,direct,indirect,no_demonstrated,uncertain,legacy_non_direct,reviewed,lower,upper
+3,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gemini-3.7-flash,exploration,26,15,0,0,7,4,0,0.5769230769230769,0.8461538461538461
+3,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gemini-3.7-flash,verification,14,6,0,0,4,4,0,0.42857142857142855,0.7142857142857143
+3,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gemini-3.7-flash,edit,6,4,0,0,2,0,0,0.6666666666666666,1.0
+3,jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gemini-3.7-flash,administration,8,0,0,0,2,6,0,0.0,0.25
+3,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gpt-5.6-luna,exploration,8,6,0,0,0,2,0,0.75,0.75
+3,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gpt-5.6-luna,verification,4,1,0,0,2,1,0,0.25,0.75
+3,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gpt-5.6-luna,edit,2,1,0,0,1,0,0,0.5,1.0
+3,jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1,gpt-5.6-luna,administration,16,0,0,0,8,8,0,0.0,0.5
+4,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gemini-3.7-flash,exploration,19,7,0,0,2,10,0,0.3684210526315789,0.47368421052631576
+4,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gemini-3.7-flash,verification,12,3,0,0,5,4,0,0.25,0.6666666666666666
+4,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gemini-3.7-flash,edit,3,2,0,0,1,0,0,0.6666666666666666,1.0
+4,jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gemini-3.7-flash,administration,13,0,0,0,2,11,0,0.0,0.15384615384615385
+4,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gpt-5.6-luna,exploration,12,7,0,0,0,5,0,0.5833333333333334,0.5833333333333334
+4,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gpt-5.6-luna,verification,6,4,0,0,1,1,0,0.6666666666666666,0.8333333333333334
+4,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gpt-5.6-luna,edit,3,2,0,0,1,0,0,0.6666666666666666,1.0
+4,jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1,gpt-5.6-luna,administration,20,0,0,0,6,14,0,0.0,0.3

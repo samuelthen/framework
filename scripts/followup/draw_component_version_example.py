@@ -18,8 +18,8 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     roles = ['exploration', 'exploration', 'edit', 'verification', 'verification',
              'edit', 'verification', 'exploration', 'verification']
-    labels = ['direct', 'direct', 'direct', 'direct', 'non_direct',
-              'uncertain', 'uncertain', 'non_direct', 'uncertain']
+    labels = ['direct', 'direct', 'direct', 'direct', 'no_demonstrated',
+              'uncertain', 'uncertain', 'no_demonstrated', 'uncertain']
     titles = ['Read source', 'Read tests', 'Implement fix', 'Check fix', 'Repeat check',
               'Extra edit', 'Check new version', 'Re-read code', 'Edge-case check']
     inp = [1000, 1000, 2500, 3000, 3100, 3200, 3400, 3500, 3600]
@@ -88,7 +88,7 @@ def main():
             cell.set_text_props(color=ink, weight='bold')
         if r == 2 and c >= 0:
             cell.set_text_props(color=CONTRIBUTION_COLORS[labels[c]], weight='bold')
-    fig.text(.035, .125, 'Shape: circle exploration, diamond edit, square verification. Color: green direct, orange non-direct, gray uncertain.',
+    fig.text(.035, .125, 'Shape: circle exploration, diamond edit, square verification. Color: green direct, orange no demonstrated contribution, gray uncertain.',
              fontsize=11, color=ink)
     fig.text(.035, .088, 'Output: 2,300 total tokens; 800 after the first confirmed passing state, including 200 for an extra edit.',
              fontsize=12, weight='bold', color=ink)

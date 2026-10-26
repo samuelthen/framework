@@ -82,3 +82,18 @@ def test_cli_duplicate_response_fails_before_creating_results(tmp_path):
     assert result.returncode != 0
     assert 'Duplicate response_id' in result.stderr
     assert not out.exists()
+
+
+def test_cli_four_labels_do_not_inflate_direct_credit_or_collapse_legacy(tmp_path):
+    labels = ['direct', 'indirect', 'no_demonstrated', 'uncertain', 'non_direct']
+    responses = [dict(response_id='r:t0', run_id='r', usage=dict(output_tokens=50))]
+    components = [dict(component_id=f'c{i}', response_id='r:t0', role='verification', contribution_label=label)
+                  for i, label in enumerate(labels)]
+    result, out = export(tmp_path, responses, components)
+    assert result.returncode == 0, result.stderr
+    allocations = rows(out / 'component_allocations.jsonl')
+    assert {r['contribution_label'] for r in allocations} == set(labels)
+    assert sum(r['usage']['output_tokens'] for r in allocations) == 50
+    bounds = rows(out / 'contribution_expenditure_bounds.jsonl')[0]['output_tokens']
+    assert bounds['lower'] == .2 and bounds['upper'] == .4
+    assert len({r['visual']['contribution_color'] for r in allocations}) == 5

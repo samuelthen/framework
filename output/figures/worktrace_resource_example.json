@@ -81,7 +81,7 @@
       "component_id": "C5",
       "response_id": "example:R4",
       "role": "verification",
-      "contribution_label": "non_direct",
+      "contribution_label": "no_demonstrated",
       "version_region": "V1",
       "title": "Repeat the same check"
     },
@@ -89,7 +89,7 @@
       "component_id": "C6",
       "response_id": "example:R5",
       "role": "exploration",
-      "contribution_label": "non_direct",
+      "contribution_label": "no_demonstrated",
       "version_region": "V1",
       "title": "Re-read unchanged code"
     },
@@ -272,7 +272,7 @@
       },
       "execution_status": "not_applicable",
       "role": "verification",
-      "contribution_label": "non_direct",
+      "contribution_label": "no_demonstrated",
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {
@@ -308,7 +308,7 @@
       },
       "execution_status": "not_applicable",
       "role": "exploration",
-      "contribution_label": "non_direct",
+      "contribution_label": "no_demonstrated",
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {

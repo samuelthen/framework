@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "worktrace"))
 from worktrace.resources import (METRICS, ROLE_MARKERS, CONTRIBUTION_COLORS,
     allocate_usage, region_totals, contribution_resource_bounds)
+from worktrace.contributions import CONTRIBUTION_NAMES
 
 
 def read_jsonl(path):
@@ -124,10 +125,12 @@ def main():
             for mixed in [False,True]:
                 regions.extend(dict(run_id=run_id,view=view,**r) for r in region_totals(rs,dims,mixed))
     write_jsonl(args.out/'region_totals.jsonl',regions)
-    overlay = dict(legend=dict(role_markers=ROLE_MARKERS,contribution_colors=CONTRIBUTION_COLORS),
+    overlay = dict(legend=dict(role_markers=ROLE_MARKERS,contribution_colors=CONTRIBUTION_COLORS,
+                              contribution_names=CONTRIBUTION_NAMES),
                    usage_note='Metric fields are separate; do not sum graph views, cache with input, or reasoning with output.',
                    glyphs=[dict(component_id=r['component_id'],response_id=r['response_id'],
-                                role=r['role'],version_region=r['version_region'],visual=r['visual']) for r in allocations],
+                                role=r['role'],contribution_label=r['contribution_label'],
+                                version_region=r['version_region'],visual=r['visual']) for r in allocations],
                    regions=regions)
     (args.out/'graph_overlay.json').write_text(json.dumps(overlay,indent=2,allow_nan=False)+'\n')
     manifest = dict(inputs={str(p):digest(p) for p in inputs},

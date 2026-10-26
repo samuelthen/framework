@@ -4,6 +4,11 @@
 > user reduced the immediate study to two task pairs/four runs and at most six
 > 120-second checkpoint evaluations. The larger study below is follow-up scope,
 > not permission to overrun that deadline.
+> The current rubric has direct, indirect, no demonstrated contribution and
+> uncertain labels. Use `worktrace/CONTRIBUTION_RUBRIC_V2.md` and the one-hour
+> protocol's fixed 20-case additive review. Historical non-direct remains unsplit;
+> do not turn it into zero contribution. These instructions take precedence over
+> the older three-label wording in the archived study material below.
 
 ## Objective
 

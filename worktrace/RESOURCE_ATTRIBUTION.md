@@ -18,6 +18,11 @@ check source accounting before interpreting subsets or deriving total cost.
 Every component needs `component_id` and `response_id`. Optional fields are
 `role`, `contribution_label`, `version_region` and `target_region`. Supply the
 complete emitted candidate inventory, not only useful/executed components.
+Contribution accepts `direct`, `indirect`, `no_demonstrated`, `uncertain`, plus
+historical `non_direct` as explicitly legacy unsplit. See
+`CONTRIBUTION_RUBRIC_V2.md`; do not automatically map legacy to no demonstrated.
+Direct expenditure bounds include only `uncertain` in the possible-direct upper
+numerator; indirect, no demonstrated and retained legacy non-direct do not enter it.
 No-tool responses enter an unassigned bucket. A response with multiple calls
 shares its usage across all their components, not a separate full budget per call.
 
@@ -98,8 +103,10 @@ code versions on y. Points retain role, contribution, response ID and the separa
 input/cache/output fields. Edits lie on state transitions; reads/checks stay on
 their execution state. Generation context remains a separate accounting field.
 Shape encodes action type (circle exploration, diamond edit, square verification,
-triangle administration); solid color encodes direct/non-direct/uncertain
-contribution (green/orange/gray). Borders have no semantic meaning. Keep primary
+triangle administration); solid color encodes direct/indirect/no-demonstrated/
+uncertain contribution (green/blue/orange/gray). Unreviewed historical non-direct
+is neutral beige and explicitly legacy unsplit, not a fifth usefulness class.
+Borders have no semantic meaning. Keep primary
 sequence markers the same size and show token triplets in a table. The overlay
 exports `role_marker` and `contribution_color`; its optional `size_value` applies
 only when an explicitly labeled resource-size view is requested.

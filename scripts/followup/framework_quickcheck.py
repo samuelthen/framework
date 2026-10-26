@@ -4,7 +4,6 @@ Optional local raw shards enable response accounting. No task commands, model
 jobs, downloads or new labels are executed. Inferred states are not checkpoints.
 """
 import argparse
-from collections import Counter
 import csv
 import hashlib
 import json
@@ -18,6 +17,8 @@ os.environ.setdefault('MPLCONFIGDIR', '/private/tmp/worktrace-quickcheck-mpl')
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'worktrace'))
 from worktrace.resources import ROLE_MARKERS, CONTRIBUTION_COLORS
+from worktrace.contributions import (CONTRIBUTION_LABELS, apply_reviews, contribution_score,
+                                    review_sample)
 
 
 def jsonl(path):
@@ -39,6 +40,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--jetbrains-shard', type=Path, action='append', default=[])
+    parser.add_argument('--contribution-review', type=Path,
+                        help='Additive completed/pending four-label review overlay (at most the fixed 20 cases)')
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     paths = dict(sample=ROOT / 'results/one_day_precision_20261026/sample_manifest.csv',
@@ -59,6 +62,30 @@ def main():
         joined = {r['component_id']: r for r in csv.DictReader(f) if r['run_id'] in ids}
     labels = [r for r in jsonl(paths['labels']) if int(r['order']) in orders]
     assert set(joined) == {r['component_id'] for r in labels}
+    template = review_sample(labels)
+    template_path = args.out / 'contribution_review_template.jsonl'
+    if not template_path.exists():
+        template_path.write_text(''.join(json.dumps(r) + '\n' for r in template))
+    elif jsonl(template_path) != template:
+        raise ValueError('Existing review template differs; use a fresh output directory or a separate review overlay')
+    reviews = jsonl(args.contribution_review) if args.contribution_review else []
+    if set(r['component_id'] for r in reviews) - {r['component_id'] for r in template}:
+        raise ValueError('Review exceeds the fixed one-hour review sample')
+    labels = apply_reviews(labels, reviews)
+    packet = ['# Four-label review packet', '',
+        'Up to 20 enriched cases: three legacy non-direct cases plus direct/uncertain controls per run.',
+        'Read full requirements, final patch and trajectory first. Do not copy the old judgment as evidence.',
+        'Complete a COPY of contribution_review_template.jsonl; preserve the pending template.', '',
+        'Allowed labels: direct, indirect, no_demonstrated, uncertain. Indirect requires evidence that the result guided a later performed direct component, with its ID.',
+        'No demonstrated means no supported observed contribution, not proof of zero causal effect. Missing context stays uncertain.', '']
+    byid = {r['component_id']: r for r in labels}
+    for entry in template:
+        c = byid[entry['component_id']]
+        sources = sorted((ROOT / 'results/one_day_precision_20261026/packets').glob(f"{int(c['order']):02d}_*.md"))
+        packet += [f"## {c['component_id']} — {c['role']} / archived {c['archived_contribution_label']}", '',
+            'Read full source: ' + ', '.join(str(p.relative_to(ROOT)) for p in sources), '',
+            '```bash', c['command'], '```', '']
+    (args.out / 'contribution_review_packet.md').write_text('\n'.join(packet).rstrip() + '\n')
     graphs = {r['run_id']: r for r in jsonl(paths['graphs']) if r['run_id'] in ids}
     write_csv(args.out / 'sample.csv', selected)
     (args.out / 'components.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in labels))
@@ -75,19 +102,20 @@ def main():
             raise RuntimeError('Resource export failed; inspect resource_export.log')
         usage = {r['component_id']: r for r in jsonl(args.out / 'resources/component_allocations.jsonl') if r['component_id']}
 
-    per_role, examples = [], []
+    per_role, reviewed_subset, examples = [], [], []
     for item in selected:
         group = [r for r in labels if joined[r['component_id']]['run_id'] == item['run_id']]
         for role in ['exploration', 'verification', 'edit', 'administration']:
-            included = [r for r in group if r['role'] == role and r['execution_status'] != 'not_executed']
-            counts = Counter(r['contribution_label'] for r in included)
-            n, d, u = len(included), counts['direct'], counts['uncertain']
             per_role.append(dict(order=item['order'], run_id=item['run_id'], model=item['model'], role=role,
-                included=n, direct=d, non_direct=counts['non_direct'], uncertain=u,
-                lower=d / n if n else None, upper=(d + u) / n if n else None))
-        for contribution in ['direct', 'non_direct']:
+                **contribution_score([r for r in group if r['role'] == role])))
+            reviewed_subset.append(dict(order=item['order'], run_id=item['run_id'], model=item['model'], role=role,
+                **contribution_score([r for r in group if r['role'] == role and r['contribution_review_status'] == 'reviewed'])))
+        for contribution in [*CONTRIBUTION_LABELS, 'non_direct']:
             example = next((r for r in group if r['role'] == 'verification'
                 and r['contribution_label'] == contribution and r['execution_status'] == 'executed'), None)
+            if example is None:
+                example = next((r for r in group if r['contribution_label'] == contribution
+                                and r['execution_status'] == 'executed'), None)
             if example:
                 cost = usage.get(example['component_id'])
                 examples.append(dict(example, run_id=item['run_id'], model=item['model'],
@@ -96,6 +124,7 @@ def main():
                     output_tokens=cost['usage']['output_tokens'] if cost else None,
                     attribution=cost['allocation_method'] if cost else 'unavailable'))
     write_csv(args.out / 'role_precision_by_run.csv', per_role)
+    write_csv(args.out / 'reviewed_subset_by_run.csv', reviewed_subset)
     (args.out / 'examples.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in examples))
 
     import matplotlib
@@ -141,9 +170,12 @@ def main():
         role_handles = [Line2D([], [], marker=ROLE_MARKERS[role], ls='None', color='#43515B',
                                markersize=7, label=role.title())
                         for role in ['exploration', 'edit', 'verification', 'administration']]
-        contribution_handles = [Line2D([], [], marker='o', ls='None', color=color, markersize=7,
-                                       label=label.replace('_', '-').title())
-                                for label, color in CONTRIBUTION_COLORS.items()]
+        names = {'direct': 'Direct', 'indirect': 'Indirect', 'no_demonstrated': 'No demonstrated',
+                 'uncertain': 'Uncertain', 'non_direct': 'Legacy unsplit'}
+        present = {r['contribution_label'] for r in labels if int(r['order']) == order}
+        contribution_handles = [Line2D([], [], marker='o', ls='None', color=CONTRIBUTION_COLORS[label],
+                                      markersize=7, label=names[label])
+                                for label in [*CONTRIBUTION_LABELS, 'non_direct'] if label in present]
         fig.legend(handles=role_handles, title='Shape = action type', loc='upper left',
                    bbox_to_anchor=(.065, .235), ncol=4, frameon=False, fontsize=10,
                    title_fontsize=10, handletextpad=.5, columnspacing=1.8)
@@ -169,25 +201,34 @@ def main():
     report += ['', 'Input/cache/output are separate archived run fields. These amounts do not attribute cost to roles or components.', '',
         '## Role contribution bounds', '',
         'Known unexecuted candidates are excluded; uncertain execution remains as in the archived convention. Bounds reflect uncertain labels, not confidence intervals.', '',
-        '| Task | Model | Role | Included | Direct | Non-direct | Uncertain | Precision bounds |',
-        '| --- | --- | --- | ---: | ---: | ---: | ---: | --- |']
+        'Legacy non-direct remains unsplit between indirect and no demonstrated contribution. Unreviewed labels retain archived provenance; these are partial-review bounds, not a fully validated four-label result.', '',
+        '| Task | Model | Role | Included | Direct | Indirect | No demonstrated | Uncertain | Legacy unsplit | Reviewed | Direct precision bounds |',
+        '| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |']
     for r in per_role:
         if r['role'] not in ['exploration', 'verification']: continue
         bounds = f"{r['lower']:.1%}–{r['upper']:.1%}" if r['included'] else 'undefined'
-        report.append(f"| {r['order']} | {r['model']} | {r['role']} | {r['included']} | {r['direct']} | {r['non_direct']} | {r['uncertain']} | {bounds} |")
-    report += ['', '## Trajectory examples', '']
+        report.append(f"| {r['order']} | {r['model']} | {r['role']} | {r['included']} | {r['direct']} | {r['indirect']} | {r['no_demonstrated']} | {r['uncertain']} | {r['legacy_non_direct']} | {r['reviewed']} | {bounds} |")
+    reviewed_count = sum(r['contribution_review_status'] == 'reviewed' for r in labels)
+    report += ['', f'Review packet: {len(template)} cases prepared; {reviewed_count} judgments completed.',
+               'The enriched reviewed subset is reported separately in reviewed_subset_by_run.csv. It is not a population estimate.', '',
+               '## Trajectory examples', '']
     for order in orders:
         report += [f'![Task {order} inferred progression](task_{order:02d}_progression.png)', '']
     report += ['## Component examples', '',
-        'First executed direct and non-direct verification examples per selected run. Qualitative illustrations, not prevalence estimates. The same-family model reviews are not human ground truth.', '']
+        'First executed verification example per available label/run, falling back to another action type if needed. Labels not observed are not fabricated. Legacy non-direct is explicitly unsplit. Qualitative illustrations, not prevalence estimates. Model reviews are not human ground truth.', '']
     for e in examples:
         report += [f"### {e['component_id']} — {e['model']}, {e['contribution_label']}", '',
                    '```bash', e['command'], '```', '', f"Archived reason: {e.get('reason', 'unknown')}", '',
                    f"Archived evidence: {e.get('evidence', 'unknown')}", '',
                    f"Component usage: input={e['input_tokens']}, cache={e['cached_input_tokens']}, output={e['output_tokens']}; attribution={e['attribution']}.", '']
+        if e['contribution_review_status'] == 'reviewed':
+            review = e['contribution_review']
+            report += [f"Original label: {e['archived_contribution_label']}. Reviewed label: {e['contribution_label']}.", '',
+                       f"Review evidence: {review['evidence']}", '',
+                       f"Supporting components: {review.get('supporting_component_ids', [])}. Reviewer: {review['reviewer_name']} ({review['reviewer_type']}).", '']
     report += ['## Pipeline coverage', '',
         '- Real source/component/response identity joins: checked on this subset.',
-        '- Existing classification and contribution labels: reused, no independent semantic validation.',
+        '- Existing labels preserved; optional four-label review is additive, with reviewer/evidence provenance. No independent human accuracy established.',
         '- Response resource accounting: ' + ('exported; inspect reconciliation and usage coverage.' if usage else 'not run empirically; local raw usage absent.'),
         '- Intermediate complete snapshots and final-test outcomes: not evaluated by this script.',
         '- Actual post-pass expenditure: unresolved until evaluated checkpoints and response usage are joined.',
@@ -198,9 +239,13 @@ def main():
         tasks=2, runs=4, components=len(labels), native_calls=sum(int(runs[rid]['native_calls']) for rid in ids),
         native_response_ids=len({r['response_id'] for r in joined.values()}),
         real_response_usage_export_attempted=bool(args.jetbrains_shard), checkpoint_evaluations=0,
-        complete_empirical_pipeline=False, actual_new_model_calls=0, labels_changed=False,
+        complete_empirical_pipeline=False, actual_new_model_calls=0, source_labels_changed=False,
+        contribution_rubric='four-label v2; non_direct is unresolved legacy metadata, not no_demonstrated',
+        review_cases_prepared=len(template), reviewed_components=reviewed_count,
+        review_input_sha256=sha(args.contribution_review) if args.contribution_review else None,
+        remaining_legacy_non_direct=sum(r['contribution_label'] == 'non_direct' for r in labels),
         pipeline_stages=dict(identity_join='real-data checked',
-                             contribution='archived model labels reused; human accuracy unresolved',
+                             contribution='additive reviews applied; inspect provenance; human accuracy unresolved' if reviewed_count else 'archived labels preserved; 20-case v2 packet pending',
                              response_accounting='export attempted; inspect coverage' if args.jetbrains_shard else 'synthetic CLI tests only; empirical usage unavailable',
                              state_progression='inferred native-call states; not complete snapshots',
                              checkpoint_outcomes='not evaluated', post_pass_expenditure='unresolved',

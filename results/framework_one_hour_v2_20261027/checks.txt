@@ -1,0 +1,7 @@
+PASS: 155 project/study/follow-up tests (including 6 new four-label/overlay tests).
+PASS: frozen 2-task/4-run/175-component sample retained.
+PASS: 20 unique pending review cases; no invented review decisions.
+PASS: 73 legacy non-direct candidates remain unsplit; zero automatic no-demonstrated assignments.
+PASS: all 16 run-role rows reproduce archived count denominators and directness labels.
+PASS: SVG examples parse.
+Actual independent human reviews: 0. Actual intermediate checkpoint evaluations: 0.

@@ -5,6 +5,7 @@ estimation from characters, semantic annotation, or trajectory execution.
 """
 from collections import defaultdict
 import math
+from .contributions import CONTRIBUTION_COLORS, CONTRIBUTION_LABELS
 
 METRICS = ("input_tokens", "cached_input_tokens", "output_tokens", "reasoning_tokens", "cost_usd")
 GROUP_FIELDS = ("role", "version_region", "target_region", "contribution_label")
@@ -12,7 +13,6 @@ ROLE_COLORS = {"exploration": "#2878B5", "edit": "#8058AF", "verification": "#16
                "administration": "#737D8C", "unknown": "#A0A0A0", "unassigned": "#A0A0A0"}
 ROLE_MARKERS = {"exploration": "o", "edit": "D", "verification": "s",
                 "administration": "^", "unknown": "X", "unassigned": "X"}
-CONTRIBUTION_COLORS = {"direct": "#237A3B", "non_direct": "#C35E18", "uncertain": "#777777"}
 
 
 def _number(value, field):
@@ -119,7 +119,7 @@ def allocate_usage(responses, components):
             raise ValueError(f"Unknown response_id: {rid}")
         if component.get("run_id") is not None and component["run_id"] != ledger[rid]["run_id"]:
             raise ValueError("Component and response refer to different runs")
-        if component.get("contribution_label") not in (None, "direct", "non_direct", "uncertain"):
+        if component.get("contribution_label") not in (None, *CONTRIBUTION_LABELS, "non_direct"):
             raise ValueError("Unsupported contribution label")
         component_ids.add(cid)
         by_response[rid].append(component)
@@ -256,7 +256,7 @@ def contribution_resource_bounds(allocations):
             direct = math.fsum(r["usage"][metric] for r in rows
                               if r["contribution_label"] == "direct" and r["usage"][metric] is not None)
             uncertain = math.fsum(r["usage"][metric] for r in rows
-                                 if r["contribution_label"] not in ("direct", "non_direct")
+                                 if r["contribution_label"] == "uncertain"
                                  and r["usage"][metric] is not None)
             valid = complete and total is not None and total > 0
             out[metric] = dict(known_total=total, usage_complete=complete,
