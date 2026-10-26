@@ -16,6 +16,12 @@
   },
   "source_annotations_changed": false,
   "precision_scores_changed": false,
+  "percentage_denominators": {
+    "cost_percent_of_run": "complete recorded run USD",
+    "input_percent_of_run": "run input tokens",
+    "cached_input_percent_of_run": "run cached-input tokens",
+    "output_percent_of_run": "run output tokens"
+  },
   "contribution_counts": {
     "3": {
       "direct": 9,

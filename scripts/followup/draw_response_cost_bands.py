@@ -54,6 +54,14 @@ def money(value):
     return 'USD unavailable' if value is None else f'${value:.6f}'
 
 
+def percentage(value, total):
+    return None if value is None or total is None or total <= 0 else 100 * value / total
+
+
+def percent_label(value):
+    return 'NA' if value is None else f'{value:.1f}%'
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, default=ROOT / 'results/framework_one_hour_run_20261027_0230')
@@ -116,7 +124,7 @@ def main():
             assert math.isclose(total_usd, float(coverage[rid]['run_cost_usd']), rel_tol=1e-12)
 
         fig = plt.figure(figsize=(20, 9), facecolor='#FCFCFA')
-        gs = fig.add_gridspec(2, 1, height_ratios=[1.35, 3.7], hspace=0,
+        gs = fig.add_gridspec(2, 1, height_ratios=[2.15, 3.7], hspace=0,
                              left=.055, right=.985, bottom=.245, top=.86)
         head = fig.add_subplot(gs[0]); ax = fig.add_subplot(gs[1], sharex=head)
         fig.text(.055, .95, f'Luna · task {order:02d} — response costs over work progression',
@@ -137,16 +145,24 @@ def main():
                 axis.axvline(lo, color='#CDD6DD', lw=.7, zorder=1)
             center = (lo + hi) / 2
             usage = response['usage']
-            head.text(center, .92, f'R{i + 1}', ha='center', va='top', fontsize=10, weight='bold', color='#17252D')
-            head.text(center, .72, money(usage['cost_usd']), ha='center', va='top',
+            shares = {field: percentage(usage[field], float(totals[field]))
+                      for field in ['input_tokens', 'cached_input_tokens', 'output_tokens']}
+            cost_share = percentage(usage['cost_usd'], total_usd)
+            head.text(center, .96, f'R{i + 1}', ha='center', va='top', fontsize=10, weight='bold', color='#17252D')
+            head.text(center, .84, money(usage['cost_usd']), ha='center', va='top',
                       fontsize=8.2 if hi - lo <= 2 else 9.5, weight='bold', color='#17252D')
-            for y, prefix, field in [(.49, 'I', 'input_tokens'), (.31, 'C', 'cached_input_tokens'), (.13, 'O', 'output_tokens')]:
-                head.text(center, y, f'{prefix} {token(usage[field])}', ha='center', va='top', fontsize=8.5, color='#43515B')
+            head.text(center, .735, percent_label(cost_share), ha='center', va='top',
+                      fontsize=9.5, weight='bold', color='#17252D')
+            for y, prefix, field in [(.60, 'I', 'input_tokens'), (.38, 'C', 'cached_input_tokens'), (.16, 'O', 'output_tokens')]:
+                head.text(center, y, f'{prefix} {token(usage[field])}\n{percent_label(shares[field])} of {prefix}',
+                          ha='center', va='top', fontsize=8.5, linespacing=1.35, color='#43515B')
             band_rows.append(dict(task_order=order, run_id=rid, response_id=response['response_id'],
                 displayed_response=f'R{i+1}', component_start=points[0][0], component_end=points[-1][0],
                 component_ids='|'.join(c['component_id'] for _, c in points),
                 input_tokens=usage['input_tokens'], cached_input_tokens=usage['cached_input_tokens'],
                 output_tokens=usage['output_tokens'], cost_usd=usage['cost_usd'],
+                cost_percent_of_run=cost_share, input_percent_of_run=shares['input_tokens'],
+                cached_input_percent_of_run=shares['cached_input_tokens'], output_percent_of_run=shares['output_tokens'],
                 cost_provenance=response['cost_provenance'], attribution='whole recorded response, counted once'))
 
         xx = list(range(1, len(group) + 1))
@@ -186,7 +202,7 @@ def main():
                    ncol=4, frameon=False, fontsize=10, title_fontsize=10)
         fig.legend(handles=contribution_handles, title='Color = contribution', loc='upper left', bbox_to_anchor=(.60, .20),
                    ncol=2, frameon=False, fontsize=10, title_fontsize=10)
-        fig.text(.055, .075, 'Each band shows one recorded response budget, once. I = input; C = cached input (included in I); O = output. USD labels rounded; exact values in CSV.',
+        fig.text(.055, .075, 'Each band is one response. Bold % = share of run USD. I/C/O percentages use their respective run token totals; C is included in I. Values rounded; exact shares in CSV.',
                  fontsize=10, color='#53616B')
         fig.text(.055, .038, 'USD is harness-recorded. Shared component costs remain allocated estimates. Compound-call internal states are unresolved; independent checkpoints are UNTESTED.',
                  fontsize=10, color='#53616B')
@@ -199,6 +215,12 @@ def main():
             if ext == 'svg':
                 path.write_text('\n'.join(s.rstrip() for s in path.read_text().splitlines()) + '\n')
         plt.close(fig)
+    for order in orders:
+        rows = [r for r in band_rows if r['task_order'] == order]
+        for field in ['cost_percent_of_run', 'input_percent_of_run', 'cached_input_percent_of_run', 'output_percent_of_run']:
+            shares = [r[field] for r in rows]
+            if all(s is not None for s in shares):
+                assert math.isclose(math.fsum(shares), 100, abs_tol=1e-9), (order, field)
     with (args.out / 'response_band_totals.csv').open('w', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(band_rows[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(band_rows)
@@ -209,6 +231,9 @@ def main():
                     model='gpt-5.6-luna', tasks=orders, bands=len(band_rows),
                     contribution_view=args.contribution_view, contribution_display_mapping=display_map,
                     source_annotations_changed=False, precision_scores_changed=False,
+                    percentage_denominators=dict(cost_percent_of_run='complete recorded run USD',
+                        input_percent_of_run='run input tokens', cached_input_percent_of_run='run cached-input tokens',
+                        output_percent_of_run='run output tokens'),
                     contribution_counts=plotted_labels,
                     imported_reviewed_components=sum(c.get('review_status') == 'reviewed' for c in components
                                                      if ':luna:' in c['run_id'] and int(c['component_id'].split(':')[0]) in orders),
