@@ -20,6 +20,28 @@ from worktrace.resources import ROLE_MARKERS
 from worktrace.contributions import CONTRIBUTION_COLORS
 
 
+def apply_reviewed_components(components, reviewed):
+    """Apply a complete reviewed-run view without changing identity or costs."""
+    indexed = {r['component_id']: r for r in components}
+    if len(indexed) != len(components) or len({r['component_id'] for r in reviewed}) != len(reviewed):
+        raise ValueError('Duplicate component IDs')
+    selected_runs = {r['run_id'] for r in reviewed}
+    expected = {r['component_id'] for r in components if r['run_id'] in selected_runs}
+    if {r['component_id'] for r in reviewed} != expected:
+        raise ValueError('Supply complete reviewed runs with known component IDs')
+    result = {cid: dict(row) for cid, row in indexed.items()}
+    for row in reviewed:
+        old = indexed[row['component_id']]
+        if any(row.get(k) != old.get(k) for k in ['run_id', 'response_id', 'role', 'execution_status']):
+            raise ValueError('Review view must preserve identity, roles and execution')
+        if row.get('contribution_review_status') != 'reviewed' or row.get('contribution_label') not in {
+                'direct', 'indirect', 'no_demonstrated', 'uncertain'}:
+            raise ValueError('Only completed four-label contribution reviews are accepted')
+        result[row['component_id']]['contribution'] = row['contribution_label']
+        result[row['component_id']]['review_status'] = 'reviewed'
+    return [result[r['component_id']] for r in components]
+
+
 def read_jsonl(path):
     return [json.loads(s) for s in path.read_text().splitlines() if s.strip()]
 
@@ -36,11 +58,19 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, default=ROOT / 'results/framework_one_hour_run_20261027_0230')
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--task-order', type=int, choices=[3, 4], action='append',
+                        help='Render only these task orders; default is both')
+    parser.add_argument('--reviewed-components', type=Path,
+                        help='Complete reviewed-run components; overlay labels without changing resources')
     args = parser.parse_args()
     inputs = [args.run_dir / 'component_usage.csv', args.run_dir / 'reviewed/resources/response_usage.jsonl',
               args.run_dir / 'resource_coverage.csv']
     with inputs[0].open() as stream:
         components = list(csv.DictReader(stream))
+    if args.reviewed_components:
+        args.reviewed_components = args.reviewed_components.resolve()
+        components = apply_reviewed_components(components, read_jsonl(args.reviewed_components))
+        inputs.append(args.reviewed_components)
     responses = read_jsonl(inputs[1])
     ledger = {r['response_id']: r for r in responses}
     assert len(ledger) == len(responses), 'Duplicate response ID'
@@ -55,9 +85,13 @@ def main():
     names = {'direct': 'Direct', 'indirect': 'Indirect', 'no_demonstrated': 'No demonstrated',
              'uncertain': 'Uncertain', 'non_direct': 'Legacy unsplit'}
     band_rows = []
-    for order in [3, 4]:
+    orders = sorted(set(args.task_order or [3, 4]))
+    plotted_labels = {}
+    for order in orders:
         group = [r for r in components if ':luna:' in r['run_id'] and r['component_id'].startswith(f'{order:02d}:')]
         assert group, f'Missing Luna task {order}'
+        plotted_labels[str(order)] = {label: sum(c['contribution'] == label for c in group)
+                                     for label in names}
         # The component CSV retains the source chronology used by the reviewed plot.
         group.sort(key=lambda r: tuple(int(s) for s in r['component_id'].split(':')[1][1:].split('.c')))
         rid = group[0]['run_id']
@@ -158,7 +192,10 @@ def main():
         writer = csv.DictWriter(stream, fieldnames=list(band_rows[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(band_rows)
     manifest = dict(method='alternating response bands on unchanged component-order axis; recorded response costs shown once',
-                    model='gpt-5.6-luna', tasks=[3, 4], bands=len(band_rows),
+                    model='gpt-5.6-luna', tasks=orders, bands=len(band_rows),
+                    contribution_counts=plotted_labels,
+                    imported_reviewed_components=sum(c.get('review_status') == 'reviewed' for c in components
+                                                     if ':luna:' in c['run_id'] and int(c['component_id'].split(':')[0]) in orders),
                     new_labels=0, new_agent_runs=0, checkpoint_evaluations=0,
                     source_hashes={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs})
     (args.out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')

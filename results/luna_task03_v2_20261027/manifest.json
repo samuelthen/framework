@@ -1,0 +1,29 @@
+{
+  "scope": "User-requested full Luna task 03 review; does not change prior 20-case scope",
+  "components": 30,
+  "source_hashes": {
+    "results/precision_validation_20261026/reconciled_component_annotations.jsonl": "3a130366e999bdc4955b3f5d4febe8773c08f9000af7e4f2fc7d5ce98bae1937",
+    "results/framework_one_hour_run_20261027_0230/reviewed/resources/components_with_responses.jsonl": "f9f621f68efde7cd30157b4368fd320a8195a32b75b6f74e7c2b8e776604e4e4",
+    "results/framework_one_hour_run_20261027_0230/reviewed/resources/response_usage.jsonl": "d4ce992564842aa7a68d684d63d55f87f64998d3a318e7c31a4481648bc096be",
+    "results/luna_task03_v2_20261027/contribution_review_completed.jsonl": "d0d091703b58ab9ababed6dcd70029004edd7cde66dd60db5e316d3df3b84f39"
+  },
+  "code_sha256": "1587d505e04f4bbb585f9886ec34825b5c0952fffb06bf33aac123195e9d17b7",
+  "legacy_unsplit_remaining": 0,
+  "output_hashes": {
+    "RESULTS.md": "86e3d3c86b1c577e4f2c86c6a3d6ff7a3f5887fdaece78c3d8655b6ab9e301d2",
+    "checks.txt": "986474540e4969fafff196954625789e3f451324881f20cc2bc289f3f12beee7",
+    "component_allocations.jsonl": "b5a87ea29adeff9047c1df83e6b1ac6b68884b3da40b11acddb30f2371187a86",
+    "component_table.csv": "192db06966b165fd06d647428b2d9b1b4622b52f95cce7ef311fee8c12eea7aa",
+    "components.jsonl": "888fc28ceec9dd558f1d984e1b292fd3f566e5a60bad92c4e4d6a80d7cf0e83b",
+    "contribution_review_completed.jsonl": "d0d091703b58ab9ababed6dcd70029004edd7cde66dd60db5e316d3df3b84f39",
+    "response_cost_bands/luna_task_03_response_costs.pdf": "4635f430688a0eef0e3f98e1ed891cb65f3904970e4926c5dd1fa1e4c3594aa7",
+    "response_cost_bands/luna_task_03_response_costs.png": "aebc66dddf841ba5b265c4b83ef6e4a78531f923874168ad66d0c1082204b8c2",
+    "response_cost_bands/luna_task_03_response_costs.svg": "1776ccce079cf950a02665050e79938debad30002a850f482cef16fbc44f5cfc",
+    "response_cost_bands/manifest.json": "13a7ab26ae1ff2ad249e733018fa538ac9a727656ef28b105416bf4755ca1ced",
+    "response_cost_bands/response_band_totals.csv": "4a3c98aa2e401f01d24bffe21f2ef29352183813b30a13afcd69690d72acdf97",
+    "response_usage.jsonl": "38adb12ae37286620a72bcdf036998118c489120bec7ce188ed47249fc9fbd26",
+    "role_precision.csv": "a32f0c57efc2bcf038bbca3af8cc8a80cd3865ea814cd421451c01c806fcad1b",
+    "summary.json": "1cd343e67fd816ffc0988eff9717cbe528f5c9eed2340a2b79f758b56b928748",
+    "trajectory.png": "70fc592d6c6c7fac39787633877ebf44ffafe997cd34a248633fc66707e975a7"
+  }
+}

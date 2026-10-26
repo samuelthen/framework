@@ -1,0 +1,100 @@
+{
+  "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+  "components": 30,
+  "native_calls": 10,
+  "responses": 8,
+  "reviewed": 30,
+  "prior_reviews_carried_forward": 5,
+  "new_reviews": 25,
+  "legacy_cases_resolved": 8,
+  "category_counts": {
+    "direct": 10,
+    "indirect": 0,
+    "no_demonstrated": 10,
+    "uncertain": 10
+  },
+  "full_precision": {
+    "included": 30,
+    "direct": 10,
+    "indirect": 0,
+    "no_demonstrated": 10,
+    "uncertain": 10,
+    "legacy_non_direct": 0,
+    "reviewed": 30,
+    "lower": 0.3333333333333333,
+    "upper": 0.6666666666666666
+  },
+  "confirmed_executed_only": {
+    "included": 22,
+    "direct": 10,
+    "indirect": 0,
+    "no_demonstrated": 10,
+    "uncertain": 2,
+    "legacy_non_direct": 0,
+    "reviewed": 22,
+    "lower": 0.45454545454545453,
+    "upper": 0.5454545454545454
+  },
+  "roles": [
+    {
+      "role": "exploration",
+      "included": 8,
+      "direct": 6,
+      "indirect": 0,
+      "no_demonstrated": 2,
+      "uncertain": 0,
+      "legacy_non_direct": 0,
+      "reviewed": 8,
+      "lower": 0.75,
+      "upper": 0.75
+    },
+    {
+      "role": "edit",
+      "included": 2,
+      "direct": 1,
+      "indirect": 0,
+      "no_demonstrated": 1,
+      "uncertain": 0,
+      "legacy_non_direct": 0,
+      "reviewed": 2,
+      "lower": 0.5,
+      "upper": 0.5
+    },
+    {
+      "role": "verification",
+      "included": 4,
+      "direct": 2,
+      "indirect": 0,
+      "no_demonstrated": 0,
+      "uncertain": 2,
+      "legacy_non_direct": 0,
+      "reviewed": 4,
+      "lower": 0.5,
+      "upper": 1.0
+    },
+    {
+      "role": "administration",
+      "included": 16,
+      "direct": 1,
+      "indirect": 0,
+      "no_demonstrated": 7,
+      "uncertain": 8,
+      "legacy_non_direct": 0,
+      "reviewed": 16,
+      "lower": 0.0625,
+      "upper": 0.5625
+    }
+  ],
+  "usage": {
+    "input_tokens": 100650,
+    "cached_input_tokens": 87377,
+    "output_tokens": 2069,
+    "reasoning_tokens": 530,
+    "cost_usd": 0.006884939999999999
+  },
+  "legacy_unsplit_remaining": 0,
+  "reviewer": "Codex (model identifier unavailable)",
+  "human_validation": false,
+  "checkpoint_outcome": "UNTESTED",
+  "allocation_changed": false
+}
