@@ -7,7 +7,7 @@ import sys
 os.environ.setdefault('MPLCONFIGDIR', '/private/tmp/worktrace-example-mpl')
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'worktrace'))
-from worktrace.resources import allocate_usage, region_totals, ROLE_COLORS, CONTRIBUTION_COLORS
+from worktrace.resources import allocate_usage, region_totals, ROLE_MARKERS, CONTRIBUTION_COLORS
 
 import matplotlib
 matplotlib.use('Agg')
@@ -54,16 +54,15 @@ def main():
         ax.add_patch(Circle((x,6.02),.43,facecolor='white',edgecolor=ink,lw=2,zorder=4))
         ax.text(x,6.02,text,ha='center',va='center',fontsize=17,fontweight='bold',color=ink,zorder=5)
     ax.add_patch(FancyArrowPatch((2.55,6.02),(10.5,6.02),arrowstyle='-|>',mutation_scale=18,
-                               lw=2,color=ROLE_COLORS['edit'],zorder=3))
+                               lw=2,color=muted,zorder=3))
     ax.text(6.1,6.34,'edit changes the implementation',ha='center',fontsize=10,color=muted)
 
     def card(cid,x,y,w=3.13,h=.7):
         a=byid[cid];title=specs[int(cid[1:])-1][0]
-        role=a['role'];border=CONTRIBUTION_COLORS[a['contribution_label']]
+        role=a['role'];color=CONTRIBUTION_COLORS[a['contribution_label']]
         ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.06,rounding_size=0.08',
-            facecolor='white',edgecolor=border,lw=2.2,zorder=5))
-        ax.add_patch(FancyBboxPatch((x+.02,y+.06),.10,h-.12,boxstyle='round,pad=0',
-            facecolor=ROLE_COLORS[role],edgecolor='none',zorder=6))
+            facecolor='white',edgecolor=line,lw=1,zorder=5))
+        ax.scatter(x+.06,y+h*.5,s=100,marker=ROLE_MARKERS[role],color=color,zorder=6)
         ax.text(x+.23,y+h*.64,f'{cid}  {title}',fontsize=10.5,fontweight='bold',color=ink,zorder=7)
         value=a['usage']['output_tokens'];r=a['response_id'].split(':')[-1]
         note=f'{value:,.0f} output tokens'
@@ -81,19 +80,19 @@ def main():
     # Checks/reads loop back to the same version; edits alone connect versions.
     for y in [4.73,3.53]:
         ax.add_patch(FancyArrowPatch((.51,y),(1.78,5.84),connectionstyle='arc3,rad=-.38',
-            arrowstyle='-|>',mutation_scale=10,color=ROLE_COLORS['exploration'],lw=1.2,alpha=.75,zorder=2))
+            arrowstyle='-|>',mutation_scale=10,color=muted,lw=1.2,alpha=.75,zorder=2))
     for cid,y in [('C4',5.25),('C5',4.32),('C6',3.39),('C7',2.46)]:
         ax.add_patch(FancyArrowPatch((13.44,y),(11.35,5.94),connectionstyle='arc3,rad=.28',
-            arrowstyle='-|>',mutation_scale=10,color=ROLE_COLORS[byid[cid]['role']],lw=1.1,alpha=.7,zorder=2))
+            arrowstyle='-|>',mutation_scale=10,color=muted,lw=1.1,alpha=.7,zorder=2))
     ax.text(.58,2.65,'R1 generated C1 + C2 together:',fontsize=10,color=muted)
     ax.text(.58,2.33,'600 / 2 = 300 tokens each.',fontsize=10,color=muted)
     ax.text(4.62,3.77,'900 tokens on the edit transition;',fontsize=10,color=muted)
     ax.text(4.62,3.45,'not a second charge to V1.',fontsize=10,color=muted)
-    ax.text(.35,.98,'Role color:',fontsize=10,fontweight='bold',color=ink)
+    ax.text(.35,.98,'Shape:',fontsize=10,fontweight='bold',color=ink)
     x=1.55
     for role,label in [('exploration','Exploration'),('edit','Edit'),('verification','Verification')]:
-        ax.plot([x,x+.28],[1.02,1.02],lw=5,color=ROLE_COLORS[role]);ax.text(x+.38,.98,label,fontsize=10,color=ink);x+=1.9
-    ax.text(7.25,.98,'Border:',fontsize=10,fontweight='bold',color=ink)
+        ax.scatter(x+.14,1.02,s=45,marker=ROLE_MARKERS[role],color=muted);ax.text(x+.38,.98,label,fontsize=10,color=ink);x+=1.9
+    ax.text(7.25,.98,'Color:',fontsize=10,fontweight='bold',color=ink)
     x=8.05
     for label,text in [('direct','Direct'),('non_direct','Non-direct'),('uncertain','Uncertain')]:
         ax.plot([x,x+.22],[1.02,1.02],lw=3,color=CONTRIBUTION_COLORS[label]);ax.text(x+.32,.98,text,fontsize=10,color=ink);x+=1.65

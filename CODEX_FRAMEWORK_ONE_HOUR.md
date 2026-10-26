@@ -105,7 +105,11 @@ safe savings. If checkpoints remain unknown, post-pass results remain unknown.
 
 ## Minutes 40–50: two empirical examples and minimal checks
 
-Produce one paired figure per task. Show component classification and contribution,
+Produce one paired figure per task. Use shape for action type (circle exploration,
+diamond edit, square verification, triangle administration) and solid color for
+contribution (green direct, orange non-direct, gray uncertain); do not split meaning
+between marker fill and border. Keep marker sizes fixed in the primary view.
+Show component classification and contribution,
 and component input/cache/output plus attribution method in a table/linked data
 where actual usage permits. Label inferred state placement and uncertain execution.
 Add version PASS/FAIL only when supported by an exact independently evaluated

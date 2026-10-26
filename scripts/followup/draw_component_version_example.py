@@ -7,7 +7,7 @@ import sys
 os.environ.setdefault('MPLCONFIGDIR', '/private/tmp/worktrace-example-mpl')
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'worktrace'))
-from worktrace.resources import ROLE_COLORS, CONTRIBUTION_COLORS
+from worktrace.resources import ROLE_MARKERS, CONTRIBUTION_COLORS
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -55,8 +55,8 @@ def main():
     ax.axvline(3.5, color='#24763C', ls=(0, (4, 4)), lw=1.3, zorder=0)
     ax.text(3.58, -.8, 'First passing state exists here', fontsize=10, color='#24763C')
     for i, (x, y, role, label, title) in enumerate(zip(xx, yy, roles, labels, titles), 1):
-        ax.scatter(x, y, s=600, marker='D' if role == 'edit' else 'o',
-                   c=ROLE_COLORS[role], edgecolors=CONTRIBUTION_COLORS[label], linewidths=3.5, zorder=4)
+        ax.scatter(x, y, s=600, marker=ROLE_MARKERS[role],
+                   c=CONTRIBUTION_COLORS[label], edgecolors='white', linewidths=.8, zorder=4)
         ax.text(x, y, f'C{i}', color='white', weight='bold', fontsize=11,
                 ha='center', va='center', zorder=5)
         ax.text(x, y - .47, title, ha='center', va='top', fontsize=9.5, color=ink)
@@ -85,10 +85,10 @@ def main():
         if r == 0:
             cell.set_text_props(weight='bold', color=ink)
         if r == 1 and c >= 0:
-            cell.set_text_props(color=ROLE_COLORS[roles[c]], weight='bold')
+            cell.set_text_props(color=ink, weight='bold')
         if r == 2 and c >= 0:
             cell.set_text_props(color=CONTRIBUTION_COLORS[labels[c]], weight='bold')
-    fig.text(.035, .125, 'Fill = classification   |   Border = contribution: green direct, orange non-direct, gray uncertain   |   Diamond = edit',
+    fig.text(.035, .125, 'Shape: circle exploration, diamond edit, square verification. Color: green direct, orange non-direct, gray uncertain.',
              fontsize=11, color=ink)
     fig.text(.035, .088, 'Output: 2,300 total tokens; 800 after the first confirmed passing state, including 200 for an extra edit.',
              fontsize=12, weight='bold', color=ink)

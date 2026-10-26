@@ -10,6 +10,8 @@ METRICS = ("input_tokens", "cached_input_tokens", "output_tokens", "reasoning_to
 GROUP_FIELDS = ("role", "version_region", "target_region", "contribution_label")
 ROLE_COLORS = {"exploration": "#2878B5", "edit": "#8058AF", "verification": "#168577",
                "administration": "#737D8C", "unknown": "#A0A0A0", "unassigned": "#A0A0A0"}
+ROLE_MARKERS = {"exploration": "o", "edit": "D", "verification": "s",
+                "administration": "^", "unknown": "X", "unassigned": "X"}
 CONTRIBUTION_COLORS = {"direct": "#237A3B", "non_direct": "#C35E18", "uncertain": "#777777"}
 
 
@@ -143,8 +145,8 @@ def allocate_usage(responses, components):
                                        else response.get("generation_version")),
                 target_region=_region(c.get("target_region"), "unknown" if group else "unassigned"),
             )
-            row["visual"] = dict(role_color=ROLE_COLORS.get(row["role"], ROLE_COLORS["unknown"]),
-                contribution_border=CONTRIBUTION_COLORS.get(row["contribution_label"], "#777777"),
+            row["visual"] = dict(role_marker=ROLE_MARKERS.get(row["role"], ROLE_MARKERS["unknown"]),
+                contribution_color=CONTRIBUTION_COLORS[row["contribution_label"]],
                 size_value=values["output_tokens"], size_metric="allocated output_tokens; null means unavailable",
                 allocation_method=kind)
             result.append(row)

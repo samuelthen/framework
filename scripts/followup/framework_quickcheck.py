@@ -17,7 +17,7 @@ import time
 os.environ.setdefault('MPLCONFIGDIR', '/private/tmp/worktrace-quickcheck-mpl')
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'worktrace'))
-from worktrace.resources import ROLE_COLORS, CONTRIBUTION_COLORS
+from worktrace.resources import ROLE_MARKERS, CONTRIBUTION_COLORS
 
 
 def jsonl(path):
@@ -101,6 +101,7 @@ def main():
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
     for order in orders:
         fig, axes = plt.subplots(1, 2, figsize=(15, 7), sharey=True, facecolor='#FCFCFA')
         max_version = max(max(n['v'] for n in graphs[mapping[(order, m)]['run_id']]['nodes'])
@@ -118,9 +119,9 @@ def main():
                 if node.get('uncertain'):
                     ax.axhspan(node['v'] - .3, node['v'] + .3, color='#E3E5E7', alpha=.5, zorder=0)
             for px, py, component in zip(x, y, group):
-                ax.scatter(px, py, marker='D' if component['role'] == 'edit' else 'o', s=44,
-                    c=ROLE_COLORS[component['role']], edgecolors=CONTRIBUTION_COLORS[component['contribution_label']],
-                    linewidths=1.8, alpha=.45 if component['execution_status'] == 'not_executed' else 1, zorder=3)
+                ax.scatter(px, py, marker=ROLE_MARKERS[component['role']], s=56,
+                    c=CONTRIBUTION_COLORS[component['contribution_label']], edgecolors='#FCFCFA',
+                    linewidths=.45, alpha=.4 if component['execution_status'] == 'not_executed' else 1, zorder=3)
             ax.set_title(f"{model}\n{len(group)} components | {run['native_calls']} calls | {int(run['run_output_tokens']):,} run output tokens",
                          fontsize=11, loc='left', pad=14)
             ax.set(xlabel='Component order', xlim=(0, max_components + 2), ylim=(-.5, max_version + .6),
@@ -136,11 +137,21 @@ def main():
         fig.suptitle(f'Archived example: evaluation task {order:02d} — {selected[0]["task_id"].split("__")[0].split("_")[-1]}',
                      x=.07, ha='left', fontsize=17, weight='bold')
         fig.text(.07, .885, 'REAL ARCHIVED ACTIONS / MODEL-CODED LABELS  |  Intermediate final-test outcomes: UNTESTED', fontsize=10, color='#53616B')
-        fig.subplots_adjust(left=.07, right=.98, top=.77, bottom=.26, wspace=.12)
-        fig.text(.07, .17, 'Fill: blue exploration, purple edit, teal verification, gray administration. Diamond = edit.', fontsize=10)
-        fig.text(.07, .125, 'Border: green direct, orange non-direct, gray uncertain. Labels are archived model judgments; no new annotation.', fontsize=10)
+        fig.subplots_adjust(left=.07, right=.98, top=.77, bottom=.30, wspace=.12)
+        role_handles = [Line2D([], [], marker=ROLE_MARKERS[role], ls='None', color='#43515B',
+                               markersize=7, label=role.title())
+                        for role in ['exploration', 'edit', 'verification', 'administration']]
+        contribution_handles = [Line2D([], [], marker='o', ls='None', color=color, markersize=7,
+                                       label=label.replace('_', '-').title())
+                                for label, color in CONTRIBUTION_COLORS.items()]
+        fig.legend(handles=role_handles, title='Shape = action type', loc='upper left',
+                   bbox_to_anchor=(.065, .235), ncol=4, frameon=False, fontsize=10,
+                   title_fontsize=10, handletextpad=.5, columnspacing=1.8)
+        fig.legend(handles=contribution_handles, title='Color = contribution', loc='upper left',
+                   bbox_to_anchor=(.60, .235), ncol=3, frameon=False, fontsize=10,
+                   title_fontsize=10, handletextpad=.5, columnspacing=1.8)
         fig.text(.07, .08, 'States follow parent calls; gray bands mark uncertain inferred states. Execution timing inside compound calls is unresolved.', fontsize=9)
-        fig.text(.07, .04, 'Token amounts above are whole-run totals. Component input/cache/output remain unknown unless actual response usage is recovered.', fontsize=9)
+        fig.text(.07, .04, 'Tokens above are whole-run totals; component usage is unknown without raw responses. Faint symbols = known unexecuted candidates.', fontsize=9)
         for ext in ['png', 'pdf', 'svg']:
             path = args.out / f'task_{order:02d}_progression.{ext}'
             fig.savefig(path, dpi=150, facecolor=fig.get_facecolor())

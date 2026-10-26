@@ -83,7 +83,7 @@ reconciliation targets, never substitutes for absent response usage.
 - `region_totals.jsonl`: per-run role/version/target/contribution partitions and mixed sensitivity.
 - `contribution_expenditure_bounds.jsonl`: allocation-dependent direct-expenditure shares.
 - `run_usage_reconciliation.jsonl`: sums versus recorded run totals and discrepancies.
-- `graph_overlay.json`: role colors, contribution borders, output-token sizing and region labels.
+- `graph_overlay.json`: role markers, contribution colors, optional output-token sizing and region labels.
 - `manifest.json`: input hashes, usage availability and method status.
 
 Graph-overlay data is implemented; existing viewer rendering is not yet wired to
@@ -97,6 +97,12 @@ The primary proposed trajectory view uses component order on x and categorical
 code versions on y. Points retain role, contribution, response ID and the separate
 input/cache/output fields. Edits lie on state transitions; reads/checks stay on
 their execution state. Generation context remains a separate accounting field.
+Shape encodes action type (circle exploration, diamond edit, square verification,
+triangle administration); solid color encodes direct/non-direct/uncertain
+contribution (green/orange/gray). Borders have no semantic meaning. Keep primary
+sequence markers the same size and show token triplets in a table. The overlay
+exports `role_marker` and `contribution_color`; its optional `size_value` applies
+only when an explicitly labeled resource-size view is requested.
 Cache inclusion must be checked in the source schema before deriving uncached
 input. A shared response never provides exact per-component reasoning usage.
 

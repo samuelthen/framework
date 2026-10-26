@@ -132,8 +132,8 @@
       "version_region": "V0",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#2878B5",
-        "contribution_border": "#237A3B",
+        "role_marker": "o",
+        "contribution_color": "#237A3B",
         "size_value": 300.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "equal_share_response_allocation"
@@ -168,8 +168,8 @@
       "version_region": "V0",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#2878B5",
-        "contribution_border": "#237A3B",
+        "role_marker": "o",
+        "contribution_color": "#237A3B",
         "size_value": 300.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "equal_share_response_allocation"
@@ -204,8 +204,8 @@
       "version_region": "V0 -> V1",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#8058AF",
-        "contribution_border": "#237A3B",
+        "role_marker": "D",
+        "contribution_color": "#237A3B",
         "size_value": 900.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "single_component_response_association"
@@ -240,8 +240,8 @@
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#168577",
-        "contribution_border": "#237A3B",
+        "role_marker": "s",
+        "contribution_color": "#237A3B",
         "size_value": 240.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "single_component_response_association"
@@ -276,8 +276,8 @@
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#168577",
-        "contribution_border": "#C35E18",
+        "role_marker": "s",
+        "contribution_color": "#C35E18",
         "size_value": 60.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "single_component_response_association"
@@ -312,8 +312,8 @@
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#2878B5",
-        "contribution_border": "#C35E18",
+        "role_marker": "o",
+        "contribution_color": "#C35E18",
         "size_value": 120.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "single_component_response_association"
@@ -348,8 +348,8 @@
       "version_region": "V1",
       "target_region": "unknown",
       "visual": {
-        "role_color": "#168577",
-        "contribution_border": "#777777",
+        "role_marker": "s",
+        "contribution_color": "#777777",
         "size_value": 80.0,
         "size_metric": "allocated output_tokens; null means unavailable",
         "allocation_method": "single_component_response_association"

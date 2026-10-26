@@ -263,7 +263,10 @@ Draw the empirical primary view like
 `output/figures/worktrace_component_version_example.png`, using
 `scripts/followup/draw_component_version_example.py` only as a visual example.
 Its values and PASS markers are entirely synthetic and must never enter result
-tables. Each empirical point has an ID, classification, contribution, response ID,
+tables. Use shape for action type (circle exploration, diamond edit, square
+verification, triangle administration), and solid color for contribution (green
+direct, orange non-direct, gray uncertain). Borders have no semantic meaning.
+Each empirical point has an ID, classification, contribution, response ID,
 usage triplet, and attribution method. Use chronological x and categorical version
 y, edits on transitions, and version-level PASS/FAIL/UNKNOWN markers with evidence.
 Keep token triplets in an aligned table or tooltip rather than crowding labels.
