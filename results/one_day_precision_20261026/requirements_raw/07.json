@@ -1,0 +1,8 @@
+{"task_id": "instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "_glob_resources(resource_path, subdir, ext) yields POSIX relative names; ext must start with '.' and contain no '*'.", "source": "requirements bullet 1; reference function", "alternatives": "assert or other validation"},
+  {"id": "R2", "kind": "repair", "description": "Works for pathlib.Path (glob '*ext', relative_to) and zipfile.Path-like objects (assert directory exists, iterdir, endswith ext, 'subdir/name').", "source": "requirements bullet 2; reference branches", "alternatives": "is_dir() or exists() assertion; f-string or posixpath.join"},
+  {"id": "R3", "kind": "repair", "description": "Names not ending in ext (README, unrelatedhtml) are excluded.", "source": "requirements bullet 3", "alternatives": "-"},
+  {"id": "R4", "kind": "repair", "description": "preload_resources uses _glob_resources for ('html','.html') and ('javascript','.js') and caches by the same POSIX key.", "source": "requirements bullet 4; reference preload_resources", "alternatives": "-"}],
+ "verification_status": "derived from requirements text and reference patch; fail-to-pass test_glob_resources_* not executed here",
+ "notes": "Both runs resolved with structurally identical functions; Run Y also widened _resource_path's annotation."}

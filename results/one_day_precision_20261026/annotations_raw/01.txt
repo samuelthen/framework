@@ -1,0 +1,40 @@
+X|0|exploration|direct||R3,R4|listed devices/ files and references to CurrentDeviceSection/DeviceDetails/DeviceSecurityCard/DeviceWithVerification|find + grep output|X001,X002,X004|
+X|1|exploration|direct||R2,R3|read CurrentDeviceSection incl. the inline securityCardProps moved into the card|sed 1-140 CurrentDeviceSection.tsx|X004|
+X|2|exploration|direct||R2,R4,R5|read DeviceDetails (IMyDevice prop, heading) and DeviceSecurityCard props|sed DeviceDetails.tsx; DeviceSecurityCard.tsx|X004|
+X|3|exploration|direct||R1,R2|read types.ts (DeviceWithVerification, DeviceSecurityVariation used by the card); compound with package scripts|cat types.ts|X004|
+X|4|edit|direct||R1,R2,R3,R4,R5|created the card and rewired CurrentDeviceSection and DeviceDetails (all survive; heading uses logical-or fallback)|printed files after edit; final diff|X006|yes
+X|5|verification|non_direct|style_only||eslint found an import-order lint error (no behavioural requirement)|'import/order' error|X007|
+X|6|verification|direct||R3,R4,R5|first diff inspection of the three-file change|git diff|-|
+X|7|edit|non_direct|style_only||blank line between import groups; eslint and tsc produced no visible result (exit -1)|empty output|-|yes
+X|8|verification|non_direct|style_only||eslint pass|'eslint_exit:0'|-|
+X|9|administration|non_direct|administration||git diff --check and status|-|-|
+X|10|administration|non_direct|administration||write and print patch.txt|-|-|
+X|11|administration|non_direct|administration||patch header checks|-|-|
+X|12|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R3,R4|listed devices/ files, read next|find output|Y001-Y004|
+Y|1|exploration|direct||R2|read DeviceSecurityCard props used by the card|cat DeviceSecurityCard.tsx|Y016|
+Y|2|exploration|direct||R1,R2|read types.ts (DeviceWithVerification, DeviceSecurityVariation)|cat types.ts|Y016|
+Y|3|exploration|direct||R2,R3|read CurrentDeviceSection incl. inline logic moved into the card|cat CurrentDeviceSection.tsx|Y016,Y017|
+Y|4|exploration|direct||R4,R5|read DeviceDetails rewritten in Y018|cat DeviceDetails.tsx|Y018|
+Y|5|exploration|non_direct|unused_context||usages incl. CSS and snapshots; not relied on|git grep output|-|
+Y|6|exploration|non_direct|unused_context||CurrentDeviceSection tests; not changed or relied on|cat test|-|
+Y|7|exploration|non_direct|unused_context||DeviceDetails tests|cat test|-|
+Y|8|administration|non_direct|administration||found the test command|package.json scripts|-|
+Y|9|verification|non_direct|superseded_check||baseline device tests before changes: 41 passed; not acted on|'41 passed'|-|
+Y|10|exploration|non_direct|style_only||read another component for conventions|cat DeviceExpandDetailsButton.tsx|-|
+Y|11|exploration|non_direct|style_only||import conventions in SecurityRecommendations|head -n 35|-|
+Y|12|exploration|non_direct|unused_context||tails of SecurityRecommendations and DeviceTile|-|-|
+Y|13|exploration|non_direct|unused_context||DeviceDetails CSS; no CSS change made|cat pcss|-|
+Y|14|exploration|non_direct|unused_context||DeviceDetails usages (callers unchanged)|git grep|-|
+Y|15|exploration|non_direct|unused_context||FilteredDeviceList and SelectableDeviceTile|cat|-|
+Y|16|edit|direct||R1,R2|created DeviceVerificationStatusCard (survives; default export only)|final diff new file|Y022|yes
+Y|17|edit|direct||R3|rewrote CurrentDeviceSection to delegate to the card (survives)|final diff|Y022|yes
+Y|18|edit|direct||R4,R5|rewrote DeviceDetails with DeviceWithVerification and card after heading (survives)|final diff|Y022|yes
+Y|19|verification|uncertain||R4|tsc type check produced no visible result (exit -1)|empty output|-|
+Y|20|verification|non_direct|style_only||eslint on the three files|no errors|-|
+Y|21|administration|non_direct|administration||git status|-|-|
+Y|22|verification|direct||R5|device tests on the new state: stale snapshots fail, and the diff shows the card rendered under the DeviceDetails heading|'+ class=mx_DeviceSecurityCard' under h3|-|
+Y|23|verification|non_direct|unrelated_check||test of the unmodified DeviceSecurityCard|'2 passed'|-|
+Y|24|administration|non_direct|administration||write patch.txt|-|-|
+Y|25|administration|non_direct|administration||print patch|-|-|
+Y|26|administration|non_direct|administration||submission|-|-|

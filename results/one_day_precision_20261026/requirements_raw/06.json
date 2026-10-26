@@ -1,0 +1,11 @@
+{"task_id": "instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "EvaluationReason enum (UNKNOWN, FLAG_DISABLED, FLAG_NOT_FOUND, MATCH, ERROR) and EvaluationResponse.reason field in the protobuf and generated Go code.", "source": "requirements bullets 1-2; interface field; reference flipt.pb.go", "alternatives": "proto edit + regeneration, or hand-written generated code"},
+  {"id": "R2", "kind": "repair", "description": "Flag not found -> FLAG_NOT_FOUND_EVALUATION_REASON.", "source": "requirements bullet 3; reference evaluator.go", "alternatives": "inline or deferred assignment"},
+  {"id": "R3", "kind": "repair", "description": "Flag disabled -> FLAG_DISABLED_EVALUATION_REASON.", "source": "requirements bullet 4", "alternatives": "-"},
+  {"id": "R4", "kind": "repair", "description": "Match with a rule/distribution -> MATCH_EVALUATION_REASON.", "source": "requirements bullet 5", "alternatives": "-"},
+  {"id": "R5", "kind": "already_satisfied_or_preserve", "description": "No match without error -> UNKNOWN_EVALUATION_REASON (zero value).", "source": "requirements bullet 6", "alternatives": "explicit or zero-value default"},
+  {"id": "R6", "kind": "repair", "description": "Errors (rules fetch, out-of-order rules, distributions fetch, constraint errors) -> ERROR_EVALUATION_REASON.", "source": "requirements bullet 7; reference evaluator.go", "alternatives": "per-site assignment or a deferred error handler"},
+  {"id": "R7", "kind": "repair", "description": "reason exposed in REST/Swagger as string enum fliptEvaluationReason with the five values.", "source": "requirements bullets 8-9; reference swagger diff", "alternatives": "generated or hand-edited swagger"}],
+ "verification_status": "derived from requirements text, interface and reference patch; fail-to-pass TestEvaluate_* tests not executed here. CHANGELOG entry is route-specific.",
+ "notes": "Both runs edited the proto and regenerated code with buf after installing the generators."}

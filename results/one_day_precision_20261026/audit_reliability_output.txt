@@ -1,0 +1,71 @@
+test_branch_switch_invalidates_code_state (__main__.ReliabilityChecks.test_branch_switch_invalidates_code_state) ... FAIL
+test_failed_revert_does_not_restore_root (__main__.ReliabilityChecks.test_failed_revert_does_not_restore_root) ... FAIL
+test_identical_truncated_diff_cannot_merge_versions (__main__.ReliabilityChecks.test_identical_truncated_diff_cannot_merge_versions) ... FAIL
+test_known_write_does_not_hide_unknown_write (__main__.ReliabilityChecks.test_known_write_does_not_hide_unknown_write) ... FAIL
+test_multi_file_edit_tracks_every_path (__main__.ReliabilityChecks.test_multi_file_edit_tracks_every_path) ... FAIL
+test_partial_revert_preserves_unknown_dirty_state (__main__.ReliabilityChecks.test_partial_revert_preserves_unknown_dirty_state) ... FAIL
+test_status_listing_cannot_prove_equal_contents (__main__.ReliabilityChecks.test_status_listing_cannot_prove_equal_contents) ... FAIL
+
+======================================================================
+FAIL: test_branch_switch_invalidates_code_state (__main__.ReliabilityChecks.test_branch_switch_invalidates_code_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 45, in test_branch_switch_invalidates_code_state
+    self.assertNotEqual(records[-1]["cand_facts"]["op0"]["any_code_written_since"], "no")
+AssertionError: 'no' == 'no'
+
+======================================================================
+FAIL: test_failed_revert_does_not_restore_root (__main__.ReliabilityChecks.test_failed_revert_does_not_restore_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 68, in test_failed_revert_does_not_restore_root
+    self.assertNotEqual(graph["final"], 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_identical_truncated_diff_cannot_merge_versions (__main__.ReliabilityChecks.test_identical_truncated_diff_cannot_merge_versions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 86, in test_identical_truncated_diff_cannot_merge_versions
+    self.assertEqual(graph["n_versions"], 2)
+AssertionError: 1 != 2
+
+======================================================================
+FAIL: test_known_write_does_not_hide_unknown_write (__main__.ReliabilityChecks.test_known_write_does_not_hide_unknown_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 53, in test_known_write_does_not_hide_unknown_write
+    self.assertEqual(records[-1]["cand_facts"]["op0"]["object_written_since"], "unknown")
+AssertionError: 'no' != 'unknown'
+- no
++ unknown
+
+
+======================================================================
+FAIL: test_multi_file_edit_tracks_every_path (__main__.ReliabilityChecks.test_multi_file_edit_tracks_every_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 61, in test_multi_file_edit_tracks_every_path
+    self.assertIn("A.py", records[1]["written_paths"])
+AssertionError: 'A.py' not found in ['B.py']
+
+======================================================================
+FAIL: test_partial_revert_preserves_unknown_dirty_state (__main__.ReliabilityChecks.test_partial_revert_preserves_unknown_dirty_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 76, in test_partial_revert_preserves_unknown_dirty_state
+    self.assertNotEqual(graph["final"], 0)
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_status_listing_cannot_prove_equal_contents (__main__.ReliabilityChecks.test_status_listing_cannot_prove_equal_contents)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/user/framework/audit/reproduce_reliability.py", line 37, in test_status_listing_cannot_prove_equal_contents
+    self.assertNotEqual(records[-1]["cand_facts"]["op1"]["any_code_written_since"], "no")
+AssertionError: 'no' == 'no'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.011s
+
+FAILED (failures=7)

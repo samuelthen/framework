@@ -1,0 +1,9 @@
+{"task_id": "instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "searchCache operates on the cache map directly, without pointer indirection (callers pass the map).", "source": "requirements bullet 1; reference wordpress.go searchCache signature; fail-to-pass TestSearchCache", "alternatives": "map parameter, or an interface{} accepting the map"},
+  {"id": "R2", "kind": "already_satisfied_or_preserve", "description": "Cache lookup returns (value, ok) signalling presence.", "source": "requirements bullet 2", "alternatives": "-"},
+  {"id": "R3", "kind": "repair", "description": "WordPress scanning reads settings (token, ignore-inactive) from the per-server configuration.", "source": "requirements bullet 3; reference passes Servers[r.ServerName].WordPress", "alternatives": "read config.Conf.Servers[...] inside the function, or pass the conf"},
+  {"id": "R4", "kind": "repair", "description": "Package filtering honours the ignore-inactive setting from that configuration.", "source": "requirements bullet 4", "alternatives": "-"},
+  {"id": "R5", "kind": "already_satisfied_or_preserve", "description": "removeInactives excludes Status=='inactive' and keeps 'active'.", "source": "requirements bullet 5; existing removeInactives; fail-to-pass TestRemoveInactive", "alternatives": "-"}],
+ "verification_status": "derived from requirements text and reference patch; fail-to-pass TestRemoveInactive/TestSearchCache not executed here. The reference's larger config/report refactor (SaaS, GitHub, flags) is route-specific and not required.",
+ "notes": "Both runs resolved; Run X combined the global flag and the per-server setting, Run Y switched to the per-server setting and made searchCache accept interface{}."}

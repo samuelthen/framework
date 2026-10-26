@@ -1,0 +1,24 @@
+X|0|administration|non_direct|administration||git status|clean|-|
+X|1|exploration|direct||R1|read observations.py (rewritten in X011)|cat observations.py|X011|
+X|2|exploration|non_direct|unused_context||only one observation file|find output|-|
+X|3|exploration|non_direct|unused_context||listed test files|find output|-|
+X|4|exploration|non_direct|unused_context||TheBestBookOn config usages|git grep tbbo|-|
+X|5|exploration|non_direct|unused_context||observation mentions in macros/JS|git grep output|-|
+X|6|exploration|non_direct|unused_context||api.py booknotes region|sed 120-180|-|
+X|7|exploration|non_direct|unused_context||located the observations API class (not changed)|grep output|-|
+X|8|exploration|non_direct|unused_context||observations/aspects API classes (not changed)|sed 420-460|-|
+X|9|verification|non_direct|unrelated_check||ran an unrelated ratings test|'1 passed'|-|
+X|10|exploration|non_direct|repeated_support||re-read unchanged observations.py (X001)|same content|-|
+X|11|edit|direct||R1,R2,R3,R4,R5|rewrote observations.py adding _sort_values (survives)|final diff|X012|yes
+X|12|verification|direct||R2,R3,R4|checks: order, unknown ids ignored, unlisted values excluded|'ALL TESTS PASSED!'|-|
+X|13|verification|uncertain||R1|core test directory passes; unclear whether it exercises the changed module|'78 passed, 3 xfailed'|-|
+X|14|verification|direct||R1|first diff inspection after the edit|git diff|-|
+X|15|administration|non_direct|administration||git status|-|-|
+X|16|administration|non_direct|administration||write patch.txt|-|-|
+X|17|administration|non_direct|administration||print patch|-|-|
+X|18|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R1|read observations.py (edited) and git status|sed 1-240|Y001|
+Y|1|edit|direct||R1,R2,R3,R4,R5|inserted _sort_values after TBBO_URL (survives) and printed the file|final diff|Y002|yes
+Y|2|verification|direct||R2,R3,R4,R5|check: order, unknown id 99 ignored, extra value excluded, inputs not mutated; then wrote patch.txt|'focused behavior check passed'|-|
+Y|3|administration|non_direct|administration||print patch and header checks|-|-|
+Y|4|administration|non_direct|administration||submission|-|-|

@@ -1,0 +1,69 @@
+X|0|administration|non_direct|administration||git status|clean|-|
+X|1|exploration|non_direct|unused_context||repository-wide .go file listing; targets were located by later greps|find output|-|
+X|2|exploration|direct||R1|located searchCache definition/uses (edited)|grep output|X003|
+X|3|exploration|direct||R1,R4|read wordpress.go incl. FillWordPress, removeInactives, searchCache (rewritten)|cat wordpress.go|X034|
+X|4|exploration|direct||R1|located the FillWordPress caller in report.go (edited)|grep output|X005|
+X|5|exploration|direct||R1|read WordPressOption with the pointer cache (edited)|sed 500-540 report.go|X037|
+X|6|exploration|direct||R1|all wpVulnCaches pointer sites incl. report.go 232/235 (edited)|grep output|X037|
+X|7|exploration|direct||R3,R4|found the per-server IgnoreInactive use in FilterInactiveWordPressLibs (edited)|'models/scanresults.go:254'|X008,X043|
+X|8|exploration|direct||R3,R4|read FilterInactiveWordPressLibs (edited)|sed 245-285|X043|
+X|9|exploration|non_direct|unused_context|R5|WordPress package model incl. Status field; unchanged|cat models/wordpress.go|-|
+X|10|exploration|direct||R3|WordPressConf struct (tag edited in X040)|grep -C 15|X040|
+X|11|exploration|direct||R3,R4|global WpIgnoreInactive flag used in wordpress.go:81 (edited)|grep output|X034|
+X|12|exploration|non_direct|unused_context||wordpress tests incl. pointer use in TestSearchCache|cat test|-|
+X|13|verification|non_direct|superseded_check||pre-change full test run, no result|empty|-|
+X|14|verification|non_direct|superseded_check||pre-change wordpress tests pass|PASS|-|
+X|15|verification|non_direct|superseded_check||pre-change models/config tests|ok|-|
+X|16|verification|non_direct|superseded_check||pre-change report tests, no result|empty|-|
+X|17|exploration|direct||R1,R3|read DetectWordPressCves building the pointer cache (edited)|sed 220-250 report.go|X037|
+X|18|exploration|non_direct|unused_context||Conf.Servers usages|grep output|-|
+X|19|exploration|non_direct|repeated_support||IgnoreInactive grep (X007/X011)|same matches|-|
+X|20|exploration|non_direct|unused_context||FilterInactiveWordPressLibs call site (unchanged)|grep output|-|
+X|21|exploration|non_direct|unused_context||scan/base.go WordPress detection|sed 660-740|-|
+X|22|exploration|non_direct|repeated_support||wpVulnCache grep (X006)|same matches|-|
+X|23|exploration|non_direct|unused_context|R3|tomlloader copies per-server WordPress settings; unchanged|sed 250-280|-|
+X|24|exploration|non_direct|repeated_support||same tomlloader lines|grep -C 10|-|
+X|25|exploration|non_direct|unused_context||tomlloader head|head -n 60|-|
+X|26|exploration|non_direct|repeated_support||WordPressConf again (X010)|grep -C 5|-|
+X|27|exploration|non_direct|unused_context||git log of wordpress/|-|-|
+X|28|exploration|non_direct|unused_context||report.go 40-160|-|-|
+X|29|exploration|non_direct|negative_detour||no FilterInactive tests|empty|-|
+X|30|exploration|non_direct|unused_context||test names in scanresults_test.go|grep output|-|
+X|31|exploration|non_direct|repeated_support||removeInactives locations, seen in X003|grep output|-|
+X|32|exploration|non_direct|repeated_support||WpIgnoreInactive grep (X011)|same matches|-|
+X|33|exploration|non_direct|unused_context||WordPress flags in subcmds|grep output|-|
+X|34|edit|direct||R1,R3,R4|whole-file rewrite of wordpress.go: map cache, searchCache on the map, combined ignore-inactive setting (survives)|final diff wordpress.go|X046,X050|yes
+X|35|exploration|non_direct|repeated_support||re-read DetectWordPressCves (X017)|same content|-|
+X|36|exploration|non_direct|repeated_support||re-read WordPressOption (X005)|same content|-|
+X|37|edit|direct||R1|report.go: WordPressOption holds the map and passes it directly (survives)|final diff report.go|X038|yes
+X|38|verification|direct||R1|first diff inspection of report.go|git diff|-|
+X|39|exploration|non_direct|repeated_support||re-read WordPressConf|same content|-|
+X|40|edit|uncertain||R3|added a toml tag to IgnoreInactive (survives); support link to a requirement not establishable (the loader copies the field already)|final diff config.go|-|yes
+X|41|verification|uncertain||R3|inspection of the uncertain config edit|git diff config.go|-|
+X|42|exploration|non_direct|repeated_support||re-read FilterInactiveWordPressLibs (X008)|same content|-|
+X|43|edit|direct||R3,R4|FilterInactiveWordPressLibs honours per-server and global ignore-inactive (survives)|final diff scanresults.go|X044,X048|yes
+X|44|verification|direct||R3,R4|first diff inspection of scanresults.go|git diff|-|
+X|45|verification|direct||R3,R4|models and config tests on the final state pass|PASS ... ok config|-|
+X|46|verification|uncertain||R1|wordpress tests fail to build because the old test passes a pointer; not acted on; consistency with the hidden updated tests unknown|build failed|-|
+X|47|administration|non_direct|other||python one-liner that only defines a string (no effect)|empty|-|
+X|48|verification|direct||R3,R4|scratch program: inactive plugin CVEs filtered, active kept, both settings respected|'All verification checks PASSED!'|-|
+X|49|administration|non_direct|administration||git status|-|-|
+X|50|verification|direct||R1|first full diff showing the wordpress.go changes|git diff|-|
+X|51|administration|non_direct|administration||write patch.txt|-|-|
+X|52|administration|non_direct|administration||print patch|-|-|
+X|53|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|non_direct|unused_context||repository file listing|find output|-|
+Y|1|exploration|non_direct|negative_detour||very broad grep; WordPress matches elided in the truncated output the agent saw|truncated grep|-|
+Y|2|exploration|direct||R1,R3,R4|read wordpress.go (edited)|sed 1-360|Y010|
+Y|3|exploration|direct||R3,R4|FillWordPress callers, package model, and per-server IgnoreInactive config used in Y010|grep/sed output|Y010|
+Y|4|exploration|non_direct|unused_context||wordpress tests and package usages|sed test|-|
+Y|5|exploration|direct||R1|report.go WordPressOption/DetectWordPressCves and wpVulnCaches sites (edited)|sed report.go; grep wpVulnCaches|Y010|
+Y|6|exploration|non_direct|repeated_support||FillWordPress callers again|grep output|-|
+Y|7|exploration|non_direct|unused_context||go.mod, base file tail, Servers grep|-|-|
+Y|8|exploration|non_direct|unused_context||Config struct head, report imports|-|-|
+Y|9|edit|non_direct|discarded_edit|R1|scripted edit aborted ('helper not found'); gofmt reformatted files, reverted in Y010|'helper not found'|Y010|no
+Y|10|edit|direct||R1,R2,R3,R4|reverted, then: map cache, interface{} searchCache, per-server IgnoreInactive (survives); test part cut off|final diff|Y011|yes
+Y|11|verification|direct||R1,R2,R5|undid gofmt comment changes; wordpress tests pass on the final state|'ok .../wordpress (cached)'|-|
+Y|12|administration|non_direct|administration||write patch.txt|-|-|
+Y|13|administration|non_direct|administration||print patch and header checks|-|-|
+Y|14|administration|non_direct|administration||submission|-|-|

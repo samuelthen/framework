@@ -1,0 +1,13 @@
+category,gemini-3.7-flash,gpt-5.6-luna,difference_gemini_minus_luna,share_of_extra_actions
+direct,101,53,48,0.22119815668202766
+nd:repeated_support,50,3,47,0.21658986175115208
+nd:unused_context,58,14,44,0.20276497695852536
+nd:superseded_check,28,0,28,0.12903225806451613
+nd:administration,63,37,26,0.11981566820276497
+nd:negative_detour,12,1,11,0.05069124423963134
+uncertain,9,4,5,0.02304147465437788
+nd:scaffolding,3,0,3,0.013824884792626729
+nd:unrelated_check,2,0,2,0.009216589861751152
+nd:discarded_edit,3,2,1,0.004608294930875576
+nd:style_only,3,2,1,0.004608294930875576
+nd:other,1,0,1,0.004608294930875576

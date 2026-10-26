@@ -1,0 +1,69 @@
+X|0|exploration|direct||R1,R3|located buffer/other_buffer/_resolve_buffer_index uses (all renamed)|grep output|X004|
+X|1|exploration|direct||R1,R3|read commands.py tab_take and buffer regions (edited)|sed 390-460; 840-960|X004|
+X|2|exploration|direct||R3,R4|read miscmodels _buffer/buffer/other_buffer (renamed) and :buffer doc/config references|sed miscmodels 80-205; grep doc|X004|
+X|3|exploration|non_direct|unused_context||listed doc/test files; git status|find output|-|
+X|4|edit|direct||R1,R3,R4|renamed command, helper, providers and doc entries (survive) + inspection|final diff|X005,X006|yes
+X|5|verification|direct||R1|grep found a leftover 'Resolve a buffer index' docstring, fixed in X007|grep line 872|X007|
+X|6|verification|direct||R1,R3,R4|compile + first diff inspection after the rename|git diff|-|
+X|7|edit|non_direct|style_only||docstring wording fix; command test file collected no tests|'no tests ran'|-|yes
+X|8|exploration|non_direct|unused_context||test files referencing buffer names|grep output|-|
+X|9|administration|non_direct|administration||write patch.txt|-|-|
+X|10|administration|non_direct|administration||print patch and status|-|-|
+X|11|administration|non_direct|administration||submission|-|-|
+Y|0|administration|non_direct|administration||git status|clean|-|
+Y|1|exploration|direct||R1,R3|located def buffer in commands.py and miscmodels.py (renamed)|git grep output|Y013,Y014|
+Y|2|exploration|direct||R3|located other_buffer definition and use (renamed)|git grep output|Y037,Y040|
+Y|3|exploration|non_direct|negative_detour||no tab_select yet (already stated by the task)|empty|-|
+Y|4|exploration|non_direct|negative_detour||no tab-select yet|empty|-|
+Y|5|exploration|direct||R3|located miscmodels.buffer uses in commands.py (renamed)|git grep output|Y040|
+Y|6|exploration|non_direct|repeated_support||same match as Y002|same line|-|
+Y|7|exploration|non_direct|negative_detour||no def tab_select|empty|-|
+Y|8|exploration|direct||R5|found the gt :buffer binding in configdata.yml (changed in Y041)|'configdata.yml:3318'|Y041|
+Y|9|exploration|non_direct|unused_context||:buffer mentions in changelog/tests|git grep output|-|
+Y|10|exploration|non_direct|unused_context||tab-take mentions|git grep output|-|
+Y|11|exploration|non_direct|negative_detour||no tab-select anywhere|empty|-|
+Y|12|exploration|direct||R4|found the doc generator src2asciidoc.py used to regenerate help in Y043|'scripts/dev/src2asciidoc.py:578'|Y043|
+Y|13|exploration|direct||R1,R2|read commands.py 860-960 (renamed regions)|sed 860-960|Y040|
+Y|14|exploration|direct||R3|read miscmodels 100-190 (renamed)|sed 100-190|Y037|
+Y|15|exploration|direct||R1|_resolve_buffer_index uses incl. tab_take line 443 (renamed)|git grep output|Y040|
+Y|16|exploration|non_direct|repeated_support||delete_buffer lines within the region read in Y014|same content|-|
+Y|17|exploration|non_direct|repeated_support||broad _buffer grep, relevant hits already seen|grep output|-|
+Y|18|exploration|non_direct|repeated_support||buffer grep in commands.py, already seen|grep output|-|
+Y|19|exploration|direct||R3|read tab_take decorator region (edited)|sed 425-455|Y040|
+Y|20|exploration|non_direct|negative_detour||no _resolve_tab yet|empty|-|
+Y|21|exploration|non_direct|repeated_support||same binding hit as Y008|same line|-|
+Y|22|exploration|non_direct|repeated_support||context around the known binding line|sed 3300-3340|-|
+Y|23|exploration|non_direct|repeated_support||broad buffer grep|grep output|-|
+Y|24|exploration|non_direct|negative_detour||no miscmodels use in scripts/|empty|-|
+Y|25|exploration|non_direct|negative_detour||no :buffer in scripts/|empty|-|
+Y|26|exploration|non_direct|unused_context||miscmodels usages incl. tests|grep output|-|
+Y|27|verification|non_direct|superseded_check||pre-change completion tests: X11 connection broke|X11 I/O error|-|
+Y|28|verification|non_direct|superseded_check||xvfb-run retry: X11 failure|X11 I/O error|-|
+Y|29|verification|non_direct|superseded_check||offscreen retry: 73 errors|'73 errors'|-|
+Y|30|administration|non_direct|administration||checked DISPLAY and X processes|DISPLAY empty|-|
+Y|31|verification|non_direct|superseded_check||Xvfb retry cut off; X11 failure|X11 I/O error|-|
+Y|32|verification|non_direct|superseded_check||--no-xvfb retry aborted|Aborted|-|
+Y|33|administration|non_direct|administration||read conftest display handling|sed conftest|-|
+Y|34|verification|non_direct|superseded_check||completer tests pre-change: X11 failure|X11 I/O error|-|
+Y|35|exploration|non_direct|repeated_support||broad buffer grep again|same output|-|
+Y|36|exploration|non_direct|repeated_support||re-read miscmodels 100-195 (Y014)|same content|-|
+Y|37|edit|direct||R3|renamed _buffer/buffer/other_buffer/delete_buffer in miscmodels (survives)|'Updated miscmodels.py successfully'; final diff|Y042|yes
+Y|38|exploration|non_direct|repeated_support||re-read tab_take region (Y019)|same content|-|
+Y|39|exploration|non_direct|repeated_support||re-read 870-950 (Y013)|same content|-|
+Y|40|edit|direct||R1,R2,R3|renamed tab_select, _resolve_tab_index and provider references in commands.py (survives)|final diff|Y042|yes
+Y|41|edit|direct||R5|changed the gt default binding to :tab-select (survives)|'Updated configdata.yml successfully'|Y042|yes
+Y|42|verification|direct||R1,R3,R5|first diff inspection after the code/config edits|git diff|-|
+Y|43|edit|direct||R4|ran src2asciidoc.py, regenerating commands.asciidoc and settings.asciidoc with tab-select (survives)|'Generating command help...'; final doc diff|Y045|yes
+Y|44|administration|non_direct|administration||git status|-|-|
+Y|45|verification|direct||R4|first inspection of the regenerated doc diff|git diff doc/|-|
+Y|46|verification|direct||R4|no :buffer left in docs except the changelog|grep output only changelog|-|
+Y|47|verification|non_direct|repeated_support||tab-select presence in docs, already shown in Y045|grep output|-|
+Y|48|verification|non_direct|repeated_support||new provider references, already shown in Y042|grep output|-|
+Y|49|verification|non_direct|repeated_support||other_tabs reference, already shown in Y042|grep output|-|
+Y|50|verification|direct||R3|no miscmodels.buffer references remain|empty|-|
+Y|51|verification|direct||R3|no miscmodels.other_buffer references remain|empty|-|
+Y|52|administration|non_direct|administration||git status|-|-|
+Y|53|verification|non_direct|repeated_support||full diff again, unchanged since Y042/Y045|same diff|-|
+Y|54|administration|non_direct|administration||write patch.txt|-|-|
+Y|55|administration|non_direct|administration||print patch|-|-|
+Y|56|administration|non_direct|administration||submission|-|-|

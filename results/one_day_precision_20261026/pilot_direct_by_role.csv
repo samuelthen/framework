@@ -1,0 +1,10 @@
+role,contribution_label,gemini-3.7-flash,gpt-5.6-luna
+administration,non_direct,64,37
+edit,direct,18,12
+edit,non_direct,6,3
+edit,uncertain,1,0
+exploration,direct,48,26
+exploration,non_direct,117,18
+verification,direct,35,15
+verification,non_direct,36,1
+verification,uncertain,8,4

@@ -1,0 +1,46 @@
+X|0|exploration|direct||R1,R2|repository tree listing locating config/config.go (read and edited next)|find output|X001|
+X|1|exploration|direct||R1,R2,R3,R4|read config.go (rewritten in X018)|cat config/config.go|X018|
+X|2|exploration|non_direct|unused_context||config tests|cat config_test.go|-|
+X|3|exploration|non_direct|unused_context|R4|config yml files; not changed|ls; cat yml|-|
+X|4|exploration|non_direct|unused_context||testdata yml files|cat testdata|-|
+X|5|exploration|non_direct|unused_context|R3|grep of key names and meta usage; key names already in the task text|git grep output|-|
+X|6|exploration|non_direct|unused_context||storage/db/db.go; pool settings not applied|cat db.go|-|
+X|7|exploration|non_direct|unused_context||cmd/flipt/flipt.go (truncated)|cat flipt.go|-|
+X|8|exploration|non_direct|unused_context||flipt.go 150-250|-|-|
+X|9|exploration|non_direct|unused_context||flipt.go db.Open site; not changed|sed 250-320|-|
+X|10|exploration|non_direct|repeated_support||re-read default.yml (X003)|same content|-|
+X|11|verification|non_direct|superseded_check||pre-change full test run, no result (exit -1)|empty|-|
+X|12|verification|non_direct|superseded_check||pre-change config tests pass|PASS|-|
+X|13|verification|non_direct|superseded_check||pre-change other package tests|ok lines|-|
+X|14|verification|non_direct|superseded_check||pre-change db tests, no result (exit -1)|empty|-|
+X|15|exploration|non_direct|negative_detour||grep for SetMaxIdleConns etc.: no matches; nothing followed|empty|-|
+X|16|exploration|non_direct|unused_context||db.Open call sites|grep output|-|
+X|17|administration|non_direct|administration||git status|clean|-|
+X|18|edit|direct||R1,R2,R3,R4|whole-file rewrite of config.go adding fields, keys and Load mappings (survives)|final diff|X019,X023|yes
+X|19|verification|direct||R4|config tests on the new state pass (TestLoad defaults/deprecated)|PASS|-|
+X|20|verification|uncertain||R1|go build ./... produced only cgo warnings before cut-off (exit -1)|warnings only|-|
+X|21|verification|direct||R1|go build ./cmd/flipt succeeds with the new config fields|exit 0, warnings only|-|
+X|22|verification|non_direct|superseded_check|R2|verification program could not run (_test.go name)|'cannot run *_test.go files'|-|
+X|23|verification|direct||R2,R3,R4|program checks default/deprecated equality, pool options and check_for_updates true/false|'ALL CHECKS PASSED!'|-|
+X|24|verification|direct||R1,R2,R3|first diff inspection after the rewrite|git diff|-|
+X|25|administration|non_direct|administration||removed the built binary|rm -f flipt|-|
+X|26|administration|non_direct|administration||git status|-|-|
+X|27|verification|non_direct|repeated_support||config tests again on unchanged state (cached)|'(cached)'|-|
+X|28|administration|non_direct|administration||write patch.txt|-|-|
+X|29|administration|non_direct|administration||print patch|-|-|
+X|30|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R1,R2,R3|located databaseConfig, Load, Default and CheckForUpdates in config.go|grep output|Y001,Y006|
+Y|1|exploration|direct||R1,R2,R3,R4|read config.go (edited in Y006)|sed 1-260|Y006|
+Y|2|exploration|non_direct|unused_context||config tests|sed config_test.go|-|
+Y|3|exploration|non_direct|unused_context|R4|default.yml and git status|cat default.yml|-|
+Y|4|exploration|non_direct|unused_context||testdata files and Database usages|find/grep output|-|
+Y|5|exploration|non_direct|repeated_support||git log and re-read of the unchanged Load region (Y001)|sed 220-290|-|
+Y|6|edit|direct||R1,R2,R3|scripted edit + gofmt + diff: fields, keys, Load mappings, CheckForUpdates default false (survives)|final diff|Y007,Y010|yes
+Y|7|verification|direct||R4|TestLoad defaults/deprecated pass on the new state|PASS|-|
+Y|8|administration|non_direct|administration||git diff --check and status|-|-|
+Y|9|verification|uncertain||R3|full config tests: TestLoad/configured fails on CheckForUpdates after the default change; not acted on; consistency with the hidden tests unknown|FAIL TestLoad/configured|-|
+Y|10|verification|direct||R2,R3|probe program shows pool options and checkForUpdates false loaded|printed JSON|-|
+Y|11|administration|non_direct|administration||write patch.txt|-|-|
+Y|12|administration|non_direct|administration||print patch and path checks|-|-|
+Y|13|administration|non_direct|administration||submission rejected by the harness format check|'Patch submission rejected'|-|
+Y|14|administration|non_direct|administration||submission|-|-|

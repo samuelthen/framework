@@ -1,0 +1,38 @@
+X|0|exploration|direct||R4|located preload_resources in utils.py (edited)|'utils.py:196:def preload_resources'|X001,X003|
+X|1|exploration|direct||R1,R2,R4|read utils.py incl. imports (posixpath, Iterator, Any) and preload_resources (rewritten)|sed 1-280|X003|
+X|2|exploration|non_direct|unused_context||test_utils region and tox config|sed tests 90-170|-|
+X|3|edit|direct||R1,R2,R3,R4|added _glob_resources and rewired preload_resources (survives) + compile + diff|final diff|X004|yes
+X|4|verification|direct||R1,R2,R3|module tests (197 passed) and checks for pathlib/zip globbing, README/unrelatedhtml exclusion, ext assertions|'197 passed'; 'focused resource checks passed'|-|
+X|5|administration|non_direct|administration||write patch.txt|-|-|
+X|6|administration|non_direct|administration||patch header checks and print|-|-|
+X|7|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R4|located preload_resources (edited)|git grep output|Y001|
+Y|1|exploration|direct||R4|read _resource_path and preload_resources (edited)|sed 180-260|Y019|
+Y|2|exploration|non_direct|unused_context||TestReadFile tests|sed 110-170|-|
+Y|3|verification|non_direct|superseded_check||pre-change module tests: 197 passed|'197 passed'|-|
+Y|4|exploration|direct||R2|module imports where 'import zipfile' was inserted|sed 1-60|Y019|
+Y|5|exploration|non_direct|unused_context||_resource_path usages|git grep|-|
+Y|6|exploration|non_direct|unused_context||importlib_resources mentions|git grep|-|
+Y|7|administration|non_direct|administration||mypy not installed|'mypy: not found'|-|
+Y|8|administration|non_direct|administration||flake8 not installed|'flake8: not found'|-|
+Y|9|administration|non_direct|administration||listed scripts/ for tooling|find output|-|
+Y|10|exploration|direct||R2|zipfile.Path has no glob but has iterdir/name/exists; not a pathlib.Path subclass (basis of the zip branch)|dir(zipfile.Path); issubclass False|Y019|
+Y|11|exploration|direct||R2,R3|zip directory iterdir yields entries with .name incl. README/other.txt (basis of endswith filtering)|printed items|Y019|
+Y|12|exploration|non_direct|unused_context||zipfile usage elsewhere|git grep|-|
+Y|13|exploration|non_direct|repeated_support||re-read 175-225 (Y001)|same content|-|
+Y|14|exploration|non_direct|unused_context|R4|zipfile.Path read_text works; read_file left unchanged|printed text|-|
+Y|15|exploration|non_direct|negative_detour||no __all__ in utils.py|empty|-|
+Y|16|exploration|non_direct|unused_context||test region again|sed 105-150|-|
+Y|17|exploration|non_direct|repeated_support||re-read 180-230|same content|-|
+Y|18|exploration|non_direct|repeated_support||re-read imports (Y004)|same content|-|
+Y|19|edit|direct||R1,R2,R3,R4|zipfile import, _glob_resources, preload_resources rewiring, _resource_path annotation (survive; assert message later dropped)|final diff|Y020,Y021|yes
+Y|20|verification|direct||R4|module tests on the new state: 197 passed|'197 passed'|-|
+Y|21|verification|direct||R2|custom checks failed: assertion message formatting crashed on an in-memory zipfile.Path, fixed in Y022|TypeError in zipfile.__str__|Y022|
+Y|22|edit|direct||R2|removed the f-string assertion message (survives)|'Updated utils.py'; final diff|Y023|yes
+Y|23|verification|direct||R1,R2,R3,R4|custom checks pass: pathlib and zip globbing, exclusions, ext assertions, preload cache keys|'All custom checks passed successfully!'|-|
+Y|24|verification|direct||R4|module tests on the final state: 197 passed|'197 passed'|-|
+Y|25|administration|non_direct|administration||git status|-|-|
+Y|26|verification|direct||R1,R2,R4|first diff inspection of the final change|git diff|-|
+Y|27|administration|non_direct|administration||write patch.txt|-|-|
+Y|28|administration|non_direct|administration||print patch|-|-|
+Y|29|administration|non_direct|administration||submission|-|-|

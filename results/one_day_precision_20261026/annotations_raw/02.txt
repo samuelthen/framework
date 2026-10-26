@@ -1,0 +1,94 @@
+X|0|exploration|direct||R2|located download_collections/install_collections/_resolve_depenency_map/resolver/proxy definitions|grep symbols output|X001-X003,X016|
+X|1|exploration|direct||R2,R3,R4|read MultiGalaxyAPIProxy and build_collection_dependency_resolver (both edited)|sed galaxy_api_proxy.py; dependency_resolution/__init__.py|X016|
+X|2|exploration|direct||R2|read install_collections and _resolve_depenency_map signatures (edited)|sed 450-780, 1700-1795|X016|
+X|3|exploration|direct||R2|read _execute_install_collection call site (edited) and MultiGalaxyAPIProxy constructor sites|sed 1280-1385 cli/galaxy.py|X016|
+X|4|exploration|direct||R1|located install parser options (--pre at 483) where --offline is inserted|grep add_argument output|X016|
+X|5|exploration|direct||R1|existing verify --offline flag pattern (dest/action/default) mirrored by the new flag|grep offline output 'verify_parser.add_argument('--offline''|X016|
+X|6|exploration|non_direct|unused_context||providers/dataclasses overview; no change relies on it|sed providers.py, dataclasses.py|-|
+X|7|exploration|direct||R1|read install parser block 450-525 where the flag is inserted|sed 450-525 cli/galaxy.py|X016|
+X|8|exploration|direct||R2|read download_collections region (506-620) whose signature/call is edited|sed 506-620 collection/__init__.py|X016|
+X|9|exploration|non_direct|unused_context||Candidate/source_info and provider internals|grep/sed output|-|
+X|10|exploration|non_direct|unused_context||Requirement properties and provider code|sed dataclasses 520-620|-|
+X|11|exploration|direct||R3|read get_collection_version_metadata body (guard added)|grep -A55 get_collection_version_metadata|X016|
+X|12|exploration|non_direct|unused_context||artifact manager properties, unrelated regions|sed output|-|
+X|13|exploration|non_direct|unused_context||dependency extraction helpers|grep output|-|
+X|14|exploration|non_direct|unused_context||find_existing_collections and meta helpers|grep output|-|
+X|15|exploration|non_direct|unused_context||download CLI call site (not changed)|grep -B12 -A12|-|
+X|16|edit|direct||R1,R2,R3,R4|single scripted edit of all four files + py_compile + diff (all survive)|final diff identical|X017,X018,X019|yes
+X|17|verification|direct||R1,R2|first diff inspection of cli and collection changes|git diff; grep offline|-|
+X|18|verification|direct||R1|help text check: exact help string present|grep -F succeeded|-|
+X|19|verification|direct||R3,R4|runtime check: offline proxy makes no API calls, property True|'offline proxy runtime check passed'|-|
+X|20|administration|non_direct|administration||write patch.txt|-|-|
+X|21|administration|non_direct|administration||patch checks and print|-|-|
+X|22|administration|non_direct|administration||submission|-|-|
+Y|0|administration|non_direct|administration||initial git status|clean|-|
+Y|1|exploration|direct||R3|found galaxy_api_proxy.py (edited)|find output|Y014|
+Y|2|exploration|direct||R2|listed galaxy files incl. dependency_resolution/__init__.py (edited)|find output|Y013|
+Y|3|exploration|direct||R2|located download_collections (edited)|git grep output|Y010|
+Y|4|exploration|direct||R2|located install_collections (edited) and CLI call|git grep output|Y009,Y010|
+Y|5|exploration|direct||R2|located _resolve_depenency_map (edited)|git grep output|Y011|
+Y|6|exploration|direct||R2|located build_collection_dependency_resolver and MultiGalaxyAPIProxy construction (edited)|git grep output|Y013|
+Y|7|exploration|direct||R1,R2|line numbers of install parser and _execute_install_collection|python line scan|Y008,Y009|
+Y|8|exploration|direct||R1|read add_install_options where --offline is inserted|lines 440-530|Y039|
+Y|9|exploration|direct||R2|read install_collections call site in CLI (edited)|lines 1330-1390|Y039|
+Y|10|exploration|direct||R2|read download_collections and install_collections signatures (edited)|lines 500-560, 645-740|Y042|
+Y|11|exploration|direct||R2|read _resolve_depenency_map (edited)|lines 1720-1780|Y042|
+Y|12|exploration|non_direct|unused_context|R5|resolver error handling; unchanged|lines 1770-1830|-|
+Y|13|exploration|direct||R2|read dependency_resolution/__init__.py (edited)|full file|Y047|
+Y|14|exploration|direct||R3,R4|read galaxy_api_proxy.py (edited)|full file|Y051|
+Y|15|exploration|non_direct|unused_context||providers.py (truncated)|cat output|-|
+Y|16|exploration|non_direct|unused_context||providers 90-250|-|-|
+Y|17|exploration|non_direct|unused_context||providers 250-350|-|-|
+Y|18|exploration|non_direct|unused_context||providers 350-450|-|-|
+Y|19|exploration|non_direct|unused_context|R5|existing 'Unknown error when attempting to call Galaxy' message; unchanged|grep output|-|
+Y|20|exploration|non_direct|unused_context||find_existing_collections|-|-|
+Y|21|exploration|non_direct|unused_context||dataclasses head|-|-|
+Y|22|exploration|non_direct|unused_context||is_concrete_artifact locations|-|-|
+Y|23|exploration|non_direct|unused_context||Requirement properties|-|-|
+Y|24|exploration|non_direct|unused_context||install() body|-|-|
+Y|25|exploration|non_direct|repeated_support||repeat of Y006 grep|same output|-|
+Y|26|exploration|non_direct|unused_context||listed test files|-|-|
+Y|27|verification|non_direct|superseded_check||baseline unit tests before changes: 4 pre-existing failures, not acted on|'4 failed, 216 passed'|-|
+Y|28|verification|non_direct|unrelated_check||investigated a pre-existing CLI test failure|1 failed|-|
+Y|29|exploration|non_direct|unused_context||read the failing test|-|-|
+Y|30|verification|non_direct|unrelated_check||reproduced the CLI test scenario with mocks|warning output|-|
+Y|31|verification|non_direct|superseded_check||baseline collection_install tests before changes: 56 passed|'56 passed'|-|
+Y|32|administration|non_direct|administration||ansible-test invoked with invalid arguments|usage error|-|
+Y|33|verification|non_direct|superseded_check||baseline ansible-test run on test_galaxy before changes|pass|-|
+Y|34|exploration|non_direct|repeated_support||re-read unchanged CLI regions (Y008/Y009)|same content|-|
+Y|35|edit|non_direct|discarded_edit|R1,R2|CLI edit aborted on assertion (target2 not found); nothing written|'AssertionError: target2 not found'|-|no
+Y|36|exploration|non_direct|repeated_support||re-read unchanged CLI install region|same content|-|
+Y|37|administration|non_direct|administration||git status confirming no partial write|clean tree|-|
+Y|38|exploration|non_direct|repeated_support||repr of unchanged CLI lines|same content|-|
+Y|39|edit|direct||R1,R2|line-based CLI edit: --offline flag, offline variable, offline=offline (survive)|final diff|Y040,Y058|yes
+Y|40|verification|direct||R1,R2|first diff inspection of the CLI change|git diff|-|
+Y|41|exploration|non_direct|repeated_support||repr of unchanged collection/__init__.py regions (Y010/Y011)|same content|-|
+Y|42|edit|direct||R2|added offline to download_collections, install_collections and _resolve_depenency_map (survive)|final diff|Y043|yes
+Y|43|verification|direct||R2|first diff inspection of collection/__init__.py|git diff|-|
+Y|44|exploration|non_direct|repeated_support||re-printed unchanged dependency_resolution/__init__.py (Y013)|same content|-|
+Y|45|edit|non_direct|discarded_edit|R2|resolver edit aborted on assertion; nothing written|'AssertionError: target not found'|-|no
+Y|46|exploration|non_direct|repeated_support||repr of unchanged resolver file|same content|-|
+Y|47|edit|direct||R2|resolver edit: offline parameter passed to MultiGalaxyAPIProxy (survives)|final diff|Y048|yes
+Y|48|verification|direct||R2|first diff inspection of resolver change|git diff|-|
+Y|49|exploration|non_direct|repeated_support||repr of unchanged proxy file (Y014)|same content|-|
+Y|50|edit|non_direct|discarded_edit|R3,R4|proxy edit failed with a Python syntax error; nothing written|SyntaxError|-|no
+Y|51|edit|direct||R3,R4|proxy edit via temp script: offline flag, property, guards (survive)|final diff|Y052|yes
+Y|52|verification|direct||R3,R4|first diff inspection of proxy change|git diff|-|
+Y|53|verification|direct||R2|unit tests (collection_install, cli galaxy, collection) on the final state; exit 0|ansible-test exit 0|-|
+Y|54|verification|non_direct|superseded_check|R1|help-text check script error (parser None)|AttributeError|-|
+Y|55|verification|non_direct|superseded_check|R1|help-text check against the wrong parser|AssertionError|-|
+Y|56|verification|non_direct|superseded_check|R1|subparser navigation script, no result|no output|-|
+Y|57|exploration|non_direct|unused_context||read init_parser to write a check|-|-|
+Y|58|verification|direct||R1|verified the exact help text in the collection install parser|'Verified exact help text'|-|
+Y|59|verification|non_direct|superseded_check|R3|offline install script failed on a non-existent helper|AttributeError from_file_path|-|
+Y|60|exploration|non_direct|unused_context||Requirement constructors for the check script|-|-|
+Y|61|exploration|non_direct|unused_context||read from_string|-|-|
+Y|62|verification|non_direct|superseded_check|R3|check script failed on signature options|AnsibleError keyring|-|
+Y|63|verification|direct||R3,R5|offline missing-dependency error and no network call verified before the script failed on tar checksums|'Offline missing dependency error message verified'; 'No network calls'|-|
+Y|64|verification|direct||R3,R5|offline install with locally satisfied dependency succeeds without network|'ALL OFFLINE TESTS PASSED!'|-|
+Y|65|verification|uncertain||R2|broad unit test run cut off (exit -1), no result|partial dots|-|
+Y|66|verification|direct||R2|galaxy unit test directory on the final state; exit 0|ansible-test exit 0|-|
+Y|67|administration|non_direct|administration||git status|-|-|
+Y|68|administration|non_direct|administration||write patch.txt|-|-|
+Y|69|administration|non_direct|administration||print patch|-|-|
+Y|70|administration|non_direct|administration||submission|-|-|

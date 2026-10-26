@@ -1,0 +1,59 @@
+X|0|exploration|direct||R1,R3|listed voice-broadcast files incl. utils/ (new file location) and the playback model (edited)|find output|X003,X008|
+X|1|exploration|direct||R3|located setLiveness/updateLiveness/setInfoState uses (edited)|grep output|X008|
+X|2|administration|non_direct|administration||git status and package.json location|-|-|
+X|3|exploration|direct||R3|read VoiceBroadcastPlayback 1-280 incl. chunk logic with updateLiveness (edited)|sed 1-280|X008|
+X|4|exploration|direct||R1,R2|read index.ts: VoiceBroadcastLiveness type and VoiceBroadcastInfoState enum used by the util; export list edited|cat index.ts; grep enum|X008|
+X|5|exploration|direct||R3|located setInfoState and all setLiveness/updateLiveness calls (edited)|grep output|X008|
+X|6|exploration|direct||R3|read playback 260-540 incl. updateLiveness body, setState, setInfoState (edited)|sed 260-540|X008|
+X|7|exploration|non_direct|repeated_support||re-read 390-510 already shown in X006; test file listing unused|sed 390-510|-|
+X|8|edit|direct||R1,R2,R3|created the util, exported it, removed updateLiveness and wired setInfoState (survives; two calls left)|final diff|X009,X010|yes
+X|9|verification|direct||R3|inspection found two remaining updateLiveness calls (lines 372, 461), removed by X010|'372: this.updateLiveness()' '461: ...'|X010|
+X|10|edit|direct||R3|removed the remaining updateLiveness calls (survives); eslint part failed on shell syntax|final diff|X011|yes
+X|11|verification|direct||R3|first diff inspection after X010; no updateLiveness left|git diff; grep empty|-|
+X|12|verification|uncertain||R2,R3|eslint + jest playback tests cut off with no result (exit -1)|only browserslist notice|-|
+X|13|verification|non_direct|style_only||eslint on the changed files (no output)|empty|-|
+X|14|administration|non_direct|administration||write patch.txt|-|-|
+X|15|administration|non_direct|administration||patch checks and print|-|-|
+X|16|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R1,R3|listed voice-broadcast files incl. the playback model and utils|find output|Y002|
+Y|1|exploration|direct||R1,R2|read index.ts (types used by the util; export list edited)|cat index.ts|Y019,Y021|
+Y|2|exploration|direct||R3|read VoiceBroadcastPlayback (agent saw head and tail; middle elided)|cat (truncated for the agent)|Y028|
+Y|3|exploration|non_direct|repeated_support||lines 1-120 were in the visible head of Y002|sed 1-120|-|
+Y|4|exploration|direct||R3|lines 121-240 incl. addChunkEvent updateLiveness call, elided in Y002 (removed in Y028)|sed 121-240|Y028|
+Y|5|exploration|direct||R3|lines 241-360 incl. setLiveness/updateLiveness, elided in Y002 (removed/used in Y028)|sed 241-360|Y028|
+Y|6|exploration|non_direct|unused_context||VoiceBroadcastLiveness usages across components/tests|git grep output|-|
+Y|7|exploration|direct||R1|listed utils/ where the new util is created|ls utils|Y019|
+Y|8|exploration|non_direct|style_only||read an existing util for conventions|cat getChunkLength.ts|-|
+Y|9|verification|non_direct|superseded_check||pre-change playback tests: 40 passed|'40 passed'|-|
+Y|10|exploration|non_direct|unused_context||liveness mentions in tests|git grep|-|
+Y|11|exploration|non_direct|unused_context||itShouldHaveLiveness usages|git grep|-|
+Y|12|exploration|non_direct|unused_context||playback test 180-240|sed|-|
+Y|13|administration|non_direct|administration||git status|clean|-|
+Y|14|exploration|non_direct|unused_context||hasRoomLiveVoiceBroadcast util|cat|-|
+Y|15|exploration|direct||R3|located all updateLiveness calls (removed in Y028)|git grep output|Y028|
+Y|16|exploration|non_direct|repeated_support||same grep with line numbers|same matches|-|
+Y|17|exploration|non_direct|repeated_support||liveness symbols in the model, already read|grep output|-|
+Y|18|exploration|non_direct|repeated_support||re-read index.ts exports (Y001)|sed 40-65|-|
+Y|19|edit|direct||R1,R2|created determineVoiceBroadcastLiveness.ts (survives)|final diff new file|Y034|yes
+Y|20|exploration|non_direct|repeated_support||re-read index.ts exports|sed 44-55|-|
+Y|21|edit|direct||R1|added the util export to index.ts (survives)|final diff index.ts|Y022|yes
+Y|22|verification|direct||R1|first diff inspection of index.ts|git diff|-|
+Y|23|exploration|non_direct|repeated_support||imports region, visible in Y002 head|sed 30-45|-|
+Y|24|exploration|non_direct|repeated_support||re-read addChunkEvent region (Y004)|sed 145-165|-|
+Y|25|exploration|non_direct|repeated_support||re-read setLiveness/updateLiveness (Y005)|sed 310-350|-|
+Y|26|exploration|non_direct|repeated_support||setPosition/start region, visible in Y002 tail|sed 385-410|-|
+Y|27|exploration|non_direct|repeated_support||setState/setInfoState region, visible in Y002 tail|sed 460-495|-|
+Y|28|edit|direct||R3|removed updateLiveness and its calls; setInfoState uses the util (survives)|final diff|Y029|yes
+Y|29|verification|direct||R3|first diff inspection of the model change|git diff|-|
+Y|30|administration|non_direct|administration||yarn test:types does not exist|'Command not found'|-|
+Y|31|administration|non_direct|administration||listed package scripts|-|-|
+Y|32|verification|uncertain||R1|tsc type check cut off with no result (exit -1)|no output|-|
+Y|33|verification|non_direct|style_only||eslint on changed files|no errors|-|
+Y|34|verification|non_direct|superseded_check|R2|mapping check script failed to load the module|'Cannot find module'|-|
+Y|35|administration|non_direct|administration||looked for jest config files|not found|-|
+Y|36|administration|non_direct|administration||printed jest config|-|-|
+Y|37|verification|uncertain||R2,R3|voice-broadcast tests cut off (exit -1); playback suite result not visible|partial PASS lines|-|
+Y|38|administration|non_direct|administration||git status|-|-|
+Y|39|administration|non_direct|administration||write patch.txt|-|-|
+Y|40|administration|non_direct|administration||print patch|-|-|
+Y|41|administration|non_direct|administration||submission|-|-|

@@ -1,0 +1,93 @@
+# run|idx|role|label|reason|reqs|contributed_content|evidence|downstream|survives
+X|0|exploration|direct||R1,R6|located format_languages (utils/__init__.py:448) and language helpers|grep output 'catalog/utils/__init__.py:448:def format_languages'|X009|
+X|1|exploration|direct||R1,R6|read the format_languages body later replaced and upstream helper code|sed 400-490 of catalog/utils/__init__.py|X009|
+X|2|exploration|direct||R2,R4|read test_format_languages cases and the module import block where uniq import is inserted|sed 400-460 tests; sed 1-80 imports|X009|
+X|3|exploration|uncertain||R6|grep web.ctx and uniq; uniq search result omitted from packet excerpt|output partly omitted|-|
+X|4|exploration|direct||R1|showed get_marc21_language definition (line 819) used by final resolve()|sed 800-835 upstream/utils.py|X009|
+X|5|exploration|direct||R1|showed get_marc21_language mapping body used by the final code|sed 835-930 upstream/utils.py|X009|
+X|6|exploration|direct||R3|showed uniq definition (core/helpers) imported by the final patch|sed 280-315 core/helpers.py|X009|
+X|7|exploration|direct||R1|found that 'deutsch'/'anglais' are absent from the MARC table (only 'german'), motivating the alias table that survives|grep output '941: german' only|X009|
+X|8|exploration|non_direct|repeated_support|R1|re-read the same table region; confirmed german/spanish again|sed 930-1010|-|
+X|9|edit|direct||R1,R2,R3,R4,R5,R6|wrote the new format_languages and uniq import (shell reported exit 2 but the write landed: X011 shows this version's comments)|X011 output matches this action's text|X010,X011,X012|yes
+X|10|verification|direct||R2,R4,R5|compound: replacement failed (substring not found, no write) but pytest -k format_language ran on the new code: 5 passed|'5 passed, 89 deselected'|-|
+X|11|verification|direct||R1|first inspection confirming the edited function is in place|sed 440-470 shows new docstring and alias table|-|
+X|12|verification|direct||R1,R3,R4,R5|ad-hoc checks: names, ISO, mixed case, dedup, empty, invalid|printed outputs incl. dedup list and InvalidLanguage for 'wtf'|-|
+X|13|exploration|non_direct|repeated_support|R1|second inspection of the unchanged diff|git diff|-|
+X|14|verification|direct||R2,R3,R5|full catalog utils test module on final state: 94 passed (regression property)|'94 passed'|-|
+X|15|administration|non_direct|administration||blank-line formatting tweak and patch.txt creation|-|-|yes
+X|16|administration|non_direct|administration||checked patch.txt headers/contents|-|-|
+X|17|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|non_direct|administration||initial git status|clean tree|-|
+Y|1|exploration|direct||R1,R6|located format_languages|'448:def format_languages'|Y006,Y044|
+Y|2|exploration|direct||R1,R6|located get_languages (imported and later edited)|'utils.py:724:def get_languages'|Y044,Y062|
+Y|3|exploration|direct||R1|located convert_iso_to_marc (imported and later edited)|'utils.py:1197:def convert_iso_to_marc'|Y044,Y062|
+Y|4|exploration|direct||R1|located get_abbrev_from_full_lang_name and its tests (imported, later edited)|'utils.py:774:def get_abbrev_from_full_lang_name'|Y044,Y062|
+Y|5|exploration|non_direct|unused_context|R5|InvalidLanguage locations; not used beyond what the function body shows|git grep InvalidLanguage|-|
+Y|6|exploration|direct||R1,R6|read the format_languages body later replaced (old_func text)|sed 435-485|Y044|
+Y|7|exploration|direct||R1,R6|read get_languages/get_abbrev_from_full_lang_name code later edited|sed 720-830 upstream/utils.py|Y062|
+Y|8|exploration|direct||R1|read convert_iso_to_marc body later edited (case-insensitive compare)|sed 1190-1230|Y062|
+Y|9|exploration|direct||R3|found uniq in openlibrary/utils (imported by the final patch)|'openlibrary/utils/__init__.py:28'|Y044|
+Y|10|exploration|direct||R3|read uniq signature incl. key parameter used in final return|sed 20-50 utils/__init__.py|Y044|
+Y|11|exploration|direct||R1|read the import block where the new imports are inserted|sed 1-60 catalog utils|Y044|
+Y|12|exploration|direct||R2|located the format_languages tests read next|git grep format_languages|Y013|
+Y|13|exploration|direct||R2,R5|read existing format_languages tests (expected outputs) later used as verification|sed 425-460 tests|Y063|
+Y|14|verification|direct||R6|baseline run: 4 format_languages tests fail on base (web.ctx.site missing), the failure the fix addresses|'4 failed, 90 passed'|Y039,Y062|
+Y|15|exploration|non_direct|unused_context|R1|upstream get_abbrev test fixture; not used by a surviving change|sed 175-250 upstream tests|-|
+Y|16|exploration|non_direct|unused_context||add_book conftest fixture|cat conftest.py|-|
+Y|17|exploration|non_direct|unused_context||test_load_book contents|cat test_load_book.py|-|
+Y|18|verification|non_direct|superseded_check||baseline test_load_book run before any change; result not acted on|'34 passed'|-|
+Y|19|exploration|direct||R5|located LanguageNoMatchError/LanguageMultipleMatchError (imported and caught in final _resolve_language)|git grep output|Y044|
+Y|20|exploration|non_direct|unused_context|R5|importapi usage of get_abbrev; not modified or relied on|sed 405-445 importapi/code.py|-|
+Y|21|exploration|non_direct|repeated_support||repeat of Y002 grep|same output|-|
+Y|22|exploration|non_direct|unused_context||test module imports|head test_utils.py|-|
+Y|23|exploration|non_direct|negative_detour||conftest.py not found|'No such file'|-|
+Y|24|exploration|non_direct|negative_detour||listed conftest files; none used|find output|-|
+Y|25|exploration|non_direct|unused_context||openlibrary/conftest.py contents|cat conftest.py|-|
+Y|26|exploration|non_direct|unused_context||list of language functions|git grep def|-|
+Y|27|exploration|non_direct|repeated_support|R3|uniq usage pattern; import location already established by Y009/Y010|git grep uniq catalog|-|
+Y|28|exploration|non_direct|repeated_support||repeat of Y012|same output|-|
+Y|29|exploration|non_direct|unused_context||add_book call site; not changed|sed 830-845|-|
+Y|30|exploration|non_direct|unused_context||load_book call site; not changed|sed 320-345|-|
+Y|31|exploration|non_direct|repeated_support||repeat of Y005|same output|-|
+Y|32|exploration|non_direct|unused_context||InvalidLanguage handling in add_book|sed 600-625|-|
+Y|33|exploration|direct||R6|showed upstream utils imports (json, web.utils.Storage) relied on by the surviving get_languages fallback; checked import safety|head -n 50 upstream/utils.py|Y062|
+Y|34|exploration|uncertain||R6|negative grep (no catalog import in upstream utils): plausible import-safety support, link not establishable|empty output|-|
+Y|35|exploration|non_direct|repeated_support||repeat of format_languages test grep|same output|-|
+Y|36|exploration|non_direct|repeated_support||repeat get_languages definition grep|same output|-|
+Y|37|exploration|non_direct|repeated_support||repeat get_languages grep|same output|-|
+Y|38|exploration|direct||R6|located mock_site, read next to diagnose the missing web.ctx.site|'mock_infobase.py:415'|Y039|
+Y|39|exploration|direct||R6|diagnosis: tests without mock_site lack web.ctx.site, motivating the get_languages fallback that survives|sed 410-440 mock_infobase.py|Y062|
+Y|40|exploration|non_direct|repeated_support||re-read unchanged format_languages body (Y006)|same content|-|
+Y|41|exploration|non_direct|repeated_support||re-read unchanged imports (Y011)|same content|-|
+Y|42|exploration|non_direct|unused_context||sed 35-80 unrelated helpers|-|-|
+Y|43|edit|non_direct|discarded_edit|R1|edit command failed with a shell syntax error; nothing written|'Syntax error: end of file unexpected'|-|no
+Y|44|edit|direct||R1,R2,R3,R5,R6|wrote imports, _resolve_language and new format_languages (survive verbatim)|'Successfully updated'; final diff identical|Y045,Y063|yes
+Y|45|verification|direct||R1|first diff inspection confirming the catalog change|git diff|-|
+Y|46|verification|direct||R2|regression run of add_book and upstream suites on the new state (1 unrelated pre-existing failure)|'1 failed, 224 passed'|-|
+Y|47|verification|non_direct|unrelated_check||investigated an unrelated pre-existing test_models failure; no change followed|'1 failed, 3 passed'|-|
+Y|48|verification|direct||R6|failing check on new code (get_languages needs web.ctx.site), acted on by Y062|'4 failed, 90 passed'|Y062|
+Y|49|exploration|direct||R6|found languages.page, the data file used by the surviving fallback|grep output 'pages/languages.page'|Y062|
+Y|50|exploration|non_direct|unused_context||git history of the test file|git log -p|-|
+Y|51|exploration|non_direct|negative_detour||no references to languages.page|empty output|-|
+Y|52|exploration|non_direct|negative_detour||grep .page across repo; noise|-|-|
+Y|53|exploration|non_direct|repeated_support||re-read mock_site (Y039)|same content|-|
+Y|54|exploration|direct||R6|read languages.page structure (key/code fields) used by the fallback|head -n 50 languages.page|Y062|
+Y|55|verification|direct||R1|checked the data file loads and contains eng/fre/ger/spa|'Total languages ... 480'|Y062|
+Y|56|exploration|direct||R1|found languages.page lacks identifiers/name_translated, motivating the robust name_translated access that survives|'All keys in languages.page: {...}'|Y062|
+Y|57|exploration|non_direct|repeated_support||name_translated locations; code already read in Y007|-|-|
+Y|58|exploration|non_direct|repeated_support||re-read get_abbrev_from_full_lang_name (Y007)|same content|-|
+Y|59|exploration|non_direct|repeated_support||re-read get_languages (Y007)|same content|-|
+Y|60|exploration|non_direct|unused_context||safeget location|-|-|
+Y|61|exploration|non_direct|repeated_support||re-read convert_iso_to_marc (Y008)|same content|-|
+Y|62|edit|direct||R1,R6|get_languages fallback, robust name_translated access, case-insensitive ISO compare (all survive)|'Successfully updated'; final diff|Y063,Y064|yes
+Y|63|verification|direct||R2,R5,R6|catalog utils tests on final state: 94 passed|'94 passed'|-|
+Y|64|verification|direct||R1|load_book and upstream utils tests on final state: 50 passed|'50 passed'|-|
+Y|65|verification|direct||R2,R4,R6|checks without web.ctx: empty input, key and MARC case-insensitivity|'All initial tests without web.ctx passed!'|-|
+Y|66|verification|non_direct|superseded_check|R1|comprehensive script failed on the agent's own wrong expectation (anglais); code not changed|AssertionError line 116|-|
+Y|67|verification|direct||R1|checked name/synonym resolution with mock data|printed mappings|-|
+Y|68|verification|direct||R1,R3,R5|comprehensive check incl. dedup order and invalid/ambiguous inputs|'ALL COMPREHENSIVE TESTS PASSED'|-|
+Y|69|administration|non_direct|administration||git status before patch|-|-|
+Y|70|verification|direct||R1,R6|first diff inspection after the upstream utils edit|git diff|-|
+Y|71|administration|non_direct|administration||write patch.txt|-|-|
+Y|72|administration|non_direct|administration||print patch.txt|-|-|
+Y|73|administration|non_direct|administration||submission|-|-|

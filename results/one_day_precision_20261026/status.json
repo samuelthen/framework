@@ -1,0 +1,66 @@
+{
+  "route": "A (full traces and accepted reference evidence available; code state read from traces, not executed)",
+  "deliverables": {
+    "1_availability.csv": {
+      "status": "completed"
+    },
+    "2_sample_manifest.csv": {
+      "status": "completed",
+      "note": "3 calibration + 8 evaluation pairs completed in frozen order; 295 reserve"
+    },
+    "3_requirements.jsonl": {
+      "status": "completed",
+      "note": "11 tasks, model-written from dataset requirements/reference; not independently verified; tests not executed"
+    },
+    "4_action_annotations.jsonl": {
+      "status": "completed (preliminary)",
+      "note": "675 actions, model-coded, single annotator"
+    },
+    "5_scores_by_run.csv": {
+      "status": "completed (preliminary)",
+      "note": "P bounds for 22 successful runs; Q_failure/coverage null with reasons; failed-run coverage in failed_run_coverage.csv"
+    },
+    "6_matched_effort.csv/matched_differences.csv": {
+      "status": "completed"
+    },
+    "7_diagnostics.md": {
+      "status": "completed"
+    },
+    "8_figures": {
+      "status": "completed",
+      "files": [
+        "fig_matched_effort",
+        "fig_precision_bounds",
+        "fig_effort_decomposition",
+        "fig_trajectory_example"
+      ],
+      "coverage_curve": "not produced: intermediate states not reconstructed; only one eligible failed run"
+    },
+    "9_RESULTS.md": {
+      "status": "completed"
+    },
+    "10_manifest/run.log/status": {
+      "status": "completed"
+    },
+    "tests": {
+      "status": "completed",
+      "note": "8 study tests pass; project tests 79 pass; 7 audit probes fail (not repaired: no inferred states used)"
+    },
+    "failed_run_extension": {
+      "status": "partial",
+      "recall_status": "identifiable for 1 run (static terminal coverage 4/5)",
+      "not_identifiable": "peak coverage (no state reconstruction); Q_failure (failed run actions not annotated)"
+    }
+  },
+  "missing_inputs": [
+    "independent second annotator / human reviewer for the pilot labels",
+    "task execution environments (containers) to run fail-to-pass tests and verify code states",
+    "agent-visible outputs in packets for truncated observations (handled manually from task 05)",
+    "a defensible common action unit across models that bundle commands differently"
+  ],
+  "human_review_required": [
+    "blind re-annotation of the 8 evaluation pairs with the frozen guide",
+    "review of requirements.jsonl (two reference/requirement conflicts noted)",
+    "adjudication of the 17 uncertain actions"
+  ]
+}

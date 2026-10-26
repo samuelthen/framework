@@ -1,0 +1,16 @@
+{
+  "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r2",
+  "K": 5,
+  "H": 4,
+  "U_req": 0,
+  "coverage_lower": 0.8,
+  "coverage_upper": 0.8,
+  "repair_requirements_K": 3,
+  "repair_H": 2,
+  "repair_coverage": 0.6666666666666666,
+  "peak_coverage": null,
+  "peak_status": "not computed: intermediate code states not reconstructed",
+  "Q_failure": null,
+  "Q_failure_status": "not computed: actions of this run were not annotated",
+  "name": "reference_requirement_coverage (terminal), conditional on this task's reference requirements"
+}

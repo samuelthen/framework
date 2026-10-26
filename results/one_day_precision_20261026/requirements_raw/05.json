@@ -1,0 +1,8 @@
+{"task_id": "instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "New utility determineVoiceBroadcastLiveness(infoState) in src/voice-broadcast/utils/determineVoiceBroadcastLiveness.ts.", "source": "requirements bullet 1; interface field; reference new file", "alternatives": "function or const arrow; Map or switch"},
+  {"id": "R2", "kind": "repair", "description": "Mapping Started/Resumed -> live, Paused -> grey, Stopped/unknown/undefined -> not-live.", "source": "requirements bullet 2; reference stateLivenessMap", "alternatives": "-"},
+  {"id": "R3", "kind": "repair", "description": "Liveness changes only in setInfoState via setLiveness(determineVoiceBroadcastLiveness(infoState)); start/setState/setPosition/chunk logic no longer update liveness (updateLiveness removed).", "source": "requirements bullets 3-4; reference removals", "alternatives": "call before or after emitting InfoStateChanged"},
+  {"id": "R4", "kind": "already_satisfied_or_preserve", "description": "Initial liveness not-live; LivenessChanged emitted only on change (existing setLiveness guard).", "source": "requirements bullets 7-8; unchanged base code", "alternatives": "-"}],
+ "verification_status": "derived from requirements text, interface and reference patch; fail-to-pass jest tests not executed here. Exporting the util from index.ts is route-specific.",
+ "notes": "Both runs resolved with near-identical patches."}

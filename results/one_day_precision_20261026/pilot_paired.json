@@ -1,0 +1,20 @@
+{
+  "pairs": 8,
+  "diff_lower_mean": -0.15989445316737338,
+  "diff_lower_median": -0.13355067490276823,
+  "diff_upper_mean": -0.17175354791124453,
+  "diff_upper_median": -0.16307300509337863,
+  "pairs_luna_higher_under_every_resolution": 7,
+  "pairs_gemini_higher_under_every_resolution": 0,
+  "pairs_order_depends_on_uncertain": 1,
+  "diff_lower_mean_boot95": [
+    -0.24784559772430612,
+    -0.08207435186308513
+  ],
+  "diff_upper_mean_boot95": [
+    -0.24991390169039226,
+    -0.08703104367100559
+  ],
+  "boot_note": "task bootstrap over the 8 evaluation pairs, 5000 replicates, seed 20261026; sampling uncertainty only, separate from the label bounds; illustrative at this n",
+  "sign_test_two_sided_p_strict": 0.0703125
+}

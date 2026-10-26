@@ -1,0 +1,81 @@
+X|0|exploration|direct||R1,R7|located EvaluationResponse in proto, pb.go, swagger and evaluator.go (all changed)|grep output|X001,X002|
+X|1|exploration|direct||R1,R2,R3,R4,R6|read flipt.proto and evaluator.go (both edited)|sed proto; sed evaluator.go|X009,X024|
+X|2|exploration|direct||R7|read swagger fliptEvaluationResponse (regenerated) and the resp construction site in evaluator.go|sed swagger 1390-1465; grep|X021,X024|
+X|3|exploration|direct||R1,R7|found the code-generation route (buf generate, buf.gen.yaml) used in X021|grep Taskfile/buf.gen.yaml|X021|
+X|4|exploration|direct||R1,R7|read Taskfile/buf.gen.yaml template used for generation; confirmed generators absent|sed Taskfile; cat buf.gen.yaml|X021|
+X|5|exploration|non_direct|unused_context|R1|existing enum layout in pb.go; generated code later produced by the tool|sed pb.go 210-330|-|
+X|6|exploration|non_direct|unused_context||git status and swagger definition refs|-|-|
+X|7|exploration|direct||R1|generator availability and pinned tool versions (_tools/go.mod) used to install and generate|'no-buf'; '_tools/go.mod: buf v1.9.0, protoc-gen-go-grpc v1.2.0'|X010,X021|
+X|8|exploration|direct||R1|bootstrap/tools.go list of generators installed for X021|cat script/bootstrap; tools.go|X015,X021|
+X|9|edit|direct||R1|proto edit: EvaluationReason enum and reason field (survives); tool install in the same action failed|final diff flipt.proto|X021|yes
+X|10|administration|non_direct|administration||installing generators (cut off, exit -1)|go: downloading ...|-|
+X|11|administration|non_direct|administration||installing generators again, no result|empty|-|
+X|12|administration|non_direct|administration||checked tool dir and git status|-|-|
+X|13|administration|non_direct|administration||background install of buf|started|-|
+X|14|administration|non_direct|administration||polled install status|-|-|
+X|15|administration|non_direct|administration||background install of plugins|started|-|
+X|16|administration|non_direct|administration||polled install status|running|-|
+X|17|administration|non_direct|administration||polled install status|running|-|
+X|18|administration|non_direct|administration||polled install status|running|-|
+X|19|administration|non_direct|administration||polled install status|running|-|
+X|20|administration|non_direct|administration||polled install status: done|0|-|
+X|21|edit|direct||R1,R7|buf generate: regenerated pb.go and swagger with the enum/field (survive; pb.gw.go change later reverted)|'generated'; final diff pb.go, swagger|X022,X023|yes
+X|22|verification|direct||R1|first inspection of generated EvaluationReason in pb.go and swagger|sed pb.go 20-100; 255-390|-|
+X|23|verification|direct||R1,R7|checked fliptEvaluationReason definition/ref in swagger and GetReason in pb.go|grep output lines 1383, 1457, 433|-|
+X|24|edit|direct||R2,R3,R4,R6|evaluator.go: deferred NOT_FOUND/ERROR reason, DISABLED and MATCH reasons (survive after the X027 fix); test part cut off|final diff evaluator.go|X025,X026,X027|yes
+X|25|verification|direct||R2,R3,R4,R6|first diff inspection after the evaluator edit; showed the unwanted pb.gw.go change reverted in X028|git diff stat/evaluator/pb.gw.go|X028|
+X|26|verification|direct||R2,R6|test build failed 'resp redeclared', fixed by X027|'resp redeclared in this block'|X027|
+X|27|edit|direct||R2,R6|removed the shadowing var block so the deferred reason applies (survives)|sed 75-90 before/after|X029|yes
+X|28|edit|non_direct|discarded_edit||reverted the unwanted generated pb.gw.go change; tests restarted|git checkout -- pb.gw.go|-|
+X|29|verification|direct||R2,R3,R4,R6|server and rpc tests on the final state pass; swagger reason present|'ok internal/server' 'ok rpc/flipt'|-|
+X|30|verification|direct||R2,R3,R4,R6|first diff inspection after the X027 fix|git diff evaluator.go|-|
+X|31|administration|non_direct|administration||write patch.txt and header checks|-|-|
+X|32|administration|non_direct|administration||patch path checks|-|-|
+X|33|administration|non_direct|administration||submission|-|-|
+Y|0|administration|non_direct|administration||git status|clean|-|
+Y|1|exploration|direct||R1,R7|located EvaluationResponse in evaluator.go, proto, swagger|git grep output|Y016,Y018|
+Y|2|exploration|non_direct|unused_context||repository listing|ls -la|-|
+Y|3|exploration|direct||R1,R7|Taskfile generation route (buf generate) used in Y025|cat Taskfile.yml|Y025|
+Y|4|exploration|direct||R1,R7|buf.gen.yaml template and generator list used for generation|cat buf.gen.yaml; bootstrap|Y013,Y025|
+Y|5|administration|non_direct|administration||buf not on PATH|which buf|-|
+Y|6|administration|non_direct|administration||PATH tweak; buf not found|-|-|
+Y|7|administration|non_direct|administration||ran bootstrap (cut off)|go: downloading|-|
+Y|8|administration|non_direct|administration||go install generators (cut off)|empty|-|
+Y|9|administration|non_direct|administration||checked GOPATH/bin|empty dir|-|
+Y|10|administration|non_direct|administration||checked PATH, protoc, buf|-|-|
+Y|11|administration|non_direct|administration||installed protoc-gen-go|-|-|
+Y|12|exploration|direct||R1|pinned generator versions in _tools/go.mod used for installs and generation|cat _tools/go.mod|Y013,Y025|
+Y|13|administration|non_direct|administration||installed buf and plugins|go: downloading|-|
+Y|14|administration|non_direct|administration||buf generate before edits (tool check); only version header changes|git status|-|
+Y|15|administration|non_direct|administration||inspected the tool-check diff|version line only|-|
+Y|16|exploration|direct||R1|EvaluationResponse message in flipt.proto (edited)|grep -C 20|Y025|
+Y|17|exploration|non_direct|style_only||existing enum syntax in the proto|grep -C 10 enum|-|
+Y|18|exploration|direct||R2,R3,R4,R6|read evaluator.go (edited)|cat evaluator.go|Y029|
+Y|19|exploration|direct||R2|ErrNotFound type used for the NOT_FOUND branch|git grep ErrNotFound|Y029|
+Y|20|exploration|non_direct|unused_context||middleware.go|cat|-|
+Y|21|exploration|non_direct|repeated_support||repeat of Y001 grep with line numbers|same matches|-|
+Y|22|exploration|non_direct|repeated_support||proto 55-90, shown in Y016|same content|-|
+Y|23|exploration|non_direct|repeated_support||enum grep, shown in Y017|same content|-|
+Y|24|exploration|non_direct|repeated_support||proto head incl. regions already shown|sed 1-100|-|
+Y|25|edit|direct||R1,R7|proto enum + reason field, then buf generate (proto, pb.go, swagger survive)|final diff|Y026,Y027|yes
+Y|26|verification|direct||R7|first inspection of swagger diff: fliptEvaluationReason enum and reason ref|git diff swagger|-|
+Y|27|verification|direct||R1|first inspection of generated pb.go diff (EvaluationReason)|git diff pb.go (truncated)|-|
+Y|28|edit|non_direct|discarded_edit|R2,R3,R4,R6|evaluator edit failed (Python syntax error); nothing written|SyntaxError|-|no
+Y|29|edit|direct||R2,R3,R4,R5,R6|evaluator edit via heredoc: UNKNOWN default, NOT_FOUND/ERROR, DISABLED, ERROR sites, MATCH (survives)|'Updated ... successfully'; final diff|Y036,Y042|yes
+Y|30|verification|uncertain||R2|go test ./... cut off with no result|empty|-|
+Y|31|verification|uncertain||R2,R3,R4,R6|server package tests; output truncated, overall FAIL from docker-dependent redis tests, server result not visible|FAIL cache/redis|-|
+Y|32|exploration|non_direct|unused_context||evaluator tests read to write a scratch test|cat evaluator_test.go|-|
+Y|33|verification|non_direct|superseded_check|R2,R3,R6|scratch test failed on its own mock typing (panic); file removed|FAIL internal/server|-|
+Y|34|exploration|non_direct|unused_context||store mock signatures for the scratch test|grep support_test.go|-|
+Y|35|verification|non_direct|superseded_check|R2,R3,R6|scratch test failed again on its own mocks|FAIL|-|
+Y|36|verification|direct||R2,R3,R4,R6|scratch test passes all reason scenarios (not found, disabled, errors, match); file removed|'--- PASS ... Error_GetEvaluationDistributions'|-|
+Y|37|administration|non_direct|administration||git status|-|-|
+Y|38|verification|direct||R1|internal package tests on the final state: server ok (run cut off later)|'ok go.flipt.io/flipt/internal/server'|-|
+Y|39|verification|non_direct|unrelated_check||sqlite package has no tests|no test files|-|
+Y|40|verification|direct||R1|go build ./... succeeds with generated code|exit 0|-|
+Y|41|administration|non_direct|administration||git status|-|-|
+Y|42|verification|direct||R2,R3,R4,R6|first diff inspection of evaluator.go|git diff|-|
+Y|43|verification|direct||R1|first diff inspection of the proto|git diff proto|-|
+Y|44|administration|non_direct|administration||write patch.txt|-|-|
+Y|45|administration|non_direct|administration||patch stat and head|-|-|
+Y|46|administration|non_direct|administration||submission|-|-|

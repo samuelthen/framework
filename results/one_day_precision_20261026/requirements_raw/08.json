@@ -1,0 +1,9 @@
+{"task_id": "instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "tab-select is the registered user-visible command (buffer method renamed to tab_select).", "source": "requirements bullet 1; interface field; reference commands.py", "alternatives": "-"},
+  {"id": "R2", "kind": "already_satisfied_or_preserve", "description": "Index/substring matching, count precedence, win_id/index references and window activation keep working (existing buffer logic, now via _resolve_tab_index).", "source": "requirements bullets 2-5; reference keeps the body", "alternatives": "helper may keep or change its name"},
+  {"id": "R3", "kind": "repair", "description": "Completion providers renamed to tabs()/other_tabs() (helper _tabs) and used by tab-select/tab-take; no buffer completion remains.", "source": "requirements bullet 6; interface field; fail-to-pass test_models tests", "alternatives": "-"},
+  {"id": "R4", "kind": "repair", "description": "Help documentation references tab-select instead of buffer (commands.asciidoc; settings.asciidoc default binding).", "source": "requirements bullet 7; reference doc diffs", "alternatives": "hand edit or regeneration via scripts/dev/src2asciidoc.py"},
+  {"id": "R5", "kind": "repair", "description": "Default binding gt uses :tab-select in configdata.yml.", "source": "problem statement 'configuration examples'; reference configdata.yml", "alternatives": "-"}],
+ "verification_status": "derived from requirements text, interface and reference patch; fail-to-pass completion tests not executed here. Run X did not change configdata.yml (R5) and was still recorded as resolved; R5 is kept as a reference requirement.",
+ "notes": "Both runs resolved."}

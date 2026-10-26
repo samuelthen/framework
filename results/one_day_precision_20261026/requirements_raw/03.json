@@ -1,0 +1,8 @@
+{"task_id": "instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "Errors caused by context.Canceled, including wrapped ones, are returned with gRPC code Canceled by the error interceptor.", "source": "requirements bullet 1; reference ErrorUnaryInterceptor errors.Is(err, context.Canceled)", "alternatives": "switch case or early return; additional ctx.Err()/ErrCanceled checks"},
+  {"id": "R2", "kind": "repair", "description": "Errors caused by context.DeadlineExceeded, including wrapped ones, are returned with gRPC code DeadlineExceeded.", "source": "requirements bullet 2; reference interceptor", "alternatives": "as R1"},
+  {"id": "R3", "kind": "repair", "description": "The auth interceptor does not turn context-derived errors into Unauthenticated; it propagates Canceled/DeadlineExceeded.", "source": "requirements bullet 3; reference auth/middleware.go", "alternatives": "return status error directly, or return the raw context error for the error interceptor to classify"},
+  {"id": "R4", "kind": "already_satisfied_or_preserve", "description": "Context-unrelated error handling and successful flows keep their behaviour.", "source": "requirements bullet 4", "alternatives": "-"}],
+ "verification_status": "derived from requirements text and reference patch; fail-to-pass TestErrorUnaryInterceptor not executed here. Reference grpc.go interceptor-chain change is route-specific and not required.",
+ "notes": "Both runs resolved. Run X rewrote whole files (one rewrite later reverted and re-applied as a targeted edit); Run Y made one targeted edit and its test runs produced no result (exit -1)."}

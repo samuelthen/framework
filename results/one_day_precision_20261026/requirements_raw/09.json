@@ -1,0 +1,9 @@
+{"task_id": "instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "openlibrary/core/observations.py exposes an importable _sort_values(order_list, values_list).", "source": "requirements bullet 1; fail-to-pass test_sort_values", "alternatives": "-"},
+  {"id": "R2", "kind": "repair", "description": "Returns value names in exactly the order of order_list.", "source": "requirements bullet 2", "alternatives": "dict lookup or linear search"},
+  {"id": "R3", "kind": "repair", "description": "IDs in order_list missing from values_list are ignored without error.", "source": "requirements bullet 3", "alternatives": "-"},
+  {"id": "R4", "kind": "repair", "description": "Values whose id is not in order_list are excluded.", "source": "requirements bullet 4", "alternatives": "-"},
+  {"id": "R5", "kind": "repair", "description": "Pure function: no I/O or external state.", "source": "requirements bullet 5", "alternatives": "-"}],
+ "verification_status": "derived from requirements text; the reference patch also replaces the TheBestBookOn integration (OBSERVATIONS table, DB model, API routes, JS), which is outside the stated requirements and the single fail-to-pass test; those parts are treated as route-specific and not required",
+ "notes": "Both runs added only _sort_values and were recorded as resolved."}

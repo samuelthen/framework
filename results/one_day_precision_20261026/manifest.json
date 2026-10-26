@@ -1,0 +1,143 @@
+{
+  "study": "one-day contribution-precision study (CODEX_ONE_DAY_EXECUTION.md)",
+  "repository_head_at_finalize": "26022eda601974245cb7d6c631df3988f7f7bbf7",
+  "working_directory": "/home/user/framework",
+  "path_adaptation": "brief names /Users/samuelthen/Desktop/framework and a Codex python runtime; executed in /home/user/framework with .venv",
+  "seed": 20261026,
+  "bootstrap_replicates": 5000,
+  "dataset_revisions": {
+    "jetbrains": "a5ec6ad8428715a689ee62cf7cef82334773c958",
+    "swebench_pro": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+    "open_swe_traces_v1.2": "a85dc97891bd18942ef6f3ab87750af99f487bba (via results/v2/task5)"
+  },
+  "inputs": {
+    "raw/jetbrains/gemini_3_7_flash-run1.parquet": {
+      "sha256": "dee351735e2dd3a1115501c475ec8f7df054ab58da3bf21ea9a9b1fea5c6166e",
+      "bytes": 554830939
+    },
+    "raw/jetbrains/luna-run1.parquet": {
+      "sha256": "1a7af8a0531b4d1283bca357b00f1e4f42ab65b4a5088bee8082a95ff6e2017b",
+      "bytes": 20691558
+    },
+    "raw/jetbrains/gemini_3_7_flash-run2.parquet": {
+      "sha256": "e495ace6c2e6ae55c6c1acc48302eb5bdfa85d73c0b35290d25c5a3349915fa6",
+      "bytes": 276013776
+    },
+    "raw/swebenchpro/v1.parquet": {
+      "sha256": "c8cd7115496ad4e9a8b21d088cef576a65bf821bb542b24336f13f714cef13f8",
+      "bytes": 7816820
+    },
+    "raw/swebenchpro/default.parquet": {
+      "sha256": "1067f72c1f43bbc578276888625db3b836cebb535546c9eaf824c5d5dd104a7f",
+      "bytes": 6511689
+    },
+    "data/runs.parquet": {
+      "sha256": "7dc259a4281a1234d775e2c354f94ab4ff521e8e597a1e3707e7e2474ecd51f7",
+      "bytes": 667807
+    },
+    "results/v2/task5/runs_benchmark.parquet": {
+      "sha256": "2243a36681f7c2e6649499c434a19679d6a771ffbdba9de11ae3f98a5569ef0b",
+      "bytes": 671654
+    },
+    "worktrace/config.yaml": {
+      "sha256": "b9f3a8ca6f6e6c0868a5c0a81815aa90ce8bdc4005cb98f684df1d51dd50b746",
+      "bytes": 1859
+    },
+    "worktrace/worktrace/loaders/jetbrains.py": {
+      "sha256": "b1a90bdd3d5c77211f87a61220e7f72dfb0d1b6ba645137c852ff7bbd4baab93",
+      "bytes": 4752
+    },
+    "CODEX_ONE_DAY_EXECUTION.md": {
+      "sha256": "355b0e1abf348737d87cd7886b8a7862d9f349dad63a2f3c6d23005c01d72bcd",
+      "bytes": 18264
+    }
+  },
+  "scripts": {
+    "scripts/one_day_precision/common.py": "c40456199536c5271a29220b3bd17a371af79c22a943b1c9c8eab5e51346775f",
+    "scripts/one_day_precision/compact.py": "30e3425050350c899ae8ad5195ca9829f11beefe00f8eaa95c1fa8a533bd515b",
+    "scripts/one_day_precision/finalize.py": "44de096d81d48843fbd0c0cce42babae9afd4d4aac6dadf555acd7bdf959d92d",
+    "scripts/one_day_precision/inventory.py": "3d90d4c482235690fad59d214ff5e2dcf7811ead72bda6f164200a42465b18ac",
+    "scripts/one_day_precision/matched_effort.py": "65718116f36160c6ffb2dbffe0e2ab829a4c84b8587066c4324c35fba4d02288",
+    "scripts/one_day_precision/packets.py": "2dfbdf386574213d9c70cec1a1bb449bf87eb02a3322c25097d4c8d216d438c7",
+    "scripts/one_day_precision/pilot_analysis.py": "13156a4c5171c7a09d2e8b4e31eb305ae2b16ae3a24d447b3b0db3c705d70078",
+    "scripts/one_day_precision/score.py": "e273c7767935be18de1a0cf2a5e5cdf60434bc9a1e6ced3cd412a58fda9a2495",
+    "scripts/one_day_precision/test_one_day.py": "d94274df99ea67ad61041ba601cac2d37fa07c66c8872a5c5ad9f3cc99a15e0a",
+    "scripts/one_day_precision/run_all.sh": "aa461570beee6e8293ec3dfb8a37710a58f45344c8976c869708c4615b1151e9"
+  },
+  "outputs": {
+    "RESULTS.md": "5b540a7bf83cd701fc2187ad87440e274565fd679a9a4c3093c12142b2859e4d",
+    "action_annotations.jsonl": "f3f4eee0af13ff4d72515b059c913898c7ae5116cff3172da98f252c73e70150",
+    "annotation_guide.md": "b524edbb2098744eca5d3f6f89d25bbc7c37b0785a97dd76846d18bb7dfc534d",
+    "audit_reliability_output.txt": "401758ca6cdeab5753a4ade3dc91a79ccc340efbc4682465ed2507c96c605029",
+    "availability.csv": "87a25c402ebc4019ab1c5fcfc290593e19f1236e508c76a30321294b7d784b71",
+    "bundling.csv": "bc4bdd36a0a49cd93ab41e7d114193ab50dfebf02e1f22807f3aa478945dde7a",
+    "diagnostics.md": "508c94776cab9ab416eff9881717cf5beca91667eec2213f37256fd94499af45",
+    "examples.json": "f28aa0d80f2204ad30ed6b9a35678cb00008e2bafa50ef0a15d40f617fd56fed",
+    "failed_run_coverage.csv": "7f298d985f4e3b7054554ffb45df649a276a0db7dca706de060ad1df401d1407",
+    "failed_run_coverage_summary.json": "59e80e421e370ee65d9f7ef550bda87fabefea6e69e42e0dcf9d107be0a32170",
+    "fig_effort_decomposition.pdf": "b314707b55b0caa7da66186bf826b49ad577ee4485b17ada06c244e8d4ba162f",
+    "fig_effort_decomposition.png": "44db872896923566a5f0aef181c7f0a3cdc37b4720005889224e2cc359208080",
+    "fig_matched_effort.pdf": "5a54e3ee479cd0cd7528f5ed41a4a19f1f6091c6e37c5b243586af67d6d98d47",
+    "fig_matched_effort.png": "a7c1bd7f9d7bae74311874ad3195a82eb52b4449fd15b8bb999694a2018c1815",
+    "fig_precision_bounds.pdf": "2690eade377fd780c2131c9066bac6af218e92aa880a8d440e044a1fb820fcbf",
+    "fig_precision_bounds.png": "f471eb8750b348742ee1c8e38e2bf153faf31d27ee3635b6e259f81ed551d5e1",
+    "fig_trajectory_example.pdf": "85bfad2c583eb88fbaf32e0e1a9ae6dce0107514382a2c91043003a2572c8beb",
+    "fig_trajectory_example.png": "c5aa7c404b27ebfda0ef2fe23fc72334de379d8fddaeff0d7854628786edc803",
+    "matched_differences.csv": "7b7b73b0528eb5f3f2fdbd2d46d11ddbae9a0d630733a820509b169090362f80",
+    "matched_effort.csv": "c59bce4e7334d70a1cf2b220087de524d389f7dd17284b6198a46f7307b25a41",
+    "pilot_decomposition.csv": "d0b0c5f069494146be88d90f9e6950e1f4b8451463a0edaa760cfb1aa10a1eb4",
+    "pilot_direct_by_role.csv": "a803b558b1abd01de8bd6a2f6c1749da4342b709bff380b7f718c7b195bd5927",
+    "pilot_paired.json": "ab68573da1306373b9e893263664a1f9f6006af60546681deb22796bfc727c77",
+    "pilot_pairs.csv": "992cb0fb85f8539d31bc53287051c7615419c79b105135d9a77b9a84b9658b3a",
+    "pilot_summary.csv": "6bba8d2f0446ec41a83467c739e43c363fe8baa0dc52512f6930dc1cb34eb521",
+    "pytest_output.txt": "edfe5e1272d774b8c4081512defa45143750ca62cea6a0d527a46d317fad1604",
+    "requirements.jsonl": "f57dba19cbecaa6e2d9eb91369c195dadbc019fbf1502cafa79348ffb4eeeed4",
+    "sample_manifest.csv": "4e1df59ceab4b6023f8ba9576eb63e73a1b69eb8fe49f7b8b53ae81ad5f0d653",
+    "scores_by_run.csv": "b688235e776e70f39b76ae5efbb189bfacac30a30c234e00415e87fa1cc96375",
+    "annotations_raw/00.txt": "fca85f5539ad8645eb99371543f29122c042953036c3b3ddb03d757ca19ed2b6",
+    "annotations_raw/01.txt": "c96cb5f58d8be005ee815c44493a708a2310c5c8f42d01c382ca1c0cc0e81fcf",
+    "annotations_raw/02.txt": "58bed6a808f6afa4ba24bee087733f2be1218041c203017e3ce72a9a8657f780",
+    "annotations_raw/03.txt": "c4413b9a6d29c1036f094c9e40f0a6e21b09fca2d8c76bfcd3d6db4d46129eca",
+    "annotations_raw/04.txt": "9ef19cf8c72c1b5c82ed8b9869745e092f2891f891d71d3a4cd206ce750e0cf7",
+    "annotations_raw/05.txt": "534d6cb8314cc0f24bdfa72726c8167f0152c69f18008ba4c1f0ec7ef2359c14",
+    "annotations_raw/06.txt": "ab0e3bf183a5200735578fbdb417d57d8914fbcb43a90a227b0873833f51334e",
+    "annotations_raw/07.txt": "0d9a8e134648028ffa9118f6cf66041019ef8f75234243328100cdfcfcf636e4",
+    "annotations_raw/08.txt": "d055ebb4938b423766acfe578dd1e4aaa7714da3619458c26859718813dd899a",
+    "annotations_raw/09.txt": "a32491c4082c1d79bf28e2c1e8e8adcbd6ad06d792af34e891bdfea481e6e454",
+    "annotations_raw/10.txt": "265877cceea7b62ae4e8f643cd86a9cedaa8f16070667f8c3c45c0e71807a271",
+    "requirements_raw/00.json": "c14f901988593d94cd3d92e0ebcd198f4ae7bff2c3028912cd2e1a8e7785cc47",
+    "requirements_raw/01.json": "e7cfbe0bed37a36da2a21eb9d55bdd179b0cfff679e6db9e39c2a52d852bb736",
+    "requirements_raw/02.json": "3a842119e82eaad8abf09382d91b193c00e666671a50053e3e202ec0b3319f74",
+    "requirements_raw/03.json": "33e45f475485487697938c4b28fc1f849b7a9f68ad2a68e4533098c0104ccf69",
+    "requirements_raw/04.json": "2d92eaeb91afabba65fee1663e22c2023f5f748a7a10fdb29b4606bbfecd7964",
+    "requirements_raw/05.json": "e1155b914946fee324b3983604f7cf9257db7f554149d71a761fbaf4048c7f2c",
+    "requirements_raw/06.json": "df7aa4c88bfa3df1799d0c908db9d1be6abd79079d090bab574fcaec9349555e",
+    "requirements_raw/07.json": "f6f9a7247605091322f7500d2dba00b762c210387c1175e94e3fd25e92cdf7c8",
+    "requirements_raw/08.json": "bd960b7a24879b4fa8528cb3b62ecf0789fd0855c7274bfb3fbf32b9fbaa0b0b",
+    "requirements_raw/09.json": "b41e12577c949c2acd7997bc1754b6764929d99e2d243a1585687baad3ffec5e",
+    "requirements_raw/10.json": "76b4f3242cf437c6c8c4203cd14a811b8e74acf9667bcebee68a9487986ae3a7"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "pyarrow": "26.0.0",
+    "matplotlib": "3.11.2",
+    "pytest": "9.1.1",
+    "python": "3.12.14"
+  },
+  "annotation": {
+    "annotator": "Claude (Anthropic), model-coded, single pass, preliminary",
+    "guide": "annotation_guide.md v1 (frozen after calibration; hash in run.log)",
+    "blinding": "run labels X/Y via packets/blinding_key.csv (seeded); weak in practice (run length)",
+    "human_validation": "none"
+  },
+  "commands": {
+    "reproduce_all": "bash scripts/one_day_precision/run_all.sh",
+    "reliability_audit": "python audit/reproduce_reliability.py  (7/7 fail; audit_reliability_output.txt)",
+    "project_tests": "PYTHONPATH=worktrace python -m pytest worktrace/tests  (79 passed; pytest_output.txt)",
+    "study_tests": "python -m pytest scripts/one_day_precision/test_one_day.py  (8 passed)",
+    "optional_acquisition": "python worktrace/scripts/download_data.py jetbrains",
+    "optional_annotation": "edit annotations_raw/*.txt per annotation_guide.md, then rerun score.py and pilot_analysis.py",
+    "optional_sandboxed_tests": "not available: no task containers in this environment"
+  }
+}

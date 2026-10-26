@@ -1,0 +1,13 @@
+{
+  "rule": "median-gap pair = lower median of diff_lower over evaluation pairs (ties by frozen order); closest pair = smallest |diff_lower|",
+  "median_gap": {
+    "order": 6,
+    "task_id": "instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973",
+    "diff_lower": -0.1595744680851064
+  },
+  "closest": {
+    "order": 10,
+    "task_id": "instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f",
+    "diff_lower": 0.0
+  }
+}

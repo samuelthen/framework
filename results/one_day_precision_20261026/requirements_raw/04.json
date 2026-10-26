@@ -1,0 +1,8 @@
+{"task_id": "instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "databaseConfig gains MaxIdleConn (int), MaxOpenConn (int), ConnMaxLifetime (time.Duration), keeping URL and MigrationsPath.", "source": "requirements bullet 1; reference struct diff", "alternatives": "json tags may differ"},
+  {"id": "R2", "kind": "repair", "description": "Load maps db.max_idle_conn, db.max_open_conn, db.conn_max_lifetime to the new fields when present.", "source": "requirements bullet 2; reference Load diff", "alternatives": "viper.IsSet guards or equivalent"},
+  {"id": "R3", "kind": "repair", "description": "Load sets Meta.CheckForUpdates from meta.check_for_updates.", "source": "requirements bullet 3; reference Load diff", "alternatives": "-"},
+  {"id": "R4", "kind": "already_satisfied_or_preserve", "description": "Loading default.yml/deprecated.yml equals Default(); absent keys do not override defaults.", "source": "requirements bullet 4", "alternatives": "-"}],
+ "verification_status": "derived from requirements text and reference patch; fail-to-pass TestValidate not executed here. Conflict noted: requirements bullet 3 says an absent meta.check_for_updates should give false, while the reference keeps Default() unchanged; Run Y changed the default to false and Run X did not, and both are recorded as resolved. Reference pool application in cmd/flipt (sql.SetMaxIdleConns etc.) and yml comments are route-specific and not required.",
+ "notes": "Both runs resolved with near-identical Load changes."}

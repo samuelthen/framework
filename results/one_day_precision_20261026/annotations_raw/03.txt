@@ -1,0 +1,63 @@
+X|0|administration|non_direct|administration||initial git status|clean|-|
+X|1|exploration|direct||R1,R2|located the codes.Internal default in middleware.go:57 (edited switch)|grep output|X047|
+X|2|exploration|direct||R3|located errUnauthenticated in auth/middleware.go and the Unauthenticated mapping (both edited)|grep output|X033|
+X|3|exploration|direct||R1,R2|read grpc middleware.go incl. ErrorUnaryInterceptor (edited)|cat middleware.go|X047|
+X|4|exploration|direct||R3|read auth middleware.go incl. UnaryInterceptor (edited)|cat auth/middleware.go|X033|
+X|5|exploration|non_direct|unused_context||interceptor usages and test names|grep output|-|
+X|6|exploration|non_direct|unused_context||grpc.go interceptor chain; not changed|sed 240-320|-|
+X|7|exploration|non_direct|unused_context||cmd/auth.go; not changed|cat auth.go|-|
+X|8|exploration|direct||R1|found errs.ErrCanceled (used in the final Canceled cases)|grep 'ErrCanceled' output|X033,X047|
+X|9|exploration|direct||R1|read errors.go: ErrCanceled type and AsMatch helper used in the final code|cat errors/errors.go|X033,X047|
+X|10|exploration|non_direct|unused_context||sql error adaptation (canceled query mapping)|cat sql/errors.go|-|
+X|11|exploration|non_direct|negative_detour||context.Canceled usages: only a test helper|grep output|-|
+X|12|exploration|non_direct|unused_context||large status.* grep across rpc stubs|grep output (truncated)|-|
+X|13|exploration|non_direct|unused_context||TestErrorUnaryInterceptor cases; not relied on by a surviving change|sed 80-146 test|-|
+X|14|exploration|non_direct|unused_context||auth middleware tests|cat test|-|
+X|15|verification|non_direct|superseded_check||pre-change test run, no result (exit -1)|empty|-|
+X|16|verification|non_direct|superseded_check||pre-change grpc middleware tests pass|PASS|-|
+X|17|verification|non_direct|superseded_check||pre-change auth tests pass|PASS|-|
+X|18|administration|non_direct|administration||go list packages|-|-|
+X|19|verification|non_direct|superseded_check||pre-change full short test run, no result (exit -1)|empty|-|
+X|20|verification|non_direct|superseded_check||pre-change server packages tests (docker-dependent failure)|FAIL docker|-|
+X|21|verification|non_direct|superseded_check||pre-change auth/storage tests pass|ok|-|
+X|22|exploration|non_direct|unused_context||auth/http.go|-|-|
+X|23|exploration|non_direct|negative_detour||grep status. in internal/server/*.go: empty|empty|-|
+X|24|exploration|non_direct|unused_context||go doc status.FromContextError; not used|-|-|
+X|25|exploration|non_direct|unused_context||interceptor grep in auth|-|-|
+X|26|exploration|non_direct|unused_context||interceptor grep in internal|-|-|
+X|27|exploration|non_direct|unused_context||auth/server.go|-|-|
+X|28|exploration|direct||R3|auth store wraps lookup errors via AdaptError (canceled -> ErrCanceled), supporting the ErrCanceled case in the surviving auth change|grep -A30 GetAuthenticationByClientToken|X033|
+X|29|exploration|non_direct|repeated_support||re-read unchanged grpc middleware head (X003)|same content|-|
+X|30|exploration|non_direct|repeated_support||re-read unchanged auth middleware (X004)|same content|-|
+X|31|edit|non_direct|discarded_edit|R1,R2|whole-file rewrite of grpc middleware.go with unintended changes; reverted by X045|later 'git checkout' of the file|X045|no
+X|32|exploration|non_direct|repeated_support||re-read unchanged auth middleware|same content|-|
+X|33|edit|direct||R3|whole-file rewrite of auth/middleware.go with ctx.Err() and lookup-error cases (survives)|final diff auth/middleware.go|X034,X038|yes
+X|34|verification|direct||R3,R4|grpc and auth package tests after the edits; auth part is the final state|PASS|-|
+X|35|edit|non_direct|scaffolding||created reproduce_test.go (deleted in X039)|-|X036|no
+X|36|verification|non_direct|superseded_check||own test failed to build (unused imports)|build failed|-|
+X|37|edit|non_direct|scaffolding||rewrote reproduce_test.go|-|X038|no
+X|38|verification|direct||R1,R2,R3|context-error tests incl. wrapped Canceled/DeadlineExceeded and auth propagation pass; the tested switch is identical in the final file|PASS lines|-|
+X|39|edit|non_direct|scaffolding||removed reproduce_test.go|-|-|
+X|40|administration|non_direct|administration||git status|-|-|
+X|41|verification|non_direct|superseded_check|R4|broad regression run on the intermediate grpc file later reverted|ok lines|-|
+X|42|administration|non_direct|administration||write patch.txt|-|-|
+X|43|verification|direct||R4|first diff inspection; revealed unintended cache-log changes from the rewrite, acted on by X045/X047|cat patch.txt shows 'get flag miss' change|X045,X047|
+X|44|exploration|non_direct|repeated_support||original file via git show (content seen in X003)|same content|-|
+X|45|edit|non_direct|discarded_edit||reverted the discarded whole-file rewrite (git checkout)|'Updated 1 path'|X047|
+X|46|exploration|non_direct|repeated_support||re-read restored original head|same content|-|
+X|47|edit|direct||R1,R2|targeted edit: errors import and Canceled/DeadlineExceeded cases in ErrorUnaryInterceptor (survives)|final diff middleware.go|X048,X049|yes
+X|48|verification|direct||R1,R2|first diff inspection after the targeted edit|git diff|-|
+X|49|verification|direct||R1,R2,R4|grpc and auth tests on the final state pass|ok lines|-|
+X|50|administration|non_direct|administration||write patch.txt|-|-|
+X|51|administration|non_direct|administration||print patch|-|-|
+X|52|administration|non_direct|administration||submission|-|-|
+Y|0|exploration|direct||R1,R2,R3|located Unauthenticated/DeadlineExceeded/status references in the two edited files|grep output|Y001,Y004|
+Y|1|exploration|direct||R1,R2,R3|read grpc and auth middleware (both edited)|sed 1-180, 1-190|Y004|
+Y|2|exploration|non_direct|unused_context||go.mod and middleware grep|-|-|
+Y|3|exploration|non_direct|unused_context||middleware tests|-|-|
+Y|4|edit|direct||R1,R2,R3|targeted edits in both files + gofmt + diff (survive)|final diff identical|-|yes
+Y|5|verification|uncertain||R1,R2,R3|go test produced no result (exit -1)|empty|-|
+Y|6|verification|uncertain||R1,R2,R3|go test retried, no result (exit -1)|empty|-|
+Y|7|administration|non_direct|administration||write patch.txt|-|-|
+Y|8|administration|non_direct|administration||print patch and header checks|-|-|
+Y|9|administration|non_direct|administration||submission|-|-|

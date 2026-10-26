@@ -1,0 +1,9 @@
+{"task_id": "instance_element-hq__element-web-9bf77963ee5e036d54b2a3ca202fbf6378464a5e-vnan",
+ "requirements": [
+  {"id": "R1", "kind": "repair", "description": "New exported React component DeviceVerificationStatusCard in DeviceVerificationStatusCard.tsx with Props { device: DeviceWithVerification }.", "source": "requirements bullets 1-2; interface field; reference new file", "alternatives": "named and/or default export"},
+  {"id": "R2", "kind": "repair", "description": "The card renders DeviceSecurityCard with Verified/Unverified variation and the exact heading/description copy, decided by device?.isVerified.", "source": "requirements bullets 3-5; reference securityCardProps", "alternatives": "any equivalent conditional"},
+  {"id": "R3", "kind": "repair", "description": "CurrentDeviceSection delegates the status UI to the card (no inline duplicate), rendered after DeviceTile and after DeviceDetails when expanded.", "source": "requirements bullets 6-7; reference CurrentDeviceSection diff", "alternatives": "-"},
+  {"id": "R4", "kind": "repair", "description": "DeviceDetails stays a default export, accepts device: DeviceWithVerification, heading display_name else device_id.", "source": "requirements bullets 8-10; reference DeviceDetails diff", "alternatives": "?? or || fallback for the heading"},
+  {"id": "R5", "kind": "repair", "description": "DeviceDetails renders the card with the device immediately after the heading.", "source": "requirements bullet 11; reference DeviceDetails diff", "alternatives": "-"}],
+ "verification_status": "derived from requirements text, interface and reference patch; fail-to-pass snapshot tests not executed here. Reference CSS box-sizing and i18n string reordering are route-specific and not required.",
+ "notes": "Both runs resolved with near-identical patches."}
