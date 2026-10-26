@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-26",
+  "seed": 20261026,
+  "bootstrap_replicates": 5000,
+  "interval": "task-clustered percentile, 95%; exploratory, unadjusted",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "pyarrow": "26.0.0",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "scope": "Reanalysis of saved measurements; no parser fixes or new labels.",
+  "checks": {
+    "version": {
+      "common_task_repeat_pairs": 892,
+      "common_tasks": 418
+    },
+    "harness": {
+      "tasks": 2000,
+      "outlier_task": "siliconcompiler_lambdapdk_pr114",
+      "domains": {
+        "scale-swe": 1063,
+        "swe-rebench-v2": 937
+      }
+    }
+  },
+  "inputs": [
+    {
+      "path": "results/v2/viewb/runs_all.csv",
+      "sha256": "be5cb9c940514d11bccd674c35a60c5b53bd1e88a116a640d9ba467825c26935"
+    },
+    {
+      "path": "results/v2/viewb/known_writes/runs_all.csv",
+      "sha256": "a1c960e1139b7bab019145a4190b090e3c8c0cb3d777278dbc9cdc790220a9be"
+    },
+    {
+      "path": "results/v2/viewb/support_no_version/runs_all.csv",
+      "sha256": "82ce01f504435845a172dc4c61baace36397f6a9887c9382c8e9f983a418f94b"
+    },
+    {
+      "path": "results/v2/task5/runs_benchmark.parquet",
+      "sha256": "2243a36681f7c2e6649499c434a19679d6a771ffbdba9de11ae3f98a5569ef0b"
+    },
+    {
+      "path": "results/v2/reconcile/scale_per_run.csv",
+      "sha256": "acffc4ece9645dc18a9d92f7894a5c0967bc7ec0e68b7775084c77044c7c86f9"
+    }
+  ]
+}

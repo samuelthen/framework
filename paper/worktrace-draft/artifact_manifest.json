@@ -1,0 +1,214 @@
+{
+  "draft_date": "2026-10-26",
+  "timezone": "Asia/Singapore",
+  "source_commit": "239406bb6c209f317510603a4780d36c6ce48426",
+  "operation": "Plain-language manuscript revision; new task-bootstrap and paired descriptive analyses of saved data. No new agent runs, labels, model calls, or graph inference.",
+  "status": "Exploratory reanalysis of pre-repair measurements. Independent human validation remains pending.",
+  "dataset_revisions": {
+    "jetbrains": "a5ec6ad8428715a689ee62cf7cef82334773c958",
+    "openswe": "a85dc97891bd18942ef6f3ab87750af99f487bba"
+  },
+  "inputs": [
+    {
+      "path": "results/v2/benchmark/table1_by_model.csv",
+      "sha256": "47832cc42f2107b16d21c3029ab5e972dd24296b3296d126f614cfa66fb6318e"
+    },
+    {
+      "path": "results/v2/benchmark/meta.json",
+      "sha256": "9f5508d2cfcef3db7cea7b44f23e178f79dccca148577468e9077032680d23da"
+    },
+    {
+      "path": "results/v2/task5/table1_by_harness.csv",
+      "sha256": "72f329131cc55b40b461fa445884261ae1fc44d4bce1da34a724e8ef4e7ec92a"
+    },
+    {
+      "path": "results/v2/task5/op_kinds_by_harness_pct.csv",
+      "sha256": "ce9af0cb04d827545d699e8701aea6e4813efd0fbaec28a1a596882073dfcf6d"
+    },
+    {
+      "path": "results/v2/task5/exact_repeat_with_without_outlier.csv",
+      "sha256": "070d74726ee9ee2a4f728b39e96bd9764db79952c8d428e08b0ceaec2fdf366a"
+    },
+    {
+      "path": "results/v2/viewb/support_no_version/measures_by_model.csv",
+      "sha256": "937ae6e06dd973e5f34ea41c53abcc429fb79374616b9c0df2011aa166f7dce7"
+    },
+    {
+      "path": "results/v2/viewb/support_no_version/aggregates.json",
+      "sha256": "096328ae5cbdeb00db9e7e4dfa3caa863e9747ac627f7f40c6169951a25fba70"
+    },
+    {
+      "path": "results/v2/reconcile/scale_summary.csv",
+      "sha256": "b96e6a9a96565742c2993b688b541f9cc344891e55e0b745a8e6507f487a71f6"
+    },
+    {
+      "path": "results/v2/task2/contribution_tables.csv",
+      "sha256": "b0481557dfe74e1967cf88811140efb007c02f7ac908c2007a72330add05eaa8"
+    },
+    {
+      "path": "results/v2/task2/run_measures.csv",
+      "sha256": "d3d88f3657472aedb9016e3e6aa428e42ef3c8063b7230ceb9d3e2b13e25426a"
+    },
+    {
+      "path": "results/v2/task2/signatures_ci.csv",
+      "sha256": "088ac4aa692b33a6e6cf5880999d4dc973e0e4b05ad0429fbff83b0854d9430b"
+    },
+    {
+      "path": "results/v2/task3/coefficients.csv",
+      "sha256": "49b9c7b5ea8ddea63a3c50451f3bc0b475ec8710af0ed90a450716fc5c99f17f"
+    },
+    {
+      "path": "results/v2/task4/agreement.csv",
+      "sha256": "e9098b3d1666ff9cc00a3af3796a3e9c14fb3d0b1c6d752ba5ce7cacad726186"
+    },
+    {
+      "path": "results/v2/task4/codetracebench/prf.csv",
+      "sha256": "bd973e864db05dc422f4516bbefe0d608692ab817abdd79eb3073a1939c997d6"
+    },
+    {
+      "path": "results/v2/qwen/pilot/pilot_summary.csv",
+      "sha256": "c4b98ff563226ddff22e8aeaf60e00515e17ef2368e5f7d81c0f99a5f516e122"
+    },
+    {
+      "path": "annotation/pilot.csv",
+      "sha256": "e851615a890135264086439b16a6db6ab951d71521389f060d4a5a1bd2d5365f"
+    },
+    {
+      "path": "results/v2/viewb/runs_all.csv",
+      "sha256": "be5cb9c940514d11bccd674c35a60c5b53bd1e88a116a640d9ba467825c26935"
+    },
+    {
+      "path": "results/v2/viewb/known_writes/runs_all.csv",
+      "sha256": "a1c960e1139b7bab019145a4190b090e3c8c0cb3d777278dbc9cdc790220a9be"
+    },
+    {
+      "path": "results/v2/viewb/support_no_version/runs_all.csv",
+      "sha256": "82ce01f504435845a172dc4c61baace36397f6a9887c9382c8e9f983a418f94b"
+    },
+    {
+      "path": "results/v2/task5/runs_benchmark.parquet",
+      "sha256": "2243a36681f7c2e6649499c434a19679d6a771ffbdba9de11ae3f98a5569ef0b"
+    },
+    {
+      "path": "results/v2/reconcile/scale_per_run.csv",
+      "sha256": "acffc4ece9645dc18a9d92f7894a5c0967bc7ec0e68b7775084c77044c7c86f9"
+    },
+    {
+      "path": "results/paper_revision_20261026/final_checks_after_first.csv",
+      "sha256": "3e0b117ff4eb1374f0b271aae993ded976021e335565d6a769e8666038025ac9"
+    },
+    {
+      "path": "results/paper_revision_20261026/harness_by_source.csv",
+      "sha256": "76209b7c5dcd2d48e2cc89830371aea63d4ce6879ed0784b775b3cb26c489118"
+    },
+    {
+      "path": "results/paper_revision_20261026/harness_paired_differences.csv",
+      "sha256": "042dd8233ca026d336601433c067cad528dcc86f9eafda1cf46f69593651b718"
+    },
+    {
+      "path": "results/paper_revision_20261026/harness_run_means.csv",
+      "sha256": "8bf44c976df824e929c62db6dc6ea25ea3c8ee7ce631d99d137633b7acfa3f6c"
+    },
+    {
+      "path": "results/paper_revision_20261026/version_by_count.csv",
+      "sha256": "ef4703dff856d0d7794c554f81874e088dbb987c734e3c9819799dedab5a0e28"
+    },
+    {
+      "path": "results/paper_revision_20261026/version_by_outcome.csv",
+      "sha256": "6e5f8292114d0e65a5e9477eac1e73204ef212851ebf81807a978ecd1936eba8"
+    },
+    {
+      "path": "results/paper_revision_20261026/version_common_sample.csv",
+      "sha256": "1c25779d97ff5e3ead0e4d9b2fe67dbc4dc1cd5f6353cd72c91627e45c241a8c"
+    },
+    {
+      "path": "results/paper_revision_20261026/version_gaps.csv",
+      "sha256": "dea9ea39316dfe02c471307c13d84e71f645f188f606bcc18d8dc9443e2c5cf6"
+    },
+    {
+      "path": "results/paper_revision_20261026/version_paired_differences.csv",
+      "sha256": "de34274ab63380ab4bade583ac9ab3e82c7daa41db51275c00238adc33f451ad"
+    },
+    {
+      "path": "results/v2/benchmark/table2_difficulty.csv",
+      "sha256": "92fbd993c79ed50267144ae629e6bed34e86c187f4b3b75e5faca45f6efda7dc"
+    },
+    {
+      "path": "results/v2/task2/return_after_k_ci.csv",
+      "sha256": "afee2e7a1880330d212778180a99c4683f48a11f208b699d33d1d52c0d863dcb"
+    },
+    {
+      "path": "results/paper_revision_20261026/harness_patch_size_profiles.csv",
+      "sha256": "e463fc7a663458f6f3d52ecc813e4bea39d776085d601b2a23b5ffaa639ae450"
+    }
+  ],
+  "export_path": "output/pdf/worktrace_annotated_draft.pdf",
+  "editorial_comments": 16,
+  "writing": {
+    "approach": "Partial ASD-STE100 style adaptation, retaining academic technical terms.",
+    "check": "paper/worktrace-draft/writing_check.json",
+    "not_a_formal_compliance_score": true
+  },
+  "new_analysis_manifest": "results/paper_revision_20261026/manifest.json",
+  "figure_sources": {
+    "pipeline": "Conceptual diagram of implemented stages",
+    "patterns_four_versions.pdf": "results/v2/viewb/support_no_version/aggregates.json",
+    "matched_comparisons.pdf": [
+      "results/paper_revision_20261026/version_common_sample.csv",
+      "results/paper_revision_20261026/harness_run_means.csv"
+    ],
+    "patch_size_profiles.pdf": [
+      "results/v2/benchmark/table2_difficulty.csv",
+      "results/paper_revision_20261026/harness_patch_size_profiles.csv"
+    ],
+    "return_profiles.pdf": "results/v2/task2/return_after_k_ci.csv"
+  },
+  "proposed_assessment_layer": {
+    "status": "Proposed; not implemented or validated.",
+    "section": "5.3",
+    "fields": [
+      "work_unit_with_trace_span",
+      "relevant_state_basis",
+      "evidence_gain_with_operation_refs",
+      "prefix_only_task_justification"
+    ],
+    "links": [
+      "observation supports visible decision",
+      "relevant change invalidates earlier evidence"
+    ],
+    "uncertainty": "Unknown support is distinct from absent support; unknown state or scope cannot establish repetition.",
+    "pilot": {
+      "development_episodes": 6,
+      "evaluation_episodes": 24,
+      "task_disjoint": true,
+      "conditions": 6,
+      "evaluation_per_condition": {
+        "verification": 2,
+        "exploration": 2
+      }
+    }
+  },
+  "literature_added": [
+    {
+      "name": "CoTJudger",
+      "url": "https://aclanthology.org/2026.findings-acl.2077/",
+      "path": "/Users/samuelthen/Downloads/2026.findings-acl.2077.pdf",
+      "sha256": "a89c063d45f0ade464de88e42b3b3768151a8dd397dea16f62dfc08269463af4"
+    },
+    {
+      "name": "CAID/PACE",
+      "url": "https://aclanthology.org/2026.findings-acl.1942/",
+      "path": "/Users/samuelthen/Downloads/2026.findings-acl.1942.pdf",
+      "sha256": "8e27eba9f154975c88d9c6cd06fa17320deecbc588e6a4f289ce435b84d89744"
+    }
+  ],
+  "latest_revision": "Precise proposed evidence assessment and one-week pilot; existing result inputs and figures preserved. No new analyses or experiments in this edit.",
+  "verification": {
+    "pages": 8,
+    "revision_notes": 16,
+    "bibliography_entries": 10,
+    "figure_blocks_preserved": 5,
+    "benchmark_and_findings_unchanged": true,
+    "compiled_in_desktop_editor": true
+  }
+}

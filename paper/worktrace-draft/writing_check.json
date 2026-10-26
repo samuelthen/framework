@@ -1,0 +1,9 @@
+{
+  "scope": "Abstract and main prose; heuristic sentence counts only",
+  "sentences": 291,
+  "at_most_25_words": 291,
+  "percent_at_most_25_words": 100.0,
+  "mean_words": 10.1,
+  "above_25_words": [],
+  "limits": "No approved-word dictionary, grammar certification, or percent-compliance claim."
+}
