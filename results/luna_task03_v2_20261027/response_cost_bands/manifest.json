@@ -1,0 +1,27 @@
+{
+  "method": "alternating response bands on unchanged component-order axis; recorded response costs shown once",
+  "model": "gpt-5.6-luna",
+  "tasks": [
+    3
+  ],
+  "bands": 8,
+  "contribution_counts": {
+    "3": {
+      "direct": 10,
+      "indirect": 0,
+      "no_demonstrated": 10,
+      "uncertain": 10,
+      "non_direct": 0
+    }
+  },
+  "imported_reviewed_components": 30,
+  "new_labels": 0,
+  "new_agent_runs": 0,
+  "checkpoint_evaluations": 0,
+  "source_hashes": {
+    "results/framework_one_hour_run_20261027_0230/component_usage.csv": "f735f48a0e3f4125f32fe22db503594ceaec9fe4db3c8ce827cae85cce76d0ec",
+    "results/framework_one_hour_run_20261027_0230/reviewed/resources/response_usage.jsonl": "d4ce992564842aa7a68d684d63d55f87f64998d3a318e7c31a4481648bc096be",
+    "results/framework_one_hour_run_20261027_0230/resource_coverage.csv": "21df50f3815958b531101703626ff5f8f3324730347cef710e695585e4f7e942",
+    "results/luna_task03_v2_20261027/components.jsonl": "888fc28ceec9dd558f1d984e1b292fd3f566e5a60bad92c4e4d6a80d7cf0e83b"
+  }
+}

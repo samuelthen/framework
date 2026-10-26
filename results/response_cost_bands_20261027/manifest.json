@@ -16,6 +16,23 @@
   },
   "source_annotations_changed": false,
   "precision_scores_changed": false,
+  "contribution_counts": {
+    "3": {
+      "direct": 9,
+      "indirect": 0,
+      "no_demonstrated": 3,
+      "uncertain": 10,
+      "non_direct": 8
+    },
+    "4": {
+      "direct": 14,
+      "indirect": 0,
+      "no_demonstrated": 3,
+      "uncertain": 7,
+      "non_direct": 19
+    }
+  },
+  "imported_reviewed_components": 10,
   "new_labels": 0,
   "new_agent_runs": 0,
   "checkpoint_evaluations": 0,
