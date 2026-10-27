@@ -1,0 +1,17 @@
+{
+  "case": "pilot03",
+  "model": "x-test-2",
+  "arm": "fresh",
+  "replicate": 1,
+  "episode_id": "pilot03_x-test-2_fresh_r1",
+  "source_sha256": "9ff272e42238271f79e9f3f9aec96a4ade12c6e43945842153fab5b7ad12f59b",
+  "cost_usd": null,
+  "status": "infrastructure_or_adapter_error",
+  "error_type": "RuntimeError",
+  "error": "Disk reserve reached",
+  "total_wall_seconds": 1.6207806766033173e-05,
+  "api_attempts": 0,
+  "usage_complete": true,
+  "input_tokens": 0,
+  "output_tokens": 0
+}

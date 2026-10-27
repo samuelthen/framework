@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "selection": "Same three snapshots as v1; no outcome-dependent case replacement.",
+  "source": "Authorized Soc service; x-test-2 preflight identifies deepseek-v4.1-flash-1017.",
+  "changes_from_v1": [
+    "Eight equal-budget calls and visible candidate diff to reduce reorientation.",
+    "Copy-on-write private caches; same source and cache snapshots in all arms.",
+    "Primary exact dataset test-patch context and secondary fixture-complete context; fixtures are host-only.",
+    "Infrastructure failures remain missing, never model failures."
+  ],
+  "max_model_calls_per_episode": 8,
+  "max_output_tokens_per_call": 3072,
+  "requested_reasoning_effort": "low",
+  "max_api_attempts": 160,
+  "max_accounted_tokens": 3000000,
+  "workers": 2,
+  "schedule": [
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 1
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 0
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 1
+    },
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 1
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 1
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 0
+    },
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 0
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 1
+    },
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 0
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 0
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 0
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 0
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 1
+    },
+    {
+      "case": "pilot03",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 1
+    },
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 0
+    },
+    {
+      "case": "confirm00",
+      "model": "x-test-2",
+      "arm": "fresh",
+      "replicate": 1
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "cache",
+      "replicate": 0
+    },
+    {
+      "case": "confirm03",
+      "model": "x-test-2",
+      "arm": "bypass",
+      "replicate": 1
+    }
+  ],
+  "independence": "Two decodes per cell on three chosen tasks are diagnostic replicates, not 18 independent tasks.",
+  "cache_scope": "Canonical public outcomes on a fixed snapshot; lookup includes source hashing; eligibility assessed in v1 preflight.",
+  "endpoint_cost": "User describes Soc as free; billing not independently measured, monetary cost stays null.",
+  "source_hashes": {
+    "scripts/research_loop/live_v2.py": "9557f5d02de8ba945f97d5aafee124ea1a252d58bd4b197e2a77b87813b2c4ef",
+    "scripts/research_loop/live_pilot.py": "3f7a0f8c353e4e74aec2e4708a2d3b6a93bbdb25824097c2bf14f25b39a0c555",
+    "scripts/research_loop/soc_client.py": "a82c8614e9f425f163ef97c7f70b36d98b89ad0d30a73928f796599335ac4065"
+  }
+}

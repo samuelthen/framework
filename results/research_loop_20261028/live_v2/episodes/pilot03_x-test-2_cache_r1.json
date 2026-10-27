@@ -1,0 +1,23 @@
+{
+  "case": "pilot03",
+  "model": "x-test-2",
+  "arm": "cache",
+  "replicate": 1,
+  "episode_id": "pilot03_x-test-2_cache_r1",
+  "source_sha256": "9ff272e42238271f79e9f3f9aec96a4ade12c6e43945842153fab5b7ad12f59b",
+  "cost_usd": null,
+  "status": "completed",
+  "initial_check_seconds": 0.056393124628812075,
+  "agent_exit": "LimitsExceeded",
+  "model_calls": 8,
+  "protocol_valid": true,
+  "final_patch_sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+  "scoped_quality": "scoped_pass",
+  "grading_seconds": 1.9220332084223628,
+  "fixture_complete_quality": "scoped_pass",
+  "total_wall_seconds": 32.69506220892072,
+  "api_attempts": 8,
+  "usage_complete": true,
+  "input_tokens": 83434,
+  "output_tokens": 2481
+}

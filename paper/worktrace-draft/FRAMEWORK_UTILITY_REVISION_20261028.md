@@ -2,6 +2,8 @@
 
 Revision after seven local audit rounds. This specification supplements the existing framework review without replacing its user edits. The local findings and scope are recorded in [RESULTS.md](../../results/utility_audit_20261028/RESULTS.md).
 
+**Subsequent empirical revision:** the [measurement paper](WORKTRACE_MEASUREMENT_PAPER_20261028.md) now tests work units and response accounting on 2,100 archived runs, five executable tasks, four source-file interventions and a complete 18-episode DeepSeek pilot. Two changes are required: use candidate-component counts alongside native calls, and report feasible attribution bounds whenever a response spans components. The pilot establishes a local warm-cache time saving; it does not validate a universal action reward or safe check removal. The existing three contribution labels remain descriptive and unchanged.
+
 ## Research question
 
 Coding agents can reach the same outcome with different amounts of exploration, editing and verification. WorkTrace asks **which work changes the implementation, which work establishes useful evidence, and how much each kind of work costs**. It uses these measurements to locate candidate inefficiencies for model and harness comparisons. A later intervention tests whether a candidate can be removed or replaced safely.

@@ -1,0 +1,2 @@
+# github.com/markphelps/flipt/internal/telemetry
+internal/telemetry/telemetry_test.go:18:2: cannot find module providing package gopkg.in/segmentio/analytics-go.v3: import lookup disabled by -mod=readonly

@@ -1,0 +1,818 @@
+[
+  {
+    "case": 0,
+    "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+    "version": "ablate_luna_00",
+    "image": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "status": "completed",
+    "exit_code": 1,
+    "seconds": 2.224628667347133,
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^(TestPing_SpecifyStateDir|TestPing_Existing|TestPing)$",
+      "./internal/telemetry"
+    ],
+    "quality": "scoped_fail",
+    "phase": "independent_scoped_test",
+    "events": [
+      {
+        "Test": "TestPing/basic",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_db_url",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_cache",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_auth",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing_Existing",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "fail"
+      }
+    ],
+    "stdout_sha256": "6458e9fa6053d6519c70992df2673691baa641ad8edd1def341447c3a16c0bf9",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "case": 0,
+    "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+    "version": "ablate_gemini_3_7_flash_00",
+    "image": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "status": "completed",
+    "exit_code": 1,
+    "seconds": 1.912761874962598,
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^(TestPing_SpecifyStateDir|TestPing_Existing|TestPing)$",
+      "./internal/telemetry"
+    ],
+    "quality": "scoped_fail",
+    "phase": "independent_scoped_test",
+    "events": [
+      {
+        "Test": "TestPing/basic",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_db_url",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_cache",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_auth",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing_Existing",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "fail"
+      }
+    ],
+    "stdout_sha256": "9450ac1df4261afb2f44226581cbe2a1519d310af49f87e74dd65d2bf40b6e3d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "case": 3,
+    "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+    "version": "ablate_gemini_3_7_flash_00",
+    "image": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "status": "completed",
+    "exit_code": 0,
+    "seconds": 2.3215303332544863,
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^(TestLoad)$",
+      "./internal/config"
+    ],
+    "quality": "scoped_pass",
+    "phase": "independent_scoped_test",
+    "events": [
+      {
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad",
+        "Action": "pass"
+      }
+    ],
+    "stdout_sha256": "347fc0110f260b5ea03493708ace8e67b67001198e4bf556bf90417187e3f59e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "case": 3,
+    "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+    "version": "ablate_gemini_3_7_flash_01",
+    "image": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "status": "completed",
+    "exit_code": 1,
+    "seconds": 1.5506233326159418,
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^(TestLoad)$",
+      "./internal/config"
+    ],
+    "quality": "scoped_fail",
+    "phase": "independent_scoped_test",
+    "events": [
+      {
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "fail"
+      },
+      {
+        "Test": "TestLoad",
+        "Action": "fail"
+      }
+    ],
+    "stdout_sha256": "83addb7feaa7672838e3fd36add1b3f19eccec217ebadb924891a93ea7d78613",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

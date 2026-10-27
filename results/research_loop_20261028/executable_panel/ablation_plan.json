@@ -1,0 +1,42 @@
+[
+  {
+    "case": 0,
+    "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+    "model": "luna",
+    "version": "ablate_luna_00",
+    "removed_source_file": "internal/telemetry/telemetry.go",
+    "full_scoped_outcome": "scoped_pass",
+    "intervention": "Restore this source file to base; leave independent evaluator tests and other patch files unchanged.",
+    "attribution_unit": "all submitted changes to one source file; not a single agent action"
+  },
+  {
+    "case": 0,
+    "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+    "model": "gemini_3_7_flash",
+    "version": "ablate_gemini_3_7_flash_00",
+    "removed_source_file": "internal/telemetry/telemetry.go",
+    "full_scoped_outcome": "scoped_pass",
+    "intervention": "Restore this source file to base; leave independent evaluator tests and other patch files unchanged.",
+    "attribution_unit": "all submitted changes to one source file; not a single agent action"
+  },
+  {
+    "case": 3,
+    "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+    "model": "gemini_3_7_flash",
+    "version": "ablate_gemini_3_7_flash_00",
+    "removed_source_file": "internal/cmd/auth.go",
+    "full_scoped_outcome": "scoped_pass",
+    "intervention": "Restore this source file to base; leave independent evaluator tests and other patch files unchanged.",
+    "attribution_unit": "all submitted changes to one source file; not a single agent action"
+  },
+  {
+    "case": 3,
+    "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+    "model": "gemini_3_7_flash",
+    "version": "ablate_gemini_3_7_flash_01",
+    "removed_source_file": "internal/config/storage.go",
+    "full_scoped_outcome": "scoped_pass",
+    "intervention": "Restore this source file to base; leave independent evaluator tests and other patch files unchanged.",
+    "attribution_unit": "all submitted changes to one source file; not a single agent action"
+  }
+]

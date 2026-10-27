@@ -1,0 +1,78 @@
+{"Time":"2026-10-27T17:36:24.234605045Z","Action":"start","Package":"go.flipt.io/flipt/internal/telemetry"}
+{"Time":"2026-10-27T17:36:24.23665792Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing"}
+{"Time":"2026-10-27T17:36:24.23666942Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing","Output":"=== RUN   TestPing\n"}
+{"Time":"2026-10-27T17:36:24.236678129Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/basic"}
+{"Time":"2026-10-27T17:36:24.236679712Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/basic","Output":"=== RUN   TestPing/basic\n"}
+{"Time":"2026-10-27T17:36:24.236749004Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/basic","Output":"    logger.go:130: 2026-10-27T17:36:24.236Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.236828087Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/basic","Output":"--- PASS: TestPing/basic (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.236839087Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/basic","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.236842337Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_db_url"}
+{"Time":"2026-10-27T17:36:24.236843462Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_db_url","Output":"=== RUN   TestPing/with_db_url\n"}
+{"Time":"2026-10-27T17:36:24.23684542Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_db_url","Output":"    logger.go:130: 2026-10-27T17:36:24.236Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.236847587Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_db_url","Output":"--- PASS: TestPing/with_db_url (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237010462Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_db_url","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.23701667Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_unknown_db_url"}
+{"Time":"2026-10-27T17:36:24.237018087Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_unknown_db_url","Output":"=== RUN   TestPing/with_unknown_db_url\n"}
+{"Time":"2026-10-27T17:36:24.237020504Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_unknown_db_url","Output":"    logger.go:130: 2026-10-27T17:36:24.236Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237023295Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_unknown_db_url","Output":"--- PASS: TestPing/with_unknown_db_url (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.23702442Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_unknown_db_url","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237025504Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache_not_enabled"}
+{"Time":"2026-10-27T17:36:24.237026337Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache_not_enabled","Output":"=== RUN   TestPing/with_cache_not_enabled\n"}
+{"Time":"2026-10-27T17:36:24.23702817Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache_not_enabled","Output":"    logger.go:130: 2026-10-27T17:36:24.236Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237029462Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache_not_enabled","Output":"--- PASS: TestPing/with_cache_not_enabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237030587Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache_not_enabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237032379Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache"}
+{"Time":"2026-10-27T17:36:24.237033254Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache","Output":"=== RUN   TestPing/with_cache\n"}
+{"Time":"2026-10-27T17:36:24.237051837Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237054545Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache","Output":"--- PASS: TestPing/with_cache (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237055504Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_cache","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237056629Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth_not_enabled"}
+{"Time":"2026-10-27T17:36:24.23705742Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth_not_enabled","Output":"=== RUN   TestPing/with_auth_not_enabled\n"}
+{"Time":"2026-10-27T17:36:24.237058337Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth_not_enabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237059837Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth_not_enabled","Output":"--- PASS: TestPing/with_auth_not_enabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237077087Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth_not_enabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237080962Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth"}
+{"Time":"2026-10-27T17:36:24.237082754Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth","Output":"=== RUN   TestPing/with_auth\n"}
+{"Time":"2026-10-27T17:36:24.23708367Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237102837Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth","Output":"--- PASS: TestPing/with_auth (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237104087Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_auth","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237105087Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_disabled"}
+{"Time":"2026-10-27T17:36:24.237105879Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_disabled","Output":"=== RUN   TestPing/with_audit_logfile_disabled\n"}
+{"Time":"2026-10-27T17:36:24.237190879Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_disabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237201295Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_disabled","Output":"--- PASS: TestPing/with_audit_logfile_disabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237203795Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_disabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237205462Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_enabled"}
+{"Time":"2026-10-27T17:36:24.237206545Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_enabled","Output":"=== RUN   TestPing/with_audit_logfile_enabled\n"}
+{"Time":"2026-10-27T17:36:24.237208004Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_enabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.23728842Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_enabled","Output":"--- PASS: TestPing/with_audit_logfile_enabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237296045Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_enabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237297879Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_disabled"}
+{"Time":"2026-10-27T17:36:24.237298962Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_disabled","Output":"=== RUN   TestPing/with_audit_webhook_disabled\n"}
+{"Time":"2026-10-27T17:36:24.237306879Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_disabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237308629Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_disabled","Output":"--- PASS: TestPing/with_audit_webhook_disabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.23731067Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_disabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237311962Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_enabled"}
+{"Time":"2026-10-27T17:36:24.237313129Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_enabled","Output":"=== RUN   TestPing/with_audit_webhook_enabled\n"}
+{"Time":"2026-10-27T17:36:24.237314295Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_enabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237315879Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_enabled","Output":"--- PASS: TestPing/with_audit_webhook_enabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237317087Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_webhook_enabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237318212Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_and_webhook_enabled"}
+{"Time":"2026-10-27T17:36:24.237319295Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_and_webhook_enabled","Output":"=== RUN   TestPing/with_audit_logfile_and_webhook_enabled\n"}
+{"Time":"2026-10-27T17:36:24.237320545Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_and_webhook_enabled","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237322295Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_and_webhook_enabled","Output":"--- PASS: TestPing/with_audit_logfile_and_webhook_enabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237324337Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing/with_audit_logfile_and_webhook_enabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237329504Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing","Output":"--- PASS: TestPing (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.23733092Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237331962Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_Existing"}
+{"Time":"2026-10-27T17:36:24.237332837Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_Existing","Output":"=== RUN   TestPing_Existing\n"}
+{"Time":"2026-10-27T17:36:24.23733542Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_Existing","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tlast report\t{\"when\": \"2022-04-06T01:01:51.000Z\", \"elapsed\": \"39976h34m33.237314712s\"}\n"}
+{"Time":"2026-10-27T17:36:24.237337879Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_Existing","Output":"--- PASS: TestPing_Existing (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237339212Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_Existing","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.237341462Z","Action":"run","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_SpecifyStateDir"}
+{"Time":"2026-10-27T17:36:24.237344587Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_SpecifyStateDir","Output":"=== RUN   TestPing_SpecifyStateDir\n"}
+{"Time":"2026-10-27T17:36:24.23742767Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_SpecifyStateDir","Output":"    logger.go:130: 2026-10-27T17:36:24.237Z\tDEBUG\tinitialized new state\n"}
+{"Time":"2026-10-27T17:36:24.237892504Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_SpecifyStateDir","Output":"--- PASS: TestPing_SpecifyStateDir (0.00s)\n"}
+{"Time":"2026-10-27T17:36:24.237903129Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Test":"TestPing_SpecifyStateDir","Elapsed":0}
+{"Time":"2026-10-27T17:36:24.23790517Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Output":"PASS\n"}
+{"Time":"2026-10-27T17:36:24.238106962Z","Action":"output","Package":"go.flipt.io/flipt/internal/telemetry","Output":"ok  \tgo.flipt.io/flipt/internal/telemetry\t0.003s\n"}
+{"Time":"2026-10-27T17:36:24.238117295Z","Action":"pass","Package":"go.flipt.io/flipt/internal/telemetry","Elapsed":0.004}

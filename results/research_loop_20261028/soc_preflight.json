@@ -1,0 +1,44 @@
+[
+  {
+    "alias": "x-test-1",
+    "returned_model": "glm-5.3-flash",
+    "http_success": true,
+    "finish_reason": "stop",
+    "visible_content": "OK",
+    "usage": {
+      "prompt_tokens": 16,
+      "total_tokens": 19,
+      "completion_tokens": 3,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    },
+    "seconds": 0.8161390842869878
+  },
+  {
+    "alias": "x-test-2",
+    "returned_model": "deepseek-v4.1-flash-1017",
+    "http_success": true,
+    "finish_reason": "stop",
+    "visible_content": "OK",
+    "usage": {
+      "prompt_tokens": 34,
+      "total_tokens": 46,
+      "completion_tokens": 12,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 0,
+        "multimodal_tokens": null
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 9
+      }
+    },
+    "seconds": 2.0408331672661006
+  }
+]

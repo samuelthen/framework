@@ -1,0 +1,1 @@
+FAIL	go.flipt.io/flipt/internal/config [build failed]

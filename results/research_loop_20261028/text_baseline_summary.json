@@ -1,0 +1,957 @@
+{
+  "tokenizer": "o200k_base",
+  "tiktoken_version": "0.14.0",
+  "attribution_contrasts": [
+    {
+      "role": "exploration",
+      "tasks": 30,
+      "gemini_minus_luna_mean_share": 0.31433485835278996,
+      "method": "Reported response output allocated by available component-command token length; reasoning and context purpose unresolved."
+    },
+    {
+      "role": "edit",
+      "tasks": 30,
+      "gemini_minus_luna_mean_share": -0.18957491245565267,
+      "method": "Reported response output allocated by available component-command token length; reasoning and context purpose unresolved."
+    },
+    {
+      "role": "verification",
+      "tasks": 30,
+      "gemini_minus_luna_mean_share": 0.05881023923724188,
+      "method": "Reported response output allocated by available component-command token length; reasoning and context purpose unresolved."
+    }
+  ],
+  "text_coverage": [
+    {
+      "model": "luna",
+      "tasks": 30,
+      "responses": 396,
+      "reasoning_text_responses": 0,
+      "reported_output": 134901,
+      "retokenized_available_output": 89803
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "tasks": 30,
+      "responses": 1641,
+      "reasoning_text_responses": 1641,
+      "reported_output": 1513235,
+      "retokenized_available_output": 1506989
+    },
+    {
+      "model": "terra",
+      "tasks": 30,
+      "responses": 387,
+      "reasoning_text_responses": 0,
+      "reported_output": 164300,
+      "retokenized_available_output": 107991
+    }
+  ],
+  "available_text_emission": [
+    {
+      "model": "luna",
+      "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 10,
+      "available_visible_tokens_o200k": 2198,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3102,
+      "reported_reasoning_tokens": 673
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 12,
+      "available_visible_tokens_o200k": 3003,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3928,
+      "reported_reasoning_tokens": 692
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 13,
+      "available_visible_tokens_o200k": 2653,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4176,
+      "reported_reasoning_tokens": 1209
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "responses": 14,
+      "available_visible_tokens_o200k": 2434,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3985,
+      "reported_reasoning_tokens": 1284
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 7,
+      "available_visible_tokens_o200k": 1692,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2329,
+      "reported_reasoning_tokens": 506
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+      "responses": 13,
+      "available_visible_tokens_o200k": 4253,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5739,
+      "reported_reasoning_tokens": 1186
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+      "responses": 9,
+      "available_visible_tokens_o200k": 1395,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 1882,
+      "reported_reasoning_tokens": 265
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+      "responses": 15,
+      "available_visible_tokens_o200k": 3154,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4784,
+      "reported_reasoning_tokens": 1306
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+      "responses": 17,
+      "available_visible_tokens_o200k": 4219,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6613,
+      "reported_reasoning_tokens": 2032
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+      "responses": 13,
+      "available_visible_tokens_o200k": 3220,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4782,
+      "reported_reasoning_tokens": 1144
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+      "responses": 10,
+      "available_visible_tokens_o200k": 2105,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3172,
+      "reported_reasoning_tokens": 780
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+      "responses": 9,
+      "available_visible_tokens_o200k": 2904,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3990,
+      "reported_reasoning_tokens": 850
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+      "responses": 18,
+      "available_visible_tokens_o200k": 3983,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6008,
+      "reported_reasoning_tokens": 1643
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "responses": 16,
+      "available_visible_tokens_o200k": 4960,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6701,
+      "reported_reasoning_tokens": 1409
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+      "responses": 9,
+      "available_visible_tokens_o200k": 1341,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2641,
+      "reported_reasoning_tokens": 1151
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+      "responses": 9,
+      "available_visible_tokens_o200k": 1072,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 1705,
+      "reported_reasoning_tokens": 446
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 8,
+      "available_visible_tokens_o200k": 3157,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3994,
+      "reported_reasoning_tokens": 562
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+      "responses": 12,
+      "available_visible_tokens_o200k": 2036,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4164,
+      "reported_reasoning_tokens": 1888
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "responses": 20,
+      "available_visible_tokens_o200k": 4800,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6466,
+      "reported_reasoning_tokens": 1314
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+      "responses": 9,
+      "available_visible_tokens_o200k": 3126,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6008,
+      "reported_reasoning_tokens": 2671
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 20,
+      "available_visible_tokens_o200k": 4429,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6195,
+      "reported_reasoning_tokens": 1370
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+      "responses": 14,
+      "available_visible_tokens_o200k": 3126,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5755,
+      "reported_reasoning_tokens": 2352
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+      "responses": 10,
+      "available_visible_tokens_o200k": 1716,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2975,
+      "reported_reasoning_tokens": 1067
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+      "responses": 11,
+      "available_visible_tokens_o200k": 3361,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5432,
+      "reported_reasoning_tokens": 1799
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+      "responses": 17,
+      "available_visible_tokens_o200k": 2646,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3799,
+      "reported_reasoning_tokens": 850
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+      "responses": 23,
+      "available_visible_tokens_o200k": 6231,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 8460,
+      "reported_reasoning_tokens": 1769
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+      "responses": 18,
+      "available_visible_tokens_o200k": 4078,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5566,
+      "reported_reasoning_tokens": 1095
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+      "responses": 13,
+      "available_visible_tokens_o200k": 1438,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2204,
+      "reported_reasoning_tokens": 466
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 13,
+      "available_visible_tokens_o200k": 2435,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3913,
+      "reported_reasoning_tokens": 1141
+    },
+    {
+      "model": "luna",
+      "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 14,
+      "available_visible_tokens_o200k": 2638,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4433,
+      "reported_reasoning_tokens": 1536
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 38,
+      "available_visible_tokens_o200k": 15520,
+      "available_reasoning_tokens_o200k": 16294,
+      "responses_with_available_reasoning_text": 38,
+      "reported_output_tokens": 35846,
+      "reported_reasoning_tokens": 18256
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 71,
+      "available_visible_tokens_o200k": 27480,
+      "available_reasoning_tokens_o200k": 29088,
+      "responses_with_available_reasoning_text": 71,
+      "reported_output_tokens": 47532,
+      "reported_reasoning_tokens": 15784
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 92,
+      "available_visible_tokens_o200k": 52201,
+      "available_reasoning_tokens_o200k": 40572,
+      "responses_with_available_reasoning_text": 92,
+      "reported_output_tokens": 107651,
+      "reported_reasoning_tokens": 48517
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "responses": 42,
+      "available_visible_tokens_o200k": 14776,
+      "available_reasoning_tokens_o200k": 28347,
+      "responses_with_available_reasoning_text": 42,
+      "reported_output_tokens": 46896,
+      "reported_reasoning_tokens": 29597
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 25,
+      "available_visible_tokens_o200k": 9896,
+      "available_reasoning_tokens_o200k": 11099,
+      "responses_with_available_reasoning_text": 25,
+      "reported_output_tokens": 20334,
+      "reported_reasoning_tokens": 9240
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+      "responses": 59,
+      "available_visible_tokens_o200k": 39469,
+      "available_reasoning_tokens_o200k": 25475,
+      "responses_with_available_reasoning_text": 59,
+      "reported_output_tokens": 63324,
+      "reported_reasoning_tokens": 21119
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+      "responses": 26,
+      "available_visible_tokens_o200k": 11310,
+      "available_reasoning_tokens_o200k": 10241,
+      "responses_with_available_reasoning_text": 26,
+      "reported_output_tokens": 17021,
+      "reported_reasoning_tokens": 5102
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+      "responses": 76,
+      "available_visible_tokens_o200k": 39506,
+      "available_reasoning_tokens_o200k": 26610,
+      "responses_with_available_reasoning_text": 76,
+      "reported_output_tokens": 66840,
+      "reported_reasoning_tokens": 24883
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+      "responses": 57,
+      "available_visible_tokens_o200k": 22032,
+      "available_reasoning_tokens_o200k": 27928,
+      "responses_with_available_reasoning_text": 57,
+      "reported_output_tokens": 55556,
+      "reported_reasoning_tokens": 31175
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+      "responses": 82,
+      "available_visible_tokens_o200k": 38096,
+      "available_reasoning_tokens_o200k": 28474,
+      "responses_with_available_reasoning_text": 82,
+      "reported_output_tokens": 58790,
+      "reported_reasoning_tokens": 15945
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+      "responses": 67,
+      "available_visible_tokens_o200k": 25008,
+      "available_reasoning_tokens_o200k": 20429,
+      "responses_with_available_reasoning_text": 67,
+      "reported_output_tokens": 43664,
+      "reported_reasoning_tokens": 15458
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+      "responses": 52,
+      "available_visible_tokens_o200k": 20631,
+      "available_reasoning_tokens_o200k": 26940,
+      "responses_with_available_reasoning_text": 52,
+      "reported_output_tokens": 44923,
+      "reported_reasoning_tokens": 22870
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+      "responses": 47,
+      "available_visible_tokens_o200k": 15703,
+      "available_reasoning_tokens_o200k": 23725,
+      "responses_with_available_reasoning_text": 47,
+      "reported_output_tokens": 43165,
+      "reported_reasoning_tokens": 26130
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "responses": 36,
+      "available_visible_tokens_o200k": 15647,
+      "available_reasoning_tokens_o200k": 17764,
+      "responses_with_available_reasoning_text": 36,
+      "reported_output_tokens": 44903,
+      "reported_reasoning_tokens": 28180
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+      "responses": 27,
+      "available_visible_tokens_o200k": 10516,
+      "available_reasoning_tokens_o200k": 9717,
+      "responses_with_available_reasoning_text": 27,
+      "reported_output_tokens": 19590,
+      "reported_reasoning_tokens": 8076
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+      "responses": 37,
+      "available_visible_tokens_o200k": 12823,
+      "available_reasoning_tokens_o200k": 13959,
+      "responses_with_available_reasoning_text": 37,
+      "reported_output_tokens": 21788,
+      "reported_reasoning_tokens": 7288
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 58,
+      "available_visible_tokens_o200k": 22661,
+      "available_reasoning_tokens_o200k": 19130,
+      "responses_with_available_reasoning_text": 58,
+      "reported_output_tokens": 38695,
+      "reported_reasoning_tokens": 12529
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+      "responses": 72,
+      "available_visible_tokens_o200k": 35102,
+      "available_reasoning_tokens_o200k": 31304,
+      "responses_with_available_reasoning_text": 72,
+      "reported_output_tokens": 60362,
+      "reported_reasoning_tokens": 20789
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "responses": 80,
+      "available_visible_tokens_o200k": 37275,
+      "available_reasoning_tokens_o200k": 37945,
+      "responses_with_available_reasoning_text": 80,
+      "reported_output_tokens": 75059,
+      "reported_reasoning_tokens": 32268
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+      "responses": 34,
+      "available_visible_tokens_o200k": 22439,
+      "available_reasoning_tokens_o200k": 17430,
+      "responses_with_available_reasoning_text": 34,
+      "reported_output_tokens": 38840,
+      "reported_reasoning_tokens": 11735
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 64,
+      "available_visible_tokens_o200k": 52308,
+      "available_reasoning_tokens_o200k": 32902,
+      "responses_with_available_reasoning_text": 64,
+      "reported_output_tokens": 94177,
+      "reported_reasoning_tokens": 36181
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+      "responses": 49,
+      "available_visible_tokens_o200k": 24872,
+      "available_reasoning_tokens_o200k": 25338,
+      "responses_with_available_reasoning_text": 49,
+      "reported_output_tokens": 67352,
+      "reported_reasoning_tokens": 39610
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+      "responses": 36,
+      "available_visible_tokens_o200k": 17305,
+      "available_reasoning_tokens_o200k": 13923,
+      "responses_with_available_reasoning_text": 36,
+      "reported_output_tokens": 26189,
+      "reported_reasoning_tokens": 7709
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+      "responses": 57,
+      "available_visible_tokens_o200k": 30415,
+      "available_reasoning_tokens_o200k": 29425,
+      "responses_with_available_reasoning_text": 57,
+      "reported_output_tokens": 57231,
+      "reported_reasoning_tokens": 24781
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+      "responses": 73,
+      "available_visible_tokens_o200k": 53038,
+      "available_reasoning_tokens_o200k": 29204,
+      "responses_with_available_reasoning_text": 73,
+      "reported_output_tokens": 75136,
+      "reported_reasoning_tokens": 18278
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+      "responses": 36,
+      "available_visible_tokens_o200k": 9182,
+      "available_reasoning_tokens_o200k": 16855,
+      "responses_with_available_reasoning_text": 36,
+      "reported_output_tokens": 29083,
+      "reported_reasoning_tokens": 18526
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+      "responses": 105,
+      "available_visible_tokens_o200k": 48180,
+      "available_reasoning_tokens_o200k": 41165,
+      "responses_with_available_reasoning_text": 105,
+      "reported_output_tokens": 74784,
+      "reported_reasoning_tokens": 23057
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+      "responses": 29,
+      "available_visible_tokens_o200k": 9395,
+      "available_reasoning_tokens_o200k": 15157,
+      "responses_with_available_reasoning_text": 29,
+      "reported_output_tokens": 17661,
+      "reported_reasoning_tokens": 7211
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 61,
+      "available_visible_tokens_o200k": 24511,
+      "available_reasoning_tokens_o200k": 22268,
+      "responses_with_available_reasoning_text": 61,
+      "reported_output_tokens": 41709,
+      "reported_reasoning_tokens": 14296
+    },
+    {
+      "model": "gemini_3_7_flash",
+      "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 53,
+      "available_visible_tokens_o200k": 27761,
+      "available_reasoning_tokens_o200k": 33223,
+      "responses_with_available_reasoning_text": 53,
+      "reported_output_tokens": 79134,
+      "reported_reasoning_tokens": 48943
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 8,
+      "available_visible_tokens_o200k": 2838,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3870,
+      "reported_reasoning_tokens": 788
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 18,
+      "available_visible_tokens_o200k": 5702,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 8101,
+      "reported_reasoning_tokens": 1926
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 21,
+      "available_visible_tokens_o200k": 4932,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 8673,
+      "reported_reasoning_tokens": 3218
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+      "responses": 8,
+      "available_visible_tokens_o200k": 2267,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3951,
+      "reported_reasoning_tokens": 1451
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+      "responses": 9,
+      "available_visible_tokens_o200k": 1680,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2260,
+      "reported_reasoning_tokens": 378
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+      "responses": 15,
+      "available_visible_tokens_o200k": 4015,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5961,
+      "reported_reasoning_tokens": 1503
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+      "responses": 10,
+      "available_visible_tokens_o200k": 1622,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2360,
+      "reported_reasoning_tokens": 434
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+      "responses": 11,
+      "available_visible_tokens_o200k": 3088,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4423,
+      "reported_reasoning_tokens": 954
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+      "responses": 15,
+      "available_visible_tokens_o200k": 5203,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 7997,
+      "reported_reasoning_tokens": 2224
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+      "responses": 11,
+      "available_visible_tokens_o200k": 3273,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5244,
+      "reported_reasoning_tokens": 1550
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+      "responses": 12,
+      "available_visible_tokens_o200k": 2596,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4766,
+      "reported_reasoning_tokens": 1761
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+      "responses": 10,
+      "available_visible_tokens_o200k": 3983,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5395,
+      "reported_reasoning_tokens": 1115
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+      "responses": 14,
+      "available_visible_tokens_o200k": 4041,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6509,
+      "reported_reasoning_tokens": 1929
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+      "responses": 17,
+      "available_visible_tokens_o200k": 5011,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 7966,
+      "reported_reasoning_tokens": 2565
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+      "responses": 8,
+      "available_visible_tokens_o200k": 1742,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2787,
+      "reported_reasoning_tokens": 817
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+      "responses": 11,
+      "available_visible_tokens_o200k": 1490,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2181,
+      "reported_reasoning_tokens": 322
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 10,
+      "available_visible_tokens_o200k": 3494,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4348,
+      "reported_reasoning_tokens": 589
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+      "responses": 12,
+      "available_visible_tokens_o200k": 2819,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4397,
+      "reported_reasoning_tokens": 1119
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+      "responses": 15,
+      "available_visible_tokens_o200k": 5295,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 7887,
+      "reported_reasoning_tokens": 2137
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+      "responses": 7,
+      "available_visible_tokens_o200k": 1593,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 3906,
+      "reported_reasoning_tokens": 2109
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+      "responses": 22,
+      "available_visible_tokens_o200k": 5718,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 7732,
+      "reported_reasoning_tokens": 1495
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+      "responses": 17,
+      "available_visible_tokens_o200k": 6654,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 10299,
+      "reported_reasoning_tokens": 3231
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+      "responses": 10,
+      "available_visible_tokens_o200k": 1264,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2375,
+      "reported_reasoning_tokens": 837
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+      "responses": 13,
+      "available_visible_tokens_o200k": 3491,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5976,
+      "reported_reasoning_tokens": 2095
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+      "responses": 17,
+      "available_visible_tokens_o200k": 3512,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 4628,
+      "reported_reasoning_tokens": 701
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+      "responses": 17,
+      "available_visible_tokens_o200k": 8408,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 10816,
+      "reported_reasoning_tokens": 1803
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+      "responses": 12,
+      "available_visible_tokens_o200k": 3682,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5680,
+      "reported_reasoning_tokens": 1538
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+      "responses": 9,
+      "available_visible_tokens_o200k": 1245,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 2015,
+      "reported_reasoning_tokens": 499
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 13,
+      "available_visible_tokens_o200k": 3403,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 5026,
+      "reported_reasoning_tokens": 1185
+    },
+    {
+      "model": "terra",
+      "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+      "responses": 15,
+      "available_visible_tokens_o200k": 3930,
+      "available_reasoning_tokens_o200k": 0,
+      "responses_with_available_reasoning_text": 0,
+      "reported_output_tokens": 6771,
+      "reported_reasoning_tokens": 2384
+    }
+  ],
+  "limitations": [
+    "Different provider tokenizers and hidden/serialized reasoning mean text counts need not reconcile with reported tokens.",
+    "This adaptation does not reproduce source-specific downstream context/cache charging or prices.",
+    "All response totals in the weighted allocation remain reported telemetry; text weights are sensitivity assumptions."
+  ]
+}

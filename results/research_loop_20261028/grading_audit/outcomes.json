@@ -1,0 +1,3972 @@
+[
+  {
+    "case": "pilot03",
+    "candidate": "initial",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.7931917076930404,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/context_cancelled_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/empty_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/no_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/not_found_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/other_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/unauthenticated_error",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "initial",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.9146920000202954,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "initial",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_fail",
+    "seconds": 6.779725166969001,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "initial",
+    "context": "fixture_complete",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.3367552082054317,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "confirm00_x-test-2_bypass_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.9367426251992583,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "confirm00_x-test-2_bypass_r1",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.5619383328594267,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "confirm00_x-test-2_cache_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.9247579579241574,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "confirm00_x-test-2_cache_r1",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 2.017717083916068,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm00",
+    "candidate": "confirm00_x-test-2_fresh_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.999626999720931,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/basic",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_and_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_logfile_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_disabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_audit_webhook_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_auth_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_cache_not_enabled",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing/with_unknown_db_url",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_Existing",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/telemetry",
+        "Test": "TestPing_SpecifyStateDir",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_cache_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_fail",
+    "seconds": 1.6665878328494728,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_cache_r0",
+    "context": "fixture_complete",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.5050729159265757,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_cache_r1",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_fail",
+    "seconds": 1.903310916852206,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_cache_r1",
+    "context": "fixture_complete",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.2382416659966111,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_fresh_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_fail",
+    "seconds": 1.3138255840167403,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "fail"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "confirm03",
+    "candidate": "confirm03_x-test-2_fresh_r0",
+    "context": "fixture_complete",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.1834890409372747,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/advanced_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_kubernetes_defaults_when_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_session_strip_domain_scheme/port_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_negative_interval_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_with_provided_bootstrap_token_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/authentication_token_zero_grace_period_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/buffer_size_invalid_capacity_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_memory_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_no_backend_set_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/cache_redis_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_host_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_key/value_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_name_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/database_protocol_required_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_cache_memory_items_defaults_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_database_migrations_path_legacy_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_tracing_jaeger_enabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/deprecated_ui_disabled_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/file_not_specified_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/flush_period_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_basic_auth_partially_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/git_repository_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/local_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/object_storage_type_not_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/s3_full_config_provided_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_defined_but_not_found_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_file_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/server_https_missing_cert_key_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/storage_readonly_config_invalid_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/tracing_zipkin_(YAML)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(ENV)",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/config",
+        "Test": "TestLoad/version_v1_(YAML)",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "pilot03",
+    "candidate": "pilot03_x-test-2_bypass_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.2897272920235991,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/context_cancelled_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/empty_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/no_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/not_found_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/other_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/unauthenticated_error",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "pilot03",
+    "candidate": "pilot03_x-test-2_bypass_r1",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.648574999999255,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/context_cancelled_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/empty_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/no_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/not_found_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/other_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/unauthenticated_error",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "pilot03",
+    "candidate": "pilot03_x-test-2_cache_r1",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.3610978750512004,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/context_cancelled_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/empty_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/no_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/not_found_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/other_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/unauthenticated_error",
+        "Action": "pass"
+      }
+    ]
+  },
+  {
+    "case": "pilot03",
+    "candidate": "pilot03_x-test-2_fresh_r0",
+    "context": "exact_test_patch",
+    "status": "completed",
+    "quality": "scoped_pass",
+    "seconds": 1.7584353750571609,
+    "tests": [
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/context_cancelled_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/empty_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/invalid_field",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/no_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/not_found_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/other_error",
+        "Action": "pass"
+      },
+      {
+        "Package": "go.flipt.io/flipt/internal/server/middleware/grpc",
+        "Test": "TestErrorUnaryInterceptor/unauthenticated_error",
+        "Action": "pass"
+      }
+    ]
+  }
+]

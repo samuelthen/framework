@@ -1,0 +1,387 @@
+[
+  {
+    "case": 0,
+    "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+    "base_commit": "018129e08535e0a7ec725680a1e8b2c969a832e9",
+    "archive_sha256": "3e5af14845a1f95cccdef5d3b2c5501a5c4d0b555f8d7c29fd7e71ace405597d",
+    "go_version": "1.20",
+    "packages": [
+      "internal/telemetry"
+    ],
+    "test_names": [
+      "TestPing_SpecifyStateDir",
+      "TestPing_Existing",
+      "TestPing"
+    ],
+    "versions": [
+      {
+        "version": "base",
+        "patch": null,
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      },
+      {
+        "version": "luna",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": true,
+        "preparation_ok": true
+      },
+      {
+        "version": "gemini_3_7_flash",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": true,
+        "preparation_ok": true
+      },
+      {
+        "version": "reference",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file go.work.sum\npatching file 'internal/telemetry/telemetry.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      }
+    ],
+    "checker": "fixed selected evaluator test names in packages changed by independent test patch",
+    "source": "frozen all-attempt panel; all five matching repository tasks retained"
+  },
+  {
+    "case": 1,
+    "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+    "base_commit": "d38a357b67ced2c3eba83e7a4aa71a1b2af019ae",
+    "archive_sha256": "41d0c11dc700046a47ae674c44b3af48d641287935b2b17c5f75b16e90549445",
+    "go_version": "1.20",
+    "packages": [
+      "internal/config"
+    ],
+    "test_names": [
+      "TestDatabaseProtocol",
+      "TestLogEncoding",
+      "TestLoad",
+      "TestCacheBackend",
+      "TestScheme",
+      "TestServeHTTP",
+      "Test_mustBindEnv",
+      "TestTracingExporter",
+      "TestJSONSchema"
+    ],
+    "versions": [
+      {
+        "version": "base",
+        "patch": null,
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      },
+      {
+        "version": "luna",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/grpc.go'\npatching file 'internal/config/cache.go'\npatching file 'internal/config/config.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "gemini_3_7_flash",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/default.yml'\npatching file 'config/flipt.schema.cue'\npatching file 'config/flipt.schema.json'\npatching file 'config/local.yml'\npatching file 'internal/cmd/grpc.go'\npatching file 'internal/config/cache.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "reference",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/flipt.schema.cue'\npatching file 'config/flipt.schema.json'\npatching file 'internal/cmd/grpc.go'\npatching file 'internal/config/cache.go'\npatching file 'internal/config/config.go'\npatching file 'internal/config/testdata/cache/redis.yml'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      }
+    ],
+    "checker": "fixed selected evaluator test names in packages changed by independent test patch",
+    "source": "frozen all-attempt panel; all five matching repository tasks retained"
+  },
+  {
+    "case": 2,
+    "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+    "base_commit": "e53fb0f25ef6747aa10fc3e6f457b620137bcd4f",
+    "archive_sha256": "3dd35e1539ee706123ff92b6b22fb45b8348a787ffa532c8dbf20d38ba4b5554",
+    "go_version": "1.16",
+    "packages": [
+      "config",
+      "internal/telemetry"
+    ],
+    "test_names": [
+      "TestReport",
+      "TestReport_SpecifyStateDir",
+      "TestServeHTTP",
+      "TestValidate",
+      "TestScheme",
+      "TestReport_Disabled",
+      "TestReporterClose",
+      "TestReport_Existing",
+      "TestNewReporter",
+      "TestLoad"
+    ],
+    "versions": [
+      {
+        "version": "base",
+        "patch": null,
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/config_test.go'\npatching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      },
+      {
+        "version": "luna",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'cmd/flipt/main.go'\npatching file 'config/config.go'\npatching file 'internal/info/flipt.go'\npatching file 'telemetry/telemetry.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/config_test.go'\npatching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "gemini_3_7_flash",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'cmd/flipt/main.go'\npatching file 'config/config.go'\npatching file 'internal/info/flipt.go'\npatching file 'telemetry/telemetry.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/config_test.go'\npatching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "reference",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file .goreleaser.yml\npatching file 'build/Dockerfile'\npatching file 'cmd/flipt/main.go'\npatching file 'config/config.go'\npatching file 'config/testdata/advanced.yml'\npatching file go.mod\npatching file go.sum\npatching file 'internal/info/flipt.go'\npatching file 'internal/telemetry/telemetry.go'\npatching file 'internal/telemetry/testdata/telemetry.json'\npatching file 'rpc/flipt/flipt.pb.go'\npatching file 'rpc/flipt/flipt_grpc.pb.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'config/config_test.go'\npatching file 'internal/telemetry/telemetry_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      }
+    ],
+    "checker": "fixed selected evaluator test names in packages changed by independent test patch",
+    "source": "frozen all-attempt panel; all five matching repository tasks retained"
+  },
+  {
+    "case": 3,
+    "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+    "base_commit": "fddcf20f9e79532db9feade40395883565f6eb57",
+    "archive_sha256": "375e304739825acab7e3e6eee7317884159b9714bca388b1a7cb430dcc5c4e70",
+    "go_version": "1.20",
+    "packages": [
+      "internal/config"
+    ],
+    "test_names": [
+      "TestLoad"
+    ],
+    "versions": [
+      {
+        "version": "base",
+        "patch": null,
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      },
+      {
+        "version": "luna",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/auth.go'\npatching file 'internal/config/storage.go'\npatching file 'ui/src/app/meta/metaSlice.ts'\npatching file 'ui/src/components/Header.tsx'\npatching file 'ui/src/types/Meta.ts'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "gemini_3_7_flash",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/auth.go'\npatching file 'internal/config/storage.go'\npatching file 'internal/config/testdata/storage/invalid_readonly.yml'\npatching file 'ui/src/app/meta/metaSlice.ts'\npatching file 'ui/src/components/Header.tsx'\npatching file 'ui/src/types/Meta.ts'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": true,
+        "preparation_ok": true
+      },
+      {
+        "version": "reference",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/auth.go'\npatching file 'internal/config/storage.go'\npatching file 'internal/config/testdata/storage/invalid_readonly.yml'\npatching file 'ui/src/app/meta/metaSlice.ts'\npatching file 'ui/src/components/Header.tsx'\npatching file 'ui/src/types/Meta.ts'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/config/config_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      }
+    ],
+    "checker": "fixed selected evaluator test names in packages changed by independent test patch",
+    "source": "frozen all-attempt panel; all five matching repository tasks retained"
+  },
+  {
+    "case": 4,
+    "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+    "base_commit": "324b9ed54747624c488d7123c38e9420c3750368",
+    "archive_sha256": "4b791728dbe140373c5db574a1b0badc85852982a17bb43898c5d48002abf941",
+    "go_version": "1.24.0",
+    "packages": [
+      "internal/storage/unmodifiable"
+    ],
+    "test_names": [
+      "TestModificationMethods"
+    ],
+    "versions": [
+      {
+        "version": "base",
+        "patch": null,
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/storage/unmodifiable/store_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      },
+      {
+        "version": "luna",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/grpc.go'\npatching file 'internal/storage/unmodifiable/store.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/storage/unmodifiable/store_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "gemini_3_7_flash",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'cmd/flipt/server.go'\npatching file 'internal/cmd/grpc.go'\npatching file 'internal/storage/unmodifiable/store.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/storage/unmodifiable/store_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": false,
+        "preparation_ok": true
+      },
+      {
+        "version": "reference",
+        "patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/cmd/grpc.go'\npatching file 'internal/storage/unmodifiable/store.go'\n",
+          "stderr": ""
+        },
+        "test_patch": {
+          "exit_code": 0,
+          "stdout": "patching file 'internal/storage/unmodifiable/store_test.go'\n",
+          "stderr": ""
+        },
+        "recorded_resolved": null,
+        "preparation_ok": true
+      }
+    ],
+    "checker": "fixed selected evaluator test names in packages changed by independent test patch",
+    "source": "frozen all-attempt panel; all five matching repository tasks retained"
+  }
+]

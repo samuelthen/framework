@@ -1,0 +1,9 @@
+{
+  "runs": 1400,
+  "metrics_checked": [
+    "input_tokens",
+    "output_tokens"
+  ],
+  "accounting_errors": 0,
+  "method": "Whole-category association partitions and equal-candidate allocation each conserve the stored response usage; component role bounds contain equal allocation."
+}

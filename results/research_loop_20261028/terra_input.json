@@ -1,0 +1,7 @@
+{
+  "path": "raw/jetbrains/terra-run1.parquet",
+  "url": "https://huggingface.co/datasets/JetBrains-Research/SWE-TaskFlow-SWE-Bench-Pro-Trajectories/resolve/a5ec6ad8428715a689ee62cf7cef82334773c958/data/single_prompt/terra-run1.parquet?download=true",
+  "sha256": "5711a1547e4ace06c246b3e062ca3e60e841b09f7857ff800ec98072309701e6",
+  "bytes": 21630042,
+  "selection": "declared third-model replication extension"
+}

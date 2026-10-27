@@ -1,0 +1,170 @@
+[
+  {
+    "role": "exploration",
+    "metric": "input_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.24058606319260326,
+      "lo": -0.30500918530585247,
+      "hi": -0.16742274761442594
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.40698274090512526,
+      "lo": 0.35629470067797875,
+      "hi": 0.4625398499443648
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "exploration",
+    "metric": "output_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.05590137655449111,
+      "lo": -0.14696816479345098,
+      "hi": 0.04387298516168745
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.4639956197180315,
+      "lo": 0.40977852632840583,
+      "hi": 0.527064949304373
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "edit",
+    "metric": "input_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.09910950350573325,
+      "lo": -0.1442373804026988,
+      "hi": -0.05481325715382139
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.15213055205021578,
+      "lo": 0.12597407537450855,
+      "hi": 0.1799295876069668
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "edit",
+    "metric": "output_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.3087523729155229,
+      "lo": -0.39056935000873966,
+      "hi": -0.21895577663793533
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.23837949636692013,
+      "lo": 0.1857678746547342,
+      "hi": 0.2914377434995591
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "verification",
+    "metric": "input_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": 0.025026022771542384,
+      "lo": -0.018843441964304892,
+      "hi": 0.06868322046722398
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.16594263009570534,
+      "lo": 0.13952799471232907,
+      "hi": 0.19329167821585178
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "verification",
+    "metric": "output_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.15247978543306528,
+      "lo": -0.2419892124706833,
+      "hi": -0.06671276842291869
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.08755941085554661,
+      "lo": 0.06528056826279541,
+      "hi": 0.11184247920448151
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "administration",
+    "metric": "input_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.3547226079370981,
+      "lo": -0.4033912030288628,
+      "hi": -0.30535491164962836
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.0493388736478423,
+      "lo": 0.03169855851718656,
+      "hi": 0.06560056300960738
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  },
+  {
+    "role": "administration",
+    "metric": "output_tokens",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "lower": {
+      "n": 30,
+      "mean": -0.24287881973811828,
+      "lo": -0.3101963642511863,
+      "hi": -0.1773197798897561
+    },
+    "upper": {
+      "n": 30,
+      "mean": 0.0014924310910811596,
+      "lo": -0.045013786958664245,
+      "hi": 0.04118646461962656
+    },
+    "unavailable_pairs": 0,
+    "denominator": "recorded run total; all positive unlocalized residual may belong to any operational category",
+    "interpretation": "Partial identification over arbitrary within-response allocations; not a causal token attribution."
+  }
+]

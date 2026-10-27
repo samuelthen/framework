@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-10-27T18:09:21.617992+00:00",
+  "files": {
+    "scripts/research_loop/live_pilot.py": "6dcb80b2c4bd1bbd714d48b61b451b58f49cefbac5d290e012abe9d96983380f",
+    "scripts/research_loop/soc_client.py": "a82c8614e9f425f163ef97c7f70b36d98b89ad0d30a73928f796599335ac4065",
+    "scripts/research_loop/executable_panel.py": "3861c91a02ec176dae7fbd9c854de1309c23df140404a53cb9bc4647e8c60d45",
+    "scripts/utility_audit/reconstruct.py": "e394cbc744ddf6a034aae30c7d410ff41c71349fc7fa194a200d1aca4e282e31"
+  },
+  "code_changes_after_launch": "none at capture",
+  "user_selected_model": "x-test-2; preflight returned deepseek-v4.1-flash-1017"
+}

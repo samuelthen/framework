@@ -1,0 +1,71 @@
+{
+  "design": "Diagnostic snapshot-continuation pilot; same source snapshot and task within each comparison.",
+  "cases": [
+    {
+      "id": "pilot03",
+      "task_id": "instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0",
+      "image": "sha256:67c48d126fccfde251a8535db075de5d1ae6e71cb4e4225346ddd2a0b87484dc",
+      "source_sha256": "9ff272e42238271f79e9f3f9aec96a4ade12c6e43945842153fab5b7ad12f59b",
+      "public_command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-count=1",
+        "-json",
+        "./internal/server/auth",
+        "./internal/server/middleware/grpc"
+      ],
+      "original_recorded_resolved": true,
+      "cache_eligible": false,
+      "cache_scope": "Canonical public test-outcome summary; full source snapshot, fixed image, read-only module cache, discarded filesystem side effects. Two-run stability is not universal determinism.",
+      "cache_fill_seconds": 1.1518261679448187
+    },
+    {
+      "id": "confirm00",
+      "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+      "image": "sha256:67c48d126fccfde251a8535db075de5d1ae6e71cb4e4225346ddd2a0b87484dc",
+      "source_sha256": "7edf3a51de3c3b37ddf7f2744021b34914e1c5693db475f5fd143692e4ffe136",
+      "public_command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-count=1",
+        "-json",
+        "./internal/telemetry"
+      ],
+      "original_recorded_resolved": true,
+      "cache_eligible": false,
+      "cache_scope": "Canonical public test-outcome summary; full source snapshot, fixed image, read-only module cache, discarded filesystem side effects. Two-run stability is not universal determinism.",
+      "cache_fill_seconds": 1.0947462916374207
+    },
+    {
+      "id": "confirm03",
+      "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+      "image": "sha256:67c48d126fccfde251a8535db075de5d1ae6e71cb4e4225346ddd2a0b87484dc",
+      "source_sha256": "0b8ccc49b806923f4896b4bf7ab137431b4f2a2c0c90527490370ff5a0240e68",
+      "public_command": [
+        "go",
+        "test",
+        "-mod=readonly",
+        "-count=1",
+        "-json",
+        "./internal/config"
+      ],
+      "original_recorded_resolved": false,
+      "cache_eligible": false,
+      "cache_scope": "Canonical public test-outcome summary; full source snapshot, fixed image, read-only module cache, discarded filesystem side effects. Two-run stability is not universal determinism.",
+      "cache_fill_seconds": 1.0538577497936785
+    }
+  ],
+  "schedule": [],
+  "max_model_calls_per_episode": 4,
+  "max_output_tokens_per_call": 3072,
+  "requested_reasoning_effort": "low",
+  "max_api_attempts": 144,
+  "max_accounted_tokens": 2000000,
+  "workers": 2,
+  "measurement": "Fresh check time, cache hash/lookup time, continuation API/tool usage and independent selected-check outcome.",
+  "selection": "Three contrasting archived candidate snapshots selected after offline outcomes; not a random population sample.",
+  "cache_overhead": "Cache-fill executions are setup costs, retained separately; arm comparison is conditional on an eligible warm cache.",
+  "interpretation": "New Soc policies continuing fixed candidates, not causal estimates for the archived Luna or Gemini policy; no population non-inferiority claim."
+}

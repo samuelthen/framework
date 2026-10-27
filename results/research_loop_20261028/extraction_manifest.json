@@ -1,0 +1,23 @@
+{
+  "runs": 2100,
+  "responses": 54350,
+  "native_calls": 61769,
+  "candidate_components": 110354,
+  "repeat_pairs": 821,
+  "operational_categories": [
+    "exploration",
+    "edit",
+    "verification",
+    "artifact_inspection",
+    "administration",
+    "opaque_execution",
+    "mixed_call",
+    "mixed_response",
+    "no_tool"
+  ],
+  "analysis_plan_sha256": "ac93745788d63315a6e935c71908df9e306140d4a2be6f0ca4b4a1c8304c5cad",
+  "semantic_contribution_labels_produced": 0,
+  "causal_utilities_measured": 0,
+  "interpretation": "Operational command-category expenditure; response associations/bounds are not semantic usefulness.",
+  "seconds": 267.92738983314484
+}

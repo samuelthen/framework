@@ -1,0 +1,3102 @@
+[
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.22479403671699097,
+      "lo": -0.23892876060105794,
+      "hi": -0.21069032508570049
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.41088718753475073,
+      "lo": 0.4009662593271442,
+      "hi": 0.421170439345518
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.11549545771664789,
+      "lo": 0.10537070081874331,
+      "hi": 0.12567706430406095
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.19274550140103228,
+      "lo": 0.18332816743250846,
+      "hi": 0.20227765082032556
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": 0.018742450596339336,
+      "lo": -0.0016102677176125354,
+      "hi": 0.03897331340456522
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.498531681208328,
+      "lo": 0.4867216055458626,
+      "hi": 0.5102827738304417
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.2904121941067269,
+      "lo": 0.27701147636868556,
+      "hi": 0.3036381930274698
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.19274550140103228,
+      "lo": 0.18332816743250846,
+      "hi": 0.20227765082032556
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.10486206256177495,
+      "lo": -0.11376380854979729,
+      "hi": -0.09593660287939217
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.13199199003488127,
+      "lo": 0.12520830556987414,
+      "hi": 0.1386625428357875
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.053720168134357336,
+      "lo": 0.04772287859388036,
+      "hi": 0.059597111971508236
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.02640357706292914,
+      "lo": 0.021763922022707185,
+      "hi": 0.03080716411811191
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.33507604789669354,
+      "lo": -0.348619397530631,
+      "hi": -0.3212496070243241
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.19722024090107093,
+      "lo": 0.18509329155083548,
+      "hi": 0.20843984044805455
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.010031303928112195,
+      "lo": -0.0008240329534106531,
+      "hi": 0.020666911035263108
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.02640357706292914,
+      "lo": 0.021763922022707185,
+      "hi": 0.03080716411811191
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": 0.007871618158254642,
+      "lo": -0.0014528864492629671,
+      "hi": 0.017515538777640848
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.14675349571649693,
+      "lo": 0.13903058061251336,
+      "hi": 0.15456825208818936
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.10443472599492278,
+      "lo": 0.09725482729282485,
+      "hi": 0.11165369654378954
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.08315618920912879,
+      "lo": 0.07751233549922351,
+      "hi": 0.08888329413453322
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.1515040756588535,
+      "lo": -0.16965030053383237,
+      "hi": -0.13385025857408642
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.07352661798290688,
+      "lo": 0.06759692670378953,
+      "hi": 0.07994949309713122
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.006441030184028694,
+      "lo": -0.0011413754985367074,
+      "hi": 0.013791643091275424
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.08315618920912879,
+      "lo": 0.07751233549922351,
+      "hi": 0.08888329413453322
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.17687724254340542,
+      "lo": -0.18982185315873068,
+      "hi": -0.16314286929718494
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.1260609811113047,
+      "lo": 0.11690303429394944,
+      "hi": 0.13540707197918145
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.02765701057525808,
+      "lo": 0.018679481225699308,
+      "hi": 0.03699607583542755
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.018874012738588096,
+      "lo": 0.011605505145263055,
+      "hi": 0.02620022321809407
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.26616100018221517,
+      "lo": -0.2885617236865816,
+      "hi": -0.24342445965705456
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.150271928738784,
+      "lo": 0.13877918415225865,
+      "hi": 0.16199745549162564
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": 0.01697233838398346,
+      "lo": 0.004299695705772217,
+      "hi": 0.029427449532482195
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": 0.018874012738588096,
+      "lo": 0.011605505145263055,
+      "hi": 0.02620022321809407
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.34946921487558447,
+      "lo": -0.3609588554476632,
+      "hi": -0.33773558694568423
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.050490923698071274,
+      "lo": 0.04769187944207544,
+      "hi": 0.053428420658788944
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": -0.10816032202820314,
+      "lo": -0.11233318268008209,
+      "hi": -0.10411312390985293
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": -0.09190898352976921,
+      "lo": -0.0969959759984492,
+      "hi": -0.08691376780919632
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 629,
+      "mean": -0.2199830189268367,
+      "lo": -0.23431387507527876,
+      "hi": -0.2058083326037627
+    },
+    "upper_bound": {
+      "n": 629,
+      "mean": 0.010360242520885738,
+      "lo": 0.004591718283897155,
+      "hi": 0.015833033470279444
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 629,
+      "mean": -0.06604983525352023,
+      "lo": -0.07184460845752326,
+      "hi": -0.06047094120928984
+    },
+    "candidate_share_difference": {
+      "n": 629,
+      "mean": -0.09190898352976921,
+      "lo": -0.0969959759984492,
+      "hi": -0.08691376780919632
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.23802847859911763,
+      "lo": -0.25626682884715213,
+      "hi": -0.2200453860425783
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.40184985269548407,
+      "lo": 0.3897768563432291,
+      "hi": 0.41402581351537787
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.0991394434515404,
+      "lo": 0.08653956542699096,
+      "hi": 0.11111643911209539
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.18009437944143292,
+      "lo": 0.16706341540016226,
+      "hi": 0.1931420584737903
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": 0.020346970547182805,
+      "lo": -0.00942971380935511,
+      "hi": 0.049592506576009165
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.4916073150052672,
+      "lo": 0.4754611190012449,
+      "hi": 0.5079256960519444
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.2825579468205715,
+      "lo": 0.2634041575744123,
+      "hi": 0.30141596186744546
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.18009437944143292,
+      "lo": 0.16706341540016226,
+      "hi": 0.1931420584737903
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.10253962932646377,
+      "lo": -0.1151213194580765,
+      "hi": -0.08989697491935447
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.12170908622841366,
+      "lo": 0.11285898530867879,
+      "hi": 0.13041915166577164
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.04920789458855157,
+      "lo": 0.040935728229738115,
+      "hi": 0.057488333288988516
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.02532520275964878,
+      "lo": 0.01921604167249173,
+      "hi": 0.03157514616475629
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.32260511466853853,
+      "lo": -0.3424597543867272,
+      "hi": -0.3028978238059127
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.18494272791335628,
+      "lo": 0.17049582178849568,
+      "hi": 0.19894742215725125
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.013556818496351404,
+      "lo": -0.0015102047399713067,
+      "hi": 0.02787610991751465
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.02532520275964878,
+      "lo": 0.01921604167249173,
+      "hi": 0.03157514616475629
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": 0.007483006372329774,
+      "lo": -0.006060497499845838,
+      "hi": 0.021237342960343963
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.14550211130928736,
+      "lo": 0.13399804510382232,
+      "hi": 0.15731423387911128
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.10265359326970172,
+      "lo": 0.09229418378328057,
+      "hi": 0.11325123127245947
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.08425914737696516,
+      "lo": 0.07566119186562148,
+      "hi": 0.09258691545586607
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.14034853159095256,
+      "lo": -0.1644728664827741,
+      "hi": -0.116190303807864
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.074079513252955,
+      "lo": 0.06556824920687127,
+      "hi": 0.0833630249315504
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.00910286398621627,
+      "lo": -0.0008537827230842979,
+      "hi": 0.01923206349401815
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.08425914737696516,
+      "lo": 0.07566119186562148,
+      "hi": 0.09258691545586607
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.15668438652795288,
+      "lo": -0.17594792797202496,
+      "hi": -0.1371714916409082
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.1364126773665929,
+      "lo": 0.12375546243041795,
+      "hi": 0.15033510252192578
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.041092650506839086,
+      "lo": 0.0288141358717115,
+      "hi": 0.054573628598757425
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.027826686955446968,
+      "lo": 0.017444556131843526,
+      "hi": 0.03921694968344985
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.23407921904380224,
+      "lo": -0.26639497650438737,
+      "hi": -0.19868003932447456
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.16878007169293968,
+      "lo": 0.15231887345271283,
+      "hi": 0.18659010864474926
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": 0.03523953333734744,
+      "lo": 0.016675342550289393,
+      "hi": 0.05533060001771161
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": 0.027826686955446968,
+      "lo": 0.017444556131843526,
+      "hi": 0.03921694968344985
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.36501603331615695,
+      "lo": -0.38233014194339515,
+      "hi": -0.3478430145511957
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.051359024236566304,
+      "lo": 0.04728819029792175,
+      "hi": 0.0554053542188957
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": -0.1143194575620893,
+      "lo": -0.12052368335580685,
+      "hi": -0.10811153343091368
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": -0.10016235305143581,
+      "lo": -0.1079837341996738,
+      "hi": -0.09228556137705703
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 282,
+      "mean": -0.23025142896159806,
+      "lo": -0.2510597864324955,
+      "hi": -0.20938828756722108
+    },
+    "upper_bound": {
+      "n": 282,
+      "mean": 0.003297816191891339,
+      "lo": -0.005724360233656253,
+      "hi": 0.011200942858451364
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 282,
+      "mean": -0.07480656559422325,
+      "lo": -0.08429574735248108,
+      "hi": -0.06591747011097174
+    },
+    "candidate_share_difference": {
+      "n": 282,
+      "mean": -0.10016235305143581,
+      "lo": -0.1079837341996738,
+      "hi": -0.09228556137705703
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.23652322196964215,
+      "lo": -0.301006662300884,
+      "hi": -0.16349093179259605
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.40142888827399176,
+      "lo": 0.35042797223536526,
+      "hi": 0.4571303691365907
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.09987689884342664,
+      "lo": 0.0518768617326068,
+      "hi": 0.15332418644203355
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.17505692435463763,
+      "lo": 0.13769281175935016,
+      "hi": 0.21471187266766661
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.05229001337979002,
+      "lo": -0.14351946433706653,
+      "hi": 0.04681895555607954
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.4605010920988422,
+      "lo": 0.4061534514798253,
+      "hi": 0.5241514082132587
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.23562685994825366,
+      "lo": 0.18029722686851302,
+      "hi": 0.29863798819438936
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.17505692435463763,
+      "lo": 0.13769281175935016,
+      "hi": 0.21471187266766661
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.09790137351672658,
+      "lo": -0.1428144401571947,
+      "hi": -0.053393319655136745
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.14345263770019087,
+      "lo": 0.1172445223450556,
+      "hi": 0.1706710467205199
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.06952072931666113,
+      "lo": 0.042832063015136174,
+      "hi": 0.09699552686410971
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.03980048776996881,
+      "lo": 0.018393912543627097,
+      "hi": 0.061913513231867806
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.30777523317354144,
+      "lo": -0.38972978272191816,
+      "hi": -0.2180434127619042
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.23225766820138857,
+      "lo": 0.17823066761304177,
+      "hi": 0.2869910402121406
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.04802544325804488,
+      "lo": -0.007680145285029671,
+      "hi": 0.10587642038380565
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.03980048776996881,
+      "lo": 0.018393912543627097,
+      "hi": 0.061913513231867806
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": 0.026958433136255355,
+      "lo": -0.017080467392006676,
+      "hi": 0.07044348993299833
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.15791970873265573,
+      "lo": 0.13365729271831536,
+      "hi": 0.18270267244979194
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.11934209416608475,
+      "lo": 0.09325466770664352,
+      "hi": 0.14584124208739593
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.08817290793933287,
+      "lo": 0.0640255703984219,
+      "hi": 0.11267222515352032
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.15190165091886934,
+      "lo": -0.24156780049130686,
+      "hi": -0.065978981391777
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.08096331338605038,
+      "lo": 0.05956844328550796,
+      "hi": 0.1047886796481408
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.014228646995086728,
+      "lo": -0.020676543368020345,
+      "hi": 0.04940197878251311
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": 0.08817290793933287,
+      "lo": 0.0640255703984219,
+      "hi": 0.11267222515352032
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.20914852713160992,
+      "lo": -0.2630088074535078,
+      "hi": -0.1574167350144397
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.10190597028951554,
+      "lo": 0.07684776906132809,
+      "hi": 0.12803178301840018
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": -0.0026645496544457953,
+      "lo": -0.026309370989017818,
+      "hi": 0.02081594368724308
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": -0.017241986992751743,
+      "lo": -0.03564360694396416,
+      "hi": 0.000568329764176296
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.2507500406084999,
+      "lo": -0.3310215570734994,
+      "hi": -0.1668250498797015
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.13422468803774307,
+      "lo": 0.08811364327268159,
+      "hi": 0.1847739616751292
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": 0.0009649475439416514,
+      "lo": -0.04730446659462174,
+      "hi": 0.05028521564701619
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": -0.017241986992751743,
+      "lo": -0.03564360694396416,
+      "hi": 0.000568329764176296
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.3547226079370981,
+      "lo": -0.4033912030288628,
+      "hi": -0.30535491164962836
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": 0.039722179793747696,
+      "lo": 0.022732249159655292,
+      "hi": 0.05541001850296893
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": -0.11257637391896351,
+      "lo": -0.13472541180408737,
+      "hi": -0.0923413833077045
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": -0.08248324820203903,
+      "lo": -0.1111543638161702,
+      "hi": -0.05505924829385316
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 30,
+      "mean": -0.24287881973811828,
+      "lo": -0.3101963642511863,
+      "hi": -0.1773197798897561
+    },
+    "upper_bound": {
+      "n": 30,
+      "mean": -0.0056134597028093145,
+      "lo": -0.050359121480938004,
+      "hi": 0.03375885681214567
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 30,
+      "mean": -0.07988579685813843,
+      "lo": -0.12181384307844166,
+      "hi": -0.046420176823077586
+    },
+    "candidate_share_difference": {
+      "n": 30,
+      "mean": -0.08248324820203903,
+      "lo": -0.1111543638161702,
+      "hi": -0.05505924829385316
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.2945277858546123,
+      "lo": -0.38218737292743593,
+      "hi": -0.20190918966498164
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.38828183015395457,
+      "lo": 0.3390381614302777,
+      "hi": 0.4439872920478011
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.06853668238409974,
+      "lo": 0.019613667712523236,
+      "hi": 0.12459933772217621
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.14151076301192209,
+      "lo": 0.10547814861436182,
+      "hi": 0.18140301676777693
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.14865107555940604,
+      "lo": -0.23136882505436143,
+      "hi": -0.0670466432073424
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.39282050631691984,
+      "lo": 0.34048262262425066,
+      "hi": 0.455869912556165
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.15891236279273946,
+      "lo": 0.11638730028299195,
+      "hi": 0.20262354975421085
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.14151076301192209,
+      "lo": 0.10547814861436182,
+      "hi": 0.18140301676777693
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.09228596039414119,
+      "lo": -0.14700515906480416,
+      "hi": -0.037368855599269606
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.11566318246429819,
+      "lo": 0.08651411466360326,
+      "hi": 0.14571398304743774
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.04932944936073902,
+      "lo": 0.013612050362921934,
+      "hi": 0.08606470229087866
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.02025712067871203,
+      "lo": -0.0033124310727423102,
+      "hi": 0.044860630833209014
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.32801638739177463,
+      "lo": -0.41897961849949306,
+      "hi": -0.23507357274749213
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.17063904278620093,
+      "lo": 0.10366182418549902,
+      "hi": 0.23217613205261017
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": -0.014347927088823589,
+      "lo": -0.08605784492994163,
+      "hi": 0.05674017122061122
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.02025712067871203,
+      "lo": -0.0033124310727423102,
+      "hi": 0.044860630833209014
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": 0.04215305761784825,
+      "lo": -0.033989336582778626,
+      "hi": 0.11828179726548933
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.1589031789102972,
+      "lo": 0.13107146317283164,
+      "hi": 0.18662691652992186
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.12314113795912615,
+      "lo": 0.08518065712395385,
+      "hi": 0.1612684281204064
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.10045756045249975,
+      "lo": 0.06056212674950024,
+      "hi": 0.13997114506476852
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.13969647237827015,
+      "lo": -0.30328310839916867,
+      "hi": 0.018915764041914314
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.09852369515186751,
+      "lo": 0.06272572490055732,
+      "hi": 0.14128240545311332
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.03251938142967777,
+      "lo": -0.02675669179082484,
+      "hi": 0.09420265573633413
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": 0.10045756045249975,
+      "lo": 0.06056212674950024,
+      "hi": 0.13997114506476852
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.2056455770523072,
+      "lo": -0.28398847088612367,
+      "hi": -0.12756659567621825
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.11762232407251945,
+      "lo": 0.07364320083667267,
+      "hi": 0.16746307041104236
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.009538162351988485,
+      "lo": -0.023227613117750415,
+      "hi": 0.04797656416564386
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": -0.01812615380184272,
+      "lo": -0.04123003486280145,
+      "hi": 0.008527714855380715
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.171606582016207,
+      "lo": -0.27443418133347514,
+      "hi": -0.05350518490315204
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.1778599544335953,
+      "lo": 0.09207074217790476,
+      "hi": 0.2770106718169715
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": 0.06174658617545603,
+      "lo": -0.008745106109533142,
+      "hi": 0.14172511070092217
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": -0.01812615380184272,
+      "lo": -0.04123003486280145,
+      "hi": 0.008527714855380715
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.3890176258761253,
+      "lo": -0.47470017321409974,
+      "hi": -0.3090539058050633
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.04902337465226782,
+      "lo": 0.028152957361968857,
+      "hi": 0.06634534328314833
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": -0.12674399705437606,
+      "lo": -0.16626916717168125,
+      "hi": -0.09321236505993104
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": -0.08805769718619073,
+      "lo": -0.146902299559223,
+      "hi": -0.03220886588679135
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 13,
+      "mean": -0.22247471946267,
+      "lo": -0.32411401348002516,
+      "hi": -0.13784594516936438
+    },
+    "upper_bound": {
+      "n": 13,
+      "mean": 0.014110802319244666,
+      "lo": -0.0029256144071423506,
+      "hi": 0.032003475591383196
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 13,
+      "mean": -0.06651502058960729,
+      "lo": -0.1000707726115787,
+      "hi": -0.034836696292271714
+    },
+    "candidate_share_difference": {
+      "n": 13,
+      "mean": -0.08805769718619073,
+      "lo": -0.146902299559223,
+      "hi": -0.03220886588679135
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.27181766835081433,
+      "lo": -0.32682981084348767,
+      "hi": -0.21408100724780965
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.40151386969934133,
+      "lo": 0.36401965371135825,
+      "hi": 0.43971652104758896
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.08785217136418512,
+      "lo": 0.050275162674988806,
+      "hi": 0.125649388834605
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.18687802379801743,
+      "lo": 0.14378855552325853,
+      "hi": 0.22976878121231514
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.0009678860341337822,
+      "lo": -0.10377552079068712,
+      "hi": 0.10249142787374493
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.4957567643375796,
+      "lo": 0.4386152358843438,
+      "hi": 0.5472080846281105
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.28150011710136946,
+      "lo": 0.21077836751933351,
+      "hi": 0.3455895190535874
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.18687802379801743,
+      "lo": 0.14378855552325853,
+      "hi": 0.22976878121231514
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.07867910660139714,
+      "lo": -0.1078318600657948,
+      "hi": -0.04991464353706199
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.11042361062036254,
+      "lo": 0.08761163453003327,
+      "hi": 0.1333586247754168
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.05175586394852981,
+      "lo": 0.033294548245602115,
+      "hi": 0.07130647230815851
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.025168509642011668,
+      "lo": 0.010143316121557777,
+      "hi": 0.040840763041975356
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.2981840944522001,
+      "lo": -0.35336326407886043,
+      "hi": -0.23872634892196834
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.18532274753929381,
+      "lo": 0.1389568540760348,
+      "hi": 0.2326019266513971
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.022754237290233268,
+      "lo": -0.020435753651998064,
+      "hi": 0.06924684963997745
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.025168509642011668,
+      "lo": 0.010143316121557777,
+      "hi": 0.040840763041975356
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": 0.023209003399123455,
+      "lo": -0.02043735390556338,
+      "hi": 0.06677155238620487
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.15855282786664357,
+      "lo": 0.11881860343531904,
+      "hi": 0.19923060301627155
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.12388444816019763,
+      "lo": 0.08610376093799627,
+      "hi": 0.1624718089512371
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.09808954706743704,
+      "lo": 0.06655477517808854,
+      "hi": 0.13155536208691465
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.12363606682174243,
+      "lo": -0.2113144947441182,
+      "hi": -0.04041171197074625
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.06637426234843694,
+      "lo": 0.04653643756332165,
+      "hi": 0.08921357014002892
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.017556428211076187,
+      "lo": -0.014155753848368462,
+      "hi": 0.049745358935811654
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.09808954706743704,
+      "lo": 0.06655477517808854,
+      "hi": 0.13155536208691465
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.18287013350718495,
+      "lo": -0.23211633511047902,
+      "hi": -0.13080341191781789
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.1187399097822125,
+      "lo": 0.08476669256246572,
+      "hi": 0.15555983508686672
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.018159023413351627,
+      "lo": -0.014030939088153413,
+      "hi": 0.052375358158862136
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.0054732030157382,
+      "lo": -0.0197670091430146,
+      "hi": 0.0329302456586132
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.25407386694012535,
+      "lo": -0.350201405391537,
+      "hi": -0.15031611610415807
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.14710120211953207,
+      "lo": 0.09540093995054709,
+      "hi": 0.20420773091482733
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.010265920423330733,
+      "lo": -0.04281596575177235,
+      "hi": 0.06868931395515712
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.0054732030157382,
+      "lo": -0.0197670091430146,
+      "hi": 0.0329302456586132
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.3615481918991326,
+      "lo": -0.40284409663751125,
+      "hi": -0.31798464967629814
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.05691098596270959,
+      "lo": 0.0504237083456757,
+      "hi": 0.06392156323067323
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": -0.11176187416610962,
+      "lo": -0.12935084778382067,
+      "hi": -0.094185337669734
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": -0.09598810667344171,
+      "lo": -0.11780082873606644,
+      "hi": -0.07413051182006004
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.19445258391954162,
+      "lo": -0.25162430344661146,
+      "hi": -0.142731612297555
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.009274844902798592,
+      "lo": 0.006647578593056655,
+      "hi": 0.012455337735171136
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": -0.058951287492135115,
+      "lo": -0.07561131433142469,
+      "hi": -0.04370978788581486
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": -0.09598810667344171,
+      "lo": -0.11780082873606644,
+      "hi": -0.07413051182006004
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.27181766835081433,
+      "lo": -0.32682981084348767,
+      "hi": -0.21408100724780965
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.40151386969934133,
+      "lo": 0.36401965371135825,
+      "hi": 0.43971652104758896
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.08785217136418512,
+      "lo": 0.050275162674988806,
+      "hi": 0.125649388834605
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.18687802379801743,
+      "lo": 0.14378855552325853,
+      "hi": 0.22976878121231514
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.0009678860341337822,
+      "lo": -0.10377552079068712,
+      "hi": 0.10249142787374493
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.4957567643375796,
+      "lo": 0.4386152358843438,
+      "hi": 0.5472080846281105
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.28150011710136946,
+      "lo": 0.21077836751933351,
+      "hi": 0.3455895190535874
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.18687802379801743,
+      "lo": 0.14378855552325853,
+      "hi": 0.22976878121231514
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.07867910660139714,
+      "lo": -0.1078318600657948,
+      "hi": -0.04991464353706199
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.11042361062036254,
+      "lo": 0.08761163453003327,
+      "hi": 0.1333586247754168
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.05175586394852981,
+      "lo": 0.033294548245602115,
+      "hi": 0.07130647230815851
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.025168509642011668,
+      "lo": 0.010143316121557777,
+      "hi": 0.040840763041975356
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.2981840944522001,
+      "lo": -0.35336326407886043,
+      "hi": -0.23872634892196834
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.18532274753929381,
+      "lo": 0.1389568540760348,
+      "hi": 0.2326019266513971
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.022754237290233268,
+      "lo": -0.020435753651998064,
+      "hi": 0.06924684963997745
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.025168509642011668,
+      "lo": 0.010143316121557777,
+      "hi": 0.040840763041975356
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": 0.023209003399123455,
+      "lo": -0.02043735390556338,
+      "hi": 0.06677155238620487
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.15855282786664357,
+      "lo": 0.11881860343531904,
+      "hi": 0.19923060301627155
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.12388444816019763,
+      "lo": 0.08610376093799627,
+      "hi": 0.1624718089512371
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.09808954706743704,
+      "lo": 0.06655477517808854,
+      "hi": 0.13155536208691465
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.12363606682174243,
+      "lo": -0.2113144947441182,
+      "hi": -0.04041171197074625
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.06637426234843694,
+      "lo": 0.04653643756332165,
+      "hi": 0.08921357014002892
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.017556428211076187,
+      "lo": -0.014155753848368462,
+      "hi": 0.049745358935811654
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.09808954706743704,
+      "lo": 0.06655477517808854,
+      "hi": 0.13155536208691465
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.18287013350718495,
+      "lo": -0.23211633511047902,
+      "hi": -0.13080341191781789
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.1187399097822125,
+      "lo": 0.08476669256246572,
+      "hi": 0.15555983508686672
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.018159023413351627,
+      "lo": -0.014030939088153413,
+      "hi": 0.052375358158862136
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.0054732030157382,
+      "lo": -0.0197670091430146,
+      "hi": 0.0329302456586132
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.25407386694012535,
+      "lo": -0.350201405391537,
+      "hi": -0.15031611610415807
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.14710120211953207,
+      "lo": 0.09540093995054709,
+      "hi": 0.20420773091482733
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": 0.010265920423330733,
+      "lo": -0.04281596575177235,
+      "hi": 0.06868931395515712
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": 0.0054732030157382,
+      "lo": -0.0197670091430146,
+      "hi": 0.0329302456586132
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.3615481918991326,
+      "lo": -0.40284409663751125,
+      "hi": -0.31798464967629814
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.05691098596270959,
+      "lo": 0.0504237083456757,
+      "hi": 0.06392156323067323
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": -0.11176187416610962,
+      "lo": -0.12935084778382067,
+      "hi": -0.094185337669734
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": -0.09598810667344171,
+      "lo": -0.11780082873606644,
+      "hi": -0.07413051182006004
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "semantic_confirmation",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 28,
+      "mean": -0.19445258391954162,
+      "lo": -0.25162430344661146,
+      "hi": -0.142731612297555
+    },
+    "upper_bound": {
+      "n": 28,
+      "mean": 0.009274844902798592,
+      "lo": 0.006647578593056655,
+      "hi": 0.012455337735171136
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 28,
+      "mean": -0.058951287492135115,
+      "lo": -0.07561131433142469,
+      "hi": -0.04370978788581486
+    },
+    "candidate_share_difference": {
+      "n": 28,
+      "mean": -0.09598810667344171,
+      "lo": -0.11780082873606644,
+      "hi": -0.07413051182006004
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2688173356704866,
+      "lo": -0.350163764251317,
+      "hi": -0.1813158271927952
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.3980754071493556,
+      "lo": 0.3239776388309035,
+      "hi": 0.4594521082920514
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.08575795254701231,
+      "lo": 0.01348065773251917,
+      "hi": 0.14998674105250415
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.18502866295719775,
+      "lo": 0.1169296228220988,
+      "hi": 0.24497027821536016
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.04816496672741681,
+      "lo": -0.15808886130292127,
+      "hi": 0.09055321368041476
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.4754380938513955,
+      "lo": 0.4078108975013217,
+      "hi": 0.543240137219727
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.24881303684439898,
+      "lo": 0.16680876485129556,
+      "hi": 0.3365661940897856
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.18502866295719775,
+      "lo": 0.1169296228220988,
+      "hi": 0.24497027821536016
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.09581519754318192,
+      "lo": -0.1457928333297711,
+      "hi": -0.045662097550816065
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.1309777107096286,
+      "lo": 0.09499417670824788,
+      "hi": 0.16532957303304166
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.051688213718960214,
+      "lo": 0.017955173654997512,
+      "hi": 0.08468623699439812
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.027274986367962373,
+      "lo": 0.000837427232164725,
+      "hi": 0.05496020043327362
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2846468092880529,
+      "lo": -0.343909127918313,
+      "hi": -0.22422127796034777
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.21951214685739487,
+      "lo": 0.1564265596964238,
+      "hi": 0.279216116685835
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.04619681863904698,
+      "lo": -0.012842722477688149,
+      "hi": 0.0929488617349099
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.027274986367962373,
+      "lo": 0.000837427232164725,
+      "hi": 0.05496020043327362
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": 0.01791324879246382,
+      "lo": -0.07096361573770353,
+      "hi": 0.10626218046094466
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.15805004439476414,
+      "lo": 0.11243185165648786,
+      "hi": 0.20815285792315438
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.1140201793682374,
+      "lo": 0.06196140958537706,
+      "hi": 0.1677267094293063
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.07719536069209665,
+      "lo": 0.047628026562619954,
+      "hi": 0.10613781626375922
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.1329377739418784,
+      "lo": -0.28018990575613406,
+      "hi": 0.005778660213240794
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.10266830225725943,
+      "lo": 0.05642771034885771,
+      "hi": 0.15681477574535085
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.02691905582049817,
+      "lo": -0.04186405190643277,
+      "hi": 0.09483519191312438
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.07719536069209665,
+      "lo": 0.047628026562619954,
+      "hi": 0.10613781626375922
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.15007375027535363,
+      "lo": -0.2729772720905315,
+      "hi": -0.04946576244656637
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.10837712000853682,
+      "lo": 0.07608511956863782,
+      "hi": 0.1484559360426818
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.012930495282177485,
+      "lo": -0.03164142485522412,
+      "hi": 0.06638282618199143
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.0064199275642399375,
+      "lo": -0.03411278314356397,
+      "hi": 0.047307406035523414
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2193611063833717,
+      "lo": -0.37832691864235024,
+      "hi": -0.05277937496094406
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.1282621402240662,
+      "lo": 0.08774141112891418,
+      "hi": 0.1709800355633822
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.0011107206298069036,
+      "lo": -0.08024560657943328,
+      "hi": 0.07996767375256346
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.0064199275642399375,
+      "lo": -0.03411278314356397,
+      "hi": 0.047307406035523414
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.4392237102463116,
+      "lo": -0.5494309058846503,
+      "hi": -0.3266498805140699
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.05600240214977251,
+      "lo": 0.03139443904651548,
+      "hi": 0.07696605604694885
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.1442225214592181,
+      "lo": -0.1811195908273492,
+      "hi": -0.10652781638809672
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": -0.11031209770360867,
+      "lo": -0.15310927243778968,
+      "hi": -0.0717429869776154
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.3124092271887245,
+      "lo": -0.4266330953457844,
+      "hi": -0.19540460178835245
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.002372874608532492,
+      "lo": -0.09737975512988967,
+      "hi": 0.08952935018301715
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.10715163625421308,
+      "lo": -0.17916697953554106,
+      "hi": -0.05627732865439507
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": -0.11031209770360867,
+      "lo": -0.15310927243778968,
+      "hi": -0.0717429869776154
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2688173356704866,
+      "lo": -0.350163764251317,
+      "hi": -0.1813158271927952
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.3980754071493556,
+      "lo": 0.3239776388309035,
+      "hi": 0.4594521082920514
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.08575795254701231,
+      "lo": 0.01348065773251917,
+      "hi": 0.14998674105250415
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.18502866295719775,
+      "lo": 0.1169296228220988,
+      "hi": 0.24497027821536016
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.04816496672741681,
+      "lo": -0.15808886130292127,
+      "hi": 0.09055321368041476
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.4754380938513955,
+      "lo": 0.4078108975013217,
+      "hi": 0.543240137219727
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.24881303684439898,
+      "lo": 0.16680876485129556,
+      "hi": 0.3365661940897856
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.18502866295719775,
+      "lo": 0.1169296228220988,
+      "hi": 0.24497027821536016
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.09581519754318192,
+      "lo": -0.1457928333297711,
+      "hi": -0.045662097550816065
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.1309777107096286,
+      "lo": 0.09499417670824788,
+      "hi": 0.16532957303304166
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.051688213718960214,
+      "lo": 0.017955173654997512,
+      "hi": 0.08468623699439812
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.027274986367962373,
+      "lo": 0.000837427232164725,
+      "hi": 0.05496020043327362
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2846468092880529,
+      "lo": -0.343909127918313,
+      "hi": -0.22422127796034777
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.21951214685739487,
+      "lo": 0.1564265596964238,
+      "hi": 0.279216116685835
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.04619681863904698,
+      "lo": -0.012842722477688149,
+      "hi": 0.0929488617349099
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.027274986367962373,
+      "lo": 0.000837427232164725,
+      "hi": 0.05496020043327362
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": 0.01791324879246382,
+      "lo": -0.07096361573770353,
+      "hi": 0.10626218046094466
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.15805004439476414,
+      "lo": 0.11243185165648786,
+      "hi": 0.20815285792315438
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.1140201793682374,
+      "lo": 0.06196140958537706,
+      "hi": 0.1677267094293063
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.07719536069209665,
+      "lo": 0.047628026562619954,
+      "hi": 0.10613781626375922
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.1329377739418784,
+      "lo": -0.28018990575613406,
+      "hi": 0.005778660213240794
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.10266830225725943,
+      "lo": 0.05642771034885771,
+      "hi": 0.15681477574535085
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.02691905582049817,
+      "lo": -0.04186405190643277,
+      "hi": 0.09483519191312438
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.07719536069209665,
+      "lo": 0.047628026562619954,
+      "hi": 0.10613781626375922
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.15007375027535363,
+      "lo": -0.2729772720905315,
+      "hi": -0.04946576244656637
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.10837712000853682,
+      "lo": 0.07608511956863782,
+      "hi": 0.1484559360426818
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": 0.012930495282177485,
+      "lo": -0.03164142485522412,
+      "hi": 0.06638282618199143
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.0064199275642399375,
+      "lo": -0.03411278314356397,
+      "hi": 0.047307406035523414
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.2193611063833717,
+      "lo": -0.37832691864235024,
+      "hi": -0.05277937496094406
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.1282621402240662,
+      "lo": 0.08774141112891418,
+      "hi": 0.1709800355633822
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.0011107206298069036,
+      "lo": -0.08024560657943328,
+      "hi": 0.07996767375256346
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": 0.0064199275642399375,
+      "lo": -0.03411278314356397,
+      "hi": 0.047307406035523414
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.4392237102463116,
+      "lo": -0.5494309058846503,
+      "hi": -0.3266498805140699
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.05600240214977251,
+      "lo": 0.03139443904651548,
+      "hi": 0.07696605604694885
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.1442225214592181,
+      "lo": -0.1811195908273492,
+      "hi": -0.10652781638809672
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": -0.11031209770360867,
+      "lo": -0.15310927243778968,
+      "hi": -0.0717429869776154
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "legacy_development",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 11,
+      "mean": -0.3124092271887245,
+      "lo": -0.4266330953457844,
+      "hi": -0.19540460178835245
+    },
+    "upper_bound": {
+      "n": 11,
+      "mean": 0.002372874608532492,
+      "lo": -0.09737975512988967,
+      "hi": 0.08952935018301715
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 11,
+      "mean": -0.10715163625421308,
+      "lo": -0.17916697953554106,
+      "hi": -0.05627732865439507
+    },
+    "candidate_share_difference": {
+      "n": 11,
+      "mean": -0.11031209770360867,
+      "lo": -0.15310927243778968,
+      "hi": -0.0717429869776154
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.22787826813792944,
+      "lo": -0.24098329777631128,
+      "hi": -0.21511941141961408
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.4099027585068802,
+      "lo": 0.40093042936842793,
+      "hi": 0.41953301417162026
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.11324663058064276,
+      "lo": 0.10384320822012581,
+      "hi": 0.12258385648253754
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.19162826371169356,
+      "lo": 0.1827840903762433,
+      "hi": 0.20059887265601398
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": 0.01384439194949342,
+      "lo": -0.0061590971505988395,
+      "hi": 0.033526853900064046
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.4964218748951592,
+      "lo": 0.48555769400804005,
+      "hi": 0.5075447986499858
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.2870444449508676,
+      "lo": 0.27443142771858015,
+      "hi": 0.2997611337315625
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.19162826371169356,
+      "lo": 0.1827840903762433,
+      "hi": 0.20059887265601398
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.10337000102388591,
+      "lo": -0.11159770120505608,
+      "hi": -0.0952502088362106
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.1316033764729543,
+      "lo": 0.12543239513803792,
+      "hi": 0.13768967185886322
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.054288455841659033,
+      "lo": 0.04877891340733967,
+      "hi": 0.05972763581279682
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.026943564076941845,
+      "lo": 0.022636834042417772,
+      "hi": 0.03124616346815256
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.33162802388116996,
+      "lo": -0.3445679400052569,
+      "hi": -0.31890346408409836
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.19860018928273188,
+      "lo": 0.18728063436186382,
+      "hi": 0.20942619545344673
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.012744609051117427,
+      "lo": 0.0023908534040717163,
+      "hi": 0.022559650682162084
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.026943564076941845,
+      "lo": 0.022636834042417772,
+      "hi": 0.03124616346815256
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": 0.009465470841722617,
+      "lo": 0.00030863883209986316,
+      "hi": 0.018213506524072224
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.14788477039579467,
+      "lo": 0.1404414671449311,
+      "hi": 0.15522278487683527
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.10600672205920501,
+      "lo": 0.09928495621315832,
+      "hi": 0.11255710210735105
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.08387691480834283,
+      "lo": 0.07845321353716812,
+      "hi": 0.08945853782706256
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.1501106568787312,
+      "lo": -0.16715321348350076,
+      "hi": -0.13301098207622902
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.07401858564959317,
+      "lo": 0.06831390510056382,
+      "hi": 0.08016013313324129
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.00754435100220955,
+      "lo": 0.0006795634162164887,
+      "hi": 0.014642491072289376
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.08387691480834283,
+      "lo": 0.07845321353716812,
+      "hi": 0.08945853782706256
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.17808225840255068,
+      "lo": -0.1906228080631414,
+      "hi": -0.16569608928021612
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.12445043269583378,
+      "lo": 0.1157998286736663,
+      "hi": 0.13303370734658257
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.025740703819314835,
+      "lo": 0.017251978892439516,
+      "hi": 0.03409195429747671
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.01658791302354823,
+      "lo": 0.009881900962193968,
+      "hi": 0.02352351442682258
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.2642762332054569,
+      "lo": -0.28569694568140697,
+      "hi": -0.2422733623391249
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.14910816764991272,
+      "lo": 0.13838850089650725,
+      "hi": 0.15992893706432543
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": 0.015730339705973113,
+      "lo": 0.0039021828709097078,
+      "hi": 0.027531206175683408
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": 0.01658791302354823,
+      "lo": 0.009881900962193968,
+      "hi": 0.02352351442682258
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.3515940180239838,
+      "lo": -0.3632251462796696,
+      "hi": -0.3404506980419016
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.0503724791267946,
+      "lo": 0.04774862147848598,
+      "hi": 0.053096490365145584
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": -0.10906291402007329,
+      "lo": -0.1131049423615995,
+      "hi": -0.10519108196640263
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": -0.09195751883650724,
+      "lo": -0.09684591713235982,
+      "hi": -0.087087057562802
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "all_attempts",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 698,
+      "mean": -0.22139950909161452,
+      "lo": -0.23569936504914268,
+      "hi": -0.20791666110346488
+    },
+    "upper_bound": {
+      "n": 698,
+      "mean": 0.009504277983560272,
+      "lo": 0.003847969965646497,
+      "hi": 0.014901396422523226
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 698,
+      "mean": -0.06700748471172566,
+      "lo": -0.07284468494127472,
+      "hi": -0.06164445435059205
+    },
+    "candidate_share_difference": {
+      "n": 698,
+      "mean": -0.09195751883650724,
+      "lo": -0.09684591713235982,
+      "hi": -0.087087057562802
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.24407418439299183,
+      "lo": -0.26056053600410034,
+      "hi": -0.22698680482333128
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.4011692816836898,
+      "lo": 0.3903886990840748,
+      "hi": 0.41225411945265217
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.09656137185791021,
+      "lo": 0.08541741879573757,
+      "hi": 0.10804471850242077
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.17932381700752315,
+      "lo": 0.16756622168918825,
+      "hi": 0.19142062168587376
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "exploration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": 0.00972594691340102,
+      "lo": -0.01742426836315555,
+      "hi": 0.0375794325548781
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.48757765822581717,
+      "lo": 0.4731350658896639,
+      "hi": 0.5025082699488276
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.2765453545024955,
+      "lo": 0.2590017800622573,
+      "hi": 0.2938418770514242
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.17932381700752315,
+      "lo": 0.16756622168918825,
+      "hi": 0.19142062168587376
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.09991878776347526,
+      "lo": -0.11155570233697604,
+      "hi": -0.08839166457682023
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.12083293294498383,
+      "lo": 0.11279206181704812,
+      "hi": 0.1287053326356319
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.04950791514110343,
+      "lo": 0.04198902113185653,
+      "hi": 0.057271497777755274
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.025179020560084208,
+      "lo": 0.019396833282199967,
+      "hi": 0.030951105371459686
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "edit",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.31951833808218905,
+      "lo": -0.3379721072160514,
+      "hi": -0.300802517162824
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.1855563693841876,
+      "lo": 0.17238390067678275,
+      "hi": 0.19858598418384546
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.014316716805306702,
+      "lo": 0.0009266171299737835,
+      "hi": 0.027513913444067815
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.025179020560084208,
+      "lo": 0.019396833282199967,
+      "hi": 0.030951105371459686
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": 0.010494297538687374,
+      "lo": -0.0023006396061114364,
+      "hi": 0.022979656557414088
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.1475310370768303,
+      "lo": 0.1368431915023979,
+      "hi": 0.1579867310739521
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.10560519346425351,
+      "lo": 0.09593178067112125,
+      "hi": 0.11529916555276715
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.08581641955595203,
+      "lo": 0.07786840254729728,
+      "hi": 0.09384229819902057
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "verification",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.13867804022136404,
+      "lo": -0.16233167520873726,
+      "hi": -0.1157415179664219
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.07532653127213676,
+      "lo": 0.0676588055101957,
+      "hi": 0.08347832625327854
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.011309728163576086,
+      "lo": 0.0013675246545149762,
+      "hi": 0.020652154951954715
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.08581641955595203,
+      "lo": 0.07786840254729728,
+      "hi": 0.09384229819902057
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.160567558364649,
+      "lo": -0.17823148146861226,
+      "hi": -0.1426105746907173
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.1332764401925683,
+      "lo": 0.12122791618307038,
+      "hi": 0.1457265059195951
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.037014406159228345,
+      "lo": 0.025911965041776733,
+      "hi": 0.049071216081112375
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.023459145537902383,
+      "lo": 0.013837349502239697,
+      "hi": 0.03356652613390007
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "opaque_execution",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.23283911910510036,
+      "lo": -0.2632584661942634,
+      "hi": -0.20164609770628697
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.16598166714627952,
+      "lo": 0.1500452681808285,
+      "hi": 0.182094093387922
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": 0.03298048462975537,
+      "lo": 0.01547187048173858,
+      "hi": 0.051149468453826306
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": 0.023459145537902383,
+      "lo": 0.013837349502239697,
+      "hi": 0.03356652613390007
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "input_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.36810347520188935,
+      "lo": -0.38353139258875746,
+      "hi": -0.35231366948097953
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.0518864752568699,
+      "lo": 0.04835006698509712,
+      "hi": 0.05556457501542112
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": -0.11557347067939684,
+      "lo": -0.12164531677155888,
+      "hi": -0.10978226871867597
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": -0.099675549956651,
+      "lo": -0.10688182472600365,
+      "hi": -0.09230444832393522
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  },
+  {
+    "split": "all",
+    "scope": "joint_success",
+    "role": "administration",
+    "metric": "output_tokens",
+    "lower_bound": {
+      "n": 334,
+      "mean": -0.2296534376317619,
+      "lo": -0.24934899050130613,
+      "hi": -0.21088848995737322
+    },
+    "upper_bound": {
+      "n": 334,
+      "mean": 0.004189287048610049,
+      "lo": -0.00398972582158399,
+      "hi": 0.011917977232201768
+    },
+    "equal_candidate_allocation_difference": {
+      "n": 334,
+      "mean": -0.07421991261620352,
+      "lo": -0.08245972262702334,
+      "hi": -0.06609820959744396
+    },
+    "candidate_share_difference": {
+      "n": 334,
+      "mean": -0.099675549956651,
+      "lo": -0.10688182472600365,
+      "hi": -0.09230444832393522
+    },
+    "interpretation": "Shares of stored response usage; descriptive association only; all-or-none bounds within mixed responses."
+  }
+]

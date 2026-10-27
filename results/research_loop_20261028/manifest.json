@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "raw/jetbrains/luna-run1.parquet": "1a7af8a0531b4d1283bca357b00f1e4f42ab65b4a5088bee8082a95ff6e2017b",
+    "raw/jetbrains/gemini_3_7_flash-run1.parquet": "dee351735e2dd3a1115501c475ec8f7df054ab58da3bf21ea9a9b1fea5c6166e",
+    "raw/jetbrains/terra-run1.parquet": "5711a1547e4ace06c246b3e062ca3e60e841b09f7857ff800ec98072309701e6",
+    "raw/swebenchpro/v1.parquet": "c8cd7115496ad4e9a8b21d088cef576a65bf821bb542b24336f13f714cef13f8",
+    "data/runs.parquet": "7dc259a4281a1234d775e2c354f94ab4ff521e8e597a1e3707e7e2474ecd51f7",
+    "results/v2/task5/runs_benchmark.parquet": "2243a36681f7c2e6649499c434a19679d6a771ffbdba9de11ae3f98a5569ef0b",
+    "results/followup_20261026/confirmation_sample.csv": "e5dcb8db46db45bec29d89a0d63b44c2ec292522562646ca300af93b6968f7e6"
+  },
+  "code": {
+    "scripts/research_loop/allocation_witness.py": "138216589370dc6e04d84166c75502947e504ee9f9c1843f52bf6ff0b9f89d04",
+    "scripts/research_loop/analyze.py": "8724ceb11b884f47632e41ee441151cff4c4c12bf7d2840faf83341610257036",
+    "scripts/research_loop/demand_harness.py": "5f488191bc09146912473ec77801e3a4f6ea9f45df48f2f9c3a6fdeff0dad515",
+    "scripts/research_loop/executable_panel.py": "3861c91a02ec176dae7fbd9c854de1309c23df140404a53cb9bc4647e8c60d45",
+    "scripts/research_loop/extract.py": "d2e428ada0a82e27830b7cfac307f6e982f0f58b4e79f4d5ed61714cd9a30ff1",
+    "scripts/research_loop/finalize.py": "e176b664cae1f94697b9eaa6381779fc3bb668c5aa89759b17f2d6a5100cf1f2",
+    "scripts/research_loop/grade_audit.py": "1c12564727cb01791a947f46caa074bf4fcb3c0e994c69832658f9a0f4c8c70d",
+    "scripts/research_loop/live_pilot.py": "3f7a0f8c353e4e74aec2e4708a2d3b6a93bbdb25824097c2bf14f25b39a0c555",
+    "scripts/research_loop/live_report.py": "dd5f5fc98eacf8d9de662c8dab082185ab1d81b3f71d250290cedf87fe8ffc4a",
+    "scripts/research_loop/live_v2.py": "9557f5d02de8ba945f97d5aafee124ea1a252d58bd4b197e2a77b87813b2c4ef",
+    "scripts/research_loop/patch_ablation.py": "7fe7092feb7988bed4a5dae032b192ca4daa3b5557a62154be865fe159e55da4",
+    "scripts/research_loop/plot_paper.py": "129343ca4667ef4f8f34a1745bafa1288c8c387cf246c38621adde989ea91181",
+    "scripts/research_loop/robustness.py": "0f555d2ab337271a76712b49288b13e280997cd9cef236d8cbc8abbb02d7a6c9",
+    "scripts/research_loop/soc_client.py": "a82c8614e9f425f163ef97c7f70b36d98b89ad0d30a73928f796599335ac4065",
+    "scripts/research_loop/text_baseline.py": "ebd2db22ad1ea99019720fae17a0b3ceb1475a7c04924224d18b3c462e4511c3",
+    "worktrace/worktrace/operational.py": "72901f197420319b1273d7ba944d1e642ca23a7c33eb22fec280f326aa0382ed"
+  },
+  "actual_live_v1_requests": 48,
+  "actual_live_v2_requests": 139,
+  "preflight_chat_requests": 2,
+  "adapter_smoke_requests": 1,
+  "published_usage_records": 187,
+  "credentials_published": false,
+  "raw_prompts_published": false,
+  "current_claim": "Measurement study with scoped executable validation and a diagnostic continuation pilot.",
+  "submission_readiness": "Not certified; strongest supported paper is narrower than universal action utility."
+}

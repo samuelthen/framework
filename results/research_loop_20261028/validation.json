@@ -1,0 +1,26 @@
+{
+  "software_test_command": "PYTHONPATH=worktrace python3 -m pytest -q worktrace/tests scripts/one_day_precision/test_one_day.py scripts/precision_validation/test_validation.py scripts/followup/test_followup.py",
+  "software_tests_passed": 207,
+  "software_tests_failed": 0,
+  "claim_arithmetic_verified": true,
+  "live_backend_identity_verified": true,
+  "final_production_snapshots_verified": 18,
+  "allocation_conservation_verified": true,
+  "literature_claim": "No first-graph, first-attribution or universal-reward claim; closest full cost model not reproduced.",
+  "empirical_units": {
+    "archived_tasks": 700,
+    "archived_runs": 2100,
+    "model_confirmation_tasks": 30,
+    "executable_tasks": 5,
+    "source_file_interventions": 4,
+    "live_task_snapshots": 3,
+    "live_decodes_per_cell": 2,
+    "live_v2_episodes": 18
+  },
+  "remaining_limits": [
+    "Operational categories are not independently human-validated semantic labels.",
+    "Executable tests are scoped and fixture/interface dependent; one repository.",
+    "Three chosen live snapshots do not establish a population utility or non-inferiority claim.",
+    "Tokenizer weighting is an adapted sensitivity, not full reproduction of downstream context/cache attribution."
+  ]
+}

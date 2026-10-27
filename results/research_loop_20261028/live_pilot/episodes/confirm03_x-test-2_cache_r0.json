@@ -1,0 +1,22 @@
+{
+  "case": "confirm03",
+  "model": "x-test-2",
+  "arm": "cache",
+  "replicate": 0,
+  "episode_id": "confirm03_x-test-2_cache_r0",
+  "source_sha256": "0b8ccc49b806923f4896b4bf7ab137431b4f2a2c0c90527490370ff5a0240e68",
+  "cost_usd": null,
+  "status": "completed",
+  "initial_check_seconds": 0.06317829200997949,
+  "agent_exit": "LimitsExceeded",
+  "model_calls": 4,
+  "protocol_valid": true,
+  "final_patch_sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+  "scoped_quality": "scoped_fail",
+  "grading_seconds": 1.9866952919401228,
+  "total_wall_seconds": 19.771448249928653,
+  "api_attempts": 4,
+  "usage_complete": true,
+  "input_tokens": 26699,
+  "output_tokens": 711
+}

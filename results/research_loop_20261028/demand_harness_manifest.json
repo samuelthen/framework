@@ -1,0 +1,11 @@
+{
+  "reference_patch_line_cuts": [
+    51.0,
+    95.0,
+    204.5
+  ],
+  "cut_estimation": "discovery tasks only; not a validated human-difficulty scale",
+  "harness_token_usage": "unavailable; do not convert text characters or action counts into tokens",
+  "harness_scope": "same recorded Qwen model, distinct archived harness configurations; no randomized causal attribution",
+  "source_exposure": "cross-harness tables and facts were previously analyzed; frozen confirmation is new arithmetic decomposition only"
+}

@@ -1,0 +1,23 @@
+{
+  "case": "confirm00",
+  "model": "x-test-2",
+  "arm": "fresh",
+  "replicate": 1,
+  "episode_id": "confirm00_x-test-2_fresh_r1",
+  "source_sha256": "7edf3a51de3c3b37ddf7f2744021b34914e1c5693db475f5fd143692e4ffe136",
+  "cost_usd": null,
+  "status": "completed",
+  "initial_check_seconds": 2.4254098748788238,
+  "agent_exit": "LimitsExceeded",
+  "model_calls": 8,
+  "protocol_valid": true,
+  "final_patch_sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+  "scoped_quality": "scoped_pass",
+  "grading_seconds": 1.9817892499268055,
+  "fixture_complete_quality": "scoped_pass",
+  "total_wall_seconds": 41.71524945786223,
+  "api_attempts": 8,
+  "usage_complete": true,
+  "input_tokens": 85555,
+  "output_tokens": 2311
+}

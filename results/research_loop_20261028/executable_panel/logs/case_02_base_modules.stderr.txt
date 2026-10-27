@@ -1,0 +1,1 @@
+go: can't load test package: internal/telemetry/telemetry_test.go:13:2: cannot find module providing package github.com/markphelps/flipt/internal/info: import lookup disabled by -mod=readonly

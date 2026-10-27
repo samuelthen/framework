@@ -1,0 +1,5 @@
+# github.com/markphelps/flipt/internal/telemetry
+internal/telemetry/telemetry_test.go:13:2: cannot find module providing package github.com/markphelps/flipt/internal/info: import lookup disabled by -mod=readonly
+# github.com/markphelps/flipt/config [github.com/markphelps/flipt/config.test]
+config/config_test.go:116:6: unknown field TelemetryEnabled in struct literal of type MetaConfig
+config/config_test.go:167:6: unknown field TelemetryEnabled in struct literal of type MetaConfig

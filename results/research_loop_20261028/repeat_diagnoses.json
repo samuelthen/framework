@@ -1,0 +1,102 @@
+[
+  {
+    "split": "discovery",
+    "model": "luna",
+    "pairs": 0,
+    "runs": 0,
+    "pairs_crossing_edit_or_opaque": 0,
+    "prior_status_counts": {},
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "discovery",
+    "model": "gemini_3_7_flash",
+    "pairs": 729,
+    "runs": 363,
+    "pairs_crossing_edit_or_opaque": 632,
+    "prior_status_counts": {
+      "observed_zero": 327,
+      "truncated_observation": 96,
+      "observed_nonzero": 163,
+      "timeout_or_interrupted": 143
+    },
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "confirmation",
+    "model": "luna",
+    "pairs": 0,
+    "runs": 0,
+    "pairs_crossing_edit_or_opaque": 0,
+    "prior_status_counts": {},
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "confirmation",
+    "model": "gemini_3_7_flash",
+    "pairs": 48,
+    "runs": 25,
+    "pairs_crossing_edit_or_opaque": 42,
+    "prior_status_counts": {
+      "observed_zero": 20,
+      "observed_nonzero": 7,
+      "truncated_observation": 12,
+      "timeout_or_interrupted": 9
+    },
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "semantic_confirmation",
+    "model": "luna",
+    "pairs": 0,
+    "runs": 0,
+    "pairs_crossing_edit_or_opaque": 0,
+    "prior_status_counts": {},
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "semantic_confirmation",
+    "model": "gemini_3_7_flash",
+    "pairs": 33,
+    "runs": 14,
+    "pairs_crossing_edit_or_opaque": 18,
+    "prior_status_counts": {
+      "observed_zero": 13,
+      "timeout_or_interrupted": 16,
+      "observed_nonzero": 2,
+      "truncated_observation": 2
+    },
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "all",
+    "model": "luna",
+    "pairs": 0,
+    "runs": 0,
+    "pairs_crossing_edit_or_opaque": 0,
+    "prior_status_counts": {},
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  },
+  {
+    "split": "all",
+    "model": "gemini_3_7_flash",
+    "pairs": 818,
+    "runs": 407,
+    "pairs_crossing_edit_or_opaque": 700,
+    "prior_status_counts": {
+      "observed_zero": 364,
+      "truncated_observation": 114,
+      "observed_nonzero": 172,
+      "timeout_or_interrupted": 168
+    },
+    "state_equality_certified": 0,
+    "interpretation": "Literal dedicated-check repeats only; no implicit/script verification or dependency identity claim."
+  }
+]

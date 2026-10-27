@@ -1,0 +1,6 @@
+# go.flipt.io/flipt/internal/config [go.flipt.io/flipt/internal/config.test]
+internal/config/config_test.go:312:21: cfg.Cache.Redis.RequireTLS undefined (type RedisCacheConfig has no field or method RequireTLS)
+internal/config/config_test.go:315:21: cfg.Cache.Redis.PoolSize undefined (type RedisCacheConfig has no field or method PoolSize)
+internal/config/config_test.go:316:21: cfg.Cache.Redis.MinIdleConn undefined (type RedisCacheConfig has no field or method MinIdleConn)
+internal/config/config_test.go:317:21: cfg.Cache.Redis.ConnMaxIdleTime undefined (type RedisCacheConfig has no field or method ConnMaxIdleTime)
+internal/config/config_test.go:318:21: cfg.Cache.Redis.NetTimeout undefined (type RedisCacheConfig has no field or method NetTimeout)

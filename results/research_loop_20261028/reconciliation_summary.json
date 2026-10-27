@@ -1,0 +1,18 @@
+{
+  "runs": 2100,
+  "all_three_token_metrics_match": 1843,
+  "per_model": {
+    "gemini_3_7_flash": {
+      "runs": 700,
+      "matching": 529
+    },
+    "luna": {
+      "runs": 700,
+      "matching": 696
+    },
+    "terra": {
+      "runs": 700,
+      "matching": 618
+    }
+  }
+}

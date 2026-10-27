@@ -1,0 +1,575 @@
+[
+  {
+    "role": "exploration",
+    "tasks": 30,
+    "minimum_mean_difference": -0.05590137655449111,
+    "maximum_mean_difference": 0.4639956197180315,
+    "equal_stored_response_mean": 0.23562685994825366,
+    "both_orderings_feasible": true,
+    "interpretation": "Full-run extremal bounds include positive unlocalized residual. Equal estimate uses stored-response denominator; neither is causal reasoning attribution.",
+    "per_task": [
+      {
+        "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.2813554200370945,
+        "maximum": 0.33807027660610633,
+        "equal_stored_response_share": 0.031850486833742586
+      },
+      {
+        "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.23309193523479854,
+        "maximum": 0.5492227296589816,
+        "equal_stored_response_share": 0.274070149418473
+      },
+      {
+        "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.443540259790943,
+        "maximum": 0.30350357788924265,
+        "equal_stored_response_share": 0.05699597060835854
+      },
+      {
+        "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "minimum": 0.5004728100129837,
+        "maximum": 0.6648756457065411,
+        "equal_stored_response_share": 0.5785838890893734
+      },
+      {
+        "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.2836975479785547,
+        "maximum": 0.45359413202933985,
+        "equal_stored_response_share": 0.1522194867397586
+      },
+      {
+        "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+        "minimum": -0.43920086487227555,
+        "maximum": 0.28461562756616765,
+        "equal_stored_response_share": 0.028946646525050745
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+        "minimum": -0.07500795572837726,
+        "maximum": 0.29163973914576113,
+        "equal_stored_response_share": 0.11871516300063059
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+        "minimum": 0.09391796498988375,
+        "maximum": 0.44973983621748387,
+        "equal_stored_response_share": 0.2984851375792267
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+        "minimum": -0.20198702677730757,
+        "maximum": 0.5309597523219814,
+        "equal_stored_response_share": 0.24155797976532087
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+        "minimum": -0.18008411511416378,
+        "maximum": 0.6378635822418779,
+        "equal_stored_response_share": 0.21055585254177023
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+        "minimum": -0.34647505402946355,
+        "maximum": 0.4226205549011897,
+        "equal_stored_response_share": 0.25376211571539226
+      },
+      {
+        "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+        "minimum": -0.17108819672177156,
+        "maximum": 0.6647372323371612,
+        "equal_stored_response_share": 0.2764467469375274
+      },
+      {
+        "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+        "minimum": 0.03780193736614057,
+        "maximum": 0.6534363670995372,
+        "equal_stored_response_share": 0.3399457355791244
+      },
+      {
+        "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+        "minimum": -0.012057842106484196,
+        "maximum": 0.17543062164180506,
+        "equal_stored_response_share": 0.07613405995977938
+      },
+      {
+        "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+        "minimum": 0.16727300033109643,
+        "maximum": 0.45502807554874936,
+        "equal_stored_response_share": 0.35519319854827835
+      },
+      {
+        "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+        "minimum": 0.16664474566160603,
+        "maximum": 0.4264837864422128,
+        "equal_stored_response_share": 0.3224098183490746
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": -0.03263389075084394,
+        "maximum": 0.41694624246746137,
+        "equal_stored_response_share": 0.2166512518055629
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+        "minimum": 0.0838297459315348,
+        "maximum": 0.8533514462741459,
+        "equal_stored_response_share": 0.395199625881899
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+        "minimum": 0.007032296568827201,
+        "maximum": 0.45922944164015034,
+        "equal_stored_response_share": 0.21177041957360937
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+        "minimum": -0.06281466798131152,
+        "maximum": 0.27561791967044286,
+        "equal_stored_response_share": 0.13811489703852925
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": 0.18043995309332145,
+        "maximum": 0.39140367146323474,
+        "equal_stored_response_share": 0.2734789820388377
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+        "minimum": 0.046684966001104555,
+        "maximum": 0.36662184210792403,
+        "equal_stored_response_share": 0.18091839048362157
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+        "minimum": -0.3204984837113279,
+        "maximum": 0.3454729694390261,
+        "equal_stored_response_share": 0.10659368544087994
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+        "minimum": -0.34352525726489574,
+        "maximum": 0.4980168090720064,
+        "equal_stored_response_share": 0.1346261890185046
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+        "minimum": -0.44062813345988894,
+        "maximum": 0.3149720435477994,
+        "equal_stored_response_share": 0.015339607535359678
+      },
+      {
+        "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+        "minimum": 0.6831893905345823,
+        "maximum": 0.9328347806055043,
+        "equal_stored_response_share": 0.7888927002272537
+      },
+      {
+        "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+        "minimum": -0.032470479888054404,
+        "maximum": 0.42118635002139493,
+        "equal_stored_response_share": 0.17997297878448082
+      },
+      {
+        "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+        "minimum": -0.23717148674323418,
+        "maximum": 0.3862015100234314,
+        "equal_stored_response_share": 0.112769512961953
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": 0.09804736132744996,
+        "maximum": 0.4068851053629269,
+        "equal_stored_response_share": 0.24859132033540243
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": 0.3949531497375264,
+        "maximum": 0.5493069224913602,
+        "equal_stored_response_share": 0.45001380013083314
+      }
+    ]
+  },
+  {
+    "role": "edit",
+    "tasks": 30,
+    "minimum_mean_difference": -0.3087523729155229,
+    "maximum_mean_difference": 0.23837949636692013,
+    "equal_stored_response_mean": 0.04802544325804488,
+    "both_orderings_feasible": true,
+    "interpretation": "Full-run extremal bounds include positive unlocalized residual. Equal estimate uses stored-response denominator; neither is causal reasoning attribution.",
+    "per_task": [
+      {
+        "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.27974678150703775,
+        "maximum": 0.2934022083743304,
+        "equal_stored_response_share": 0.038285868127115735
+      },
+      {
+        "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.42139937712452014,
+        "maximum": 0.2213245813346798,
+        "equal_stored_response_share": 0.052712092940110394
+      },
+      {
+        "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.30931706905636613,
+        "maximum": 0.3757957669809754,
+        "equal_stored_response_share": 0.18504421624854062
+      },
+      {
+        "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "minimum": 0.12941402251791198,
+        "maximum": 0.12941402251791198,
+        "equal_stored_response_share": 0.12941402251791198
+      },
+      {
+        "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.6426064892432085,
+        "maximum": 0.10415647921760392,
+        "equal_stored_response_share": -0.14798426602065812
+      },
+      {
+        "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+        "minimum": -0.3008351609061512,
+        "maximum": 0.24647273245506154,
+        "equal_stored_response_share": 0.13384858190618543
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+        "minimum": -0.07813976870854222,
+        "maximum": 0.3437518359673345,
+        "equal_stored_response_share": 0.20312130107537557
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+        "minimum": -0.12571883830862718,
+        "maximum": 0.352287142750541,
+        "equal_stored_response_share": 0.23515727419745447
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+        "minimum": -0.5643326884233255,
+        "maximum": 0.32950536395708835,
+        "equal_stored_response_share": -0.11465265641077227
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+        "minimum": -0.3523043299883778,
+        "maximum": 0.20813063446164315,
+        "equal_stored_response_share": 0.09604364157163897
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+        "minimum": -0.46313612559880635,
+        "maximum": 0.21912788567240749,
+        "equal_stored_response_share": 0.0219713657320659
+      },
+      {
+        "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+        "minimum": -0.48004852905177753,
+        "maximum": 0.18682230008500406,
+        "equal_stored_response_share": -0.10341977531367094
+      },
+      {
+        "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+        "minimum": -0.5298467014403107,
+        "maximum": 0.18945709521960577,
+        "equal_stored_response_share": -0.0093967673920059
+      },
+      {
+        "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+        "minimum": 0.15839066434266458,
+        "maximum": 0.5279919991110124,
+        "equal_stored_response_share": 0.3554611546672977
+      },
+      {
+        "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+        "minimum": -0.3539745780549736,
+        "maximum": 0.28284839203675344,
+        "equal_stored_response_share": 0.054891877583610554
+      },
+      {
+        "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+        "minimum": -0.2022725522994982,
+        "maximum": 0.21121718377088305,
+        "equal_stored_response_share": 0.07338727174742266
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": -0.3507144034309637,
+        "maximum": 0.3353146401343843,
+        "equal_stored_response_share": -0.10770405457434551
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+        "minimum": -0.3635601467686743,
+        "maximum": 0.029091150061296842,
+        "equal_stored_response_share": -0.05561105935272813
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+        "minimum": -0.49415671755272483,
+        "maximum": 0.24571337214724417,
+        "equal_stored_response_share": -0.005376946442301106
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+        "minimum": -0.5600483598250736,
+        "maximum": 0.10373326467559217,
+        "equal_stored_response_share": -0.22815754757474072
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": -0.46796593055082525,
+        "maximum": 0.5233974324941334,
+        "equal_stored_response_share": 0.13409175404035245
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+        "minimum": -0.39585395973878656,
+        "maximum": -0.0853023478646125,
+        "equal_stored_response_share": -0.18638782198237563
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+        "minimum": -0.29251608940953144,
+        "maximum": 0.2523578601703005,
+        "equal_stored_response_share": 0.1433830702543341
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+        "minimum": -0.22905966194052885,
+        "maximum": 0.4225856616169558,
+        "equal_stored_response_share": 0.24544731549070717
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+        "minimum": 0.4048310656681545,
+        "maximum": 0.5157400760415836,
+        "equal_stored_response_share": 0.472227123087399
+      },
+      {
+        "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+        "minimum": -0.7439716312056738,
+        "maximum": 0.0,
+        "equal_stored_response_share": -0.19126477541371156
+      },
+      {
+        "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+        "minimum": -0.0706603132964968,
+        "maximum": 0.12984274096149817,
+        "equal_stored_response_share": 0.03513379378219528
+      },
+      {
+        "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+        "minimum": -0.10244671235135662,
+        "maximum": 0.15308513407966676,
+        "equal_stored_response_share": 0.02066551634734875
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": -0.3122445448500089,
+        "maximum": 0.09734259037586784,
+        "equal_stored_response_share": -0.04001981112158105
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": -0.46832947936224983,
+        "maximum": 0.20677769220085604,
+        "equal_stored_response_share": 0.00045153802317030034
+      }
+    ]
+  },
+  {
+    "role": "verification",
+    "tasks": 30,
+    "minimum_mean_difference": -0.15247978543306528,
+    "maximum_mean_difference": 0.08755941085554661,
+    "equal_stored_response_mean": 0.014228646995086728,
+    "both_orderings_feasible": true,
+    "interpretation": "Full-run extremal bounds include positive unlocalized residual. Equal estimate uses stored-response denominator; neither is causal reasoning attribution.",
+    "per_task": [
+      {
+        "task_id": "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.016129364797920237,
+        "maximum": 0.046381327211107465,
+        "equal_stored_response_share": 0.012564805634687315
+      },
+      {
+        "task_id": "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.6520829016378804,
+        "maximum": 0.03681730202810738,
+        "equal_stored_response_share": -0.14189960224887838
+      },
+      {
+        "task_id": "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.12984532789116915,
+        "maximum": 0.09053752329636669,
+        "equal_stored_response_share": 0.030927676978440795
+      },
+      {
+        "task_id": "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59",
+        "minimum": -0.06953447164327846,
+        "maximum": 0.00850818833162743,
+        "equal_stored_response_share": -0.02270887565833493
+      },
+      {
+        "task_id": "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+        "minimum": -0.4581266501567879,
+        "maximum": 0.0765281173594132,
+        "equal_stored_response_share": -0.10506750660280739
+      },
+      {
+        "task_id": "instance_element-hq__element-web-d06cf09bf0b3d4a0fbe6bd32e4115caea2083168-vnan",
+        "minimum": 0.1579811761733308,
+        "maximum": 0.1579811761733308,
+        "equal_stored_response_share": 0.1579811761733308
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-29d3f9db40c83434d0e3cc082af8baec64c391a9",
+        "minimum": 0.26649433053287114,
+        "maximum": 0.26649433053287114,
+        "equal_stored_response_share": 0.26649433053287114
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-492cc0b158200089dceede3b1aba0ed28df3fb1d",
+        "minimum": -0.00919253579888088,
+        "maximum": 0.0725319006044325,
+        "equal_stored_response_share": 0.05072598868360323
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-65581fef4aa807540cb933753d085feb0d7e736f",
+        "minimum": -0.2950508632434796,
+        "maximum": 0.08197134422924617,
+        "equal_stored_response_share": -0.036638131793954094
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-abaa5953795afb9c621605bb18cb32ac48b4508c",
+        "minimum": 0.07797244429324715,
+        "maximum": 0.08887565912570165,
+        "equal_stored_response_share": 0.0834240517094744
+      },
+      {
+        "task_id": "instance_flipt-io__flipt-b68b8960b8a08540d5198d78c665a7eb0bea4008",
+        "minimum": -0.2825345860190186,
+        "maximum": 0.16828508611212897,
+        "equal_stored_response_share": 0.09314847409027105
+      },
+      {
+        "task_id": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+        "minimum": 0.05701490680654324,
+        "maximum": 0.1256401219082371,
+        "equal_stored_response_share": 0.06121585824633261
+      },
+      {
+        "task_id": "instance_future-architect__vuls-abd80417728b16c6502067914d27989ee575f0ee",
+        "minimum": -0.13282198281300955,
+        "maximum": 0.07233401091747939,
+        "equal_stored_response_share": 0.02676689887715366
+      },
+      {
+        "task_id": "instance_gravitational__teleport-005dcb16bacc6a5d5890c4cd302ccfd4298e275d-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+        "minimum": -0.3330639417246762,
+        "maximum": 0.03653739304367152,
+        "equal_stored_response_share": -0.05712423562580732
+      },
+      {
+        "task_id": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+        "minimum": 0.062097438998909696,
+        "maximum": 0.1631955079122001,
+        "equal_stored_response_share": 0.1379209906838775
+      },
+      {
+        "task_id": "instance_gravitational__teleport-a95b3ae0667f9e4b2404bf61f51113e6d83f01cd",
+        "minimum": -0.012785563039624165,
+        "maximum": 0.09642922709748486,
+        "equal_stored_response_share": 0.05306327875424804
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": -0.6136076773125834,
+        "maximum": 0.022095878020416074,
+        "equal_stored_response_share": -0.1368300108128338
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4",
+        "minimum": -0.10415534568080298,
+        "maximum": 0.019283655279811802,
+        "equal_stored_response_share": -0.011576094960341895
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+        "minimum": -0.3803623611535088,
+        "maximum": 0.04694973287680358,
+        "equal_stored_response_share": -0.10585725753457902
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90",
+        "minimum": 0.04085993820803296,
+        "maximum": 0.04085993820803296,
+        "equal_stored_response_share": 0.04085993820803296
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "minimum": -0.6006990786148964,
+        "maximum": 0.01754143793070495,
+        "equal_stored_response_share": -0.2299888284131207
+      },
+      {
+        "task_id": "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb",
+        "minimum": 0.002893752637212199,
+        "maximum": 0.10149840766668135,
+        "equal_stored_response_share": 0.05453847652044885
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+        "minimum": -0.4797430700104701,
+        "maximum": 0.09706365267860552,
+        "equal_stored_response_share": -0.022555394940442106
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+        "minimum": 0.033548251821565234,
+        "maximum": 0.033548251821565234,
+        "equal_stored_response_share": 0.033548251821565234
+      },
+      {
+        "task_id": "instance_navidrome__navidrome-f7d4fcdcc1a59d1b4f835519efb402897757e371",
+        "minimum": -0.030325181745616374,
+        "maximum": 0.037941027890776635,
+        "equal_stored_response_share": 0.025652709199453096
+      },
+      {
+        "task_id": "instance_nodebb__nodebb-f1a80d48cc45877fcbadf34c2345dd9709722c7f-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+        "minimum": 0.013031667984733349,
+        "maximum": 0.013031667984733349,
+        "equal_stored_response_share": 0.013031667984733349
+      },
+      {
+        "task_id": "instance_protonmail__webclients-5e815cfa518b223a088fa9bb232a5fc90ab15691",
+        "minimum": 0.06831675224646984,
+        "maximum": 0.06831675224646984,
+        "equal_stored_response_share": 0.06831675224646984
+      },
+      {
+        "task_id": "instance_protonmail__webclients-708ed4a299711f0fa79a907cc5847cfd39c0fc71",
+        "minimum": 0.10486852382192137,
+        "maximum": 0.18526425410049466,
+        "equal_stored_response_share": 0.11403657777022819
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": -0.31048994710852834,
+        "maximum": 0.22815417763945414,
+        "equal_stored_response_share": 0.053096557858371
+      },
+      {
+        "task_id": "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+        "minimum": -0.5489218961246645,
+        "maximum": 0.12618527543844144,
+        "equal_stored_response_share": -0.0802091135298916
+      }
+    ]
+  }
+]

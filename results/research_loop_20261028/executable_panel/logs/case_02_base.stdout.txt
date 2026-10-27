@@ -1,0 +1,2 @@
+FAIL	github.com/markphelps/flipt/internal/telemetry [setup failed]
+FAIL	github.com/markphelps/flipt/config [build failed]

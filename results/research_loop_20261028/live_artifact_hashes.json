@@ -1,0 +1,632 @@
+[
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r0/trajectory.json",
+    "sha256": "4877059673bad38f0f399a4770ebe7262d896c6133b45003f0029e23fa5267e0",
+    "bytes": 48045
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r0/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r0/private_grading.json",
+    "sha256": "e09406766034d08a734a229aa3ddab12a17761184ac3a47c314a5982ea220607",
+    "bytes": 18362
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r1/trajectory.json",
+    "sha256": "09dabe194bec313425a971ec67d082876d87301a72493ee12252228126a81bd9",
+    "bytes": 52553
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r1/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r1/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_bypass_r1/private_grading.json",
+    "sha256": "598021fd792b104d7256c0d6084bfcbebfb9af4ce9cae248c327c9252024fc1f",
+    "bytes": 18374
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r0/trajectory.json",
+    "sha256": "74e3bee3d010768c8133cebdd398cc29729ba847ac3864385b8a2095d859cdb5",
+    "bytes": 65029
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r0/initial_feedback.json",
+    "sha256": "4238e83a927ea2aecdefacfa5cdaaa8977b532528e2d6841bcc6c55cc36be899",
+    "bytes": 1950
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r0/private_grading.json",
+    "sha256": "ee5de298f447e721f10751cfa1513a33b4a3897dfb457495976cbe055d9becfc",
+    "bytes": 18365
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r1/trajectory.json",
+    "sha256": "c63f0acb24e4a2ffb7fed8a0e60fce0e3b1fd24919fd7464825b7401a06d6136",
+    "bytes": 65594
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r1/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "4238e83a927ea2aecdefacfa5cdaaa8977b532528e2d6841bcc6c55cc36be899",
+    "bytes": 1950
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_cache_r1/private_grading.json",
+    "sha256": "d3fd7b8a85a2ade49961e7c7fdb95e35ffd2c075aed3731e00d3ea09a5242d5b",
+    "bytes": 3732
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "ce1eb0857a40ed3bb0d1885bfb7c6e50e41aeb925f3aedcdcabcf272c422304e",
+    "bytes": 65068
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_fresh_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "a1c94d5cecd16b8a0254339c285eb98079817e7dff0c4c6d8a5c7e2d33d6f738",
+    "bytes": 1951
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm00_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "8e759c0a6d0bdb0230b5c9916ae0ad14cc302b171fe3ec1a9571e83dc13a98bb",
+    "bytes": 18374
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r0/trajectory.json",
+    "sha256": "7ea9ea11c2e769f7f8518ec4ab2b2fb8d5631c856de181fd72949c4915d379ac",
+    "bytes": 59221
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r0/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r0/initial_feedback.json",
+    "sha256": "148e9792b228e136ddba8c7644d238d0f0d548b0fc513c88c3567c34df9b8a25",
+    "bytes": 15882
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r0/private_grading.json",
+    "sha256": "f14d867d6e8138bb5286acf67458e1583c7ecdafe432b510e339db7a724fac0d",
+    "bytes": 137566
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r1/trajectory.json",
+    "sha256": "76a9c10858c9319f3a967b20644644c65a4342e18a7ef7977df2925680ad1f02",
+    "bytes": 59666
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r1/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "148e9792b228e136ddba8c7644d238d0f0d548b0fc513c88c3567c34df9b8a25",
+    "bytes": 15882
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_cache_r1/private_grading.json",
+    "sha256": "f9913d64ffef7c3e54cb0032f45ccbecf067cb7247151d7324ab49c8794038c4",
+    "bytes": 137565
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "62a098ba206d52cb1dc2f10f7f32e948672ef5256e06f90cf8f65b10f9970e41",
+    "bytes": 94257
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_fresh_r0/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "2bfc8002fff3ef4a818e85088400ac72436ff6ec31519b3474a6e505f547ef17",
+    "bytes": 15883
+  },
+  {
+    "path": "raw/live_utility/episodes/confirm03_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "e7d0491e9722b9481a2e21c5f5e820fd686e0b8a47069b370688deee6f93d87f",
+    "bytes": 137566
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r0/trajectory.json",
+    "sha256": "c861f7b40722dd4b0ba6bea080ad157326dffa46d47e756a50cee672aa64179c",
+    "bytes": 57353
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r0/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r0/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r0/private_grading.json",
+    "sha256": "cfab2b9f257086de45583390bb6cb47ca11ccc50e239eb3ad74fcc977b4566c3",
+    "bytes": 11680
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r1/trajectory.json",
+    "sha256": "a7847c44621ae100835f19a25f1626b2aa2ab4aa600d93ebc06e3c661585ec78",
+    "bytes": 56026
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r1/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r1/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_bypass_r1/private_grading.json",
+    "sha256": "81db85f82f5f03ce7d6eb5178e6a55a23344509217d10212400c3c47cad8e471",
+    "bytes": 11676
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_cache_r1/trajectory.json",
+    "sha256": "9c37b62f5e46292b7b331de537cb626ca87eb129c1b467ea1aff8ef8f12d27db",
+    "bytes": 79661
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_cache_r1/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "f063f8d9217cecce6815792877aade9652a02ce66db29830d1ff9734c71e74c2",
+    "bytes": 11913
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_cache_r1/private_grading.json",
+    "sha256": "83e8e58c026a6e98eb794d159334d69bd4d8bf28c1243f3ee85f49bf652e65ba",
+    "bytes": 11684
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "bfe79b201b60ae2b037de32544d20679f8a9e87a0918b0d021f5bb4b5685e5bf",
+    "bytes": 57244
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_fresh_r0/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "ee423cebf79b6fee5be4268ea6849d5bc72ec97942dafc7b57dd4d5b89f36815",
+    "bytes": 11914
+  },
+  {
+    "path": "raw/live_utility/episodes/pilot03_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "8631b1f11ff6700123918422863da720cbb32862334e9a87e672f1f2b46d0f06",
+    "bytes": 11684
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r0/trajectory.json",
+    "sha256": "14908a696740ecdb2a192da76b2dad45dba945396f46657c47a4545d1dd53793",
+    "bytes": 64525
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r0/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r0/private_grading.json",
+    "sha256": "5efa13ed09d3525fc6b7bedf4132cca5a7e7aa98dcd66c79dfa01e33e879dbc3",
+    "bytes": 18376
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r1/trajectory.json",
+    "sha256": "2f8e7b581ee2271142ae898290215aaf61357e61d9a91c7e3f4324d7f327a173",
+    "bytes": 75575
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r1/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r1/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_bypass_r1/private_grading.json",
+    "sha256": "921504b16d0cac537508a21e8309a3418eed63d3a3ad7560864bf2921d4f830f",
+    "bytes": 18356
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r0/trajectory.json",
+    "sha256": "ef01df9e867e4f2563b1203d18215558f1515864e4708fe997d831d3bb3a09d2",
+    "bytes": 89214
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r0/initial_feedback.json",
+    "sha256": "4238e83a927ea2aecdefacfa5cdaaa8977b532528e2d6841bcc6c55cc36be899",
+    "bytes": 1950
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r0/private_grading.json",
+    "sha256": "49657c89eab591b31d8cb3c2004794d1ebc39d9fc3b51e1917840c906fc0377f",
+    "bytes": 18376
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r1/trajectory.json",
+    "sha256": "566897f2036a6941d9a0faa8fb2975ab05417d639c5f268f5938d6b757f65ac6",
+    "bytes": 71066
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r1/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "4238e83a927ea2aecdefacfa5cdaaa8977b532528e2d6841bcc6c55cc36be899",
+    "bytes": 1950
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_cache_r1/private_grading.json",
+    "sha256": "4b8c9e43b5f4b6682b5129a227b1e2b56ee4641d1678509b5054dbacf0cc641b",
+    "bytes": 18376
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "e38ebcde6ebe1766d8a0e729eea0dcf64797a48ce04d7c899d98743bdd75d258",
+    "bytes": 71160
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r0/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "5d91517df683797fda7973f714a1b2f31a5bf93004e8c28c97769cdb6b877067",
+    "bytes": 112
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "985fe00991fbcb4c29fd2b99e1f84b99e61778d0ecfb0549f0cbd629f96d3620",
+    "bytes": 18376
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r1/trajectory.json",
+    "sha256": "0ecd07ab72266e28aa3b92be0d46c9880d2b36b44bad4fdb5573f4993039b85d",
+    "bytes": 120519
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r1/final.patch",
+    "sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+    "bytes": 1406
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r1/initial_feedback.json",
+    "sha256": "a1c94d5cecd16b8a0254339c285eb98079817e7dff0c4c6d8a5c7e2d33d6f738",
+    "bytes": 1951
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm00_x-test-2_fresh_r1/private_grading.json",
+    "sha256": "8bdb40798b64588899e133c8a6372b965c914f835cee917ddf0bfdc51b4071fb",
+    "bytes": 18376
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r0/trajectory.json",
+    "sha256": "22a5e09a2d1ca7f3f2b31ac114cd1e0edf0746510c6d10c11e26407a90f7eea1",
+    "bytes": 133046
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r0/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r0/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r0/private_grading.json",
+    "sha256": "c95d3485b20007f597b5650a1630f5f0d2f208b1b0ab33a146bda18dc8de85af",
+    "bytes": 137387
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r0/private_fixture_grading.json",
+    "sha256": "9e6d85badcb6a5c269465c3394499110c11a8c474bb2567c60020d110dfff66e",
+    "bytes": 136823
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r1/trajectory.json",
+    "sha256": "c0b087759bbf4ab367a27623a967b8d82d14277ba5184af73aa41a9b47ae7a10",
+    "bytes": 145115
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r1/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r1/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r1/private_grading.json",
+    "sha256": "8c77aeab709f52f6340d6acf9f4b2d4039b622372ee9ded813d72e62cc421eea",
+    "bytes": 137474
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_bypass_r1/private_fixture_grading.json",
+    "sha256": "dda6603e984df813973cacdafde44ae354f1802c1e0b3fe42c598c189b8f3fc1",
+    "bytes": 137012
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r0/trajectory.json",
+    "sha256": "daf638bed1ae88cb9dc36c4b762364525934c4c9cf90e198cbf9161508a048a2",
+    "bytes": 107248
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r0/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r0/initial_feedback.json",
+    "sha256": "148e9792b228e136ddba8c7644d238d0f0d548b0fc513c88c3567c34df9b8a25",
+    "bytes": 15882
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r0/private_grading.json",
+    "sha256": "c50a810e1a009f7c62627ae76e0eddcac60ada03710243902a6b92f388f32c76",
+    "bytes": 137396
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r0/private_fixture_grading.json",
+    "sha256": "f88c4c250e35c622c08f1476b30ac58ce9c4981e125f987c1083fe2c30c5afff",
+    "bytes": 137012
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r1/trajectory.json",
+    "sha256": "5d4cb05f7f1146b8b9f4dcb7f9709441c15b2a8cd3d5929f686be9d58b377dfe",
+    "bytes": 99105
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r1/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "148e9792b228e136ddba8c7644d238d0f0d548b0fc513c88c3567c34df9b8a25",
+    "bytes": 15882
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r1/private_grading.json",
+    "sha256": "4e1e76960f29ca1d0f4696db2d8e357d8bfe11538ef1928b0bd4487666438c51",
+    "bytes": 137414
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_cache_r1/private_fixture_grading.json",
+    "sha256": "42ec3f07718c361cbf892f72de4ab9fac3a96ff278525f96a56bbadf145a633c",
+    "bytes": 136926
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "7236839149e70b40d9ead0f12432f7da37a4e2236f980fce7382a3cc22b2ac2e",
+    "bytes": 119887
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r0/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "2bfc8002fff3ef4a818e85088400ac72436ff6ec31519b3474a6e505f547ef17",
+    "bytes": 15883
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "c6949cfea410e5f9f8ba4ad749a3e0447eabe952425b9f7857fc4d700c6491ac",
+    "bytes": 137565
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r0/private_fixture_grading.json",
+    "sha256": "956c88739be799d2eabd0ec111506d58258aba14a8b31f8287b54686d11a874a",
+    "bytes": 136913
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r1/trajectory.json",
+    "sha256": "e5904ea70d77b7a9a7a76cf234c4dde61d0f083c7022e22c30e6ea0222946858",
+    "bytes": 118941
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r1/final.patch",
+    "sha256": "423ac7ca29868f078124ce992eed4a7d217a87dd4be250550ad2b410565e591c",
+    "bytes": 6639
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r1/initial_feedback.json",
+    "sha256": "2bfc8002fff3ef4a818e85088400ac72436ff6ec31519b3474a6e505f547ef17",
+    "bytes": 15883
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r1/private_grading.json",
+    "sha256": "f2880fa7f477f55ccd3260de6c0d02bbe62643f6e632f4def417a70705321052",
+    "bytes": 137469
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/confirm03_x-test-2_fresh_r1/private_fixture_grading.json",
+    "sha256": "a584fb7166c83b4f8e6d76eb2387db8128152018767968a7ad5385e5cbb81d75",
+    "bytes": 137011
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r0/trajectory.json",
+    "sha256": "465aee1925778c342bd15e0199a59b287e2cea3e89e18b743e22deb81b7962eb",
+    "bytes": 70977
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r0/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r0/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r0/private_grading.json",
+    "sha256": "3c13d15a4a0acdc6fbdce5e1770e65fa6e4183de1682eebc4f739ef4a0d71d65",
+    "bytes": 11677
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r1/trajectory.json",
+    "sha256": "d24bdf3bf9ef26eb6161cb11541ba021ff56a64b3c6af77d3a8ac26bf65fe8b2",
+    "bytes": 105138
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r1/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r1/initial_feedback.json",
+    "sha256": "6f703a8ea05f7c22f1e7198a9b10061452f540d00166666ce10a2a5fc4685a8c",
+    "bytes": 119
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_bypass_r1/private_grading.json",
+    "sha256": "8d85171f5b5ccc5df0f18da27bb7d2d765eb67bdd5bc662b0cef829f1ac439a1",
+    "bytes": 11676
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r0/trajectory.json",
+    "sha256": "c617f04c75a6d2f699c8916a60fc306424c9669ce82579cf061b0c5fa0f060c2",
+    "bytes": 99244
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r0/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r0/initial_feedback.json",
+    "sha256": "f063f8d9217cecce6815792877aade9652a02ce66db29830d1ff9734c71e74c2",
+    "bytes": 11913
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r0/private_grading.json",
+    "sha256": "c93d419d3f781a99018d29ea0b8f5ff2118af8b00356f9344fb01e8f29d5fe94",
+    "bytes": 11675
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r1/trajectory.json",
+    "sha256": "a3edec74dc09da3741c6931c24c17b17895e375561c77bcaa6df8b0ee7982f15",
+    "bytes": 107348
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r1/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r1/initial_feedback.json",
+    "sha256": "f063f8d9217cecce6815792877aade9652a02ce66db29830d1ff9734c71e74c2",
+    "bytes": 11913
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_cache_r1/private_grading.json",
+    "sha256": "461bc08e2d7532094ec166b73e39be2ed8a521376a36c82dac12254a29df8bb7",
+    "bytes": 11684
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r0/trajectory.json",
+    "sha256": "2b143d6f79f9692725c7ed434bbb02ba61c39b1b1bc637e832ae5a4b8a5c238e",
+    "bytes": 85960
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r0/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r0/initial_feedback.json",
+    "sha256": "ee423cebf79b6fee5be4268ea6849d5bc72ec97942dafc7b57dd4d5b89f36815",
+    "bytes": 11914
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r0/private_grading.json",
+    "sha256": "656c6438b051f6c7d3053cd12fe4f47217e5f897f37386d719b2ab2bbd3d8380",
+    "bytes": 11674
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r1/trajectory.json",
+    "sha256": "16eb427f833ed7c62497911dd45ef7c07f85407e693d88df5be0b746b9ecd1f5",
+    "bytes": 102902
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r1/final.patch",
+    "sha256": "9debf41f4d92fa43b58229ea43e2b29665cf70f40e23fb43bd8d36be745c4271",
+    "bytes": 1925
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r1/initial_feedback.json",
+    "sha256": "ee423cebf79b6fee5be4268ea6849d5bc72ec97942dafc7b57dd4d5b89f36815",
+    "bytes": 11914
+  },
+  {
+    "path": "raw/live_utility_v2/episodes/pilot03_x-test-2_fresh_r1/private_grading.json",
+    "sha256": "480154cfd319e74b1c4034850d44f9d44062b2f1f96a48e0da460101a7e631cf",
+    "bytes": 11670
+  }
+]

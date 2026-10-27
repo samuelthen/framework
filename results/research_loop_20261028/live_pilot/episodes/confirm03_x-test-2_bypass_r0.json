@@ -1,0 +1,17 @@
+{
+  "case": "confirm03",
+  "model": "x-test-2",
+  "arm": "bypass",
+  "replicate": 0,
+  "episode_id": "confirm03_x-test-2_bypass_r0",
+  "source_sha256": "0b8ccc49b806923f4896b4bf7ab137431b4f2a2c0c90527490370ff5a0240e68",
+  "cost_usd": null,
+  "status": "infrastructure_or_adapter_error",
+  "error_type": "RuntimeError",
+  "error": "Disk reserve reached",
+  "total_wall_seconds": 3.0875205993652344e-05,
+  "api_attempts": 0,
+  "usage_complete": true,
+  "input_tokens": 0,
+  "output_tokens": 0
+}

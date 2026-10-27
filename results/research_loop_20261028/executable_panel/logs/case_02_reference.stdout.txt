@@ -1,0 +1,108 @@
+{"Time":"2026-10-27T17:36:34.433259633Z","Action":"start","Package":"github.com/markphelps/flipt/config"}
+{"Time":"2026-10-27T17:36:34.433338175Z","Action":"start","Package":"github.com/markphelps/flipt/internal/telemetry"}
+{"Time":"2026-10-27T17:36:34.43445405Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestScheme"}
+{"Time":"2026-10-27T17:36:34.434464175Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme","Output":"=== RUN   TestScheme\n"}
+{"Time":"2026-10-27T17:36:34.434468758Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/https"}
+{"Time":"2026-10-27T17:36:34.4344703Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/https","Output":"=== RUN   TestScheme/https\n"}
+{"Time":"2026-10-27T17:36:34.434473967Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/https","Output":"--- PASS: TestScheme/https (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434476258Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/https","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434478467Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/http"}
+{"Time":"2026-10-27T17:36:34.434479342Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/http","Output":"=== RUN   TestScheme/http\n"}
+{"Time":"2026-10-27T17:36:34.434480675Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/http","Output":"--- PASS: TestScheme/http (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434481717Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestScheme/http","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434482925Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestScheme","Output":"--- PASS: TestScheme (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434484175Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestScheme","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.43448555Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestLoad"}
+{"Time":"2026-10-27T17:36:34.434491467Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad","Output":"=== RUN   TestLoad\n"}
+{"Time":"2026-10-27T17:36:34.434493217Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/defaults"}
+{"Time":"2026-10-27T17:36:34.434494175Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/defaults","Output":"=== RUN   TestLoad/defaults\n"}
+{"Time":"2026-10-27T17:36:34.434580133Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/defaults","Output":"--- PASS: TestLoad/defaults (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.4346268Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/defaults","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434635217Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/deprecated_defaults"}
+{"Time":"2026-10-27T17:36:34.434637592Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/deprecated_defaults","Output":"=== RUN   TestLoad/deprecated_defaults\n"}
+{"Time":"2026-10-27T17:36:34.4346473Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/deprecated_defaults","Output":"--- PASS: TestLoad/deprecated_defaults (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434649758Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/deprecated_defaults","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434662842Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/database_key/value"}
+{"Time":"2026-10-27T17:36:34.43466455Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/database_key/value","Output":"=== RUN   TestLoad/database_key/value\n"}
+{"Time":"2026-10-27T17:36:34.434714383Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/database_key/value","Output":"--- PASS: TestLoad/database_key/value (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434722342Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/database_key/value","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434723842Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/advanced"}
+{"Time":"2026-10-27T17:36:34.434724967Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/advanced","Output":"=== RUN   TestLoad/advanced\n"}
+{"Time":"2026-10-27T17:36:34.434805217Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/advanced","Output":"--- PASS: TestLoad/advanced (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434813967Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestLoad/advanced","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434816217Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestLoad","Output":"--- PASS: TestLoad (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434817383Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestLoad","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434818508Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate"}
+{"Time":"2026-10-27T17:36:34.434819508Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate","Output":"=== RUN   TestValidate\n"}
+{"Time":"2026-10-27T17:36:34.434821258Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_valid"}
+{"Time":"2026-10-27T17:36:34.434822092Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_valid","Output":"=== RUN   TestValidate/https:_valid\n"}
+{"Time":"2026-10-27T17:36:34.434823383Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_valid","Output":"--- PASS: TestValidate/https:_valid (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434824467Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_valid","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434825508Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/http:_valid"}
+{"Time":"2026-10-27T17:36:34.434826258Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/http:_valid","Output":"=== RUN   TestValidate/http:_valid\n"}
+{"Time":"2026-10-27T17:36:34.434827383Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/http:_valid","Output":"--- PASS: TestValidate/http:_valid (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434828258Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/http:_valid","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434829133Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_cert_file_path"}
+{"Time":"2026-10-27T17:36:34.434829967Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_cert_file_path","Output":"=== RUN   TestValidate/https:_empty_cert_file_path\n"}
+{"Time":"2026-10-27T17:36:34.434832425Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_cert_file_path","Output":"--- PASS: TestValidate/https:_empty_cert_file_path (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434833675Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_cert_file_path","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434836092Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_key_file_path"}
+{"Time":"2026-10-27T17:36:34.434837258Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_key_file_path","Output":"=== RUN   TestValidate/https:_empty_key_file_path\n"}
+{"Time":"2026-10-27T17:36:34.434838383Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_key_file_path","Output":"--- PASS: TestValidate/https:_empty_key_file_path (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434839467Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_empty_key_file_path","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434840508Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_cert_file"}
+{"Time":"2026-10-27T17:36:34.43484155Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_cert_file","Output":"=== RUN   TestValidate/https:_missing_cert_file\n"}
+{"Time":"2026-10-27T17:36:34.434844008Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_cert_file","Output":"--- PASS: TestValidate/https:_missing_cert_file (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.4348453Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_cert_file","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434846425Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_key_file"}
+{"Time":"2026-10-27T17:36:34.434847342Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_key_file","Output":"=== RUN   TestValidate/https:_missing_key_file\n"}
+{"Time":"2026-10-27T17:36:34.434849133Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_key_file","Output":"--- PASS: TestValidate/https:_missing_key_file (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434853133Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/https:_missing_key_file","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434854092Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_protocol"}
+{"Time":"2026-10-27T17:36:34.434854842Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_protocol","Output":"=== RUN   TestValidate/db:_missing_protocol\n"}
+{"Time":"2026-10-27T17:36:34.434855967Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_protocol","Output":"--- PASS: TestValidate/db:_missing_protocol (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434856842Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_protocol","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434857717Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_host"}
+{"Time":"2026-10-27T17:36:34.434858508Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_host","Output":"=== RUN   TestValidate/db:_missing_host\n"}
+{"Time":"2026-10-27T17:36:34.434859883Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_host","Output":"--- PASS: TestValidate/db:_missing_host (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434860758Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_host","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434861675Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_name"}
+{"Time":"2026-10-27T17:36:34.434862425Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_name","Output":"=== RUN   TestValidate/db:_missing_name\n"}
+{"Time":"2026-10-27T17:36:34.434863425Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_name","Output":"--- PASS: TestValidate/db:_missing_name (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.434865175Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate/db:_missing_name","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.434869258Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestValidate","Output":"--- PASS: TestValidate (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.43487605Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestValidate","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.43487705Z","Action":"run","Package":"github.com/markphelps/flipt/config","Test":"TestServeHTTP"}
+{"Time":"2026-10-27T17:36:34.434877842Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestServeHTTP","Output":"=== RUN   TestServeHTTP\n"}
+{"Time":"2026-10-27T17:36:34.4350188Z","Action":"output","Package":"github.com/markphelps/flipt/config","Test":"TestServeHTTP","Output":"--- PASS: TestServeHTTP (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.435028092Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Test":"TestServeHTTP","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.435029883Z","Action":"output","Package":"github.com/markphelps/flipt/config","Output":"PASS\n"}
+{"Time":"2026-10-27T17:36:34.435399092Z","Action":"output","Package":"github.com/markphelps/flipt/config","Output":"ok  \tgithub.com/markphelps/flipt/config\t0.002s\n"}
+{"Time":"2026-10-27T17:36:34.435409508Z","Action":"pass","Package":"github.com/markphelps/flipt/config","Elapsed":0.002}
+{"Time":"2026-10-27T17:36:34.435829675Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestNewReporter"}
+{"Time":"2026-10-27T17:36:34.435837592Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestNewReporter","Output":"=== RUN   TestNewReporter\n"}
+{"Time":"2026-10-27T17:36:34.435840925Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestNewReporter","Output":"--- PASS: TestNewReporter (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.435881675Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestNewReporter","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.435887883Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReporterClose"}
+{"Time":"2026-10-27T17:36:34.43588905Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReporterClose","Output":"=== RUN   TestReporterClose\n"}
+{"Time":"2026-10-27T17:36:34.435890717Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReporterClose","Output":"--- PASS: TestReporterClose (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.435891967Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReporterClose","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.43589505Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport"}
+{"Time":"2026-10-27T17:36:34.43589605Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport","Output":"=== RUN   TestReport\n"}
+{"Time":"2026-10-27T17:36:34.435959425Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport","Output":"--- PASS: TestReport (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.435963383Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.435965008Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Existing"}
+{"Time":"2026-10-27T17:36:34.435967967Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Existing","Output":"=== RUN   TestReport_Existing\n"}
+{"Time":"2026-10-27T17:36:34.435987925Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Existing","Output":"--- PASS: TestReport_Existing (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.435992717Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Existing","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.435994008Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Disabled"}
+{"Time":"2026-10-27T17:36:34.435994967Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Disabled","Output":"=== RUN   TestReport_Disabled\n"}
+{"Time":"2026-10-27T17:36:34.435996383Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Disabled","Output":"--- PASS: TestReport_Disabled (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.4359973Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_Disabled","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.4359983Z","Action":"run","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_SpecifyStateDir"}
+{"Time":"2026-10-27T17:36:34.435999133Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_SpecifyStateDir","Output":"=== RUN   TestReport_SpecifyStateDir\n"}
+{"Time":"2026-10-27T17:36:34.436346383Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_SpecifyStateDir","Output":"--- PASS: TestReport_SpecifyStateDir (0.00s)\n"}
+{"Time":"2026-10-27T17:36:34.436354342Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Test":"TestReport_SpecifyStateDir","Elapsed":0}
+{"Time":"2026-10-27T17:36:34.436355717Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Output":"PASS\n"}
+{"Time":"2026-10-27T17:36:34.436600717Z","Action":"output","Package":"github.com/markphelps/flipt/internal/telemetry","Output":"ok  \tgithub.com/markphelps/flipt/internal/telemetry\t0.002s\n"}
+{"Time":"2026-10-27T17:36:34.436614925Z","Action":"pass","Package":"github.com/markphelps/flipt/internal/telemetry","Elapsed":0.003}

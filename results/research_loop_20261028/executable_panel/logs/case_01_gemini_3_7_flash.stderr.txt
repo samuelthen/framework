@@ -1,0 +1,3 @@
+# go.flipt.io/flipt/internal/config [go.flipt.io/flipt/internal/config.test]
+internal/config/config_test.go:312:21: cfg.Cache.Redis.RequireTLS undefined (type RedisCacheConfig has no field or method RequireTLS)
+internal/config/config_test.go:318:21: cfg.Cache.Redis.NetTimeout undefined (type RedisCacheConfig has no field or method NetTimeout)

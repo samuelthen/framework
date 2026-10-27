@@ -1,0 +1,410 @@
+[
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "tasks": 30,
+    "ratios": {
+      "native_calls": {
+        "n": 30,
+        "estimate": 3.2066276803118905,
+        "lo": 2.821421703296703,
+        "hi": 3.58984375
+      },
+      "candidate_components": {
+        "n": 30,
+        "estimate": 1.1989354624085162,
+        "lo": 1.0389192778029401,
+        "hi": 1.3655551830420998
+      },
+      "output_tokens": {
+        "n": 30,
+        "estimate": 11.279071318967242,
+        "lo": 9.617514841397691,
+        "hi": 13.047232092930978
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 9,
+        "ties": 0,
+        "n": 30,
+        "mean": 0.3,
+        "lo": 0.13333333333333333,
+        "hi": 0.4666666666666667
+      },
+      "candidate_vs_output": {
+        "reversals": 9,
+        "ties": 0,
+        "n": 30,
+        "mean": 0.3,
+        "lo": 0.13333333333333333,
+        "hi": 0.4666666666666667
+      }
+    },
+    "recorded_success_difference": {
+      "n": 30,
+      "mean": 0.13333333333333333,
+      "lo": 0.0,
+      "hi": 0.3
+    }
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "tasks": 13,
+    "ratios": {
+      "native_calls": {
+        "n": 13,
+        "estimate": 3.369791666666666,
+        "lo": 2.8457363295302702,
+        "hi": 3.863902486910994
+      },
+      "candidate_components": {
+        "n": 13,
+        "estimate": 1.2607142857142857,
+        "lo": 1.076494460809426,
+        "hi": 1.4862342727992333
+      },
+      "output_tokens": {
+        "n": 13,
+        "estimate": 10.523888294249295,
+        "lo": 9.16271070042165,
+        "hi": 11.631485428888821
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 4,
+        "ties": 0,
+        "n": 13,
+        "mean": 0.3076923076923077,
+        "lo": 0.07692307692307693,
+        "hi": 0.5384615384615384
+      },
+      "candidate_vs_output": {
+        "reversals": 4,
+        "ties": 0,
+        "n": 13,
+        "mean": 0.3076923076923077,
+        "lo": 0.07692307692307693,
+        "hi": 0.5384615384615384
+      }
+    },
+    "recorded_success_difference": {
+      "n": 13,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+    }
+  },
+  {
+    "split": "confirmation",
+    "scope": "all_attempts",
+    "first": "terra",
+    "second": "luna",
+    "tasks": 30,
+    "ratios": {
+      "native_calls": {
+        "n": 30,
+        "estimate": 1.1637426900584793,
+        "lo": 1.069031830238727,
+        "hi": 1.2613906310559884
+      },
+      "candidate_components": {
+        "n": 30,
+        "estimate": 1.0552228875582168,
+        "lo": 0.9526559717733958,
+        "hi": 1.1944462159863944
+      },
+      "output_tokens": {
+        "n": 30,
+        "estimate": 1.2186344059717866,
+        "lo": 1.1115806706913667,
+        "hi": 1.333004739212483
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 8,
+        "ties": 3,
+        "n": 30,
+        "mean": 0.26666666666666666,
+        "lo": 0.13333333333333333,
+        "hi": 0.43333333333333335
+      },
+      "candidate_vs_output": {
+        "reversals": 9,
+        "ties": 2,
+        "n": 30,
+        "mean": 0.3,
+        "lo": 0.13333333333333333,
+        "hi": 0.4666666666666667
+      }
+    },
+    "recorded_success_difference": {
+      "n": 30,
+      "mean": 0.03333333333333333,
+      "lo": -0.06666666666666667,
+      "hi": 0.16666666666666666
+    }
+  },
+  {
+    "split": "confirmation",
+    "scope": "joint_success",
+    "first": "terra",
+    "second": "luna",
+    "tasks": 13,
+    "ratios": {
+      "native_calls": {
+        "n": 13,
+        "estimate": 1.1237113402061856,
+        "lo": 0.9797954160898324,
+        "hi": 1.293752221563981
+      },
+      "candidate_components": {
+        "n": 13,
+        "estimate": 1.1063464837049741,
+        "lo": 0.9025666624408383,
+        "hi": 1.4701038426543083
+      },
+      "output_tokens": {
+        "n": 13,
+        "estimate": 1.13142082583099,
+        "lo": 0.9486889990024149,
+        "hi": 1.3465453532264189
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 3,
+        "ties": 1,
+        "n": 13,
+        "mean": 0.23076923076923078,
+        "lo": 0.0,
+        "hi": 0.46153846153846156
+      },
+      "candidate_vs_output": {
+        "reversals": 4,
+        "ties": 1,
+        "n": 13,
+        "mean": 0.3076923076923077,
+        "lo": 0.07692307692307693,
+        "hi": 0.5384615384615384
+      }
+    },
+    "recorded_success_difference": {
+      "n": 13,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+    }
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "tasks": 631,
+    "ratios": {
+      "native_calls": {
+        "n": 631,
+        "estimate": 2.95656448297435,
+        "lo": 2.8807229895333966,
+        "hi": 3.032863539116725
+      },
+      "candidate_components": {
+        "n": 631,
+        "estimate": 1.1686823679185232,
+        "lo": 1.1366562805637752,
+        "hi": 1.2029300723473657
+      },
+      "output_tokens": {
+        "n": 631,
+        "estimate": 10.557714295359343,
+        "lo": 10.254750042410292,
+        "hi": 10.871583807832444
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 179,
+        "ties": 16,
+        "n": 631,
+        "mean": 0.2836767036450079,
+        "lo": 0.24881141045958796,
+        "hi": 0.3201267828843106
+      },
+      "candidate_vs_output": {
+        "reversals": 183,
+        "ties": 16,
+        "n": 631,
+        "mean": 0.2900158478605388,
+        "lo": 0.2551505546751189,
+        "hi": 0.3248811410459588
+      }
+    },
+    "recorded_success_difference": {
+      "n": 631,
+      "mean": 0.0919175911251981,
+      "lo": 0.060221870047543584,
+      "hi": 0.12519809825673534
+    }
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "first": "gemini_3_7_flash",
+    "second": "luna",
+    "tasks": 282,
+    "ratios": {
+      "native_calls": {
+        "n": 282,
+        "estimate": 2.9963027403218794,
+        "lo": 2.890763033230735,
+        "hi": 3.1073989703536915
+      },
+      "candidate_components": {
+        "n": 282,
+        "estimate": 1.1858939311098962,
+        "lo": 1.1430530694108438,
+        "hi": 1.2326724491552417
+      },
+      "output_tokens": {
+        "n": 282,
+        "estimate": 10.60201491026093,
+        "lo": 10.17906487553838,
+        "hi": 11.059203106709445
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 85,
+        "ties": 7,
+        "n": 282,
+        "mean": 0.30141843971631205,
+        "lo": 0.24822695035460993,
+        "hi": 0.3546099290780142
+      },
+      "candidate_vs_output": {
+        "reversals": 85,
+        "ties": 7,
+        "n": 282,
+        "mean": 0.30141843971631205,
+        "lo": 0.24822695035460993,
+        "hi": 0.3546099290780142
+      }
+    },
+    "recorded_success_difference": {
+      "n": 282,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+    }
+  },
+  {
+    "split": "discovery",
+    "scope": "all_attempts",
+    "first": "terra",
+    "second": "luna",
+    "tasks": 631,
+    "ratios": {
+      "native_calls": {
+        "n": 631,
+        "estimate": 1.0584502636518007,
+        "lo": 1.0369141620900069,
+        "hi": 1.0805855510488025
+      },
+      "candidate_components": {
+        "n": 631,
+        "estimate": 1.0198917886696373,
+        "lo": 0.9983367293386024,
+        "hi": 1.0415213047890044
+      },
+      "output_tokens": {
+        "n": 631,
+        "estimate": 1.150658788891074,
+        "lo": 1.1281493406660588,
+        "hi": 1.1732567714402171
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 135,
+        "ties": 76,
+        "n": 631,
+        "mean": 0.21394611727416799,
+        "lo": 0.1838351822503962,
+        "hi": 0.24722662440570523
+      },
+      "candidate_vs_output": {
+        "reversals": 183,
+        "ties": 23,
+        "n": 631,
+        "mean": 0.2900158478605388,
+        "lo": 0.2551505546751189,
+        "hi": 0.3248811410459588
+      }
+    },
+    "recorded_success_difference": {
+      "n": 631,
+      "mean": 0.03328050713153724,
+      "lo": 0.006339144215530904,
+      "hi": 0.060221870047543584
+    }
+  },
+  {
+    "split": "discovery",
+    "scope": "joint_success",
+    "first": "terra",
+    "second": "luna",
+    "tasks": 279,
+    "ratios": {
+      "native_calls": {
+        "n": 279,
+        "estimate": 1.0556407447973712,
+        "lo": 1.0251593894792421,
+        "hi": 1.087800427200808
+      },
+      "candidate_components": {
+        "n": 279,
+        "estimate": 1.0007051081165779,
+        "lo": 0.9678570297531368,
+        "hi": 1.034555882748506
+      },
+      "output_tokens": {
+        "n": 279,
+        "estimate": 1.1533341732748912,
+        "lo": 1.118503662156741,
+        "hi": 1.190498719943224
+      }
+    },
+    "reversals": {
+      "native_vs_candidate": {
+        "reversals": 66,
+        "ties": 29,
+        "n": 279,
+        "mean": 0.23655913978494625,
+        "lo": 0.1863799283154122,
+        "hi": 0.2903225806451613
+      },
+      "candidate_vs_output": {
+        "reversals": 87,
+        "ties": 10,
+        "n": 279,
+        "mean": 0.3118279569892473,
+        "lo": 0.25806451612903225,
+        "hi": 0.3655913978494624
+      }
+    },
+    "recorded_success_difference": {
+      "n": 279,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+    }
+  }
+]

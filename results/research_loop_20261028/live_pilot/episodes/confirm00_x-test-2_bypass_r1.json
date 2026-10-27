@@ -1,0 +1,22 @@
+{
+  "case": "confirm00",
+  "model": "x-test-2",
+  "arm": "bypass",
+  "replicate": 1,
+  "episode_id": "confirm00_x-test-2_bypass_r1",
+  "source_sha256": "7edf3a51de3c3b37ddf7f2744021b34914e1c5693db475f5fd143692e4ffe136",
+  "cost_usd": null,
+  "status": "completed",
+  "initial_check_seconds": 0.0,
+  "agent_exit": "LimitsExceeded",
+  "model_calls": 4,
+  "protocol_valid": true,
+  "final_patch_sha256": "de5ee36bfebca39f50c2ae8dc032ff133482b40c5e30722005885765efc24b62",
+  "scoped_quality": "scoped_pass",
+  "grading_seconds": 1.3378720418550074,
+  "total_wall_seconds": 15.451564791146666,
+  "api_attempts": 4,
+  "usage_complete": true,
+  "input_tokens": 11568,
+  "output_tokens": 459
+}
