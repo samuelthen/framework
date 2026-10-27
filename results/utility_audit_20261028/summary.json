@@ -1,0 +1,803 @@
+{
+  "iterations": 7,
+  "downloaded_trajectory_shards": 2,
+  "selected_tasks": 8,
+  "selected_runs": 16,
+  "native_calls": 449,
+  "candidate_components": 769,
+  "reconstructed_tasks": 2,
+  "model_calls": 0,
+  "agent_continuations": 0,
+  "actual_final_benchmark_evaluations": 0,
+  "rounds": [
+    {
+      "round": 1,
+      "runs": 16,
+      "native_calls": 449,
+      "candidates": 769,
+      "precision_included": 756,
+      "source": "pinned raw trajectories and archived model-coded annotations",
+      "critique": "Directness is a descriptive annotation, not action utility. Binary or broad indirect labels merge unknown future benefit and diagnostic/operational work.",
+      "label_counts": {
+        "non_direct": 320,
+        "direct": 233,
+        "uncertain": 203
+      },
+      "label_bounds": [
+        0.3082010582010582,
+        0.5767195767195767
+      ],
+      "actual_counterfactual_utility_measured": false,
+      "improvement": "Retain descriptive labels; introduce result/evidence validity before utility scoring."
+    },
+    {
+      "round": 2,
+      "runs": 16,
+      "native_calls": 449,
+      "candidates": 769,
+      "precision_included": 756,
+      "source": "pinned raw trajectories and archived model-coded annotations",
+      "critique": "A requested check is not necessarily a completed result; parent success and shared output cannot establish individual-component outcomes.",
+      "parent_status_counts": {
+        "timeout_or_interrupted": 27,
+        "observed_test_success": 19,
+        "observed_test_or_build_failure": 10,
+        "other_observation": 85,
+        "nonzero_other_observation": 14,
+        "empty_observation": 4
+      },
+      "verification_components": 159,
+      "shared_parent_outputs": 75,
+      "improvement": "Track executed/result/visible-evidence status separately; a timeout is not cached test success or zero utility."
+    },
+    {
+      "round": 3,
+      "runs": 16,
+      "native_calls": 449,
+      "candidates": 769,
+      "precision_included": 756,
+      "source": "pinned raw trajectories and archived model-coded annotations",
+      "critique": "Exact repeated commands can test changed implementations or recover missing evidence; even identical inferred graph states do not prove complete dependency equality.",
+      "exact_repeat_verification_pairs": 22,
+      "same_inferred_state_pairs": 4,
+      "changed_inferred_state_pairs": 18,
+      "pairs_with_prior_timeout_or_missing": 5,
+      "certified_cache_hits": 0,
+      "improvement": "Separate command recurrence, execution-state identity, prior observation completeness and task-property scope; conservatively require a certificate for reuse."
+    },
+    {
+      "round": 4,
+      "critique": "Command labels and whole-call versions hide intermediate edit states and byte-level no-ops.",
+      "improvement": "Reconstruct edit boundaries; independently execute scoped checks; record byte effect and behavior separately.",
+      "reconstructed_luna_tasks": 2,
+      "patched_test_executions": 8,
+      "formatter_file_checks": 3,
+      "formatter_files_changing_bytes": 1,
+      "first_scoped_pass_task03": "before_formatter",
+      "actual_final_benchmark_evaluations": 0,
+      "checks": [
+        {
+          "task": 3,
+          "snapshot": "eval_base",
+          "outcome": "fail",
+          "test_events": [
+            {
+              "test": "TestErrorUnaryInterceptor/not_found_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/context_cancelled_error",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/empty_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/unauthenticated_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/other_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/no_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor",
+              "outcome": "fail"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^TestErrorUnaryInterceptor$",
+            "./internal/server/middleware/grpc"
+          ],
+          "label": "task03_eval_base"
+        },
+        {
+          "task": 3,
+          "snapshot": "eval_before_formatter",
+          "outcome": "pass",
+          "test_events": [
+            {
+              "test": "TestErrorUnaryInterceptor/not_found_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/context_cancelled_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/empty_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/unauthenticated_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/other_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/no_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^TestErrorUnaryInterceptor$",
+            "./internal/server/middleware/grpc"
+          ],
+          "label": "task03_eval_before_formatter"
+        },
+        {
+          "task": 3,
+          "snapshot": "eval_submitted",
+          "outcome": "pass",
+          "test_events": [
+            {
+              "test": "TestErrorUnaryInterceptor/not_found_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/context_cancelled_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/empty_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/unauthenticated_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/other_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/no_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^TestErrorUnaryInterceptor$",
+            "./internal/server/middleware/grpc"
+          ],
+          "label": "task03_eval_submitted"
+        },
+        {
+          "task": 3,
+          "snapshot": "eval_reference",
+          "outcome": "pass",
+          "test_events": [
+            {
+              "test": "TestErrorUnaryInterceptor/not_found_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/deadline_exceeded_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/context_cancelled_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/invalid_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/empty_field",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/unauthenticated_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/other_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor/no_error",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestErrorUnaryInterceptor",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^TestErrorUnaryInterceptor$",
+            "./internal/server/middleware/grpc"
+          ],
+          "label": "task03_eval_reference"
+        },
+        {
+          "task": 4,
+          "snapshot": "eval_base",
+          "outcome": "build_failure",
+          "test_events": [],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^Test(Load|ServeHTTP|Validate|Scheme)$",
+            "./config"
+          ],
+          "label": "task04_eval_base"
+        },
+        {
+          "task": 4,
+          "snapshot": "eval_before_formatter",
+          "outcome": "fail",
+          "test_events": [
+            {
+              "test": "TestScheme/https",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme/http",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/deprecated_defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/configured",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestLoad",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestValidate/https:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/http:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_cert_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_key_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_cert_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_key_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestServeHTTP",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^Test(Load|ServeHTTP|Validate|Scheme)$",
+            "./config"
+          ],
+          "label": "task04_eval_before_formatter"
+        },
+        {
+          "task": 4,
+          "snapshot": "eval_submitted",
+          "outcome": "fail",
+          "test_events": [
+            {
+              "test": "TestScheme/https",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme/http",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/deprecated_defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/configured",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestLoad",
+              "outcome": "fail"
+            },
+            {
+              "test": "TestValidate/https:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/http:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_cert_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_key_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_cert_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_key_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestServeHTTP",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^Test(Load|ServeHTTP|Validate|Scheme)$",
+            "./config"
+          ],
+          "label": "task04_eval_submitted"
+        },
+        {
+          "task": 4,
+          "snapshot": "eval_reference",
+          "outcome": "pass",
+          "test_events": [
+            {
+              "test": "TestScheme/https",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme/http",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestScheme",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/deprecated_defaults",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad/configured",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestLoad",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/http:_valid",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_cert_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_empty_key_file_path",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_cert_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate/https:_missing_key_file",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestValidate",
+              "outcome": "pass"
+            },
+            {
+              "test": "TestServeHTTP",
+              "outcome": "pass"
+            }
+          ],
+          "scope": [
+            "go",
+            "test",
+            "-mod=readonly",
+            "-count=1",
+            "-json",
+            "-run",
+            "^Test(Load|ServeHTTP|Validate|Scheme)$",
+            "./config"
+          ],
+          "label": "task04_eval_reference"
+        }
+      ],
+      "formatter_results": [
+        {
+          "label": "task03_format_internal_server_auth_middleware.go",
+          "task_order": 3,
+          "snapshot": "before_formatter",
+          "command": [
+            "gofmt",
+            "internal/server/auth/middleware.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.33167983312159777,
+          "exit_code": 0,
+          "status": "completed",
+          "stdout_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "source_file": "internal/server/auth/middleware.go",
+          "bytes_before": 5314,
+          "bytes_after": 5314,
+          "formatter_changes_bytes": false,
+          "formatted_output_matches_submitted": true,
+          "before_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d"
+        },
+        {
+          "label": "task03_format_internal_server_middleware_grpc_middleware.go",
+          "task_order": 3,
+          "snapshot": "before_formatter",
+          "command": [
+            "gofmt",
+            "internal/server/middleware/grpc/middleware.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.1959647499024868,
+          "exit_code": 0,
+          "status": "completed",
+          "stdout_sha256": "e35b46bc7e1060403329c99db822f0067664dc47cc7e5347cc267beff94da557",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "source_file": "internal/server/middleware/grpc/middleware.go",
+          "bytes_before": 10970,
+          "bytes_after": 10970,
+          "formatter_changes_bytes": true,
+          "formatted_output_matches_submitted": true,
+          "before_sha256": "aea9a921eba9601a83e939159a797371b4c5f033bc32eb252168d54b743b73fd"
+        },
+        {
+          "label": "task04_format_config_config.go",
+          "task_order": 4,
+          "snapshot": "before_formatter",
+          "command": [
+            "gofmt",
+            "config/config.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.1768950829282403,
+          "exit_code": 0,
+          "status": "completed",
+          "stdout_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "source_file": "config/config.go",
+          "bytes_before": 7235,
+          "bytes_after": 7235,
+          "formatter_changes_bytes": false,
+          "formatted_output_matches_submitted": true,
+          "before_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3"
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "critique": "One test pass/fail or a reference diff is not a universal definition of correct progress.",
+      "improvement": "Specify requirement/property context and report conflicts and preservation separately.",
+      "authored_probe_executions": 4,
+      "properties_per_snapshot": 5,
+      "reference_conflict": "absent_flag_false",
+      "scope": "five authored diagnostics on task 04; not five independent benchmark tasks",
+      "probes": [
+        {
+          "label": "task04_probe_base",
+          "task_order": 4,
+          "snapshot": "probe_base",
+          "command": [
+            "go",
+            "run",
+            "-mod=readonly",
+            "utility_requirement_probe.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.8467337498441339,
+          "exit_code": 0,
+          "source_mount_readonly": true,
+          "disposable_work_copy": true,
+          "status": "completed",
+          "stdout_sha256": "6413c0560bf6a3c0ac2692a15b47044a52a43979823284ee7068c08761073cec",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "properties": {
+            "absent_flag_false": false,
+            "default_fixture_equals_Default": true,
+            "deprecated_fixture_equals_Default": true,
+            "explicit_false_flag": false,
+            "explicit_pool_values": false,
+            "observed_absent_flag": true
+          },
+          "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+        },
+        {
+          "label": "task04_probe_before_formatter",
+          "task_order": 4,
+          "snapshot": "probe_before_formatter",
+          "command": [
+            "go",
+            "run",
+            "-mod=readonly",
+            "utility_requirement_probe.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.7170481248758733,
+          "exit_code": 0,
+          "source_mount_readonly": true,
+          "disposable_work_copy": true,
+          "status": "completed",
+          "stdout_sha256": "577fd350515a859d9ebbde574d3db662d996f14392124cab968bc09e40e31906",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "properties": {
+            "absent_flag_false": true,
+            "default_fixture_equals_Default": true,
+            "deprecated_fixture_equals_Default": true,
+            "explicit_false_flag": true,
+            "explicit_pool_values": true,
+            "observed_absent_flag": false
+          },
+          "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+        },
+        {
+          "label": "task04_probe_submitted",
+          "task_order": 4,
+          "snapshot": "probe_submitted",
+          "command": [
+            "go",
+            "run",
+            "-mod=readonly",
+            "utility_requirement_probe.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.7213900000788271,
+          "exit_code": 0,
+          "source_mount_readonly": true,
+          "disposable_work_copy": true,
+          "status": "completed",
+          "stdout_sha256": "577fd350515a859d9ebbde574d3db662d996f14392124cab968bc09e40e31906",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "properties": {
+            "absent_flag_false": true,
+            "default_fixture_equals_Default": true,
+            "deprecated_fixture_equals_Default": true,
+            "explicit_false_flag": true,
+            "explicit_pool_values": true,
+            "observed_absent_flag": false
+          },
+          "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+        },
+        {
+          "label": "task04_probe_reference",
+          "task_order": 4,
+          "snapshot": "probe_reference",
+          "command": [
+            "go",
+            "run",
+            "-mod=readonly",
+            "utility_requirement_probe.go"
+          ],
+          "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+          "network_enabled": false,
+          "seconds": 0.7687437911517918,
+          "exit_code": 0,
+          "source_mount_readonly": true,
+          "disposable_work_copy": true,
+          "status": "completed",
+          "stdout_sha256": "fa2b59d934ecb9edb5aa076d0fa395fc605366ac1ba03875c04778ae8748b115",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+          "properties": {
+            "absent_flag_false": false,
+            "default_fixture_equals_Default": true,
+            "deprecated_fixture_equals_Default": true,
+            "explicit_false_flag": true,
+            "explicit_pool_values": true,
+            "observed_absent_flag": true
+          },
+          "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+        }
+      ],
+      "agent_continuations": 0,
+      "causal_action_utilities_measured": 0
+    },
+    {
+      "round": 6,
+      "critique": "A valid repeat does not imply a useful cache: dependency validation and lookup have overhead.",
+      "improvement": "Compare fresh and reuse paths including hashing and decoding, under explicit scope.",
+      "artifact_net_median_saved_ms": -0.012707999999999997,
+      "go_net_median_tool_time_saved_seconds": 1.4319287282414734,
+      "actual_llm_savings_measured": false,
+      "original_trace_cache_hits_certified": 0,
+      "fresh_go_runs": 3,
+      "cache_lookup_samples": 100,
+      "cheap_path_iterations": 1000,
+      "limitations": [
+        "Three stable test outcome sets do not prove determinism.",
+        "Fixed external module/build caches are controlled assumptions, not fully hashed dependencies.",
+        "Fresh Go command explicitly bypasses Go test-result cache with count=1; build cache remains enabled.",
+        "No agent continuation, model generation, downstream context cost or production storage measured."
+      ]
+    },
+    {
+      "round": 7,
+      "critique": "Conserving the stored response ledger does not establish agreement with total recorded run expenditure.",
+      "improvement": "Reconcile each metric; show unlocalized residual separately; restrict percentages to their named denominator.",
+      "runs": 16,
+      "runs_with_all_three_token_metrics_matching": 13,
+      "mismatching_runs": 3,
+      "metric_status_counts": {
+        "mismatch": 9,
+        "run_total_unavailable": 16,
+        "response_usage_incomplete": 8,
+        "matches": 47
+      },
+      "luna_cost_runs_matching": 8,
+      "gemini_response_cost_runs_incomplete": 8
+    }
+  ]
+}

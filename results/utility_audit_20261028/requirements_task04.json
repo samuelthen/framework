@@ -1,0 +1,122 @@
+[
+  {
+    "label": "task04_probe_base",
+    "task_order": 4,
+    "snapshot": "probe_base",
+    "command": [
+      "go",
+      "run",
+      "-mod=readonly",
+      "utility_requirement_probe.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.8467337498441339,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "6413c0560bf6a3c0ac2692a15b47044a52a43979823284ee7068c08761073cec",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "properties": {
+      "absent_flag_false": false,
+      "default_fixture_equals_Default": true,
+      "deprecated_fixture_equals_Default": true,
+      "explicit_false_flag": false,
+      "explicit_pool_values": false,
+      "observed_absent_flag": true
+    },
+    "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+  },
+  {
+    "label": "task04_probe_before_formatter",
+    "task_order": 4,
+    "snapshot": "probe_before_formatter",
+    "command": [
+      "go",
+      "run",
+      "-mod=readonly",
+      "utility_requirement_probe.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.7170481248758733,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "577fd350515a859d9ebbde574d3db662d996f14392124cab968bc09e40e31906",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "properties": {
+      "absent_flag_false": true,
+      "default_fixture_equals_Default": true,
+      "deprecated_fixture_equals_Default": true,
+      "explicit_false_flag": true,
+      "explicit_pool_values": true,
+      "observed_absent_flag": false
+    },
+    "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+  },
+  {
+    "label": "task04_probe_submitted",
+    "task_order": 4,
+    "snapshot": "probe_submitted",
+    "command": [
+      "go",
+      "run",
+      "-mod=readonly",
+      "utility_requirement_probe.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.7213900000788271,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "577fd350515a859d9ebbde574d3db662d996f14392124cab968bc09e40e31906",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "properties": {
+      "absent_flag_false": true,
+      "default_fixture_equals_Default": true,
+      "deprecated_fixture_equals_Default": true,
+      "explicit_false_flag": true,
+      "explicit_pool_values": true,
+      "observed_absent_flag": false
+    },
+    "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+  },
+  {
+    "label": "task04_probe_reference",
+    "task_order": 4,
+    "snapshot": "probe_reference",
+    "command": [
+      "go",
+      "run",
+      "-mod=readonly",
+      "utility_requirement_probe.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.7687437911517918,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "fa2b59d934ecb9edb5aa076d0fa395fc605366ac1ba03875c04778ae8748b115",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "properties": {
+      "absent_flag_false": false,
+      "default_fixture_equals_Default": true,
+      "deprecated_fixture_equals_Default": true,
+      "explicit_false_flag": true,
+      "explicit_pool_values": true,
+      "observed_absent_flag": true
+    },
+    "probe_sha256": "7ed0d10eee6e01b3cacc41ed91a70e1b5de99cc2764e057324b7f550ad39cf7d"
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "label": "task04_format_config_config.go",
+    "task_order": 4,
+    "snapshot": "before_formatter",
+    "command": [
+      "gofmt",
+      "config/config.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.1768950829282403,
+    "exit_code": 0,
+    "status": "completed",
+    "stdout_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "source_file": "config/config.go",
+    "bytes_before": 7235,
+    "bytes_after": 7235,
+    "formatter_changes_bytes": false,
+    "formatted_output_matches_submitted": true,
+    "before_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3"
+  }
+]

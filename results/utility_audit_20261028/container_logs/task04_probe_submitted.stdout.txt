@@ -1,0 +1,1 @@
+{"absent_flag_false":true,"default_fixture_equals_Default":true,"deprecated_fixture_equals_Default":true,"explicit_false_flag":true,"explicit_pool_values":true,"observed_absent_flag":false}

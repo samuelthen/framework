@@ -1,0 +1,46 @@
+{
+  "workload": "exact artifact-equality/header check on real submitted patch",
+  "iterations": 1000,
+  "measurement": "warm in-process wall time; cache includes file hashing, key construction, lookup and result decoding",
+  "fresh_median_ms": 0.025083,
+  "reuse_median_ms": 0.037791,
+  "net_median_saved_ms": -0.012707999999999997,
+  "perturbations": [
+    {
+      "case": "unchanged real artifact",
+      "cache_hit": true,
+      "expected_hit": true
+    },
+    {
+      "case": "authored artifact mutation",
+      "cache_hit": false,
+      "expected_hit": false
+    },
+    {
+      "case": "authored irrelevant file addition",
+      "cache_hit": true,
+      "expected_hit": true
+    },
+    {
+      "case": "authored environment_digest change",
+      "cache_hit": false,
+      "expected_hit": false
+    },
+    {
+      "case": "authored checker_digest change",
+      "cache_hit": false,
+      "expected_hit": false
+    },
+    {
+      "case": "authored goal_context change",
+      "cache_hit": false,
+      "expected_hit": false
+    },
+    {
+      "case": "authored cwd change",
+      "cache_hit": false,
+      "expected_hit": false
+    }
+  ],
+  "semantic_scope": "artifact bytes only, not task behavior"
+}

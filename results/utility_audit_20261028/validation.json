@@ -1,0 +1,17 @@
+{
+  "software_tests": {
+    "command": "PYTHONPATH=worktrace python3 -m pytest -q worktrace/tests",
+    "passed": 148,
+    "failed": 0,
+    "interpretation": "repository software validation; not benchmark tasks"
+  },
+  "output_checks": {
+    "seven_rounds_have_critique_and_improvement": true,
+    "all_audit_json_and_jsonl_parse": true,
+    "recovery_selection_matches_16_frozen_runs": true,
+    "figure_visually_inspected": true
+  },
+  "paid_model_calls": 0,
+  "agent_continuations": 0,
+  "full_original_benchmark_evaluations": 0
+}

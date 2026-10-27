@@ -1,0 +1,274 @@
+[
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": false,
+    "unlocalized_token_residual": {
+      "input_tokens": 27606.0,
+      "cached_input_tokens": 20025.0,
+      "output_tokens": 615.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 0.9824331650847224,
+      "cached_input_tokens": 0.9841031560296074,
+      "output_tokens": 0.9765069906027962
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": false,
+    "unlocalized_token_residual": {
+      "input_tokens": 93296.0,
+      "cached_input_tokens": 88937.0,
+      "output_tokens": 31.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 0.9637540453074434,
+      "cached_input_tokens": 0.9607606877126601,
+      "output_tokens": 0.9993112947658402
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "model": "gemini_3_7_flash",
+    "all_token_metrics_reconcile": false,
+    "unlocalized_token_residual": {
+      "input_tokens": 44976.0,
+      "cached_input_tokens": 39599.0,
+      "output_tokens": 776.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 0.9738152348571295,
+      "cached_input_tokens": 0.9740663316161667,
+      "output_tokens": 0.9701400646452208
+    },
+    "cost_status": "response_usage_incomplete",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "model": "luna",
+    "all_token_metrics_reconcile": true,
+    "unlocalized_token_residual": {
+      "input_tokens": 0.0,
+      "cached_input_tokens": 0.0,
+      "output_tokens": 0.0
+    },
+    "stored_response_coverage": {
+      "input_tokens": 1.0,
+      "cached_input_tokens": 1.0,
+      "output_tokens": 1.0
+    },
+    "cost_status": "matches",
+    "interpretation": "Residual is a run/ledger discrepancy; cause and per-action attribution are unknown."
+  }
+]

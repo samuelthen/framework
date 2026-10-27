@@ -1,0 +1,4 @@
+# github.com/markphelps/flipt/config [github.com/markphelps/flipt/config.test]
+config/config_test.go:95:6: unknown field MaxIdleConn in struct literal of type databaseConfig
+config/config_test.go:96:6: unknown field MaxOpenConn in struct literal of type databaseConfig
+config/config_test.go:97:6: unknown field ConnMaxLifetime in struct literal of type databaseConfig

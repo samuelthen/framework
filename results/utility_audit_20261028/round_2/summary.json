@@ -1,0 +1,20 @@
+{
+  "round": 2,
+  "runs": 16,
+  "native_calls": 449,
+  "candidates": 769,
+  "precision_included": 756,
+  "source": "pinned raw trajectories and archived model-coded annotations",
+  "critique": "A requested check is not necessarily a completed result; parent success and shared output cannot establish individual-component outcomes.",
+  "parent_status_counts": {
+    "timeout_or_interrupted": 27,
+    "observed_test_success": 19,
+    "observed_test_or_build_failure": 10,
+    "other_observation": 85,
+    "nonzero_other_observation": 14,
+    "empty_observation": 4
+  },
+  "verification_components": 159,
+  "shared_parent_outputs": 75,
+  "improvement": "Track executed/result/visible-evidence status separately; a timeout is not cached test success or zero utility."
+}

@@ -1,0 +1,44 @@
+{"Time":"2026-10-27T16:35:11.060762262Z","Action":"start","Package":"go.flipt.io/flipt/internal/server/middleware/grpc"}
+{"Time":"2026-10-27T16:35:11.064459345Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor"}
+{"Time":"2026-10-27T16:35:11.064476512Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor","Output":"=== RUN   TestErrorUnaryInterceptor\n"}
+{"Time":"2026-10-27T16:35:11.064485637Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/not_found_error"}
+{"Time":"2026-10-27T16:35:11.064487179Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/not_found_error","Output":"=== RUN   TestErrorUnaryInterceptor/not_found_error\n"}
+{"Time":"2026-10-27T16:35:11.064490554Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/not_found_error","Output":"--- PASS: TestErrorUnaryInterceptor/not_found_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064491762Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/not_found_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064495095Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/deadline_exceeded_error"}
+{"Time":"2026-10-27T16:35:11.064496012Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/deadline_exceeded_error","Output":"=== RUN   TestErrorUnaryInterceptor/deadline_exceeded_error\n"}
+{"Time":"2026-10-27T16:35:11.064497387Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/deadline_exceeded_error","Output":"--- PASS: TestErrorUnaryInterceptor/deadline_exceeded_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064501345Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/deadline_exceeded_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064502637Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/context_cancelled_error"}
+{"Time":"2026-10-27T16:35:11.064503637Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/context_cancelled_error","Output":"=== RUN   TestErrorUnaryInterceptor/context_cancelled_error\n"}
+{"Time":"2026-10-27T16:35:11.064506262Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/context_cancelled_error","Output":"--- PASS: TestErrorUnaryInterceptor/context_cancelled_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064508012Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/context_cancelled_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.06450922Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_error"}
+{"Time":"2026-10-27T16:35:11.064510345Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_error","Output":"=== RUN   TestErrorUnaryInterceptor/invalid_error\n"}
+{"Time":"2026-10-27T16:35:11.06451222Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_error","Output":"--- PASS: TestErrorUnaryInterceptor/invalid_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064514595Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064516012Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_field"}
+{"Time":"2026-10-27T16:35:11.064517179Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_field","Output":"=== RUN   TestErrorUnaryInterceptor/invalid_field\n"}
+{"Time":"2026-10-27T16:35:11.06451847Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_field","Output":"--- PASS: TestErrorUnaryInterceptor/invalid_field (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.06451972Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/invalid_field","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064520845Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/empty_field"}
+{"Time":"2026-10-27T16:35:11.064521845Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/empty_field","Output":"=== RUN   TestErrorUnaryInterceptor/empty_field\n"}
+{"Time":"2026-10-27T16:35:11.064523054Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/empty_field","Output":"--- PASS: TestErrorUnaryInterceptor/empty_field (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064524387Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/empty_field","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064526804Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/unauthenticated_error"}
+{"Time":"2026-10-27T16:35:11.064530137Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/unauthenticated_error","Output":"=== RUN   TestErrorUnaryInterceptor/unauthenticated_error\n"}
+{"Time":"2026-10-27T16:35:11.06453147Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/unauthenticated_error","Output":"--- PASS: TestErrorUnaryInterceptor/unauthenticated_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064532637Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/unauthenticated_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064533595Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/other_error"}
+{"Time":"2026-10-27T16:35:11.064534387Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/other_error","Output":"=== RUN   TestErrorUnaryInterceptor/other_error\n"}
+{"Time":"2026-10-27T16:35:11.064535679Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/other_error","Output":"--- PASS: TestErrorUnaryInterceptor/other_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064536595Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/other_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064539054Z","Action":"run","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/no_error"}
+{"Time":"2026-10-27T16:35:11.06453997Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/no_error","Output":"=== RUN   TestErrorUnaryInterceptor/no_error\n"}
+{"Time":"2026-10-27T16:35:11.064651762Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/no_error","Output":"--- PASS: TestErrorUnaryInterceptor/no_error (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064662262Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor/no_error","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064663804Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor","Output":"--- PASS: TestErrorUnaryInterceptor (0.00s)\n"}
+{"Time":"2026-10-27T16:35:11.064665304Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Test":"TestErrorUnaryInterceptor","Elapsed":0}
+{"Time":"2026-10-27T16:35:11.064668054Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Output":"PASS\n"}
+{"Time":"2026-10-27T16:35:11.064908887Z","Action":"output","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Output":"ok  \tgo.flipt.io/flipt/internal/server/middleware/grpc\t0.004s\n"}
+{"Time":"2026-10-27T16:35:11.064923929Z","Action":"pass","Package":"go.flipt.io/flipt/internal/server/middleware/grpc","Elapsed":0.004}

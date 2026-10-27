@@ -1,0 +1,86 @@
+[
+  {
+    "task_order": 3,
+    "base_commit": "3bf3255a7b7e2cbe9f71ec167f16a5449a357a5e",
+    "editing_component": "03:Y004.c0",
+    "formatting_component": "03:Y004.c1",
+    "interpreter": "restricted literal Path/read/write/string.replace; no trajectory process execution",
+    "writes": [
+      {
+        "path": "internal/server/middleware/grpc/middleware.go",
+        "before_sha256": "b22e2eef25de9e335f1a6c25f8a53da6efab86335defa2d53d276971e0f8d48b",
+        "after_sha256": "aea9a921eba9601a83e939159a797371b4c5f033bc32eb252168d54b743b73fd"
+      },
+      {
+        "path": "internal/server/auth/middleware.go",
+        "before_sha256": "0e20c53055d4306f30f6069b6fdad1caefd03101d5fe05b73cf7b0fa8c4932f8",
+        "after_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d"
+      }
+    ],
+    "submitted_modified_files": [
+      "internal/server/auth/middleware.go",
+      "internal/server/middleware/grpc/middleware.go"
+    ],
+    "reference_modified_files": [
+      "internal/cmd/grpc.go",
+      "internal/server/auth/middleware.go",
+      "internal/server/middleware/grpc/middleware.go"
+    ],
+    "pre_formatter_vs_submitted": {
+      "internal/server/auth/middleware.go": {
+        "before_formatter_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d",
+        "submitted_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d",
+        "identical": true
+      },
+      "internal/server/middleware/grpc/middleware.go": {
+        "before_formatter_sha256": "aea9a921eba9601a83e939159a797371b4c5f033bc32eb252168d54b743b73fd",
+        "submitted_sha256": "e35b46bc7e1060403329c99db822f0067664dc47cc7e5347cc267beff94da557",
+        "identical": false
+      }
+    },
+    "tree_hashes": {
+      "base": "aeac0e5b370eb9bdbb3769138b9c91adf1ac1a7f57ba6ea84773e3d54fe9d682",
+      "before_formatter": "872251fdec36ca316fc69ddbe8e1b107e2fa9526ee0e5dab7c789ccad08fe346",
+      "submitted": "9ff272e42238271f79e9f3f9aec96a4ade12c6e43945842153fab5b7ad12f59b",
+      "reference": "22d3a92951214f200951edfabada45e047516d9a291550903f397145014bf5a5"
+    },
+    "evaluation_status": "snapshots reconstructed; no final-benchmark outcome asserted"
+  },
+  {
+    "task_order": 4,
+    "base_commit": "02f5a1f8ef79565d6f4efed09259e7bf6541437a",
+    "editing_component": "04:Y006.c0",
+    "formatting_component": "04:Y006.c1",
+    "interpreter": "restricted literal Path/read/write/string.replace; no trajectory process execution",
+    "writes": [
+      {
+        "path": "config/config.go",
+        "before_sha256": "ff6b9df163d25f88c9e34133bf160e485923a42baba83d9d88eb082ad959c76e",
+        "after_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3"
+      }
+    ],
+    "submitted_modified_files": [
+      "config/config.go"
+    ],
+    "reference_modified_files": [
+      "cmd/flipt/flipt.go",
+      "config/config.go",
+      "config/default.yml",
+      "config/testdata/config/advanced.yml"
+    ],
+    "pre_formatter_vs_submitted": {
+      "config/config.go": {
+        "before_formatter_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3",
+        "submitted_sha256": "341914fc3b88692cee564457aa7eb2930fb3c42d43197a739c808cbb36b6c0e3",
+        "identical": true
+      }
+    },
+    "tree_hashes": {
+      "base": "6d32a74b32778c3158633e483e6ef9762c8564bb5eda69b65e2cefa06d9d0e20",
+      "before_formatter": "3868041b785bb9e44e5a9a9aa0bdc2d2029d4b509b0cac3c7b64a7d505f419aa",
+      "submitted": "3868041b785bb9e44e5a9a9aa0bdc2d2029d4b509b0cac3c7b64a7d505f419aa",
+      "reference": "0e907f8e0043b6ce23a2f03a13ef97f3b3d0ebbedddbc4a9bb565e46e6cd1806"
+    },
+    "evaluation_status": "snapshots reconstructed; no final-benchmark outcome asserted"
+  }
+]

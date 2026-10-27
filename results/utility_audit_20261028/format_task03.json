@@ -1,0 +1,48 @@
+[
+  {
+    "label": "task03_format_internal_server_auth_middleware.go",
+    "task_order": 3,
+    "snapshot": "before_formatter",
+    "command": [
+      "gofmt",
+      "internal/server/auth/middleware.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.33167983312159777,
+    "exit_code": 0,
+    "status": "completed",
+    "stdout_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "source_file": "internal/server/auth/middleware.go",
+    "bytes_before": 5314,
+    "bytes_after": 5314,
+    "formatter_changes_bytes": false,
+    "formatted_output_matches_submitted": true,
+    "before_sha256": "b8da13e2ef952a6b4a5b77e595bd17d0192770de923d97c462d34b48401ed20d"
+  },
+  {
+    "label": "task03_format_internal_server_middleware_grpc_middleware.go",
+    "task_order": 3,
+    "snapshot": "before_formatter",
+    "command": [
+      "gofmt",
+      "internal/server/middleware/grpc/middleware.go"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.1959647499024868,
+    "exit_code": 0,
+    "status": "completed",
+    "stdout_sha256": "e35b46bc7e1060403329c99db822f0067664dc47cc7e5347cc267beff94da557",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification",
+    "source_file": "internal/server/middleware/grpc/middleware.go",
+    "bytes_before": 10970,
+    "bytes_after": 10970,
+    "formatter_changes_bytes": true,
+    "formatted_output_matches_submitted": true,
+    "before_sha256": "aea9a921eba9601a83e939159a797371b4c5f033bc32eb252168d54b743b73fd"
+  }
+]

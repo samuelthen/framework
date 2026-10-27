@@ -1,0 +1,94 @@
+[
+  {
+    "label": "task04_eval_base",
+    "task_order": 4,
+    "snapshot": "eval_base",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^Test(Load|ServeHTTP|Validate|Scheme)$",
+      "./config"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 12.714205875061452,
+    "exit_code": 1,
+    "status": "completed",
+    "stdout_sha256": "eab158e388b535055cd783b7d02727f0f3cbe20c2160d31d0b2fcdc4da515d7b",
+    "stderr_sha256": "b78a782a45098e52d82044b57e849c37a7b88f3c1270ee524a377119d3e760e5",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task04_eval_before_formatter",
+    "task_order": 4,
+    "snapshot": "eval_before_formatter",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^Test(Load|ServeHTTP|Validate|Scheme)$",
+      "./config"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 1.1528498749248683,
+    "exit_code": 1,
+    "status": "completed",
+    "stdout_sha256": "179e16e3ed3cf404dc2c44884cb4b425183d4be81d12bf1796c542202e16c5f8",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task04_eval_submitted",
+    "task_order": 4,
+    "snapshot": "eval_submitted",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^Test(Load|ServeHTTP|Validate|Scheme)$",
+      "./config"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.769009041134268,
+    "exit_code": 1,
+    "status": "completed",
+    "stdout_sha256": "a91f0117051d3b37f9a0ae1f0b3093359782d01631949bcf16651dae81a520ab",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task04_eval_reference",
+    "task_order": 4,
+    "snapshot": "eval_reference",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^Test(Load|ServeHTTP|Validate|Scheme)$",
+      "./config"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 0.8661760417744517,
+    "exit_code": 0,
+    "status": "completed",
+    "stdout_sha256": "526ae6fc0fdfb9a06170ccd997c5c98795ef3baa8e970fe77e7f4f542ba5ab17",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  }
+]

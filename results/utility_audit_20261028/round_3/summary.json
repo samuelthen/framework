@@ -1,0 +1,15 @@
+{
+  "round": 3,
+  "runs": 16,
+  "native_calls": 449,
+  "candidates": 769,
+  "precision_included": 756,
+  "source": "pinned raw trajectories and archived model-coded annotations",
+  "critique": "Exact repeated commands can test changed implementations or recover missing evidence; even identical inferred graph states do not prove complete dependency equality.",
+  "exact_repeat_verification_pairs": 22,
+  "same_inferred_state_pairs": 4,
+  "changed_inferred_state_pairs": 18,
+  "pairs_with_prior_timeout_or_missing": 5,
+  "certified_cache_hits": 0,
+  "improvement": "Separate command recurrence, execution-state identity, prior observation completeness and task-property scope; conservatively require a certificate for reuse."
+}

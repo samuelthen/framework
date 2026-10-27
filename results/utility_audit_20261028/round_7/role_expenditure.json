@@ -1,0 +1,1730 @@
+[
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 225095.0,
+        "fraction_of_stored_response_total": 0.14579843744130042,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 201906.0,
+        "fraction_of_stored_response_total": 0.1628722092123721,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 2392.0,
+        "fraction_of_stored_response_total": 0.09357274185346008,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 125328.0,
+        "fraction_of_stored_response_total": 0.08117739873228325,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 113103.0,
+        "fraction_of_stored_response_total": 0.09123718700061872,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 4457.0,
+        "fraction_of_stored_response_total": 0.17435355787661855,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 730304.0,
+        "fraction_of_stored_response_total": 0.4730321955491302,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 609647.0,
+        "fraction_of_stored_response_total": 0.49178604761470696,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 14913.0,
+        "fraction_of_stored_response_total": 0.5833822321323788,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 463151.0,
+        "fraction_of_stored_response_total": 0.29999196827728614,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 315003.0,
+        "fraction_of_stored_response_total": 0.2541045561723022,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 3801.0,
+        "fraction_of_stored_response_total": 0.14869146813754255,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 298409.8,
+        "fraction_of_stored_response_total": 0.3134645625453663,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 237406.43333333332,
+        "fraction_of_stored_response_total": 0.3122359689420871,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 5183.533333333333,
+        "fraction_of_stored_response_total": 0.27337868959091466,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 65647.0,
+        "fraction_of_stored_response_total": 0.06895888853990607,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 59318.33333333333,
+        "fraction_of_stored_response_total": 0.0780152290917827,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 4008.6666666666665,
+        "fraction_of_stored_response_total": 0.21141641615245327,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 188650.2,
+        "fraction_of_stored_response_total": 0.19816759508935655,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 108929.4,
+        "fraction_of_stored_response_total": 0.14326350081476386,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 6718.133333333333,
+        "fraction_of_stored_response_total": 0.3543132394564281,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 399266.0,
+        "fraction_of_stored_response_total": 0.4194089538253711,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 354688.8333333333,
+        "fraction_of_stored_response_total": 0.4664853011513663,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 3050.6666666666665,
+        "fraction_of_stored_response_total": 0.16089165480020393,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 738757.0,
+        "fraction_of_stored_response_total": 0.29270176122577385,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 658742.1666666666,
+        "fraction_of_stored_response_total": 0.28812800806665956,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 9681.166666666666,
+        "fraction_of_stored_response_total": 0.22910750347090747,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 267621.5,
+        "fraction_of_stored_response_total": 0.10603389800960726,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 239836.3333333333,
+        "fraction_of_stored_response_total": 0.10490229483110067,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 13253.833333333332,
+        "fraction_of_stored_response_total": 0.3136556544238293,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 563988.0,
+        "fraction_of_stored_response_total": 0.22345680773272095,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 480405.3333333333,
+        "fraction_of_stored_response_total": 0.2101250515939336,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 11175.333333333334,
+        "fraction_of_stored_response_total": 0.26446737346964533,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 953557.5,
+        "fraction_of_stored_response_total": 0.37780753303189796,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 907299.1666666666,
+        "fraction_of_stored_response_total": 0.3968446455083061,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 8145.666666666666,
+        "fraction_of_stored_response_total": 0.1927694686356178,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 603121.0,
+        "fraction_of_stored_response_total": 0.17488155094324304,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 580230.0,
+        "fraction_of_stored_response_total": 0.18127870800765566,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 2522.0,
+        "fraction_of_stored_response_total": 0.048802198227485584,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 590203.0,
+        "fraction_of_stored_response_total": 0.1711358351165933,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 568224.0,
+        "fraction_of_stored_response_total": 0.1775277262101962,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 14765.0,
+        "fraction_of_stored_response_total": 0.28571152134370525,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 1140794.0,
+        "fraction_of_stored_response_total": 0.3307857362399021,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 1001594.0,
+        "fraction_of_stored_response_total": 0.3129236100653532,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 28397.0,
+        "fraction_of_stored_response_total": 0.5494988196137621,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 1114622.0,
+        "fraction_of_stored_response_total": 0.32319687770026156,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 1050714.0,
+        "fraction_of_stored_response_total": 0.32826995571679496,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 5994.0,
+        "fraction_of_stored_response_total": 0.11598746081504702,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 384869.3333333333,
+        "fraction_of_stored_response_total": 0.15514708233864397,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 366540.6666666667,
+        "fraction_of_stored_response_total": 0.16832392614897226,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 2180.333333333333,
+        "fraction_of_stored_response_total": 0.04847231794164943,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 318306.3333333333,
+        "fraction_of_stored_response_total": 0.1283144553993525,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 302012.6666666667,
+        "fraction_of_stored_response_total": 0.13869118060584687,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 7404.333333333333,
+        "fraction_of_stored_response_total": 0.16461024284327455,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 1099437.0,
+        "fraction_of_stored_response_total": 0.4432009203950217,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 871943.0,
+        "fraction_of_stored_response_total": 0.40041633162517665,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 29534.0,
+        "fraction_of_stored_response_total": 0.6565883372979703,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 678061.3333333334,
+        "fraction_of_stored_response_total": 0.2733375418669819,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 637094.6666666666,
+        "fraction_of_stored_response_total": 0.2925685616200042,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 5862.333333333333,
+        "fraction_of_stored_response_total": 0.13032910191710573,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 79390.0,
+        "fraction_of_stored_response_total": 0.29030182028273255,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 64471.0,
+        "fraction_of_stored_response_total": 0.3336127626765191,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 962.0,
+        "fraction_of_stored_response_total": 0.10560983642551323,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 16776.0,
+        "fraction_of_stored_response_total": 0.06134404001842954,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 12066.0,
+        "fraction_of_stored_response_total": 0.0624369343496282,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1245.0,
+        "fraction_of_stored_response_total": 0.1366780107585904,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 74896.0,
+        "fraction_of_stored_response_total": 0.2738688138543335,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 36172.0,
+        "fraction_of_stored_response_total": 0.18717626299475812,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 3056.0,
+        "fraction_of_stored_response_total": 0.33549237018333516,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 102412.0,
+        "fraction_of_stored_response_total": 0.3744853258445044,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 80542.0,
+        "fraction_of_stored_response_total": 0.41677403997909457,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 3846.0,
+        "fraction_of_stored_response_total": 0.4222197826325612,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 172715.0,
+        "fraction_of_stored_response_total": 0.19423813979433013,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 157931.0,
+        "fraction_of_stored_response_total": 0.21335683985842047,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 974.0,
+        "fraction_of_stored_response_total": 0.043949102066600486,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 84439.0,
+        "fraction_of_stored_response_total": 0.09496149313084239,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 76883.0,
+        "fraction_of_stored_response_total": 0.10386506714220096,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 3483.0,
+        "fraction_of_stored_response_total": 0.15716090605541017,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 298521.0,
+        "fraction_of_stored_response_total": 0.3357216439194235,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 222107.0,
+        "fraction_of_stored_response_total": 0.3000553889384237,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 12401.0,
+        "fraction_of_stored_response_total": 0.5595614114249616,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 333517.0,
+        "fraction_of_stored_response_total": 0.375078723155404,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 283299.0,
+        "fraction_of_stored_response_total": 0.3827227040609549,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 5304.0,
+        "fraction_of_stored_response_total": 0.2393285804530277,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 344558.5,
+        "fraction_of_stored_response_total": 0.2059938517239565,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 318798.5,
+        "fraction_of_stored_response_total": 0.21434209508953933,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 2466.1666666666665,
+        "fraction_of_stored_response_total": 0.09781717700565867,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 261675.0,
+        "fraction_of_stored_response_total": 0.15644205889527127,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 238344.0,
+        "fraction_of_stored_response_total": 0.16024903602752574,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 6783.0,
+        "fraction_of_stored_response_total": 0.26903855306996666,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 391239.0,
+        "fraction_of_stored_response_total": 0.23390172802188605,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 309065.0,
+        "fraction_of_stored_response_total": 0.20779783976037677,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 11235.0,
+        "fraction_of_stored_response_total": 0.44562113279390764,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:gemini_3_7_flash:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 675191.5,
+        "fraction_of_stored_response_total": 0.40366236135888617,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 621127.5,
+        "fraction_of_stored_response_total": 0.41761102912255815,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 4727.833333333333,
+        "fraction_of_stored_response_total": 0.18752313713046695,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": null,
+        "fraction_of_stored_response_total": null,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 94314.86428571428,
+        "fraction_of_stored_response_total": 0.45650287888227314,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 89947.97142857143,
+        "fraction_of_stored_response_total": 0.4795051386228719,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1241.1642857142856,
+        "fraction_of_stored_response_total": 0.3400450097847358,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0041617351428571425,
+        "fraction_of_stored_response_total": 0.3486912891051874,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 11776.2,
+        "fraction_of_stored_response_total": 0.05699917232566807,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 10736.228571428572,
+        "fraction_of_stored_response_total": 0.05723393966163911,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 794.3142857142857,
+        "fraction_of_stored_response_total": 0.21762035225048923,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0013758960000000002,
+        "fraction_of_stored_response_total": 0.11527954890115877,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 31877.75,
+        "fraction_of_stored_response_total": 0.1542947101445768,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 22086.5,
+        "fraction_of_stored_response_total": 0.11774129061492124,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 521.25,
+        "fraction_of_stored_response_total": 0.1428082191780822,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00302548,
+        "fraction_of_stored_response_total": 0.25349006727941487,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_element-hq__element-web-6205c70462e0ce2e1e77afb3a70b55d0fdfe1b31-vnan:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 68634.18571428572,
+        "fraction_of_stored_response_total": 0.33220323864748197,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 64814.3,
+        "fraction_of_stored_response_total": 0.34551963110056777,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1093.2714285714285,
+        "fraction_of_stored_response_total": 0.2995264187866927,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.003372188857142857,
+        "fraction_of_stored_response_total": 0.28253909471423905,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 82599.53333333333,
+        "fraction_of_stored_response_total": 0.6026699548603004,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 77980.73333333334,
+        "fraction_of_stored_response_total": 0.6255975397780452,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1078.7833333333333,
+        "fraction_of_stored_response_total": 0.3566225895316804,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0037779146666666666,
+        "fraction_of_stored_response_total": 0.43907796967372525,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 10405.666666666666,
+        "fraction_of_stored_response_total": 0.0759227371779905,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 9693.5,
+        "fraction_of_stored_response_total": 0.07776574408343362,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 509.66666666666663,
+        "fraction_of_stored_response_total": 0.16848484848484846,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0009479033333333333,
+        "fraction_of_stored_response_total": 0.11016751508952992,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 23232.9,
+        "fraction_of_stored_response_total": 0.16951392131683402,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 17728.0,
+        "fraction_of_stored_response_total": 0.14222222222222222,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 806.1,
+        "fraction_of_stored_response_total": 0.2664793388429752,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0024228599999999998,
+        "fraction_of_stored_response_total": 0.28159038609051396,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-5ffba3406a7993d97ced4cc13658bee66150fcca:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 20817.9,
+        "fraction_of_stored_response_total": 0.1518933866448751,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 19247.766666666666,
+        "fraction_of_stored_response_total": 0.15441449391629897,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 630.4499999999999,
+        "fraction_of_stored_response_total": 0.20841322314049585,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.001455522,
+        "fraction_of_stored_response_total": 0.1691641291462309,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 374330.146969697,
+        "fraction_of_stored_response_total": 0.6199027693324318,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 344588.01666666666,
+        "fraction_of_stored_response_total": 0.6164674020642655,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 2757.4772727272725,
+        "fraction_of_stored_response_total": 0.5031892833443928,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.01614915912121212,
+        "fraction_of_stored_response_total": 0.6041215249499141,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 51187.33333333333,
+        "fraction_of_stored_response_total": 0.08476787120927333,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 49735.83333333333,
+        "fraction_of_stored_response_total": 0.08897732504192218,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1128.6666666666665,
+        "fraction_of_stored_response_total": 0.2059610705596107,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002639416666666666,
+        "fraction_of_stored_response_total": 0.09873755095709304,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 41791.13636363636,
+        "fraction_of_stored_response_total": 0.06920746665767391,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 33269.6,
+        "fraction_of_stored_response_total": 0.059519260356511595,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 668.5727272727272,
+        "fraction_of_stored_response_total": 0.12200232249502321,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0031719865454545456,
+        "fraction_of_stored_response_total": 0.11866037944003982,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-967855b429f749c28c112b8cb1b15bc79157f973:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 136544.38333333333,
+        "fraction_of_stored_response_total": 0.2261218928006209,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 131378.55,
+        "fraction_of_stored_response_total": 0.23503601253730058,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 925.2833333333333,
+        "fraction_of_stored_response_total": 0.16884732360097324,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.004771077666666667,
+        "fraction_of_stored_response_total": 0.1784805446529531,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 68999.16666666667,
+        "fraction_of_stored_response_total": 0.6855356847160127,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 66250.36666666667,
+        "fraction_of_stored_response_total": 0.7582128782936776,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 545.1666666666666,
+        "fraction_of_stored_response_total": 0.2634928306750443,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002528967333333333,
+        "fraction_of_stored_response_total": 0.3673187178585919,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 8884.666666666666,
+        "fraction_of_stored_response_total": 0.0882728928630568,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 3807.333333333333,
+        "fraction_of_stored_response_total": 0.04357363303081283,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 786.0,
+        "fraction_of_stored_response_total": 0.37989366843885936,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002034813333333333,
+        "fraction_of_stored_response_total": 0.29554554336469646,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 7640.5,
+        "fraction_of_stored_response_total": 0.07591157476403378,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 5387.0,
+        "fraction_of_stored_response_total": 0.061652379916911776,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 267.5,
+        "fraction_of_stored_response_total": 0.1292895118414693,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00087944,
+        "fraction_of_stored_response_total": 0.1277338655093581,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_flipt-io__flipt-c12967bc73fdf02054cf3ef8498c05e25f0a18c0:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 15125.666666666666,
+        "fraction_of_stored_response_total": 0.15027984765689684,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 11932.3,
+        "fraction_of_stored_response_total": 0.13656110875859778,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 470.3333333333333,
+        "fraction_of_stored_response_total": 0.22732398904462703,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.001441719333333333,
+        "fraction_of_stored_response_total": 0.20940187326735357,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 88817.4,
+        "fraction_of_stored_response_total": 0.43022722979224287,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 84645.87619047619,
+        "fraction_of_stored_response_total": 0.4576986676100974,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 730.5285714285715,
+        "fraction_of_stored_response_total": 0.18077915650298726,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0034038565714285714,
+        "fraction_of_stored_response_total": 0.26491300240864407,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 18714.6,
+        "fraction_of_stored_response_total": 0.09065262566422692,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 16955.142857142855,
+        "fraction_of_stored_response_total": 0.09168014608756911,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 805.7785714285715,
+        "fraction_of_stored_response_total": 0.19940078481281154,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0016579285714285715,
+        "fraction_of_stored_response_total": 0.1290321217770599,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 69001.0,
+        "fraction_of_stored_response_total": 0.3342375377222769,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 55836.666666666664,
+        "fraction_of_stored_response_total": 0.30192100415634787,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1320.0,
+        "fraction_of_stored_response_total": 0.3266518188567186,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.005333599999999999,
+        "fraction_of_stored_response_total": 0.4150997434811844,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_future-architect__vuls-aaea15e516ece43978cf98e09e52080478b1d39f:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 29910.0,
+        "fraction_of_stored_response_total": 0.1448826068212533,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 27500.314285714285,
+        "fraction_of_stored_response_total": 0.1487001821459856,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1184.6928571428573,
+        "fraction_of_stored_response_total": 0.29316823982748264,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002453574857142857,
+        "fraction_of_stored_response_total": 0.19095513233311157,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 15466.400000000001,
+        "fraction_of_stored_response_total": 0.6545793126798714,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 13875.066666666666,
+        "fraction_of_stored_response_total": 0.6555356074207062,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 443.4,
+        "fraction_of_stored_response_total": 0.4793513513513513,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.001127848,
+        "fraction_of_stored_response_total": 0.5567640147700571,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 2114.5,
+        "fraction_of_stored_response_total": 0.08949128153038767,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 1951.5,
+        "fraction_of_stored_response_total": 0.0921997543229708,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 149.5,
+        "fraction_of_stored_response_total": 0.1616216216216216,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00025102999999999996,
+        "fraction_of_stored_response_total": 0.123921371166795,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 1302.0,
+        "fraction_of_stored_response_total": 0.05510411376333164,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 1024.6666666666665,
+        "fraction_of_stored_response_total": 0.048410973573970825,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 38.33333333333333,
+        "fraction_of_stored_response_total": 0.041441441441441434,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00012195999999999998,
+        "fraction_of_stored_response_total": 0.06020575400351479,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 4745.1,
+        "fraction_of_stored_response_total": 0.20082529202640936,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 4314.766666666666,
+        "fraction_of_stored_response_total": 0.2038536646823522,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 293.76666666666665,
+        "fraction_of_stored_response_total": 0.3175855855855856,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.000524882,
+        "fraction_of_stored_response_total": 0.25910886005963313,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 31623.2,
+        "fraction_of_stored_response_total": 0.4640234776228907,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 29860.6,
+        "fraction_of_stored_response_total": 0.501766060056124,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 274.4,
+        "fraction_of_stored_response_total": 0.11006819093461692,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.001279012,
+        "fraction_of_stored_response_total": 0.21642880591307054,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 2936.6666666666665,
+        "fraction_of_stored_response_total": 0.04309122034727317,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 2320.0,
+        "fraction_of_stored_response_total": 0.03898438944060762,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 228.33333333333331,
+        "fraction_of_stored_response_total": 0.09158978473057895,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00044373333333333324,
+        "fraction_of_stored_response_total": 0.07508661019377443,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 15579.0,
+        "fraction_of_stored_response_total": 0.2285986793837124,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 11684.0,
+        "fraction_of_stored_response_total": 0.1963334509586463,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 757.0,
+        "fraction_of_stored_response_total": 0.3036502206177296,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.00192108,
+        "fraction_of_stored_response_total": 0.32507673928272884,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 18011.13333333333,
+        "fraction_of_stored_response_total": 0.26428662264612374,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 15646.4,
+        "fraction_of_stored_response_total": 0.262916099544622,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 1233.2666666666667,
+        "fraction_of_stored_response_total": 0.4946918037170745,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.0022657946666666665,
+        "fraction_of_stored_response_total": 0.38340784461042615,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "administration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 56338.4,
+        "fraction_of_stored_response_total": 0.5384433060631547,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 51352.6,
+        "fraction_of_stored_response_total": 0.5551512399731897,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 800.4,
+        "fraction_of_stored_response_total": 0.3457451403887689,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002984692,
+        "fraction_of_stored_response_total": 0.42311809969889597,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "edit",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 4641.2,
+        "fraction_of_stored_response_total": 0.044357366771159874,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 3390.4000000000005,
+        "fraction_of_stored_response_total": 0.03665218049339474,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 261.2,
+        "fraction_of_stored_response_total": 0.11282937365010799,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.000631408,
+        "fraction_of_stored_response_total": 0.0895101246945013,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "exploration",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 25386.8,
+        "fraction_of_stored_response_total": 0.24262940591788362,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 23367.2,
+        "fraction_of_stored_response_total": 0.2526129164774816,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 462.2,
+        "fraction_of_stored_response_total": 0.19965442764578833,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.001425904,
+        "fraction_of_stored_response_total": 0.2021400502407131,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  },
+  {
+    "run_id": "jb:luna:instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171:r1",
+    "role": "verification",
+    "method": "equal emitted-component allocation",
+    "metrics": {
+      "input_tokens": {
+        "allocated_amount": 18265.600000000002,
+        "fraction_of_stored_response_total": 0.17456992124780185,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cached_input_tokens": {
+        "allocated_amount": 14391.800000000001,
+        "fraction_of_stored_response_total": 0.15558366305593394,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "output_tokens": {
+        "allocated_amount": 791.2,
+        "fraction_of_stored_response_total": 0.3417710583153348,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      },
+      "cost_usd": {
+        "allocated_amount": 0.002012036,
+        "fraction_of_stored_response_total": 0.28523172536588964,
+        "denominator": "stored response usage; see round_7 residuals for relation to full run"
+      }
+    }
+  }
+]

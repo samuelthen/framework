@@ -1,0 +1,16 @@
+{
+  "round": 7,
+  "critique": "Conserving the stored response ledger does not establish agreement with total recorded run expenditure.",
+  "improvement": "Reconcile each metric; show unlocalized residual separately; restrict percentages to their named denominator.",
+  "runs": 16,
+  "runs_with_all_three_token_metrics_matching": 13,
+  "mismatching_runs": 3,
+  "metric_status_counts": {
+    "mismatch": 9,
+    "run_total_unavailable": 16,
+    "response_usage_incomplete": 8,
+    "matches": 47
+  },
+  "luna_cost_runs_matching": 8,
+  "gemini_response_cost_runs_incomplete": 8
+}

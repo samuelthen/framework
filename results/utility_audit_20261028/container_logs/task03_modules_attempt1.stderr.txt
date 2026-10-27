@@ -1,0 +1,1 @@
+go: updating go.sum: open /work/go.work.sum: read-only file system

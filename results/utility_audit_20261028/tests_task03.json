@@ -1,0 +1,102 @@
+[
+  {
+    "label": "task03_eval_base",
+    "task_order": 3,
+    "snapshot": "eval_base",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^TestErrorUnaryInterceptor$",
+      "./internal/server/middleware/grpc"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 20.175069625023752,
+    "exit_code": 1,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "872e5e65aa05e99f4b1e0eb66b6fa4f26d7e1fc5d2dcdf899a3ba431b2067d7b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task03_eval_before_formatter",
+    "task_order": 3,
+    "snapshot": "eval_before_formatter",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^TestErrorUnaryInterceptor$",
+      "./internal/server/middleware/grpc"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 2.71288949996233,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "c31c328b89a04bb9a892b246de296a570e5785ffed5380ca2e6bc7efe2ac9f73",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task03_eval_submitted",
+    "task_order": 3,
+    "snapshot": "eval_submitted",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^TestErrorUnaryInterceptor$",
+      "./internal/server/middleware/grpc"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 1.675770957954228,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "1bc6ecd9ded169a1c168b2e0b1f61a8fe88ca11061b10d487ac2bd9c38e9d628",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  },
+  {
+    "label": "task03_eval_reference",
+    "task_order": 3,
+    "snapshot": "eval_reference",
+    "command": [
+      "go",
+      "test",
+      "-mod=readonly",
+      "-count=1",
+      "-json",
+      "-run",
+      "^TestErrorUnaryInterceptor$",
+      "./internal/server/middleware/grpc"
+    ],
+    "environment": "golang@sha256:e47f121850f4e276b2b210c56df3fda9191278dd84a3a442bfe0b09934462a8f",
+    "network_enabled": false,
+    "seconds": 1.6582920840010047,
+    "exit_code": 0,
+    "source_mount_readonly": true,
+    "disposable_work_copy": true,
+    "status": "completed",
+    "stdout_sha256": "0b993decc36ef3e6697d53ea5d7df0b7a3b67fb92c974a633a974148da94fd23",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "interpretation": "scoped deterministic reproduction, not original benchmark certification"
+  }
+]

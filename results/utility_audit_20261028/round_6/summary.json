@@ -1,0 +1,18 @@
+{
+  "round": 6,
+  "critique": "A valid repeat does not imply a useful cache: dependency validation and lookup have overhead.",
+  "improvement": "Compare fresh and reuse paths including hashing and decoding, under explicit scope.",
+  "artifact_net_median_saved_ms": -0.012707999999999997,
+  "go_net_median_tool_time_saved_seconds": 1.4319287282414734,
+  "actual_llm_savings_measured": false,
+  "original_trace_cache_hits_certified": 0,
+  "fresh_go_runs": 3,
+  "cache_lookup_samples": 100,
+  "cheap_path_iterations": 1000,
+  "limitations": [
+    "Three stable test outcome sets do not prove determinism.",
+    "Fixed external module/build caches are controlled assumptions, not fully hashed dependencies.",
+    "Fresh Go command explicitly bypasses Go test-result cache with count=1; build cache remains enabled.",
+    "No agent continuation, model generation, downstream context cost or production storage measured."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "verified_inputs": [
+    {
+      "path": "raw/jetbrains/luna-run1.parquet",
+      "repository": "JetBrains-Research/SWE-TaskFlow-SWE-Bench-Pro-Trajectories",
+      "revision": "a5ec6ad8428715a689ee62cf7cef82334773c958",
+      "sha256": "1a7af8a0531b4d1283bca357b00f1e4f42ab65b4a5088bee8082a95ff6e2017b",
+      "bytes": 20691558,
+      "url": "https://huggingface.co/datasets/JetBrains-Research/SWE-TaskFlow-SWE-Bench-Pro-Trajectories/resolve/a5ec6ad8428715a689ee62cf7cef82334773c958/data/single_prompt/luna-run1.parquet?download=true"
+    },
+    {
+      "path": "raw/swebenchpro/v1.parquet",
+      "repository": "ScaleAI/SWE-bench_Pro",
+      "revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+      "sha256": "c8cd7115496ad4e9a8b21d088cef576a65bf821bb542b24336f13f714cef13f8",
+      "bytes": 7816820,
+      "url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/resolve/2d52cb3df914a3fcf80c7f66738b3a88ae37fc50/data/v1/test-00000-of-00001.parquet?download=true"
+    },
+    {
+      "path": "raw/jetbrains/gemini_3_7_flash-run1.parquet",
+      "repository": "JetBrains-Research/SWE-TaskFlow-SWE-Bench-Pro-Trajectories",
+      "revision": "a5ec6ad8428715a689ee62cf7cef82334773c958",
+      "sha256": "dee351735e2dd3a1115501c475ec8f7df054ab58da3bf21ea9a9b1fea5c6166e",
+      "bytes": 554830939,
+      "url": "https://huggingface.co/datasets/JetBrains-Research/SWE-TaskFlow-SWE-Bench-Pro-Trajectories/resolve/a5ec6ad8428715a689ee62cf7cef82334773c958/data/single_prompt/gemini_3_7_flash-run1.parquet?download=true"
+    }
+  ],
+  "raw_files_excluded_from_git": true
+}
